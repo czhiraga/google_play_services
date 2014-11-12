@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 

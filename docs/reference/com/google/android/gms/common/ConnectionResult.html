@@ -430,6 +430,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/analytics/package-summary.html">com.google.android.gms.analytics</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -447,6 +449,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/common/images/package-summary.html">com.google.android.gms.common.images</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/package-summary.html">com.google.android.gms.drive</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/events/package-summary.html">com.google.android.gms.drive.events</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/metadata/package-summary.html">com.google.android.gms.drive.metadata</a></li>
     <li class="api apilevel-">
@@ -466,7 +470,13 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/games/multiplayer/turnbased/package-summary.html">com.google.android.gms.games.multiplayer.turnbased</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/games/request/package-summary.html">com.google.android.gms.games.request</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/gcm/package-summary.html">com.google.android.gms.gcm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/package-summary.html">com.google.android.gms.identity.intents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/model/package-summary.html">com.google.android.gms.identity.intents.model</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/location/package-summary.html">com.google.android.gms.location</a></li>
     <li class="api apilevel-">
@@ -481,6 +491,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
@@ -506,9 +518,11 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
       <ul>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/AccountPicker.html">AccountPicker</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html">ConnectionResult</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/ErrorDialogFragment.html">ErrorDialogFragment</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/GooglePlayServicesUtil.html">GooglePlayServicesUtil</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/Scopes.html">Scopes</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/SignInButton.html">SignInButton</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/SupportErrorDialogFragment.html">SupportErrorDialogFragment</a></li>
       </ul>
     </li>
               
@@ -633,7 +647,7 @@ Summary:
 
 
   
-    extends Object<br/>
+    extends <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a><br/>
   
   
   
@@ -653,7 +667,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
     </tr>
     
 
@@ -726,19 +740,27 @@ Summary:
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#CANCELED">CANCELED</a></td>
+        <td class="jd-descrcol" width="100%">The client canceled the connection by calling
+ <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html#disconnect()">disconnect()</a></code>.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#DATE_INVALID">DATE_INVALID</a></td>
         <td class="jd-descrcol" width="100%">The device date is likely set incorrectly.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#DEVELOPER_ERROR">DEVELOPER_ERROR</a></td>
         <td class="jd-descrcol" width="100%">The application is misconfigured.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#DRIVE_EXTERNAL_STORAGE_REQUIRED">DRIVE_EXTERNAL_STORAGE_REQUIRED</a></td>
         <td class="jd-descrcol" width="100%">The Drive API requires external storage (such as an SD card), but no external storage is
@@ -746,10 +768,17 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#INTERNAL_ERROR">INTERNAL_ERROR</a></td>
         <td class="jd-descrcol" width="100%">An internal error occurred.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#INTERRUPTED">INTERRUPTED</a></td>
+        <td class="jd-descrcol" width="100%">An interrupt occurred while waiting for the connection complete.</td>
     </tr>
     
     
@@ -825,6 +854,13 @@ Summary:
     </tr>
     
     
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#TIMEOUT">TIMEOUT</a></td>
+        <td class="jd-descrcol" width="100%">The timeout was exceeded while waiting for the connection to complete.</td>
+    </tr>
+    
+    
 
 </table>
 
@@ -855,7 +891,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#ConnectionResult(int, android.app.PendingIntent)">ConnectionResult</a></span>(int statusCode, PendingIntent pendingIntent)</nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#ConnectionResult(int, android.app.PendingIntent)">ConnectionResult</a></span>(int statusCode, <a href="http://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a> pendingIntent)</nobr>
         
         <div class="jd-descrdiv">Creates a connection result.</div>
   
@@ -901,7 +937,7 @@ Summary:
             
             
             
-            PendingIntent</nobr>
+            <a href="http://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#getResolution()">getResolution</a></span>()</nobr>
@@ -959,7 +995,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#startResolutionForResult(android.app.Activity, int)">startResolutionForResult</a></span>(Activity activity, int requestCode)</nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#startResolutionForResult(android.app.Activity, int)">startResolutionForResult</a></span>(<a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a> activity, int requestCode)</nobr>
         
         <div class="jd-descrdiv">Resolves an error by starting any intents requiring user
  interaction.</div>
@@ -975,7 +1011,7 @@ Summary:
             
             
             
-            String</nobr>
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#toString()">toString</a></span>()</nobr>
@@ -1006,7 +1042,7 @@ Summary:
           class="jd-expando-trigger-img" /></a>
 From class
 
-  java.lang.Object
+  <a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
 
 <div id="inherited-methods-java.lang.Object">
   <div id="inherited-methods-java.lang.Object-list"
@@ -1025,7 +1061,7 @@ From class
             
             
             
-            Object</nobr>
+            <a href="http://developer.android.com/reference/java/lang/Object.html">Object</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad">clone</span>()</nobr>
@@ -1044,7 +1080,7 @@ From class
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">equals</span>(Object arg0)</nobr>
+        <span class="sympad">equals</span>(<a href="http://developer.android.com/reference/java/lang/Object.html">Object</a> arg0)</nobr>
         
   </td></tr>
 
@@ -1073,7 +1109,7 @@ From class
             final
             
             
-            Class&lt;?&gt;</nobr>
+            <a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad">getClass</span>()</nobr>
@@ -1137,7 +1173,7 @@ From class
             
             
             
-            String</nobr>
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad">toString</span>()</nobr>
@@ -1225,6 +1261,47 @@ From class
 <!-- ========= ENUM CONSTANTS DETAIL ======== -->
 <h2>Constants</h2>
 
+
+
+
+<A NAME="CANCELED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        CANCELED
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The client canceled the connection by calling
+ <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html#disconnect()">disconnect()</a></code>. Only returned by
+ <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html#blockingConnect(long, java.util.concurrent.TimeUnit)">blockingConnect(long, TimeUnit)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                13
+                (0x0000000d)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
 
 
 
@@ -1393,6 +1470,46 @@ From class
 
 
 
+<A NAME="INTERRUPTED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        INTERRUPTED
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>An interrupt occurred while waiting for the connection complete. Only returned by
+ <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html#blockingConnect(long, java.util.concurrent.TimeUnit)">blockingConnect(long, TimeUnit)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                15
+                (0x0000000f)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <A NAME="INVALID_ACCOUNT"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1534,7 +1651,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Completing the connection requires some form of resolution.  A resolution will be available
  to be started with <code><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#startResolutionForResult(android.app.Activity, int)">startResolutionForResult(Activity, int)</a></code>.
- If the result returned is <code><a href="../../../../../../reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>, then further attempts to connect
+ If the result returned is <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>, then further attempts to connect
  should either complete or continue on to the next issue that needs to be resolved.
 </p></div>
 
@@ -1743,7 +1860,7 @@ From class
  signed in. The client may choose to continue without using the API or it
  may call <code><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#startResolutionForResult(android.app.Activity, int)">startResolutionForResult(Activity, int)</a></code> to
  prompt the user to sign in. After the sign in
- activity returns with <code><a href="../../../../../../reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> further attempts to connect
+ activity returns with <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> further attempts to connect
  should succeed.
 </p></div>
 
@@ -1802,6 +1919,46 @@ From class
 
 
 
+<A NAME="TIMEOUT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        TIMEOUT
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The timeout was exceeded while waiting for the connection to complete. Only returned by
+ <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html#blockingConnect(long, java.util.concurrent.TimeUnit)">blockingConnect(long, TimeUnit)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                14
+                (0x0000000e)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 
 <!-- Fields -->
 
@@ -1827,7 +1984,7 @@ From class
         
       </span>
       <span class="sympad">ConnectionResult</span>
-      <span class="normal">(int statusCode, PendingIntent pendingIntent)</span>
+      <span class="normal">(int statusCode, <a href="http://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a> pendingIntent)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1916,7 +2073,7 @@ From class
          
          
          
-        PendingIntent
+        <a href="http://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a>
       </span>
       <span class="sympad">getResolution</span>
       <span class="normal">()</span>
@@ -1930,7 +2087,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>A pending intent to resolve the connection failure.  This intent can be started with
- <code><a href="../../../../../../reference/android/app/Activity.html#startIntentSenderForResult(android.content.IntentSender, int, android.content.Intent, int, int, int)">startIntentSenderForResult(IntentSender, int, Intent, int, int, int)</a></code>
+ <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#startIntentSenderForResult(android.content.IntentSender, int, android.content.Intent, int, int, int)">startIntentSenderForResult(IntentSender, int, Intent, int, int, int)</a></code>
  to present UI to solve the issue.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2024,7 +2181,7 @@ From class
         void
       </span>
       <span class="sympad">startResolutionForResult</span>
-      <span class="normal">(Activity activity, int requestCode)</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a> activity, int requestCode)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -2044,7 +2201,7 @@ From class
           <th>activity</td>
           <td>An Activity context to use to resolve the issue.  The activity's
             onActivityResult method will be invoked after the user is done.  If the
-            resultCode is <code><a href="../../../../../../reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>, the application should try to
+            resultCode is <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>, the application should try to
             connect again.</td>
         </tr>
         <tr>
@@ -2057,7 +2214,7 @@ From class
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
-            <th>IntentSender.SendIntentException</td>
+            <th><a href="http://developer.android.com/reference/android/content/IntentSender.SendIntentException.html">IntentSender.SendIntentException</a></td>
             <td>If the resolution intent has been canceled or is
              no longer able to execute the request.
 </td>
@@ -2079,7 +2236,7 @@ From class
          
          
          
-        String
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
       </span>
       <span class="sympad">toString</span>
       <span class="normal">()</span>

@@ -431,6 +431,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/analytics/package-summary.html">com.google.android.gms.analytics</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -448,6 +450,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/common/images/package-summary.html">com.google.android.gms.common.images</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/package-summary.html">com.google.android.gms.drive</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/events/package-summary.html">com.google.android.gms.drive.events</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/metadata/package-summary.html">com.google.android.gms.drive.metadata</a></li>
     <li class="api apilevel-">
@@ -467,7 +471,13 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/games/multiplayer/turnbased/package-summary.html">com.google.android.gms.games.multiplayer.turnbased</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/games/request/package-summary.html">com.google.android.gms.games.request</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/gcm/package-summary.html">com.google.android.gms.gcm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/package-summary.html">com.google.android.gms.identity.intents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/model/package-summary.html">com.google.android.gms.identity.intents.model</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/location/package-summary.html">com.google.android.gms.location</a></li>
     <li class="api apilevel-">
@@ -482,6 +492,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
@@ -520,7 +532,6 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.html">PlusOneButton</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.DefaultOnPlusOneClickListener.html">PlusOneButton.DefaultOnPlusOneClickListener</a></li>
-        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButtonWithPopup.html">PlusOneButtonWithPopup</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneDummyView.html">PlusOneDummyView</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html">PlusShare</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html">PlusShare.Builder</a></li>
@@ -641,7 +652,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnAccessRevokedListener.html">PlusClient.OnAccessRevokedListener</a></td>
               <td class="jd-descrcol" width="100%"><em>
       This interface is deprecated.
-    See <code><a href="../../../../../../">ERROR(/Auth.OnAccessRevokedCallback)</a></code>.
+    See <code><a href="../../../../../../reference/com/google/android/gms/plus/Account.html#revokeAccessAndDisconnect(com.google.android.gms.common.api.GoogleApiClient)">revokeAccessAndDisconnect(GoogleApiClient)</a></code>.
 </em>&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
@@ -711,26 +722,22 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           </tr>
         <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.DefaultOnPlusOneClickListener.html">PlusOneButton.DefaultOnPlusOneClickListener</a></td>
-              <td class="jd-descrcol" width="100%">This is an <code><a href="../../../../../../reference/android/view/View.OnClickListener.html">View.OnClickListener</a></code> that will proxy clicks to an
+              <td class="jd-descrcol" width="100%">This is an <code><a href="../../../../../../http://developer.android.com/reference/android/view/View.OnClickListener.html">View.OnClickListener</a></code> that will proxy clicks to an
  attached <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html">PlusOneButton.OnPlusOneClickListener</a></code>, or default to attempt to start
- the intent using an <code><a href="../../../../../../reference/android/app/Activity.html">Activity</a></code> context.&nbsp;</td>
+ the intent using an <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> context.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButtonWithPopup.html">PlusOneButtonWithPopup</a></td>
-              <td class="jd-descrcol" width="100%">+1 button which shows confirmation messages in a PopupWindow.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneDummyView.html">PlusOneDummyView</a></td>
               <td class="jd-descrcol" width="100%">A class used to statically generate dummy views in the event of an error retrieving
  a PlusOneButton from the apk
 &nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html">PlusShare</a></td>
               <td class="jd-descrcol" width="100%">Utility class for including resources in posts shared on Google+ through
- an <code><a href="../../../../../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intent.&nbsp;</td>
+ an <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intent.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html">PlusShare.Builder</a></td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>

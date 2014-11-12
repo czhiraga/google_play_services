@@ -64,9 +64,6 @@ public class ModeSelectActivity extends Activity {
     public void onResume() {
         super.onResume();
 
-        MediaRouter mediaRouter = MediaRouter.getInstance(getApplicationContext());
-        mediaRouter.selectRoute(mediaRouter.getDefaultRoute());
-
         int errorCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         if (errorCode != ConnectionResult.SUCCESS) {
             GooglePlayServicesUtil.getErrorDialog(errorCode, this, REQUEST_GMS_ERROR).show();

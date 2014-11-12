@@ -18,8 +18,11 @@ package com.google.android.gms.samples.plus;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.plus.Moments;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.Plus.PlusOptions;
 import com.google.android.gms.plus.model.moments.ItemScope;
@@ -40,13 +43,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Example of writing moments through the GoogleApiClient.
  */
 public class MomentActivity extends Activity implements OnItemClickListener,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
-        DialogInterface.OnCancelListener {
+        ResultCallback<Status>, DialogInterface.OnCancelListener {
 
     private static final String TAG = "MomentActivity";
 
@@ -121,6 +125,34 @@ public class MomentActivity extends Activity implements OnItemClickListener,
     }
 
     @Override
+    public void onResult(Status status) {
+        switch (status.getStatusCode()) {
+            case CommonStatusCodes.SUCCESS:
+                Toast.makeText(this, getString(R.string.plus_write_moment_status_success),
+                        Toast.LENGTH_SHORT).show();
+                break;
+
+            case CommonStatusCodes.SUCCESS_CACHE:
+                Toast.makeText(this, getString(R.string.plus_write_moment_status_cached),
+                        Toast.LENGTH_SHORT).show();
+                break;
+
+            case CommonStatusCodes.SIGN_IN_REQUIRED:
+                Toast.makeText(this, getString(R.string.plus_write_moment_status_auth_error),
+                        Toast.LENGTH_SHORT).show();
+                mGoogleApiClient.disconnect();
+                mGoogleApiClient.connect();
+                break;
+
+            default:
+                Toast.makeText(this, getString(R.string.plus_write_moment_status_error),
+                        Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Error when writing moments: " + status);
+                break;
+        }
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case REQUEST_CODE_SIGN_IN:
@@ -168,10 +200,10 @@ public class MomentActivity extends Activity implements OnItemClickListener,
 
             ItemScope result = MomentUtil.getResultFor(momentType);
             if (result != null) {
-              momentBuilder.setResult(result);
+                momentBuilder.setResult(result);
             }
 
-            Plus.MomentsApi.write(mGoogleApiClient, momentBuilder.build());
+            Plus.MomentsApi.write(mGoogleApiClient, momentBuilder.build()).setResultCallback(this);
         }
     }
 

@@ -66,11 +66,15 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
     public void onResume() {
         super.onResume();
         updateButtonStates();
+        // Restart the timer, if there's a media connection.
+        if ((mMediaPlayer != null) && !mWaitingForReconnect) {
+            startRefreshTimer();
+        }
     }
 
     @Override
     protected void onVolumeChange(double delta) {
-        if (mApiClient == null) {
+        if (!mApiClient.isConnected()) {
             return;
         }
 
@@ -101,7 +105,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
 
     @Override
     protected void onLaunchAppClicked() {
-        if (mApiClient == null) {
+        if (!mApiClient.isConnected()) {
             return;
         }
 
@@ -111,7 +115,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
 
     @Override
     protected void onJoinAppClicked() {
-        if (mApiClient == null) {
+        if (!mApiClient.isConnected()) {
             return;
         }
 
@@ -121,7 +125,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
 
     @Override
     protected void onLeaveAppClicked() {
-        if (mApiClient == null) {
+        if (!mApiClient.isConnected()) {
             return;
         }
 
@@ -141,7 +145,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
 
     @Override
     protected void onStopAppClicked() {
-        if (mApiClient == null) {
+        if (!mApiClient.isConnected()) {
             return;
         }
 
@@ -164,13 +168,8 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         if (mMediaPlayer == null) {
             return;
         }
-        try {
-            mMediaPlayer.play(mApiClient);
-        } catch (IOException e) {
-            Log.w(TAG, "Unable to play", e);
-        } catch (IllegalStateException e) {
-            showErrorDialog(e.getMessage());
-        }
+        mMediaPlayer.play(mApiClient).setResultCallback(
+                new MediaResultCallback(getString(R.string.mediaop_play)));
     }
 
     @Override
@@ -178,13 +177,8 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         if (mMediaPlayer == null) {
             return;
         }
-        try {
-            mMediaPlayer.pause(mApiClient);
-        } catch (IOException e) {
-            Log.w(TAG, "Unable to pause", e);
-        } catch (IllegalStateException e) {
-            showErrorDialog(e.getMessage());
-        }
+        mMediaPlayer.pause(mApiClient).setResultCallback(
+                new MediaResultCallback(getString(R.string.mediaop_pause)));
     }
 
     @Override
@@ -192,13 +186,9 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         if (mMediaPlayer == null) {
             return;
         }
-        try {
-            mMediaPlayer.stop(mApiClient);
-        } catch (IOException e) {
-            Log.w(TAG, "Unable to stop");
-        } catch (IllegalStateException e) {
-            showErrorDialog(e.getMessage());
-        }
+        mMediaPlayer.stop(mApiClient).setResultCallback(
+                new MediaResultCallback(getString(R.string.mediaop_stop)));
+
     }
 
     @Override
@@ -225,23 +215,17 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         }
         mSeeking = true;
         mMediaPlayer.seek(mApiClient, position, resumeState).setResultCallback(
-                new ResultCallback<MediaChannelResult>() {
+                new MediaResultCallback(getString(R.string.mediaop_seek)) {
                     @Override
-                    public void onResult(MediaChannelResult result) {
-                        Status status = result.getStatus();
-                        if (status.isSuccess()) {
-                            mSeeking = false;
-                        } else {
-                            Log.w(TAG, "Unable to seek: " + status.getStatusCode());
-                        }
+                    protected void onFinished() {
+                        mSeeking = false;
                     }
-
                 });
     }
 
     @Override
     protected void onDeviceVolumeBarMoved(int volume) {
-        if (mApiClient == null) {
+        if (!mApiClient.isConnected()) {
             return;
         }
         try {
@@ -255,7 +239,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
 
     @Override
     protected void onDeviceMuteToggled(boolean on) {
-        if (mApiClient == null) {
+        if (!mApiClient.isConnected()) {
             return;
         }
         try {
@@ -274,16 +258,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         }
         try {
             mMediaPlayer.setStreamVolume(mApiClient, volume / MAX_VOLUME_LEVEL).setResultCallback(
-                    new ResultCallback<MediaChannelResult>() {
-                        @Override
-                        public void onResult(MediaChannelResult result) {
-                            Status status = result.getStatus();
-                            if (!status.isSuccess()) {
-                                Log.w(TAG, "Unable to set volume: " + status.getStatusCode());
-                            }
-                        }
-
-                    });
+                    new MediaResultCallback(getString(R.string.mediaop_set_stream_volume)));
         } catch (IllegalStateException e) {
             showErrorDialog(e.getMessage());
         }
@@ -296,16 +271,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         }
         try {
             mMediaPlayer.setStreamMute(mApiClient, on).setResultCallback(
-                    new ResultCallback<MediaChannelResult>() {
-                        @Override
-                        public void onResult(MediaChannelResult result) {
-                            Status status = result.getStatus();
-                            if (!status.isSuccess()) {
-                                Log.w(TAG, "Unable to toggle mute: " + status.getStatusCode());
-                            }
-                        }
-
-                    });
+                    new MediaResultCallback(getString(R.string.mediaop_toggle_stream_mute)));
         } catch (IllegalStateException e) {
             showErrorDialog(e.getMessage());
         }
@@ -379,15 +345,22 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         }
     }
 
-    private void reattachMediaPlayer() {
-        if ((mMediaPlayer != null) && (mApiClient != null)) {
-            try {
-                Cast.CastApi.setMessageReceivedCallbacks(mApiClient, mMediaPlayer.getNamespace(),
-                        mMediaPlayer);
-            } catch (IOException e) {
-                Log.w(TAG, "Exception while launching application", e);
-            }
+    private void requestMediaStatus() {
+        if (mMediaPlayer == null) {
+            return;
         }
+
+        Log.d(TAG, "requesting current media status");
+        mMediaPlayer.requestStatus(mApiClient).setResultCallback(
+                new ResultCallback<RemoteMediaPlayer.MediaChannelResult>() {
+                    @Override
+                    public void onResult(MediaChannelResult result) {
+                        Status status = result.getStatus();
+                        if (!status.isSuccess()) {
+                            Log.w(TAG, "Unable to request status: " + status.getStatusCode());
+                        }
+                    }
+                });
     }
 
     private void detachMediaPlayer() {
@@ -396,7 +369,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
                 Cast.CastApi.removeMessageReceivedCallbacks(mApiClient,
                         mMediaPlayer.getNamespace());
             } catch (IOException e) {
-                Log.w(TAG, "Exception while launching application", e);
+                Log.w(TAG, "Exception while detaching media player", e);
             }
         }
         mMediaPlayer = null;
@@ -416,20 +389,14 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         }
 
         mMediaPlayer.load(mApiClient, media, isAutoplayChecked()).setResultCallback(
-                new ResultCallback<RemoteMediaPlayer.MediaChannelResult>() {
-                    @Override
-                    public void onResult(MediaChannelResult result) {
-                        if (!result.getStatus().isSuccess()) {
-                            Log.e(TAG, "Failed to load media.");
-                        }
-                    }
-                });
+                new MediaResultCallback(getString(R.string.mediaop_load)));
     }
 
     private void updateButtonStates() {
-        boolean hasDeviceConnection = (mApiClient != null) && mApiClient.isConnected();
-        boolean hasAppConnection = (mAppMetadata != null);
-        boolean hasMediaConnection = (mMediaPlayer != null);
+        boolean hasDeviceConnection = (mApiClient != null) && mApiClient.isConnected()
+                && !mWaitingForReconnect;
+        boolean hasAppConnection = (mAppMetadata != null) && !mWaitingForReconnect;
+        boolean hasMediaConnection = (mMediaPlayer != null) && !mWaitingForReconnect;
         boolean hasMedia = false;
 
         if (hasMediaConnection) {
@@ -447,12 +414,11 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
                 setPlayerState(playerState);
 
                 hasMedia = mediaStatus.getPlayerState() != MediaStatus.PLAYER_STATE_IDLE;
-                mStopButton.setEnabled(hasMedia);
             }
         } else {
             setPlayerState(PLAYER_STATE_NONE);
-            mStopButton.setEnabled(false);
         }
+
 
         mLaunchAppButton.setEnabled(hasDeviceConnection && !hasAppConnection);
         mJoinAppButton.setEnabled(hasDeviceConnection && !hasAppConnection);
@@ -461,9 +427,10 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         mAutoplayCheckbox.setEnabled(hasDeviceConnection && hasAppConnection);
 
         mPlayMediaButton.setEnabled(hasMediaConnection);
-        setSeekBarEnabled(hasMediaConnection);
+        mStopButton.setEnabled(hasMediaConnection && hasMedia);
+        setSeekBarEnabled(hasMediaConnection && hasMedia);
         setDeviceVolumeControlsEnabled(hasDeviceConnection);
-        setStreamVolumeControlsEnabled(hasMediaConnection);
+        setStreamVolumeControlsEnabled(hasMediaConnection && hasMedia);
     }
 
     private void updatePlaybackPosition() {
@@ -495,13 +462,12 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
             if ((mApiClient != null) && mApiClient.isConnected()) {
                 mApiClient.disconnect();
             }
-            mApiClient = null;
         } else {
             Log.d(TAG, "acquiring controller for " + mSelectedDevice);
             try {
                 Cast.CastOptions.Builder apiOptionsBuilder = Cast.CastOptions.builder(
                         mSelectedDevice, mCastListener);
-                apiOptionsBuilder.setDebuggingEnabled();
+                apiOptionsBuilder.setVerboseLoggingEnabled(true);
 
                 mApiClient = new GoogleApiClient.Builder(this)
                         .addApi(Cast.API, apiOptionsBuilder.build())
@@ -557,9 +523,10 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
                 public void run() {
                     // TODO: need to disable all controls, and possibly display a
                     // "reconnecting..." dialog or overlay
+                    mWaitingForReconnect = true;
+                    cancelRefreshTimer();
                     detachMediaPlayer();
                     updateButtonStates();
-                    mWaitingForReconnect = true;
                 }
             });
         }
@@ -570,7 +537,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    if (mApiClient == null) {
+                    if (!mApiClient.isConnected()) {
                         // We got disconnected while this runnable was pending execution.
                         return;
                     }
@@ -588,12 +555,14 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
                         if ((connectionHint != null)
                                 && connectionHint.getBoolean(Cast.EXTRA_APP_NO_LONGER_RUNNING)) {
                             Log.d(TAG, "App  is no longer running");
+                            detachMediaPlayer();
                             mAppMetadata = null;
                             clearMediaState();
-                            cancelRefreshTimer();
                             updateButtonStates();
                         } else {
-                            reattachMediaPlayer();
+                            attachMediaPlayer();
+                            requestMediaStatus();
+                            startRefreshTimer();
                         }
                     }
                 }
@@ -678,23 +647,32 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
                     playMedia(mSelectedMedia);
                 } else {
                     // Synchronize with the receiver's state.
-                    Log.d(mClassTag, "requesting current media status");
-                    mMediaPlayer.requestStatus(mApiClient).setResultCallback(
-                            new ResultCallback<RemoteMediaPlayer.MediaChannelResult>() {
-                                @Override
-                                public void onResult(MediaChannelResult result) {
-                                    Status status = result.getStatus();
-                                    if (!status.isSuccess()) {
-                                        Log.w(mClassTag,
-                                                "Unable to request status: "
-                                                        + status.getStatusCode());
-                                    }
-                                }
-                            });
+                    requestMediaStatus();
                 }
             } else {
                 showErrorDialog(getString(R.string.error_app_launch_failed));
             }
+        }
+    }
+
+    private class MediaResultCallback implements ResultCallback<MediaChannelResult> {
+        private final String mOperationName;
+
+        public MediaResultCallback(String operationName) {
+            mOperationName = operationName;
+        }
+
+        @Override
+        public void onResult(MediaChannelResult result) {
+            Status status = result.getStatus();
+            if (!status.isSuccess()) {
+                Log.w(TAG, mOperationName + " failed: " + status.getStatusCode());
+                showErrorDialog(getString(R.string.error_operation_failed, mOperationName));
+            }
+            onFinished();
+        }
+
+        protected void onFinished() {
         }
     }
 

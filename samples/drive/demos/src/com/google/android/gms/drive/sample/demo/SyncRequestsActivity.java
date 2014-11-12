@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.google.android.gms.drive.Contents;
@@ -32,11 +31,9 @@ import com.google.android.gms.drive.MetadataChangeSet;
 
 /**
  * An activity to illustrate making synchronous requests to the Drive service
- * backend.
+ * back-end.
  */
 public class SyncRequestsActivity extends BaseDemoActivity {
-
-    private static String TAG = "SyncRequestsActivity";
 
     @Override
     public void onConnected(Bundle connectionHint) {

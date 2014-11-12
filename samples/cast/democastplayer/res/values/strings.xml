@@ -75,6 +75,15 @@
     <string name="timeout_interval_pref">Timeout interval</string>
     <string name="summary_timeout_interval_pref">The connection inactivity timeout, in seconds.</string>
 
+    <!-- Media operations. -->
+    <string name="mediaop_load">load</string>
+    <string name="mediaop_seek">seek</string>
+    <string name="mediaop_pause">pause</string>
+    <string name="mediaop_play">play</string>
+    <string name="mediaop_stop">stop</string>
+    <string name="mediaop_set_stream_volume">set stream volume</string>
+    <string name="mediaop_toggle_stream_mute">toggle stream mute</string>
+
     <!-- Error messages. -->
     <string name="error_load_media_failed">Failed to load the media.</string>
     <string name="error_no_controller">Unable to acquire controller.</string>
@@ -84,5 +93,6 @@
     <string name="error_app_join_failed">Unable to join application.</string>
     <string name="error_app_leave_failed">Unable to leave application.</string>
     <string name="error_app_stop_failed">Unable to stop application.</string>
+    <string name="error_operation_failed">Operation \'%1$s\' failed.</string>
 
 </resources>

@@ -430,6 +430,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/analytics/package-summary.html">com.google.android.gms.analytics</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -447,6 +449,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/common/images/package-summary.html">com.google.android.gms.common.images</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/package-summary.html">com.google.android.gms.drive</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/events/package-summary.html">com.google.android.gms.drive.events</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/metadata/package-summary.html">com.google.android.gms.drive.metadata</a></li>
     <li class="api apilevel-">
@@ -466,7 +470,13 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/games/multiplayer/turnbased/package-summary.html">com.google.android.gms.games.multiplayer.turnbased</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/games/request/package-summary.html">com.google.android.gms.games.request</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/gcm/package-summary.html">com.google.android.gms.gcm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/package-summary.html">com.google.android.gms.identity.intents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/model/package-summary.html">com.google.android.gms.identity.intents.model</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/location/package-summary.html">com.google.android.gms.location</a></li>
     <li class="api apilevel-">
@@ -481,6 +491,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
@@ -798,6 +810,25 @@ Summary:
             <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/common/api/Status.html">Status</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#commitAndCloseContents(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.drive.Contents, com.google.android.gms.drive.MetadataChangeSet)">commitAndCloseContents</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> apiClient, <a href="../../../../../../reference/com/google/android/gms/drive/Contents.html">Contents</a> contents, <a href="../../../../../../reference/com/google/android/gms/drive/MetadataChangeSet.html">MetadataChangeSet</a> changeSet)</nobr>
+        
+        <div class="jd-descrdiv">Closes the previously opened contents, updates the Metadata associated with this file, and
+ commits any changes if the contents were open for write.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/common/api/Status.html">Status</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#commitAndCloseContents(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.drive.Contents)">commitAndCloseContents</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> apiClient, <a href="../../../../../../reference/com/google/android/gms/drive/Contents.html">Contents</a> contents)</nobr>
         
         <div class="jd-descrdiv">Closes the previously opened contents, and commits any changes if the contents were open
@@ -807,7 +838,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -825,7 +856,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -884,6 +915,24 @@ From interface
             
             
             
+            <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/common/api/Status.html">Status</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/drive/DriveResource.html#addChangeListener(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.drive.events.DriveEvent.Listener<com.google.android.gms.drive.events.ChangeEvent>)">addChangeListener</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> apiClient, <a href="../../../../../../reference/com/google/android/gms/drive/events/DriveEvent.Listener.html">Listener</a>&lt;<a href="../../../../../../reference/com/google/android/gms/drive/events/ChangeEvent.html">ChangeEvent</a>&gt; listener)</nobr>
+        
+        <div class="jd-descrdiv">Adds a new listener for changes on this resources.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
             <a href="../../../../../../reference/com/google/android/gms/drive/DriveId.html">DriveId</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -895,7 +944,7 @@ From interface
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -913,7 +962,44 @@ From interface
 
 
 	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/drive/DriveApi.MetadataBufferResult.html">DriveApi.MetadataBufferResult</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/drive/DriveResource.html#listParents(com.google.android.gms.common.api.GoogleApiClient)">listParents</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> apiClient)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of metadata for all of the parents of this resource that the calling
+ app has been authorized to view.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/common/api/Status.html">Status</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/drive/DriveResource.html#removeChangeListener(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.drive.events.DriveEvent.Listener<com.google.android.gms.drive.events.ChangeEvent>)">removeChangeListener</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> apiClient, <a href="../../../../../../reference/com/google/android/gms/drive/events/DriveEvent.Listener.html">Listener</a>&lt;<a href="../../../../../../reference/com/google/android/gms/drive/events/ChangeEvent.html">ChangeEvent</a>&gt; listener)</nobr>
+        
+        <div class="jd-descrdiv">Removes a listener for changes on this resource that was previously added by</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -1103,6 +1189,64 @@ From interface
 
 
 
+<A NAME="commitAndCloseContents(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.drive.Contents, com.google.android.gms.drive.MetadataChangeSet)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/common/api/Status.html">Status</a>&gt;
+      </span>
+      <span class="sympad">commitAndCloseContents</span>
+      <span class="normal">(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> apiClient, <a href="../../../../../../reference/com/google/android/gms/drive/Contents.html">Contents</a> contents, <a href="../../../../../../reference/com/google/android/gms/drive/MetadataChangeSet.html">MetadataChangeSet</a> changeSet)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Closes the previously opened contents, updates the Metadata associated with this file, and
+ commits any changes if the contents were open for write. After invoking this method, the
+ contents are no longer valid.  New contents should not be closed via this method.  Instead,
+ use them to create a new file via
+ <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveFolder.html#createFile(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.drive.MetadataChangeSet, com.google.android.gms.drive.Contents)">createFile(GoogleApiClient, MetadataChangeSet, Contents)</a></code> or
+ <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveApi.html#newCreateFileActivityBuilder()">newCreateFileActivityBuilder()</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>apiClient</td>
+          <td>The <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> to service the call. The client must be
+ connected before invoking this method.</td>
+        </tr>
+        <tr>
+          <th>contents</td>
+          <td>The contents that will be saved and closed.</td>
+        </tr>
+        <tr>
+          <th>changeSet</td>
+          <td>The set of changes that will be applied to the Metadata.  Only include the
+ specific fields that should be updated.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a PendingResult which can be used to verify the success of the operation.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="commitAndCloseContents(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.drive.Contents)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1137,7 +1281,7 @@ From interface
         <tr>
           <th>apiClient</td>
           <td>The <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> to service the call. The client must be
-          connected before invoking this method.</td>
+ connected before invoking this method.</td>
         </tr>
         <tr>
           <th>contents</td>
@@ -1185,7 +1329,7 @@ From interface
         <tr>
           <th>apiClient</td>
           <td>The <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> to service the call. The client must be
-          connected before invoking this method.</td>
+ connected before invoking this method.</td>
         </tr>
         <tr>
           <th>contents</td>
@@ -1247,12 +1391,12 @@ From interface
         <tr>
           <th>mode</td>
           <td>Describes the mode in which to open the file. Possible values are
-        <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#MODE_READ_ONLY">MODE_READ_ONLY</a></code>, <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#MODE_READ_WRITE">MODE_READ_WRITE</a></code> and <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#MODE_WRITE_ONLY">MODE_WRITE_ONLY</a></code>.</td>
+ <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#MODE_READ_ONLY">MODE_READ_ONLY</a></code>, <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#MODE_READ_WRITE">MODE_READ_WRITE</a></code> and <code><a href="../../../../../../reference/com/google/android/gms/drive/DriveFile.html#MODE_WRITE_ONLY">MODE_WRITE_ONLY</a></code>.</td>
         </tr>
         <tr>
           <th>listener</td>
           <td>An optional listener that will announce progress as the file is downloaded.
-        If you don't care about progress, provide <code>null</code>.</td>
+ If you don't care about progress, provide <code>null</code>.</td>
         </tr>
       </table>
   </div>

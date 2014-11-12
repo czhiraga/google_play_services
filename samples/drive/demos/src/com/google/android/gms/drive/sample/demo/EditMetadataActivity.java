@@ -45,6 +45,7 @@ public class EditMetadataActivity extends BaseDemoActivity {
             DriveFile file = Drive.DriveApi.getFile(getGoogleApiClient(), result.getDriveId());
             MetadataChangeSet changeSet = new MetadataChangeSet.Builder()
                     .setStarred(true)
+                    .setIndexableText("Description about the file")
                     .setTitle("A new title").build();
             file.updateMetadata(getGoogleApiClient(), changeSet)
                     .setResultCallback(metadataCallback);

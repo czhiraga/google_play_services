@@ -430,6 +430,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/analytics/package-summary.html">com.google.android.gms.analytics</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -447,6 +449,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/common/images/package-summary.html">com.google.android.gms.common.images</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/package-summary.html">com.google.android.gms.drive</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/events/package-summary.html">com.google.android.gms.drive.events</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/drive/metadata/package-summary.html">com.google.android.gms.drive.metadata</a></li>
     <li class="api apilevel-">
@@ -466,7 +470,13 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/games/multiplayer/turnbased/package-summary.html">com.google.android.gms.games.multiplayer.turnbased</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/games/request/package-summary.html">com.google.android.gms.games.request</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/gcm/package-summary.html">com.google.android.gms.gcm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/package-summary.html">com.google.android.gms.identity.intents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/identity/intents/model/package-summary.html">com.google.android.gms.identity.intents.model</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/location/package-summary.html">com.google.android.gms.location</a></li>
     <li class="api apilevel-">
@@ -481,6 +491,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
@@ -519,7 +531,6 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.html">PlusOneButton</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.DefaultOnPlusOneClickListener.html">PlusOneButton.DefaultOnPlusOneClickListener</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButtonWithPopup.html">PlusOneButtonWithPopup</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneDummyView.html">PlusOneDummyView</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html">PlusShare</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html">PlusShare.Builder</a></li>
@@ -674,9 +685,9 @@ Summary:
   <table class="jd-sumtable-expando">
         <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.DefaultOnPlusOneClickListener.html">PlusOneButton.DefaultOnPlusOneClickListener</a></td>
-              <td class="jd-descrcol" width="100%">This is an <code><a href="../../../../../../reference/android/view/View.OnClickListener.html">View.OnClickListener</a></code> that will proxy clicks to an
+              <td class="jd-descrcol" width="100%">This is an <code><a href="../../../../../../http://developer.android.com/reference/android/view/View.OnClickListener.html">View.OnClickListener</a></code> that will proxy clicks to an
  attached <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html">PlusOneButton.OnPlusOneClickListener</a></code>, or default to attempt to start
- the intent using an <code><a href="../../../../../../reference/android/app/Activity.html">Activity</a></code> context.&nbsp;</td>
+ the intent using an <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> context.&nbsp;</td>
           </tr>
   </table>
       </div>
@@ -689,7 +700,7 @@ Summary:
 
 <h2>Class Overview</h2>
 <p itemprop="articleBody">A listener for +1 button clicks. Implement this interface and call
- <code><a href="../../../../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.
+ <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.
 </p>
 
 
@@ -760,7 +771,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html#onPlusOneClick(android.content.Intent)">onPlusOneClick</a></span>(Intent intent)</nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html#onPlusOneClick(android.content.Intent)">onPlusOneClick</a></span>(<a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a> intent)</nobr>
         
         <div class="jd-descrdiv">Called when the +1 button is clicked.</div>
   
@@ -828,7 +839,7 @@ Summary:
         void
       </span>
       <span class="sympad">onPlusOneClick</span>
-      <span class="normal">(Intent intent)</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a> intent)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -839,8 +850,8 @@ Summary:
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Called when the +1 button is clicked.  Start the intent passed to this method
- to display the +1 confirmation dialog <code><a href="../../../../../../reference/android/app/Activity.html">Activity</a></code> with
- <code><a href="../../../../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.</p></div>
+ to display the +1 confirmation dialog <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> with
+ <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

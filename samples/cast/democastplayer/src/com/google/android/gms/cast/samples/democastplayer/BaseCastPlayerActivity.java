@@ -97,6 +97,7 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
     private boolean mRelaunchApp;
     private boolean mStopAppWhenEndingSession;
     private RemoteControlClient mRemoteControlClient;
+    private boolean mRouteSelected;
 
     protected static final double VOLUME_INCREMENT = 0.05;
     protected static final double MAX_VOLUME_LEVEL = 20;
@@ -228,6 +229,16 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
                 .unregisterOnSharedPreferenceChangeListener(this);
 
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // If a route is selected, deselect it.
+        if (mRouteSelected) {
+            mMediaRouter.selectRoute(mMediaRouter.getDefaultRoute());
+            mRouteSelected = false;
+        }
+        super.onBackPressed();
     }
 
     @Override
@@ -638,12 +649,14 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
         @Override
         public void onRouteSelected(MediaRouter router, RouteInfo route) {
             Log.d(TAG, "onRouteSelected: route=" + route);
+            mRouteSelected = true;
             BaseCastPlayerActivity.this.onRouteSelected(route);
         }
 
         @Override
         public void onRouteUnselected(MediaRouter router, RouteInfo route) {
             Log.d(TAG, "onRouteUnselected: route=" + route);
+            mRouteSelected = false;
             BaseCastPlayerActivity.this.onRouteUnselected(route);
         }
     }
