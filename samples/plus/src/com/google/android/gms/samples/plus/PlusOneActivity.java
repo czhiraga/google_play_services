@@ -97,7 +97,7 @@ public class PlusOneActivity extends Activity
     }
 
     @Override
-    public void onConnected() {
+    public void onConnected(Bundle connectionHint) {
         // Nothing to do.
     }
 

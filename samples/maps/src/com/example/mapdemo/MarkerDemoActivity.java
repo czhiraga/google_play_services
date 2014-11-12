@@ -22,7 +22,6 @@ import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
-import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -32,7 +31,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,6 +46,8 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 /**
  * This shows how to place markers on a map.
@@ -296,14 +296,10 @@ public class MarkerDemoActivity extends FragmentActivity
 
     @Override
     public boolean onMarkerClick(final Marker marker) {
-        // This causes the marker at Perth to bounce into position when it is clicked.
         if (marker.equals(mPerth)) {
+            // This causes the marker at Perth to bounce into position when it is clicked.
             final Handler handler = new Handler();
             final long start = SystemClock.uptimeMillis();
-            Projection proj = mMap.getProjection();
-            Point startPoint = proj.toScreenLocation(PERTH);
-            startPoint.offset(0, -100);
-            final LatLng startLatLng = proj.fromScreenLocation(startPoint);
             final long duration = 1500;
 
             final Interpolator interpolator = new BounceInterpolator();
@@ -312,17 +308,19 @@ public class MarkerDemoActivity extends FragmentActivity
                 @Override
                 public void run() {
                     long elapsed = SystemClock.uptimeMillis() - start;
-                    float t = interpolator.getInterpolation((float) elapsed / duration);
-                    double lng = t * PERTH.longitude + (1 - t) * startLatLng.longitude;
-                    double lat = t * PERTH.latitude + (1 - t) * startLatLng.latitude;
-                    marker.setPosition(new LatLng(lat, lng));
+                    float t = Math.max(1 - interpolator
+                            .getInterpolation((float) elapsed / duration), 0);
+                    marker.setAnchor(0.5f, 1.0f + 2 * t);
 
-                    if (t < 1.0) {
+                    if (t > 0.0) {
                         // Post again 16ms later.
                         handler.postDelayed(this, 16);
                     }
                 }
             });
+        } else if (marker.equals(mAdelaide)) {
+            // This causes the marker at Adelaide to change color.
+            marker.setIcon(BitmapDescriptorFactory.defaultMarker(new Random().nextFloat() * 360));
         }
         // We return false to indicate that we have not consumed the event and that we wish
         // for the default behavior to occur (which is for the camera to move such that the

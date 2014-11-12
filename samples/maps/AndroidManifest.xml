@@ -10,7 +10,7 @@
   <!-- Copied from Google Maps Library/AndroidManifest.xml. -->
   <uses-sdk
     android:minSdkVersion="8"
-    android:targetSdkVersion="16"/>
+    android:targetSdkVersion="17"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
@@ -28,9 +28,13 @@
     android:icon="@drawable/ic_launcher"
     android:label="@string/demo_title"
     android:hardwareAccelerated="true">
-    <meta-data
-      android:name="com.google.android.maps.v2.API_KEY"
-      android:value="YOUR_OWN_KEY"/>
+    <!-- ** You need to replace the key below with your own key. **
+         The example key below will not be accepted because it is not linked to the
+         certificate which you will use to sign this application.
+         See: https://developers.google.com/maps/documentation/android/start
+         for instructions on how to get your own key. -->
+    <meta-data android:name="com.google.android.maps.v2.API_KEY"
+    android:value="AIzaSyCvGBr5in13NK2yYBR7lhXTtnxj3mrXQy4"/>
     <activity android:name=".MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -56,11 +60,20 @@
       android:name=".LayersDemoActivity"
       android:label="@string/layers_demo"/>
     <activity
+      android:name=".LegalInfoActivity"
+      android:label="@string/legal_info"/>
+    <activity
       android:name=".LocationSourceDemoActivity"
       android:label="@string/locationsource_demo"/>
     <activity
       android:name=".MarkerDemoActivity"
       android:label="@string/marker_demo"/>
+    <activity
+      android:name=".MultiMapDemoActivity"
+      android:label="@string/multi_map_demo"/>
+    <activity
+      android:name=".MyLocationDemoActivity"
+      android:label="@string/my_location_demo"/>
     <activity
       android:name=".OptionsDemoActivity"
       android:label="@string/options_demo"/>
@@ -74,19 +87,16 @@
       android:name=".ProgrammaticDemoActivity"
       android:label="@string/programmatic_demo"/>
     <activity
-      android:name=".TileOverlayDemoActivity"
-      android:label="@string/tile_overlay_demo"/>
-    <activity
-      android:name=".UiSettingsDemoActivity"
-      android:label="@string/uisettings_demo"/>
-    <activity
       android:name=".RawMapViewDemoActivity"
       android:label="@string/raw_mapview_demo"/>
     <activity
       android:name=".RetainMapActivity"
       android:label="@string/retain_map"/>
     <activity
-      android:name=".MultiMapDemoActivity"
-      android:label="@string/multi_map_demo"/>
+      android:name=".TileOverlayDemoActivity"
+      android:label="@string/tile_overlay_demo"/>
+    <activity
+      android:name=".UiSettingsDemoActivity"
+      android:label="@string/uisettings_demo"/>
   </application>
 </manifest>

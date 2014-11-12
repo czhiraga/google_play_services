@@ -74,18 +74,7 @@ public class CameraDemoActivity extends FragmentActivity {
         if (mMap == null) {
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                     .getMap();
-            if (mMap != null) {
-                setUpMap();
-            }
         }
-    }
-
-    private void setUpMap() {
-        // We will provide our own zoom controls.
-        mMap.getUiSettings().setZoomControlsEnabled(false);
-
-        // Show Sydney
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.87365, 151.20689), 10));
     }
 
     /**

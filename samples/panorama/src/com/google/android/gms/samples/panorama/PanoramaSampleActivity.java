@@ -51,7 +51,7 @@ public class PanoramaSampleActivity extends Activity implements ConnectionCallba
     }
 
     @Override
-    public void onConnected() {
+    public void onConnected(Bundle connectionHint) {
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.pano1);
         mClient.loadPanoramaInfo(this, uri);
     }

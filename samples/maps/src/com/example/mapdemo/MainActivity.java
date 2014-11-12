@@ -21,6 +21,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -105,6 +107,8 @@ public final class MainActivity extends ListActivity {
             new DemoDetails(
                     R.string.locationsource_demo, R.string.locationsource_description,
                     LocationSourceDemoActivity.class),
+            new DemoDetails(R.string.my_location_demo, R.string.my_location_description,
+                    MyLocationDemoActivity.class),
             new DemoDetails(R.string.uisettings_demo, R.string.uisettings_description,
                     UiSettingsDemoActivity.class),
             new DemoDetails(R.string.groundoverlay_demo, R.string.groundoverlay_description,
@@ -138,6 +142,23 @@ public final class MainActivity extends ListActivity {
         ListAdapter adapter = new CustomArrayAdapter(this, demos);
 
         setListAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        if (item.getItemId() == R.id.menu_legal) {
+            startActivity(new Intent(this, LegalInfoActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

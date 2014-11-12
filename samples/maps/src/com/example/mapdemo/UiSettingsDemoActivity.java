@@ -44,6 +44,25 @@ public class UiSettingsDemoActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
+
+        if (mMap != null) {
+            // Keep the UI Settings state in sync with the checkboxes.
+            mUiSettings.setZoomControlsEnabled(isChecked(R.id.zoom_buttons_toggle));
+            mUiSettings.setCompassEnabled(isChecked(R.id.compass_toggle));
+            mUiSettings.setMyLocationButtonEnabled(isChecked(R.id.mylocationbutton_toggle));
+            mMap.setMyLocationEnabled(isChecked(R.id.mylocationlayer_toggle));
+            mUiSettings.setScrollGesturesEnabled(isChecked(R.id.scroll_toggle));
+            mUiSettings.setZoomGesturesEnabled(isChecked(R.id.zoom_gestures_toggle));
+            mUiSettings.setTiltGesturesEnabled(isChecked(R.id.tilt_toggle));
+            mUiSettings.setRotateGesturesEnabled(isChecked(R.id.rotate_toggle));
+        }
+    }
+
+    /**
+     * Returns whether the checkbox with the given id is checked.
+     */
+    private boolean isChecked(int id) {
+      return ((CheckBox) findViewById(id)).isChecked();
     }
 
     private void setUpMapIfNeeded() {

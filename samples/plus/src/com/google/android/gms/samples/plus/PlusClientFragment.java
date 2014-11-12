@@ -82,9 +82,6 @@ public final class PlusClientFragment extends Fragment
     // A handler to post callbacks (rather than call them in a potentially reentrant way.)
     private Handler mHandler;
 
-    /** Tracks if {@link PlusClient#connect()} has been called. */
-    private boolean mIsConnecting;
-
     /**
      * Local handler to send callbacks on sign in.
      */
@@ -182,16 +179,11 @@ public final class PlusClientFragment extends Fragment
         }
         mPlusClient = plusClientBuilder.build();
 
-
         if (savedInstanceState == null) {
             mRequestCode = INVALID_REQUEST_CODE;
         } else {
             mRequestCode = savedInstanceState.getInt(STATE_REQUEST_CODE, INVALID_REQUEST_CODE);
         }
-
-        // Attempt to connect.
-        mPlusClient.connect();
-        mIsConnecting = true;
     }
 
     /**
@@ -200,7 +192,7 @@ public final class PlusClientFragment extends Fragment
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mIsConnecting || mPlusClient.isConnected()) {
+        if (mPlusClient.isConnecting() || mPlusClient.isConnected()) {
             mPlusClient.disconnect();
         }
     }
@@ -218,7 +210,8 @@ public final class PlusClientFragment extends Fragment
             // No user interaction, hide the progress dialog.
             hideProgressDialog();
             hideErrorDialog();
-        } else if (mLastConnectionResult != null && !mLastConnectionResult.isSuccess()) {
+        } else if (mLastConnectionResult != null && !mLastConnectionResult.isSuccess()
+                && !isShowingErrorDialog()) {
             showProgressDialog();
         }
     }
@@ -226,20 +219,21 @@ public final class PlusClientFragment extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-        if (mRequestCode == INVALID_REQUEST_CODE && !mIsConnecting) {
+        if (mRequestCode == INVALID_REQUEST_CODE) {
             mLastConnectionResult = null;
-            mPlusClient.connect();
-            mIsConnecting = true;
+            connectPlusClient();
         }
     }
 
     @Override
-    public void onConnected() {
+    public void onConnected(Bundle connectionHint) {
         // Successful connection!
         mLastConnectionResult = CONNECTION_RESULT_SUCCESS;
         mRequestCode = INVALID_REQUEST_CODE;
-        mIsConnecting = false;
-        hideProgressDialog();
+
+        if (isResumed()) {
+            hideProgressDialog();
+        }
 
         Activity activity = getActivity();
         if (activity instanceof OnSignedInListener) {
@@ -250,7 +244,6 @@ public final class PlusClientFragment extends Fragment
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         mLastConnectionResult = connectionResult;
-        mIsConnecting = false;
         // On a failed connection try again.
         if (isResumed() && mRequestCode != INVALID_REQUEST_CODE) {
             resolveLastResult();
@@ -265,7 +258,7 @@ public final class PlusClientFragment extends Fragment
         mRequestCode = INVALID_REQUEST_CODE;
 
         // Reconnect to fetch the sign-in (account chooser) intent from the plus client.
-        mPlusClient.connect();
+        connectPlusClient();
     }
 
     @Override
@@ -279,7 +272,7 @@ public final class PlusClientFragment extends Fragment
 
     @Override
     public void onDisconnected() {
-        mIsConnecting = false;
+        // Do nothing.
     }
 
     /**
@@ -443,11 +436,13 @@ public final class PlusClientFragment extends Fragment
     }
 
     protected void hideProgressDialog() {
-        mRequestCode = INVALID_REQUEST_CODE;
-        DialogFragment progressDialog =
-                (DialogFragment) getFragmentManager().findFragmentByTag(TAG_PROGRESS_DIALOG);
-        if (progressDialog != null) {
-            progressDialog.dismiss();
+        FragmentManager manager = getFragmentManager();
+        if (manager != null) {
+            DialogFragment progressDialog = (DialogFragment) manager
+                    .findFragmentByTag(TAG_PROGRESS_DIALOG);
+            if (progressDialog != null) {
+                progressDialog.dismiss();
+            }
         }
     }
 
@@ -458,12 +453,16 @@ public final class PlusClientFragment extends Fragment
             oldErrorDialog.dismiss();
         }
 
-        hideProgressDialog();
         errorDialog.show(getFragmentManager(), TAG_ERROR_DIALOG);
     }
 
+    private boolean isShowingErrorDialog() {
+        DialogFragment errorDialog =
+                (DialogFragment) getFragmentManager().findFragmentByTag(TAG_ERROR_DIALOG);
+        return errorDialog != null && !errorDialog.isHidden();
+    }
+
     private void hideErrorDialog() {
-        mRequestCode = INVALID_REQUEST_CODE;
         DialogFragment errorDialog =
                 (DialogFragment) getFragmentManager().findFragmentByTag(TAG_ERROR_DIALOG);
         if (errorDialog != null) {
@@ -474,13 +473,13 @@ public final class PlusClientFragment extends Fragment
     private void startResolution() {
         try {
             mLastConnectionResult.startResolutionForResult(getActivity(), mRequestCode);
+            hideProgressDialog();
         } catch (SendIntentException e) {
             // The intent we had is not valid right now, perhaps the remote process died.
             // Try to reconnect to get a new resolution intent.
             mLastConnectionResult = null;
             showProgressDialog();
-            mPlusClient.connect();
-            mIsConnecting = true;
+            connectPlusClient();
         }
     }
 
@@ -492,12 +491,14 @@ public final class PlusClientFragment extends Fragment
         switch (resultCode) {
             case Activity.RESULT_OK:
                 mLastConnectionResult = null;
-                mPlusClient.connect();
-                mIsConnecting = true;
+                connectPlusClient();
                 break;
             case Activity.RESULT_CANCELED:
                 // User canceled sign in, clear the request code.
                 mRequestCode = INVALID_REQUEST_CODE;
+
+                // Attempt to connect again.
+                connectPlusClient();
                 break;
         }
         return true;
@@ -511,7 +512,7 @@ public final class PlusClientFragment extends Fragment
             mPlusClient.clearDefaultAccount();
         }
 
-        if (mIsConnecting || mPlusClient.isConnected()) {
+        if (mPlusClient.isConnecting() || mPlusClient.isConnected()) {
             mPlusClient.disconnect();
             // Reconnect to get a new mPlusClient.
             mLastConnectionResult = null;
@@ -519,7 +520,7 @@ public final class PlusClientFragment extends Fragment
             mRequestCode = INVALID_REQUEST_CODE;
 
             // Reconnect to fetch the sign-in (account chooser) intent from the plus client.
-            mPlusClient.connect();
+            connectPlusClient();
         }
     }
 
@@ -529,6 +530,16 @@ public final class PlusClientFragment extends Fragment
     public void revokeAccessAndDisconnect() {
         if (mPlusClient.isConnected()) {
             mPlusClient.revokeAccessAndDisconnect(this);
+        }
+    }
+
+    /**
+     * Attempts to connect the client to Google Play services if the client isn't already connected,
+     * and isn't in the process of being connected.
+     */
+    private void connectPlusClient() {
+        if (!mPlusClient.isConnecting() && !mPlusClient.isConnected()) {
+            mPlusClient.connect();
         }
     }
 }
