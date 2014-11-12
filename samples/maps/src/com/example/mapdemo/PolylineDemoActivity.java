@@ -25,14 +25,14 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 /**
  * This shows how to draw polylines on a map.
  */
-public class PolylineDemoActivity extends FragmentActivity implements OnSeekBarChangeListener {
+public class PolylineDemoActivity extends android.support.v4.app.FragmentActivity
+        implements OnSeekBarChangeListener {
     private static final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
     private static final LatLng SYDNEY = new LatLng(-33.87365, 151.20689);
     private static final LatLng ADELAIDE = new LatLng(-34.92873, 138.59995);
@@ -105,14 +105,15 @@ public class PolylineDemoActivity extends FragmentActivity implements OnSeekBarC
                 .color(Color.BLUE)
                 .geodesic(true));
 
-        // Rectangle centered at Sydney.  This polyline will be mutable.
+        // Circle centered at Sydney.  This polyline will be mutable.
+        PolylineOptions options = new PolylineOptions();
         int radius = 5;
-        PolylineOptions options = new PolylineOptions()
-                .add(new LatLng(SYDNEY.latitude + radius, SYDNEY.longitude + radius))
-                .add(new LatLng(SYDNEY.latitude + radius, SYDNEY.longitude - radius))
-                .add(new LatLng(SYDNEY.latitude - radius, SYDNEY.longitude - radius))
-                .add(new LatLng(SYDNEY.latitude - radius, SYDNEY.longitude + radius))
-                .add(new LatLng(SYDNEY.latitude + radius, SYDNEY.longitude + radius));
+        int numPoints = 100;
+        double phase = 2 * Math.PI / numPoints;
+        for (int i = 0; i <= numPoints; i++) {
+            options.add(new LatLng(SYDNEY.latitude + radius * Math.sin(i * phase),
+                    SYDNEY.longitude + radius * Math.cos(i * phase)));
+        }
         int color = Color.HSVToColor(
                 mAlphaBar.getProgress(), new float[] {mColorBar.getProgress(), 1, 1});
         mMutablePolyline = mMap.addPolyline(options

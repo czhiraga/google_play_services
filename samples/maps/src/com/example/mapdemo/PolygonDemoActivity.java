@@ -25,7 +25,6 @@ import com.google.android.gms.maps.model.PolygonOptions;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
@@ -35,7 +34,8 @@ import java.util.List;
 /**
  * This shows how to draw polygons on a map.
  */
-public class PolygonDemoActivity extends FragmentActivity implements OnSeekBarChangeListener {
+public class PolygonDemoActivity extends android.support.v4.app.FragmentActivity
+        implements OnSeekBarChangeListener {
     private static final LatLng SYDNEY = new LatLng(-33.87365, 151.20689);
 
     private static final int WIDTH_MAX = 50;
@@ -99,8 +99,16 @@ public class PolygonDemoActivity extends FragmentActivity implements OnSeekBarCh
                 .strokeColor(Color.BLUE)
                 .strokeWidth(5));
 
-        // Create a rectangle centered at Sydney.
-        PolygonOptions options = new PolygonOptions().addAll(createRectangle(SYDNEY, 5, 8));
+        // Create an ellipse centered at Sydney.
+        PolygonOptions options = new PolygonOptions();
+        int numPoints = 400;
+        float semiHorizontalAxis = 10f;
+        float semiVerticalAxis = 5f;
+        double phase = 2 * Math.PI / numPoints;
+        for (int i = 0; i <= numPoints; i++) {
+            options.add(new LatLng(SYDNEY.latitude + semiVerticalAxis * Math.sin(i * phase),
+                    SYDNEY.longitude + semiHorizontalAxis * Math.cos(i * phase)));
+        }
 
         int fillColor = Color.HSVToColor(
                 mAlphaBar.getProgress(), new float[] {mColorBar.getProgress(), 1, 1});
@@ -121,6 +129,8 @@ public class PolygonDemoActivity extends FragmentActivity implements OnSeekBarCh
      * Creates a List of LatLngs that form a rectangle with the given dimensions.
      */
     private List<LatLng> createRectangle(LatLng center, double halfWidth, double halfHeight) {
+        // Note that the ordering of the points is counterclockwise (as long as the halfWidth and
+        // halfHeight are less than 90).
         return Arrays.asList(new LatLng(center.latitude - halfHeight, center.longitude - halfWidth),
                 new LatLng(center.latitude - halfHeight, center.longitude + halfWidth),
                 new LatLng(center.latitude + halfHeight, center.longitude + halfWidth),

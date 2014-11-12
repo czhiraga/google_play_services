@@ -16,159 +16,114 @@
 
 package com.google.android.gms.samples.plus;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.GooglePlusUtil;
 import com.google.android.gms.plus.PlusShare;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
+import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 /**
  * Example of sharing with Google+ through the ACTION_SEND intent.
  */
-public class ShareActivity extends Activity implements View.OnClickListener,
-        DialogInterface.OnCancelListener {
-    protected static final String TAG = "ShareActivity";
+public class ShareActivity extends FragmentActivity implements
+        View.OnClickListener, View.OnTouchListener {
 
-    private static final String STATE_SHARING = "state_sharing";
+    protected static final String TAG = ShareActivity.class.getSimpleName();
 
-    private static final int DIALOG_GET_GOOGLE_PLAY_SERVICES = 1;
+    private static final String TAG_ERROR_DIALOG_FRAGMENT = "errorDialog";
+    private static final int REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR = 1;
+    private static final int PRESSED_COLOR_FILTER = Color.argb(30, 0, 0, 0);
 
-    private static final int REQUEST_CODE_INTERACTIVE_POST = 1;
-    private static final int REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES = 2;
-
-    /** The button should say "View item" in English. */
-    private static final String LABEL_VIEW_ITEM = "VIEW_ITEM";
-
-    private EditText mEditSendText;
+    private EditText mEditShareText;
+    private ImageButton mShareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.share_activity);
-
-        Button sendButton = (Button) findViewById(R.id.send_interactive_button);
-        sendButton.setOnClickListener(this);
-
-        mEditSendText = (EditText) findViewById(R.id.share_prefill_edit);
-        int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (available != ConnectionResult.SUCCESS) {
-            showDialog(DIALOG_GET_GOOGLE_PLAY_SERVICES);
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        if (id != DIALOG_GET_GOOGLE_PLAY_SERVICES) {
-            return super.onCreateDialog(id);
-        }
-
-        int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (available == ConnectionResult.SUCCESS) {
-            return null;
-        }
-        if (GooglePlayServicesUtil.isUserRecoverableError(available)) {
-            return GooglePlayServicesUtil.getErrorDialog(
-                    available, this, REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES, this);
-        }
-        return new AlertDialog.Builder(this)
-                .setMessage(R.string.plus_generic_error)
-                .setCancelable(true)
-                .setOnCancelListener(this)
-                .create();
+        mShareButton = (ImageButton) findViewById(R.id.share_button);
+        mShareButton.setOnClickListener(this);
+        mShareButton.setOnTouchListener(this);
+        mEditShareText = (EditText) findViewById(R.id.share_prefill_edit);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.send_interactive_button:
-                startActivityForResult(getInteractivePostIntent(), REQUEST_CODE_INTERACTIVE_POST);
-                return;
+            case R.id.share_button:
+                final int errorCode = GooglePlusUtil.checkGooglePlusApp(this);
+                if (errorCode == GooglePlusUtil.SUCCESS) {
+                    // Create an ACTION_SEND intent to share to Google+ with attribution.
+
+                    // Include a deep link in the intent to a resource in your app.
+                    // When the user clicks on the deep link, ParseDeepLinkActivity will
+                    // immediately route to that resource.
+                    Uri thumbnail = Uri.parse(getString(
+                            R.string.plus_deep_link_metadata_thumbnail_url));
+                    Intent shareIntent = PlusShare.Builder.from(this)
+                            .setText(mEditShareText.getText().toString())
+                            .setType("text/plain")
+                            .setContent(
+                                    ShareActivity.TAG,
+                                    getString(R.string.plus_deep_link_metadata_title),
+                                    getString(R.string.plus_deep_link_metadata_description),
+                                    thumbnail)
+                            .getIntent();
+
+                    startActivity(shareIntent);
+                } else {
+                    // Prompt the user to install the Google+ app.
+                    DialogFragment fragment = new GooglePlusErrorDialogFragment();
+                    Bundle args = new Bundle();
+                    args.putInt(GooglePlusErrorDialogFragment.ARG_ERROR_CODE, errorCode);
+                    args.putInt(GooglePlusErrorDialogFragment.ARG_REQUEST_CODE,
+                            REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR);
+                    fragment.setArguments(args);
+                    fragment.show(getSupportFragmentManager(), TAG_ERROR_DIALOG_FRAGMENT);
+                }
+                break;
         }
+    }
+
+    /**
+     * Updates the opacity of the Google+ share button to indicate a button press.
+     *
+     * @return false for the parent view to handle the touch event
+     *         as it normally would.
+     */
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mShareButton.setColorFilter(PRESSED_COLOR_FILTER);
+                break;
+            case MotionEvent.ACTION_CANCEL:
+            case MotionEvent.ACTION_UP:
+                // Reset the button's tint after the button is pressed.
+                mShareButton.setColorFilter(0);
+                break;
+        }
+
+        return false;
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         switch (requestCode) {
-            case REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES:
+            case REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR:
                 if (resultCode != RESULT_OK) {
-                    Log.e(TAG, "Unable to sign the user in.");
-                    finish();
+                    Log.e(TAG, "Unable to recover from missing Google+ app.");
                 }
                 break;
-
-            case REQUEST_CODE_INTERACTIVE_POST:
-                if (resultCode != RESULT_OK) {
-                    Log.e(TAG, "Failed to create interactive post");
-                }
-                break;
-        }
-    }
-
-    private Intent getInteractivePostIntent() {
-        // Create an interactive post with the "VIEW_ITEM" label. This will
-        // create an enhanced share dialog when the post is shared on Google+.
-        // When the user clicks on the deep link, ParseDeepLinkActivity will
-        // immediately parse the deep link, and route to the appropriate resource.
-        String action = "/?view=true";
-        Uri callToActionUrl = Uri.parse(getString(R.string.plus_example_deep_link_url) + action);
-        String callToActionDeepLinkId = getString(R.string.plus_example_deep_link_id) + action;
-
-        // Create an interactive post builder.
-        PlusShare.Builder builder = new PlusShare.Builder(this);
-
-        // Set call-to-action metadata.
-        builder.addCallToAction(LABEL_VIEW_ITEM, callToActionUrl, callToActionDeepLinkId);
-
-        // Set the target url (for desktop use).
-        builder.setContentUrl(Uri.parse(getString(R.string.plus_example_deep_link_url)));
-
-        // Set the target deep-link ID (for mobile use).
-        builder.setContentDeepLinkId(getString(R.string.plus_example_deep_link_id),
-                null, null, null);
-
-        // Set the pre-filled message.
-        builder.setText(mEditSendText.getText().toString());
-
-        return builder.getIntent();
-    }
-
-    @Override
-    public void onCancel(DialogInterface dialogInterface) {
-        Log.e(TAG, "Unable to sign the user in.");
-        finish();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(this, PlusSampleActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
         }
     }
 }

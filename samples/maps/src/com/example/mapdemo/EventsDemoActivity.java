@@ -25,13 +25,12 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.widget.TextView;
 
 /**
  * This shows how to listen to some {@link GoogleMap} events.
  */
-public class EventsDemoActivity extends FragmentActivity
+public class EventsDemoActivity extends android.support.v4.app.FragmentActivity
         implements OnMapClickListener, OnMapLongClickListener, OnCameraChangeListener {
 
     private GoogleMap mMap;

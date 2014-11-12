@@ -22,13 +22,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 /**
  * This shows how to create a simple activity with a raw MapView and add a marker to it. This
  * requires forwarding all the important lifecycle methods onto MapView.
  */
-public class RawMapViewDemoActivity extends FragmentActivity {
+public class RawMapViewDemoActivity extends android.support.v4.app.FragmentActivity {
     private MapView mMapView;
     private GoogleMap mMap;
 

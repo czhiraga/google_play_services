@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The Android Open Source Project
+ * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,247 +13,243 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.gms.samples.plus;
 
+import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
+import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.plus.Plus;
-import com.google.android.gms.plus.model.people.Person;
+import com.google.android.gms.common.Scopes;
+import com.google.android.gms.plus.PlusClient;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.os.Build;
+import android.content.IntentSender.SendIntentException;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
-public class SignInActivity extends Activity implements OnClickListener,
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+import org.json.JSONObject;
 
-    private static final int DIALOG_GET_GOOGLE_PLAY_SERVICES = 1;
+/**
+ * Example of signing in a user with Google+, and how to make a call to a Google+ API endpoint.
+ */
+public class SignInActivity extends FragmentActivity implements View.OnClickListener,
+        ConnectionCallbacks, OnConnectionFailedListener {
 
-    private static final int REQUEST_CODE_SIGN_IN = 1;
-    private static final int REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES = 2;
+    private static final String TAG = SignInActivity.class.getSimpleName();
+    private static final String TAG_ERROR_DIALOG_FRAGMENT = "errorDialog";
+    private static final int REQUEST_CODE_RESOLVE_FAILURE = 9000;
+    private static final int REQUEST_CODE_RESOLVE_MISSING_GP = 9001;
 
+    // Key to save if Google+ API is called.
+    private static final String KEY_HAS_CALLED_GOOGLE_PLUS_API_ENDPOINT =
+            "hasCalledGooglePlusApiEndpoint";
+
+    private static final String OAUTH2_PREFIX = "oauth2:";
+
+    /** OAuth 2.0 scope for writing a moment to the user's Google+ history. */
+    private static final String PLUS_WRITE_MOMENT =
+            "https://www.googleapis.com/auth/plus.moments.write";
+
+    static final String[] SCOPES = new String[] { Scopes.PLUS_PROFILE, PLUS_WRITE_MOMENT };
+    static final String SCOPE_STRING = OAUTH2_PREFIX + TextUtils.join(" ", SCOPES);
+
+    private ProgressDialog mConnectionProgressDialog;
+    private PlusClient mPlusClient;
+    private ConnectionResult mStatus;
     private TextView mSignInStatus;
-    private GoogleApiClient mGoogleApiClient;
-    private SignInButton mSignInButton;
-    private View mSignOutButton;
-    private View mRevokeAccessButton;
-    private ConnectionResult mConnectionResult;
+
+    private boolean mHasCalledGooglePlusApiEndpoint;
+    private GetPlusPersonDataTask mAsyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_in_activity);
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Plus.API, Plus.PlusOptions.builder()
-                        .addActivityTypes(MomentUtil.ACTIONS).build())
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-
-        mSignInStatus = (TextView) findViewById(R.id.sign_in_status);
-        mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        mSignInButton.setOnClickListener(this);
-        mSignOutButton = findViewById(R.id.sign_out_button);
-        mSignOutButton.setOnClickListener(this);
-        mRevokeAccessButton = findViewById(R.id.revoke_access_button);
-        mRevokeAccessButton.setOnClickListener(this);
-        ToggleButton scopeSelector = (ToggleButton) findViewById(R.id.scope_selection_toggle);
-        scopeSelector.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked) {
-                    mGoogleApiClient.disconnect();
-                    mGoogleApiClient = new GoogleApiClient.Builder(SignInActivity.this)
-                            .addApi(Plus.API)
-                            .addScope(Plus.SCOPE_PLUS_PROFILE)
-                            .addConnectionCallbacks(SignInActivity.this)
-                            .addOnConnectionFailedListener(SignInActivity.this)
-                            .build();
-                    mGoogleApiClient.connect();
-                } else {
-                    mGoogleApiClient.disconnect();
-                    mGoogleApiClient = new GoogleApiClient.Builder(SignInActivity.this)
-                            .addApi(Plus.API, Plus.PlusOptions.builder()
-                                    .addActivityTypes(MomentUtil.ACTIONS).build())
-                            .addScope(Plus.SCOPE_PLUS_LOGIN)
-                            .addConnectionCallbacks(SignInActivity.this)
-                            .addOnConnectionFailedListener(SignInActivity.this)
-                            .build();
-                    mGoogleApiClient.connect();
-                }
-            }
-        });
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+        if (savedInstanceState != null) {
+            mHasCalledGooglePlusApiEndpoint = savedInstanceState.getBoolean(
+                    KEY_HAS_CALLED_GOOGLE_PLUS_API_ENDPOINT);
         }
+        setContentView(R.layout.sign_in_activity);
+        mPlusClient = new PlusClient(this, this, this, SCOPES);
+
+        // Spinner progress bar to be displayed if the user clicks the Google+
+        // sign-in button before resolving connection errors.
+        mConnectionProgressDialog = new ProgressDialog(SignInActivity.this);
+        mConnectionProgressDialog.setMessage(getString(R.string.signing_in_status));
+        mConnectionProgressDialog.setOwnerActivity(SignInActivity.this);
+
+        findViewById(R.id.sign_in_button).setOnClickListener(this);
+        findViewById(R.id.sign_out_button).setOnClickListener(this);
+        mSignInStatus = (TextView) findViewById(R.id.sign_in_status);
     }
 
     @Override
-    public void onStart() {
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(KEY_HAS_CALLED_GOOGLE_PLUS_API_ENDPOINT,
+                mHasCalledGooglePlusApiEndpoint);
+    }
+
+    @Override
+    protected void onStart() {
         super.onStart();
-        mGoogleApiClient.connect();
+        mPlusClient.connect();
+        mSignInStatus.setText(getString(R.string.loading_status));
     }
 
     @Override
-    public void onStop() {
-        mGoogleApiClient.disconnect();
+    protected void onStop() {
         super.onStop();
+        mPlusClient.disconnect();
+        if (mAsyncTask != null) {
+            mAsyncTask.cancel(false);
+            mAsyncTask = null;
+        }
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.sign_in_button:
-                int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-                if (available != ConnectionResult.SUCCESS) {
-                    showDialog(DIALOG_GET_GOOGLE_PLAY_SERVICES);
-                    return;
-                }
-
-                try {
-                    mSignInStatus.setText(getString(R.string.signing_in_status));
-                    mConnectionResult.startResolutionForResult(this, REQUEST_CODE_SIGN_IN);
-                } catch (IntentSender.SendIntentException e) {
-                    // Fetch a new result to start.
-                    mGoogleApiClient.connect();
+                if (!mPlusClient.isConnected()) {
+                    if (mStatus == null) {
+                        mConnectionProgressDialog.show();
+                    } else {
+                        try {
+                            mStatus.startResolutionForResult(this, REQUEST_CODE_RESOLVE_FAILURE);
+                        } catch (SendIntentException e) {
+                            // Try connecting again.
+                            mStatus = null;
+                            mPlusClient.connect();
+                        }
+                    }
                 }
                 break;
             case R.id.sign_out_button:
-                if (mGoogleApiClient.isConnected()) {
-                    Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
-                    mGoogleApiClient.disconnect();
-                    mGoogleApiClient.connect();
-                }
-                break;
-            case R.id.revoke_access_button:
-                if (mGoogleApiClient.isConnected()) {
-                    Plus.AccountApi.revokeAccessAndDisconnect(mGoogleApiClient).setResultCallback(
-                            new ResultCallback<Status>() {
-                                @Override
-                                public void onResult(Status status) {
-                                    if (status.isSuccess()) {
-                                        mSignInStatus.setText(R.string.revoke_access_status);
-                                    } else {
-                                        mSignInStatus.setText(R.string.revoke_access_error_status);
-                                    }
-                                    mGoogleApiClient.disconnect();
-                                    mGoogleApiClient.connect();
-                                }
-                            }
-                    );
-                    updateButtons(false /* isSignedIn */);
+                if (mPlusClient.isConnected()) {
+                    resetAccountState();
+                    mPlusClient.clearDefaultAccount();
+                    mPlusClient.disconnect();
+                    mPlusClient.connect();
                 }
                 break;
         }
     }
 
     @Override
-    protected Dialog onCreateDialog(int id) {
-        if (id != DIALOG_GET_GOOGLE_PLAY_SERVICES) {
-            return super.onCreateDialog(id);
-        }
+    public void onConnectionFailed(ConnectionResult status) {
+        resetAccountState();
+        if (mConnectionProgressDialog.isShowing()) {
+            // The user clicked the button already and we are showing a spinner
+            // progress dialog. We dismiss the progress dialog and start to
+            // resolve connection errors.
+            mConnectionProgressDialog.dismiss();
 
-        int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (available == ConnectionResult.SUCCESS) {
-            return null;
-        }
-        if (GooglePlayServicesUtil.isUserRecoverableError(available)) {
-            return GooglePlayServicesUtil.getErrorDialog(
-                    available, this, REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES);
-        }
-        return new AlertDialog.Builder(this)
-                .setMessage(R.string.plus_generic_error)
-                .setCancelable(true)
-                .create();
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_SIGN_IN
-                || requestCode == REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES) {
-            if (resultCode == RESULT_CANCELED) {
-                mSignInStatus.setText(getString(R.string.signed_out_status));
-            } else if (resultCode == RESULT_OK && !mGoogleApiClient.isConnected()
-                    && !mGoogleApiClient.isConnecting()) {
-                // This time, connect should succeed.
-                mGoogleApiClient.connect();
+            if (status.hasResolution()) {
+                try {
+                    status.startResolutionForResult(this, REQUEST_CODE_RESOLVE_FAILURE);
+                } catch (SendIntentException e) {
+                    mPlusClient.connect();
+                }
             }
         }
-    }
 
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        Person person = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
-        String currentPersonName = person != null
-                ? person.getDisplayName()
-                : getString(R.string.unknown_person);
-        mSignInStatus.setText(getString(R.string.signed_in_status, currentPersonName));
-        updateButtons(true /* isSignedIn */);
-    }
+        // Save the intent so that we can start an activity when the user clicks
+        // the button.
+        mStatus = status;
 
-    @Override
-    public void onConnectionSuspended(int cause) {
-        mSignInStatus.setText(R.string.loading_status);
-        mGoogleApiClient.connect();
-        updateButtons(false /* isSignedIn */);
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        mConnectionResult = result;
-        updateButtons(false /* isSignedIn */);
-    }
-
-    private void updateButtons(boolean isSignedIn) {
-        if (isSignedIn) {
-            mSignInButton.setVisibility(View.INVISIBLE);
-            mSignOutButton.setEnabled(true);
-            mRevokeAccessButton.setEnabled(true);
-        } else {
-            if (mConnectionResult == null) {
-                // Disable the sign-in button until onConnectionFailed is called with result.
-                mSignInButton.setVisibility(View.INVISIBLE);
-                mSignInStatus.setText(getString(R.string.loading_status));
-            } else {
-                // Enable the sign-in button since a connection result is available.
-                mSignInButton.setVisibility(View.VISIBLE);
-                mSignInStatus.setText(getString(R.string.signed_out_status));
-            }
-
-            mSignOutButton.setEnabled(false);
-            mRevokeAccessButton.setEnabled(false);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (!status.hasResolution()
+                && GooglePlayServicesUtil.isUserRecoverableError(status.getErrorCode())
+                && fragmentManager.findFragmentByTag(TAG_ERROR_DIALOG_FRAGMENT) == null) {
+            DialogFragment fragment = new GooglePlayServicesErrorDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt(GooglePlayServicesErrorDialogFragment.ARG_ERROR_CODE,
+                    status.getErrorCode());
+            args.putInt(GooglePlayServicesErrorDialogFragment.ARG_REQUEST_CODE,
+                    REQUEST_CODE_RESOLVE_MISSING_GP);
+            fragment.setArguments(args);
+            fragment.show(fragmentManager, TAG_ERROR_DIALOG_FRAGMENT);
         }
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(this, PlusSampleActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+    protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
+        switch(requestCode) {
+            case REQUEST_CODE_RESOLVE_FAILURE:
+                if (responseCode == RESULT_OK) {
+                    mStatus = null;
+                    mPlusClient.connect();
+                } else {
+                    Log.e(TAG, "Unable to recover from a connection failure.");
+                }
+                break;
+            case REQUEST_CODE_RESOLVE_MISSING_GP:
+                if (responseCode == RESULT_OK) {
+                    mPlusClient.connect();
+                } else {
+                    Log.e(TAG, "Unable to install Google Play services.");
+                }
+                break;
         }
+    }
+
+    @Override
+    public void onConnected() {
+        mSignInStatus.setText(getString(R.string.signed_in_status));
+        mConnectionProgressDialog.dismiss();
+
+        // Use the connection to make a call.
+        if (mAsyncTask == null && !mHasCalledGooglePlusApiEndpoint) {
+            String accountName = mPlusClient.getAccountName();
+            mAsyncTask = new GetPlusPersonDataTask(this, accountName) {
+                @Override
+                protected void onUserRecoverAuthException(final UserRecoverableAuthException e) {
+                    // This case will be very rare since we've already authenticated by
+                    // connecting the PlusClient to Google Play services.
+                    startActivityForResult(e.getIntent(), REQUEST_CODE_RESOLVE_FAILURE);
+                }
+
+                @Override
+                protected void onPostExecute(JSONObject person) {
+                    if (person != null) {
+                        final String name = person.optString("displayName", "unknown");
+                        String greeting = getString(R.string.greeting_status, name);
+                        mSignInStatus.setText(greeting);
+                    }
+
+                    mHasCalledGooglePlusApiEndpoint = person != null;
+                    mAsyncTask = null;
+                }
+            };
+
+            mAsyncTask.execute();
+        }
+    }
+
+    /**
+     * Resets any pending calls to Google+ API and the user's sign-in status.
+     */
+    private void resetAccountState() {
+        mSignInStatus.setText(getString(R.string.signed_out_status));
+
+        // Reset cached state of any previous account that was signed in.
+        mHasCalledGooglePlusApiEndpoint = false;
+        if (mAsyncTask != null) {
+            mAsyncTask.cancel(false);
+            mAsyncTask = null;
+        }
+    }
+
+    @Override
+    public void onDisconnected() {
+        // Do nothing
     }
 }

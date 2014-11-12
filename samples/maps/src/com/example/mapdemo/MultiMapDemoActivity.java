@@ -17,12 +17,11 @@
 package com.example.mapdemo;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 /**
  * This shows how to create a simple activity with multiple maps on screen.
  */
-public class MultiMapDemoActivity extends FragmentActivity {
+public class MultiMapDemoActivity extends android.support.v4.app.FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

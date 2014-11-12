@@ -22,14 +22,14 @@ import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
+import android.app.Activity;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 /**
  * This shows how to use a custom location source.
  */
-public class LocationSourceDemoActivity extends FragmentActivity {
+public class LocationSourceDemoActivity extends android.support.v4.app.FragmentActivity {
     /**
      * A {@link LocationSource} which reports a new location whenever a user long presses the map at
      * the point at which a user long pressed the map.
@@ -102,8 +102,7 @@ public class LocationSourceDemoActivity extends FragmentActivity {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
             // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-                    .getMap();
+            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 setUpMap();

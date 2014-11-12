@@ -17,16 +17,17 @@
 package com.example.mapdemo;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 /**
  * An activity that creates a map with some initial options.
+ *
+ * @author hearnden@google.com (David Hearnden)
  */
-public final class OptionsDemoActivity extends FragmentActivity {
+public final class OptionsDemoActivity extends android.support.v4.app.FragmentActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.options_demo);
-    }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.options_demo);
+  }
 }

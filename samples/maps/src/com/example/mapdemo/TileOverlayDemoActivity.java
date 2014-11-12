@@ -18,15 +18,11 @@ package com.example.mapdemo;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.TileOverlay;
 import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.android.gms.maps.model.TileProvider;
 import com.google.android.gms.maps.model.UrlTileProvider;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.View;
-import android.widget.CheckBox;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -35,7 +31,7 @@ import java.util.Locale;
 /**
  * This demonstrates how to add a tile overlay to a map.
  */
-public class TileOverlayDemoActivity extends FragmentActivity {
+public class TileOverlayDemoActivity extends android.support.v4.app.FragmentActivity {
 
     /** This returns moon tiles. */
     private static final String MOON_MAP_URL_FORMAT =
@@ -43,12 +39,10 @@ public class TileOverlayDemoActivity extends FragmentActivity {
 
     private GoogleMap mMap;
 
-    private TileOverlay mMoonTiles;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tile_overlay_demo);
+        setContentView(R.layout.basic_demo);
         setUpMapIfNeeded();
     }
 
@@ -90,13 +84,6 @@ public class TileOverlayDemoActivity extends FragmentActivity {
             }
         };
 
-        mMoonTiles = mMap.addTileOverlay(new TileOverlayOptions().tileProvider(tileProvider));
-    }
-
-    public void setFadeIn(View v) {
-        if (mMoonTiles == null) {
-            return;
-        }
-        mMoonTiles.setFadeIn(((CheckBox) v).isChecked());
+        mMap.addTileOverlay(new TileOverlayOptions().tileProvider(tileProvider));
     }
 }

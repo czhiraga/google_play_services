@@ -21,7 +21,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -29,7 +28,7 @@ import android.widget.Toast;
 /**
  * This shows how UI settings can be toggled.
  */
-public class UiSettingsDemoActivity extends FragmentActivity {
+public class UiSettingsDemoActivity extends android.support.v4.app.FragmentActivity {
     private GoogleMap mMap;
     private UiSettings mUiSettings;
 
@@ -44,25 +43,6 @@ public class UiSettingsDemoActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
-
-        if (mMap != null) {
-            // Keep the UI Settings state in sync with the checkboxes.
-            mUiSettings.setZoomControlsEnabled(isChecked(R.id.zoom_buttons_toggle));
-            mUiSettings.setCompassEnabled(isChecked(R.id.compass_toggle));
-            mUiSettings.setMyLocationButtonEnabled(isChecked(R.id.mylocationbutton_toggle));
-            mMap.setMyLocationEnabled(isChecked(R.id.mylocationlayer_toggle));
-            mUiSettings.setScrollGesturesEnabled(isChecked(R.id.scroll_toggle));
-            mUiSettings.setZoomGesturesEnabled(isChecked(R.id.zoom_gestures_toggle));
-            mUiSettings.setTiltGesturesEnabled(isChecked(R.id.tilt_toggle));
-            mUiSettings.setRotateGesturesEnabled(isChecked(R.id.rotate_toggle));
-        }
-    }
-
-    /**
-     * Returns whether the checkbox with the given id is checked.
-     */
-    private boolean isChecked(int id) {
-      return ((CheckBox) findViewById(id)).isChecked();
     }
 
     private void setUpMapIfNeeded() {

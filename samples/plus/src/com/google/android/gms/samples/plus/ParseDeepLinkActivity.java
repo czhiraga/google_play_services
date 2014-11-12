@@ -20,10 +20,7 @@ import com.google.android.gms.plus.PlusShare;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.Toast;
 
 /**
  * Example of parsing a deep link from a Google+ post, and launching the corresponding activity.
@@ -35,7 +32,7 @@ public class ParseDeepLinkActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         String deepLinkId = PlusShare.getDeepLinkId(this.getIntent());
-        Intent target = processDeepLinkId(deepLinkId);
+        Intent target = parseDeepLinkId(deepLinkId);
         if (target != null) {
             startActivity(target);
         }
@@ -49,23 +46,13 @@ public class ParseDeepLinkActivity extends Activity {
      * @param deepLinkId The deep link ID to parse.
      * @return The intent corresponding to the deep link ID.
      */
-    private Intent processDeepLinkId(String deepLinkId) {
-        Intent route;
-
-        Uri uri = Uri.parse(deepLinkId);
-        if (uri.getPath().startsWith(getString(R.string.plus_example_deep_link_id))) {
-            route = new Intent().setClass(getApplicationContext(), SignInActivity.class);
-
-            // Check for the call-to-action query parameter, and perform an action.
-            String viewAction = uri.getQueryParameter("view");
-            if (!TextUtils.isEmpty(viewAction) && "true".equals(viewAction)) {
-                Toast.makeText(this, "Performed a view", Toast.LENGTH_LONG).show();
-            }
-
-        } else {
-            route = new Intent().setClass(getApplicationContext(), PlusSampleActivity.class);
+    private Intent parseDeepLinkId(String deepLinkId) {
+        if (deepLinkId.equals(ShareActivity.TAG)) {
+            Intent shareActivity = new Intent()
+                .setClass(getApplicationContext(), ShareActivity.class);
+            return shareActivity;
         }
 
-        return route;
+        return null;
     }
 }

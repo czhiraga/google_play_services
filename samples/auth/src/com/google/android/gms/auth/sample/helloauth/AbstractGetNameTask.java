@@ -41,11 +41,13 @@ public abstract class AbstractGetNameTask extends AsyncTask<Void, Void, Void>{
 
     protected String mScope;
     protected String mEmail;
+    protected int mRequestCode;
 
-    AbstractGetNameTask(HelloActivity activity, String email, String scope) {
+    AbstractGetNameTask(HelloActivity activity, String email, String scope, int requestCode) {
         this.mActivity = activity;
         this.mScope = scope;
         this.mEmail = email;
+        this.mRequestCode = requestCode;
     }
 
     @Override
@@ -96,11 +98,7 @@ public abstract class AbstractGetNameTask extends AsyncTask<Void, Void, Void>{
           is.close();
           return;
         } else if (sc == 401) {
-            try{
-                GoogleAuthUtil.clearToken(mActivity, token);
-            } catch (Exception e) {
-                onError("Server auth error, please try again.", e);
-            }
+            GoogleAuthUtil.invalidateToken(mActivity, token);
             onError("Server auth error, please try again.", null);
             Log.i(TAG, "Server auth error: " + readResponse(con.getErrorStream()));
             return;

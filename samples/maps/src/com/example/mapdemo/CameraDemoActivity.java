@@ -25,16 +25,14 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
 /**
  * This shows how to change the camera position for the map.
  */
-public class CameraDemoActivity extends FragmentActivity {
+public class CameraDemoActivity extends android.support.v4.app.FragmentActivity {
 
     /**
      * The amount by which to scroll the camera. Note that this amount is in raw pixels, not dp
@@ -42,14 +40,14 @@ public class CameraDemoActivity extends FragmentActivity {
      */
     private static final int SCROLL_BY_PX = 100;
 
-    public static final CameraPosition BONDI =
+    static final CameraPosition BONDI =
             new CameraPosition.Builder().target(new LatLng(-33.891614, 151.276417))
                     .zoom(15.5f)
                     .bearing(300)
                     .tilt(50)
                     .build();
 
-    public static final CameraPosition SYDNEY =
+    static final CameraPosition SYDNEY =
             new CameraPosition.Builder().target(new LatLng(-33.87365, 151.20689))
                     .zoom(15.5f)
                     .bearing(0)
@@ -58,28 +56,16 @@ public class CameraDemoActivity extends FragmentActivity {
 
     private GoogleMap mMap;
 
-    private CompoundButton mAnimateToggle;
-    private CompoundButton mCustomDurationToggle;
-    private SeekBar mCustomDurationBar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera_demo);
-
-        mAnimateToggle = (CompoundButton) findViewById(R.id.animate);
-        mCustomDurationToggle = (CompoundButton) findViewById(R.id.duration_toggle);
-        mCustomDurationBar = (SeekBar) findViewById(R.id.duration_bar);
-
-        updateEnabledState();
-
         setUpMapIfNeeded();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        updateEnabledState();
         setUpMapIfNeeded();
     }
 
@@ -98,7 +84,8 @@ public class CameraDemoActivity extends FragmentActivity {
         mMap.getUiSettings().setZoomControlsEnabled(false);
 
         // Show Sydney
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.87365, 151.20689), 10));
+        mMap.moveCamera(
+                CameraUpdateFactory.newLatLngZoom(new LatLng(-33.87365, 151.20689), 10));
     }
 
     /**
@@ -181,40 +168,7 @@ public class CameraDemoActivity extends FragmentActivity {
     }
 
     /**
-     * Called when the tilt more button (the one with the /) is clicked.
-     */
-    public void onTiltMore(View view) {
-        CameraPosition currentCameraPosition = mMap.getCameraPosition();
-        float currentTilt = currentCameraPosition.tilt;
-        float newTilt = currentTilt + 10;
-
-        newTilt = (newTilt > 90) ? 90 : newTilt;
-
-        CameraPosition cameraPosition = new CameraPosition.Builder(currentCameraPosition)
-                .tilt(newTilt).build();
-
-        changeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-    }
-
-    /**
-     * Called when the tilt less button (the one with the \) is clicked.
-     */
-    public void onTiltLess(View view) {
-        CameraPosition currentCameraPosition = mMap.getCameraPosition();
-
-        float currentTilt = currentCameraPosition.tilt;
-
-        float newTilt = currentTilt - 10;
-        newTilt = (newTilt > 0) ? newTilt : 0;
-
-        CameraPosition cameraPosition = new CameraPosition.Builder(currentCameraPosition)
-                .tilt(newTilt).build();
-
-        changeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-    }
-
-    /**
-     * Called when the left arrow button is clicked. This causes the camera to move to the left
+     * Called when the left arrow button is clicked.  This causes the camera to move to the left
      */
     public void onScrollLeft(View view) {
         if (!checkReady()) {
@@ -225,7 +179,7 @@ public class CameraDemoActivity extends FragmentActivity {
     }
 
     /**
-     * Called when the right arrow button is clicked. This causes the camera to move to the right.
+     * Called when the right arrow button is clicked.  This causes the camera to move to the right.
      */
     public void onScrollRight(View view) {
         if (!checkReady()) {
@@ -236,7 +190,7 @@ public class CameraDemoActivity extends FragmentActivity {
     }
 
     /**
-     * Called when the up arrow button is clicked. The causes the camera to move up.
+     * Called when the up arrow button is clicked.  The causes the camera to move up.
      */
     public void onScrollUp(View view) {
         if (!checkReady()) {
@@ -247,7 +201,7 @@ public class CameraDemoActivity extends FragmentActivity {
     }
 
     /**
-     * Called when the down arrow button is clicked. This causes the camera to move down.
+     * Called when the down arrow button is clicked.  This causes the camera to move down.
      */
     public void onScrollDown(View view) {
         if (!checkReady()) {
@@ -255,29 +209,6 @@ public class CameraDemoActivity extends FragmentActivity {
         }
 
         changeCamera(CameraUpdateFactory.scrollBy(0, SCROLL_BY_PX));
-    }
-
-    /**
-     * Called when the animate button is toggled
-     */
-    public void onToggleAnimate(View view) {
-        updateEnabledState();
-    }
-
-    /**
-     * Called when the custom duration checkbox is toggled
-     */
-    public void onToggleCustomDuration(View view) {
-        updateEnabledState();
-    }
-
-    /**
-     * Update the enabled state of the custom duration controls.
-     */
-    private void updateEnabledState() {
-        mCustomDurationToggle.setEnabled(mAnimateToggle.isChecked());
-        mCustomDurationBar
-            .setEnabled(mAnimateToggle.isChecked() && mCustomDurationToggle.isChecked());
     }
 
     private void changeCamera(CameraUpdate update) {
@@ -289,15 +220,10 @@ public class CameraDemoActivity extends FragmentActivity {
      * animate toggle button.
      */
     private void changeCamera(CameraUpdate update, CancelableCallback callback) {
-        if (mAnimateToggle.isChecked()) {
-            if (mCustomDurationToggle.isChecked()) {
-                int duration = mCustomDurationBar.getProgress();
-                // The duration must be strictly positive so we make it at least 1.
-                mMap.animateCamera(update, Math.max(duration, 1), callback);
-            } else {
-                mMap.animateCamera(update, callback);
-            }
-         } else {
+        boolean animated = ((CompoundButton) findViewById(R.id.animate)).isChecked();
+        if (animated) {
+            mMap.animateCamera(update, callback);
+        } else {
             mMap.moveCamera(update);
         }
     }

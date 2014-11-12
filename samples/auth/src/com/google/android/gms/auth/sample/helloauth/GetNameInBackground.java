@@ -34,8 +34,8 @@ import java.io.IOException;
  */
 public class GetNameInBackground extends AbstractGetNameTask {
 
-  public GetNameInBackground(HelloActivity activity, String email, String scope) {
-      super(activity, email, scope);
+  public GetNameInBackground(HelloActivity activity, String email, String scope, int requestCode) {
+      super(activity, email, scope, requestCode);
   }
 
   /**
@@ -51,8 +51,7 @@ public class GetNameInBackground extends AbstractGetNameTask {
                   mActivity, mEmail, mScope, null, makeCallback(mEmail));
       } catch (UserRecoverableNotifiedException userRecoverableException) {
           // Unable to authenticate, but the user can fix this.
-          // Because we've used getTokenWithNotification(), a Notification is
-          // created automatically so the user can recover from the error
+          // Forward the user to the appropriate activity.
           onError("Could not fetch token.", null);
       } catch (GoogleAuthException fatalException) {
           onError("Unrecoverable error " + fatalException.getMessage(), fatalException);
