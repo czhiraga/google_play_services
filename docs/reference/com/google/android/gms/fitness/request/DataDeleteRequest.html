@@ -563,17 +563,15 @@ type="text/css">
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourceListener.html">DataSourceListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/OnDataPointListener.html">OnDataPointListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html">DataDeleteRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.Builder.html">DataDeleteRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.html">DataInsertRequest</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.Builder.html">DataInsertRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.html">DataReadRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.Builder.html">DataReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourcesRequest.html">DataSourcesRequest</a></li>
@@ -588,7 +586,6 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.Builder.html">SessionReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.html">StartBleScanRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.Builder.html">StartBleScanRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/UnclaimBleDeviceRequest.html">UnclaimBleDeviceRequest</a></li>
       </ul>
     </li>
               
@@ -1000,6 +997,42 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             
             
             
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#deleteAllData()">deleteAllData</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns true if all data types are marked for deletion.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#deleteAllSessions()">deleteAllSessions</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns true if all sessions are marked for deletion.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1032,6 +1065,96 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             
             
             
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getDataSources()">getDataSources</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the list of data sources specified for data deletion.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getDataTypes()">getDataTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the list of data types specified for data deletion.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getEndTime(java.util.concurrent.TimeUnit)">getEndTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
+        
+        <div class="jd-descrdiv">Returns the end time of the query, in the given unit since epoch.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getSessions()">getSessions</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the list of sessions specified for deletion.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getStartTime(java.util.concurrent.TimeUnit)">getStartTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
+        
+        <div class="jd-descrdiv">Returns the start time of the query, in the given unit since epoch.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1041,7 +1164,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1057,7 +1180,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1425,6 +1548,69 @@ From interface
 
 
 
+<A NAME="deleteAllData()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">deleteAllData</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if all data types are marked for deletion.  Otherwise,
+ only the specified <code><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getDataTypes()">data types</a></code> and
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getDataSources()">data sources</a></code> will have their data deleted.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="deleteAllSessions()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">deleteAllSessions</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if all sessions are marked for deletion.  Otherwise, only the specified
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html#getSessions()">sessions</a></code> will be deleted.
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="describeContents()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1478,6 +1664,171 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDataSources()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a>&gt;
+      </span>
+      <span class="sympad">getDataSources</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the list of data sources specified for data deletion.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the data sources to have their data deleted, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDataTypes()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a>&gt;
+      </span>
+      <span class="sympad">getDataTypes</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the list of data types specified for data deletion.  All data sources for the
+ given data type will be deleted.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the data types to have their data deleted, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getEndTime(java.util.concurrent.TimeUnit)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getEndTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time of the query, in the given unit since epoch.  A valid end time is
+ always set.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getSessions()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a>&gt;
+      </span>
+      <span class="sympad">getSessions</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the list of sessions specified for deletion.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the sessions that will be deleted, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStartTime(java.util.concurrent.TimeUnit)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getStartTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time of the query, in the given unit since epoch.  A valid start time is
+ always set.
+</p></div>
 
     </div>
 </div>
@@ -1592,7 +1943,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

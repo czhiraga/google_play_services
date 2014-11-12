@@ -564,7 +564,6 @@ type="text/css">
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/AggregateDataTypes.html">AggregateDataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/BleDevice.html">BleDevice</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html">Bucket</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></li>
@@ -572,10 +571,8 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.Builder.html">DataSource.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html">DataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Device.html">Device</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Field.html">Field</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Fields.html">Fields</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.Builder.html">Session.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Subscription.html">Subscription</a></li>
@@ -770,28 +767,26 @@ Summary:
  Currently we allow buckets to be computed by only one of the following strategies:
  <ol>
  <li><b>time</b>: a time bucket can represent a full day, hour, or any other desired interval
- <li><b>activity type</b>: an activity type represents a
- <code><a href="../../../../../../../reference/com/google/android/gms/location/DetectedActivity.html">DetectedActivity</a></code>
- <li><b>activity segments</b>: an activity segment represents data for one activity segment
- <li><b>sessions</b>: a session bucket represents data for one session
+ <li><b>session</b>: a session bucket represents data for one session
+ <li><b>activity type</b>: an activity type represents one of the <code><a href="../../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">FitnessActivities</a></code>
+ <li><b>activity segments</b>: an activity segment represents data for one
+     <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_ACTIVITY_SEGMENT">activity segment</a></code>
  </ol>
  <p>
  A Bucket consists of the following fields:
  <ul>
- <li><b>startTimeMillis</b> denotes the start time of the bucket, in milliseconds since epoch.
-      This field is always present.
- <li><b>endTimeMillis</b> denotes the end time of the bucket, in milliseconds since epoch.
-      This field is always present.
+ <li><b>startTime</b> denotes the start time of the bucket. This field is always present.
+ <li><b>endTime</b> denotes the end time of the bucket.  This field is always present.
  <li><b>session</b> denotes the associated session with the bucket. This is an optional field
       that is set only if the read query had requested bucketing by sessions.
  <li><b>activity</b> denotes the associated activity with the bucket as defined in
-      <code><a href="../../../../../../../reference/com/google/android/gms/location/DetectedActivity.html">DetectedActivity</a></code>. This is an optional field and
+      <code><a href="../../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">FitnessActivities</a></code>. This is an optional field and
       is set only if the read query had requested bucketing of data by activity segments.
- <li><b>dataSets</b> <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSet.html">DataSets</a></code> for the aggregated <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataTypes</a></code>
+ <li><b>dataSets</b> <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSet.html">DataSets</a></code> for the aggregated <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">data types</a></code>
       requested in the read query over the time interval of this bucket.
  <li><b>bucketType</b> denotes if the bucketing is by time, session or activity. This field is
       always present and set to one of <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#TYPE_TIME">TYPE_TIME</a></code>, <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#TYPE_SESSION">TYPE_SESSION</a></code>,
-      <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#TYPE_ACTIVITY_SEGMENT">TYPE_ACTIVITY_SEGMENT</a></code> or {link Type#ACTIVITY_TYPE}.
+      <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#TYPE_ACTIVITY_SEGMENT">TYPE_ACTIVITY_SEGMENT</a></code> or <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#TYPE_ACTIVITY_TYPE">TYPE_ACTIVITY_TYPE</a></code>.
  </ul>
 </p>
 
@@ -1028,12 +1023,13 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             
             
             
-            int</nobr>
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#getActivity()">getActivity</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the activity of the bucket if bucketing by activity was requested, <code><a href="../../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#UNKNOWN">UNKNOWN</a></code> otherwise.</div>
+        <div class="jd-descrdiv">Returns the <code><a href="../../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">activity</a></code> of the bucket if bucketing by activity
+ was requested, or <code><a href="../../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html#UNKNOWN">UNKNOWN</a></code> otherwise.</div>
   
   </td></tr>
 
@@ -1103,9 +1099,9 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#getEndTimeMillis()">getEndTimeMillis</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#getEndTime(java.util.concurrent.TimeUnit)">getEndTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Returns the end time of the bucket, in milliseconds.</div>
+        <div class="jd-descrdiv">Returns the end time of the bucket, in the given time unit since epoch.</div>
   
   </td></tr>
 
@@ -1140,9 +1136,9 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#getStartTimeMillis()">getStartTimeMillis</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html#getStartTime(java.util.concurrent.TimeUnit)">getStartTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Returns the start time of the bucket, in milliseconds.</div>
+        <div class="jd-descrdiv">Returns the start time of the bucket, in the given time unit since epoch.</div>
   
   </td></tr>
 
@@ -1775,7 +1771,7 @@ From interface
          
          
          
-        int
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
       </span>
       <span class="sympad">getActivity</span>
       <span class="normal">()</span>
@@ -1788,7 +1784,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the activity of the bucket if bucketing by activity was requested, <code><a href="../../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#UNKNOWN">UNKNOWN</a></code> otherwise.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the <code><a href="../../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">activity</a></code> of the bucket if bucketing by activity
+ was requested, or <code><a href="../../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html#UNKNOWN">UNKNOWN</a></code> otherwise.
 </p></div>
 
     </div>
@@ -1886,7 +1883,7 @@ From interface
 </div>
 
 
-<A NAME="getEndTimeMillis()"></A>
+<A NAME="getEndTime(java.util.concurrent.TimeUnit)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1898,8 +1895,8 @@ From interface
          
         long
       </span>
-      <span class="sympad">getEndTimeMillis</span>
-      <span class="normal">()</span>
+      <span class="sympad">getEndTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1909,7 +1906,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time of the bucket, in milliseconds.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time of the bucket, in the given time unit since epoch.
 </p></div>
 
     </div>
@@ -1947,7 +1944,7 @@ From interface
 </div>
 
 
-<A NAME="getStartTimeMillis()"></A>
+<A NAME="getStartTime(java.util.concurrent.TimeUnit)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1959,8 +1956,8 @@ From interface
          
         long
       </span>
-      <span class="sympad">getStartTimeMillis</span>
-      <span class="normal">()</span>
+      <span class="sympad">getStartTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1970,7 +1967,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time of the bucket, in milliseconds.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time of the bucket, in the given time unit since epoch.
 </p></div>
 
     </div>
@@ -2086,7 +2083,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

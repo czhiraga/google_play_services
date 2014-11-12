@@ -564,7 +564,6 @@ type="text/css">
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/AggregateDataTypes.html">AggregateDataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/BleDevice.html">BleDevice</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html">Bucket</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></li>
@@ -572,10 +571,8 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.Builder.html">DataSource.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html">DataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Device.html">Device</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Field.html">Field</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Fields.html">Fields</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.Builder.html">Session.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Subscription.html">Subscription</a></li>
@@ -765,13 +762,15 @@ Summary:
 <p itemprop="articleBody">Represents a single data point in a <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">data type's</a></code> stream from a particular
  <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">data source</a></code>.  A data point holds a value for each field, a timestamp and an
  optional start time.  The exact semantics of each of these attributes is specified in the
- documentation for the particular data type, which can be found in <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html">DataTypes</a></code>.
+ documentation for the particular data type, which can be found in the appropriate constant in
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a></code>.
  <p>
  A data point can represent an instantaneous measurement, reading or inputted observation, as well
  as averages or aggregates over a time interval.  Check the data type documentation to determine
  which is the case for a particular data type.
  <p>
- DataPoints always contain one value for each the data type <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Field.html">field</a></code>.
+ DataPoints always contain one value for each the data type
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Field.html">field</a></code>.
  Initially, all of the values are unset.  After creating the data point, the appropriate values
  and timestamps should be set.
 </p>
@@ -1048,9 +1047,9 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getEndTimeNanos()">getEndTimeNanos</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getEndTime(java.util.concurrent.TimeUnit)">getEndTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Returns the end time of the interval represented by this data point, in nanoseconds since
+        <div class="jd-descrdiv">Returns the end time of the interval represented by this data point, in the given unit since
  epoch.</div>
   
   </td></tr>
@@ -1085,10 +1084,10 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getStartTimeNanos()">getStartTimeNanos</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getStartTime(java.util.concurrent.TimeUnit)">getStartTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Returns the start time of the interval represented by this data point, in nanoseconds since
- epoch.</div>
+        <div class="jd-descrdiv">Returns the start time of the interval represented by this data point,
+ in the given unit since epoch.</div>
   
   </td></tr>
 
@@ -1104,9 +1103,9 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getTimestampNanos()">getTimestampNanos</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getTimestamp(java.util.concurrent.TimeUnit)">getTimestamp</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Returns the timestamp of the data point, in nanoseconds since epoch.</div>
+        <div class="jd-descrdiv">Returns the timestamp of the data point, in the given unit since epoch.</div>
   
   </td></tr>
 
@@ -1192,9 +1191,9 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimeInterval(long, long, java.util.concurrent.TimeUnit)">setTimeInterval</a></span>(long startTime, long endTime, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> unit)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimeInterval(long, long, java.util.concurrent.TimeUnit)">setTimeInterval</a></span>(long startTime, long endTime, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Sets the time interval of the data point in a given unit.</div>
+        <div class="jd-descrdiv">Sets the time interval of a data point that represents an interval of time.</div>
   
   </td></tr>
 
@@ -1210,47 +1209,10 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimeIntervalNanos(long, long)">setTimeIntervalNanos</a></span>(long startTimeNanos, long endTimeNanos)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimestamp(long, java.util.concurrent.TimeUnit)">setTimestamp</a></span>(long timestamp, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Sets the time interval for the data point, in case it represents an aggregation or average
- over a period of time.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimestamp(long, java.util.concurrent.TimeUnit)">setTimestamp</a></span>(long timestamp, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> unit)</nobr>
-        
-        <div class="jd-descrdiv">Sets the timestamp of the data point in a given unit.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimestampNanos(long)">setTimestampNanos</a></span>(long timestampNanos)</nobr>
-        
-        <div class="jd-descrdiv">Sets the timestamp of the data point, in case the data point represents an instantaneous
- reading, measurement, or input.</div>
+        <div class="jd-descrdiv">Sets the timestamp of a data point that represent an instantaneous reading,
+ measurement, or input.</div>
   
   </td></tr>
 
@@ -1830,7 +1792,7 @@ From interface
 </div>
 
 
-<A NAME="getEndTimeNanos()"></A>
+<A NAME="getEndTime(java.util.concurrent.TimeUnit)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1842,8 +1804,8 @@ From interface
          
         long
       </span>
-      <span class="sympad">getEndTimeNanos</span>
-      <span class="normal">()</span>
+      <span class="sympad">getEndTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1853,8 +1815,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time of the interval represented by this data point, in nanoseconds since
- epoch.  This method is equivalent to <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getTimestampNanos()">getTimestampNanos()</a></code>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time of the interval represented by this data point, in the given unit since
+ epoch.  This method is equivalent to <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#getTimestamp(java.util.concurrent.TimeUnit)">getTimestamp(TimeUnit)</a></code>
 </p></div>
 
     </div>
@@ -1899,7 +1861,7 @@ From interface
 </div>
 
 
-<A NAME="getStartTimeNanos()"></A>
+<A NAME="getStartTime(java.util.concurrent.TimeUnit)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1911,8 +1873,8 @@ From interface
          
         long
       </span>
-      <span class="sympad">getStartTimeNanos</span>
-      <span class="normal">()</span>
+      <span class="sympad">getStartTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1922,15 +1884,15 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time of the interval represented by this data point, in nanoseconds since
- epoch.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time of the interval represented by this data point,
+ in the given unit since epoch.
 </p></div>
 
     </div>
 </div>
 
 
-<A NAME="getTimestampNanos()"></A>
+<A NAME="getTimestamp(java.util.concurrent.TimeUnit)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1942,8 +1904,8 @@ From interface
          
         long
       </span>
-      <span class="sympad">getTimestampNanos</span>
-      <span class="normal">()</span>
+      <span class="sympad">getTimestamp</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1953,7 +1915,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the timestamp of the data point, in nanoseconds since epoch.  For data points that
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the timestamp of the data point, in the given unit since epoch.  For data points that
  represent intervals, this method will return the end time.
 </p></div>
 
@@ -2135,7 +2097,7 @@ From interface
         <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a>
       </span>
       <span class="sympad">setTimeInterval</span>
-      <span class="normal">(long startTime, long endTime, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> unit)</span>
+      <span class="normal">(long startTime, long endTime, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -2145,8 +2107,16 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the time interval of the data point in a given unit.
- See <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimeIntervalNanos(long, long)">setTimeIntervalNanos(long, long)</a></code> for more details.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the time interval of a data point that represents an interval of time.  For data points
+ that represent instantaneous readings, <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimestamp(long, java.util.concurrent.TimeUnit)">setTimestamp(long, TimeUnit)</a></code> should be used.
+ <p>
+ Examples of data types that represent intervals include:
+ <ul>
+ <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_STEP_COUNT_DELTA">TYPE_STEP_COUNT_DELTA</a></code>
+ <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_ACTIVITY_SEGMENT">TYPE_ACTIVITY_SEGMENT</a></code>
+ <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_DISTANCE_DELTA">TYPE_DISTANCE_DELTA</a></code>
+ </ul>
+ Google Fit accepts timestamps with up to nanosecond granularity.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2159,60 +2129,8 @@ From interface
           <td>the end time in the given unit, representing elapsed time since epoch</td>
         </tr>
         <tr>
-          <th>unit</td>
-          <td>the unit of both start and end timestamps
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setTimeIntervalNanos(long, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a>
-      </span>
-      <span class="sympad">setTimeIntervalNanos</span>
-      <span class="normal">(long startTimeNanos, long endTimeNanos)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the time interval for the data point, in case it represents an aggregation or average
- over a period of time.  For data points that represent instantaneous samples,
- <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimestampNanos(long)">setTimestampNanos(long)</a></code> should be used.
- <p>
- Examples of data types that represent intervals include:
- <ul>
- <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html#STEP_COUNT_DELTA">STEP_COUNT_DELTA</a></code>
- <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html#ACTIVITY_SEGMENT">ACTIVITY_SEGMENT</a></code>
- <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html#DISTANCE_DELTA">DISTANCE_DELTA</a></code>
- </ul></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>startTimeNanos</td>
-          <td>the start time of the interval, in nanoseconds since epoch</td>
-        </tr>
-        <tr>
-          <th>endTimeNanos</td>
-          <td>the end time of the interval, in nanoseconds since epoch
+          <th>timeUnit</td>
+          <td>the time unit of both start and end timestamps
 </td>
         </tr>
       </table>
@@ -2235,7 +2153,7 @@ From interface
         <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a>
       </span>
       <span class="sympad">setTimestamp</span>
-      <span class="normal">(long timestamp, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> unit)</span>
+      <span class="normal">(long timestamp, <a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -2245,8 +2163,20 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the timestamp of the data point in a given unit.
- See <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimestampNanos(long)">(long)</a></code> for more details.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the timestamp of a data point that represent an instantaneous reading,
+ measurement, or input.  For data points that represent intervals,
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimeInterval(long, long, java.util.concurrent.TimeUnit)">setTimeInterval(long, long, TimeUnit)</a></code> should be used.
+ <p>
+ Examples of data types with instantaneous timestamp include:
+ <ul>
+ <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_ACTIVITY_SAMPLE">TYPE_ACTIVITY_SAMPLE</a></code>
+ <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_HEART_RATE_BPM">TYPE_HEART_RATE_BPM</a></code>
+ <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_LOCATION_SAMPLE">TYPE_LOCATION_SAMPLE</a></code>
+ <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_SPEED">TYPE_SPEED</a></code>
+ </ul>
+ Google Fit accepts timestamps with up to nanosecond granularity for all
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataTypes</a></code> with the exception of <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_LOCATION_SAMPLE">location</a></code>, which supports only timestamps with millisecond precision. If the timestamp has
+ more than millisecond granularity for a location, the extra precision will be lost.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2255,57 +2185,8 @@ From interface
           <td>the timestamp in the given unit, representing elapsed time since epoch</td>
         </tr>
         <tr>
-          <th>unit</td>
+          <th>timeUnit</td>
           <td>the unit of the given timestamp
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setTimestampNanos(long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a>
-      </span>
-      <span class="sympad">setTimestampNanos</span>
-      <span class="normal">(long timestampNanos)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the timestamp of the data point, in case the data point represents an instantaneous
- reading, measurement, or input.  For data points that represent intervals,
- <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html#setTimeIntervalNanos(long, long)">setTimeIntervalNanos(long, long)</a></code> should be used.
- <p>
- Examples of data types with instantaneous timestamp include:
- <ul>
- <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html#ACTIVITY_SAMPLE">ACTIVITY_SAMPLE</a></code>
- <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html#HEART_RATE_BPM">HEART_RATE_BPM</a></code>
- <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html#LOCATION_SAMPLE">LOCATION_SAMPLE</a></code>
- <li><code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html#SPEED">SPEED</a></code>
- </ul></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>timestampNanos</td>
-          <td>the time of the reading, in nanoseconds since epoch.
 </td>
         </tr>
       </table>
@@ -2395,7 +2276,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

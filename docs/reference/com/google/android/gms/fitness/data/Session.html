@@ -564,7 +564,6 @@ type="text/css">
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/AggregateDataTypes.html">AggregateDataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/BleDevice.html">BleDevice</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html">Bucket</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></li>
@@ -572,10 +571,8 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.Builder.html">DataSource.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html">DataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Device.html">Device</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Field.html">Field</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Fields.html">Fields</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.Builder.html">Session.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Subscription.html">Subscription</a></li>
@@ -671,6 +668,9 @@ Summary:
 
 
 
+
+  &#124; <a href="#constants">Constants</a>
+  
 
 
   &#124; <a href="#inhconstants">Inherited Constants</a>
@@ -774,11 +774,10 @@ Summary:
  <p>
  A session consists of the following fields:
  <ul>
- <li>startTimeMillis: the time when the session started, in milliseconds since epoch. This is
-     a mandatory field.
- <li>endTimeMillis: the time when the session ended, in milliseconds since epoch. If not
-     specified, the session is considered to be still ongoing. If specified, the end time should
-     be strictly later than the start time. This is an optional field.
+ <li>startTime: the timestamp when the session started. This is a mandatory field.
+ <li>endTimeMillis: the timestamp when the session ended. If not specified, the session is
+     considered to be still ongoing. If specified, the end time should be strictly later than
+     the start time. This is an optional field.
  <li>name: a human readable name, possibly specified by the user. For instance, "Sunday bike ride"
  <li>identifier: a unique identifier for the session. Should be unique for the given application
      and user. The application can use this identifier to later fetch a particular session.
@@ -797,8 +796,8 @@ Summary:
           .setName(sessionName)
           .setIdentifier(identifier)
           .setDescription(description)
-          .setStartTimeMillis(startTime.getMillis())
-          .setEndTimeMillis(endTime.getMillis())
+          .setStartTime(startTime, TimeUnit.MILLISECONDS)
+          .setEndTime(endTime, TimeUnit.MILLISECONDS)
           .setActivity(FitnessActivities.BIKING)
           .build();
  </pre></p>
@@ -864,6 +863,29 @@ Summary:
 
 
 
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#EXTRA_SESSION">EXTRA_SESSION</a></td>
+        <td class="jd-descrcol" width="100%">Name for the parcelable intent extra containing a session.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#MIME_TYPE_PREFIX">MIME_TYPE_PREFIX</a></td>
+        <td class="jd-descrcol" width="100%">The common prefix for session MIME types.</td>
+    </tr>
+    
+    
+
+</table>
 
 
 
@@ -1029,8 +1051,11 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#extract(android.content.Intent)">extract</a></span>(<a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a> intent)</nobr>
         
-        <div class="jd-descrdiv">Extracts a session from a callback intent received after registering to session start/end
- notifications with a PendingIntent.</div>
+        <div class="jd-descrdiv">Extracts the session extra from the given intent, such as a callback intent received
+ after
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#registerForSessions(com.google.android.gms.common.api.GoogleApiClient, android.app.PendingIntent)">registering</a></code>
+ to session start/end notifications, or an intent to
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/SessionsApi.ViewIntentBuilder.html">view a session</a></code>.</div>
   
   </td></tr>
 
@@ -1043,7 +1068,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             
             
             
-            int</nobr>
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getActivity()">getActivity</a></span>()</nobr>
@@ -1100,9 +1125,9 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getEndTimeMillis()">getEndTimeMillis</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getEndTime(java.util.concurrent.TimeUnit)">getEndTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Returns the end time for the session, in milliseconds since epoch.</div>
+        <div class="jd-descrdiv">Returns the end time for the session, in the given unit since epoch.</div>
   
   </td></tr>
 
@@ -1131,6 +1156,24 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             
             
             
+            static
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getMimeType(java.lang.String)">getMimeType</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> activity)</nobr>
+        
+        <div class="jd-descrdiv">Returns the MIME type which describes a Session for a particular activity.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
             
             
             <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
@@ -1144,7 +1187,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1154,15 +1197,15 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getStartTimeMillis()">getStartTimeMillis</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getStartTime(java.util.concurrent.TimeUnit)">getStartTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
         
-        <div class="jd-descrdiv">Returns the start time for the session, in milliseconds since epoch.</div>
+        <div class="jd-descrdiv">Returns the start time for the session, in the given time unit since epoch.</div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1178,7 +1221,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1196,7 +1239,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1212,7 +1255,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1526,6 +1569,97 @@ From interface
 <!-- Constants -->
 
 
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="EXTRA_SESSION"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
+      </span>
+        EXTRA_SESSION
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Name for the parcelable intent extra containing a session.  It can be
+ extracted using <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#extract(android.content.Intent)">extract(Intent)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "vnd.google.fitness.session"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="MIME_TYPE_PREFIX"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
+      </span>
+        MIME_TYPE_PREFIX
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The common prefix for session MIME types.  The MIME type for a particular
+ session will be this prefix followed by the session's activity name.  Examples:
+ <pre>
+ vnd.google.fitness.session/running
+ vnd.google.fitness.session/volleyball.beach
+ </pre>
+ The session's activity type is returned by <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getActivity()">getActivity()</a></code>.  The MIME
+ type can be computed from the activity using <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html#getMimeType(java.lang.String)">getMimeType(String)</a></code>
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "vnd.google.fitness.session/"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
 <!-- Fields -->
 
 
@@ -1661,8 +1795,11 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Extracts a session from a callback intent received after registering to session start/end
- notifications with a PendingIntent.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Extracts the session extra from the given intent, such as a callback intent received
+ after
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#registerForSessions(com.google.android.gms.common.api.GoogleApiClient, android.app.PendingIntent)">registering</a></code>
+ to session start/end notifications, or an intent to
+ <code><a href="../../../../../../../reference/com/google/android/gms/fitness/SessionsApi.ViewIntentBuilder.html">view a session</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the extracted Session, or <code>null</code> if the given intent does not contain a
@@ -1684,7 +1821,7 @@ From interface
          
          
          
-        int
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
       </span>
       <span class="sympad">getActivity</span>
       <span class="normal">()</span>
@@ -1767,7 +1904,7 @@ From interface
 </div>
 
 
-<A NAME="getEndTimeMillis()"></A>
+<A NAME="getEndTime(java.util.concurrent.TimeUnit)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1779,8 +1916,8 @@ From interface
          
         long
       </span>
-      <span class="sympad">getEndTimeMillis</span>
-      <span class="normal">()</span>
+      <span class="sympad">getEndTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1790,7 +1927,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time for the session, in milliseconds since epoch.  If the session is
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time for the session, in the given unit since epoch.  If the session is
  ongoing (it hasn't ended yet), this will return 0.
 </p></div>
 
@@ -1828,6 +1965,47 @@ From interface
 </div>
 
 
+<A NAME="getMimeType(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getMimeType</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> activity)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the MIME type which describes a Session for a particular activity.  The MIME type
+ is used in intents such as the <code><a href="../../../../../../../reference/com/google/android/gms/fitness/SessionsApi.ViewIntentBuilder.html">session view</a></code>
+ intent.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>activity</td>
+          <td>one of the activities in <code><a href="../../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">FitnessActivities</a></code>.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="getName()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1858,7 +2036,7 @@ From interface
 </div>
 
 
-<A NAME="getStartTimeMillis()"></A>
+<A NAME="getStartTime(java.util.concurrent.TimeUnit)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1870,8 +2048,8 @@ From interface
          
         long
       </span>
-      <span class="sympad">getStartTimeMillis</span>
-      <span class="normal">()</span>
+      <span class="sympad">getStartTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1881,8 +2059,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time for the session, in milliseconds since epoch.  A valid start time is
- always set.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time for the session, in the given time unit since epoch.  A valid start
+ time is always set.
 </p></div>
 
     </div>
@@ -2028,7 +2206,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

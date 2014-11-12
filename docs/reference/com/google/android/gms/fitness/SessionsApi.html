@@ -576,11 +576,9 @@ type="text/css">
       <ul>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/Fitness.html">Fitness</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">FitnessActivities</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessIntents.html">FitnessIntents</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessScopes.html">FitnessScopes</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessStatusCodes.html">FitnessStatusCodes</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/ViewDataIntentBuilder.html">ViewDataIntentBuilder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/ViewSessionIntentBuilder.html">ViewSessionIntentBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.ViewIntentBuilder.html">HistoryApi.ViewIntentBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.ViewIntentBuilder.html">SessionsApi.ViewIntentBuilder</a></li>
       </ul>
     </li>
               
@@ -694,23 +692,23 @@ type="text/css">
 
 
 <h2>Class Overview</h2>
-<p itemprop="articleBody">The Google Fit Sessions API provides methods for managing <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Sessions</a></code>.
+<p itemprop="articleBody">API for creating and managing <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Session.html">sessions</a></code> of user activity in Google Fit.
  Sessions are a way of storing user-visible groups of related stream data in a useful and
  shareable manner, and allow for easy querying of the data in a detailed or aggregated fashion.
  <p>
- The <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#startSession(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.data.Session)">startSession(GoogleApiClient, com.google.android.gms.fitness.data.Session)</a></code> and
- <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#stopSession(com.google.android.gms.common.api.GoogleApiClient, java.lang.String, java.lang.String)">stopSession(GoogleApiClient, String, String)</a></code> methods mark the time range of the session.
+ The <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#startSession(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.data.Session)">startSession(GoogleApiClient, Session)</a></code> and
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#stopSession(com.google.android.gms.common.api.GoogleApiClient, java.lang.String)">stopSession(GoogleApiClient, String)</a></code> methods mark the time range of the session.
  Data inserted using the <code><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.html">HistoryApi</a></code> during the period where the session is in progress
  will be associated with that Session once it is stopped.
  <p>
  Another way of adding sessions is with
- <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#insertSession(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.request.SessionInsertRequest)">insertSession(GoogleApiClient, com.google.android.gms.fitness.request.SessionInsertRequest)</a></code>.  This is designed for bulk
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#insertSession(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.request.SessionInsertRequest)">insertSession(GoogleApiClient, SessionInsertRequest)</a></code>.  This is designed for bulk
  insertion when importing a user's historic data into Google Fit; for live sessions use the
  previous API.  All data in Google Fit that falls within the time range of an inserted session
  will be implicitly associated with that session.
  <p>
  Once a session has been saved, it can be retrieved using
- <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#readSession(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.request.SessionReadRequest)">readSession(GoogleApiClient, com.google.android.gms.fitness.request.SessionReadRequest)</a></code>.
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#readSession(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.request.SessionReadRequest)">readSession(GoogleApiClient, SessionReadRequest)</a></code>.
  <p>
  Clients can register to be notified of sessions, and remove existing registrations, using
  <code><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#registerForSessions(com.google.android.gms.common.api.GoogleApiClient, android.app.PendingIntent)">registerForSessions(GoogleApiClient, PendingIntent)</a></code> and
@@ -718,7 +716,7 @@ type="text/css">
  sessions when they are started and stopped.
  <p>
  Deleting sessions is handled like any other data deletion, via
- <code><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.html#deleteData(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.request.DataDeleteRequest)">deleteData(GoogleApiClient, com.google.android.gms.fitness.request.DataDeleteRequest)</a></code>.
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.html#deleteData(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.request.DataDeleteRequest)">deleteData(GoogleApiClient, DataDeleteRequest)</a></code>.
  <p>
  The Sessions API should be accessed via the <code><a href="../../../../../../reference/com/google/android/gms/fitness/Fitness.html">Fitness</a></code> entry point.  Example:
  <pre>
@@ -732,13 +730,11 @@ type="text/css">
          .setName(sessionName)
          .setIdentifier(identifier)
          .setDescription(description)
-         .setStartTimeMillis(startTime.getMillis())
+         .setStartTimeMillis(startTime.getMillis(), TimeUnit.MILLISECONDS)
          .build();
 
-     PendingResult&lt;Status&gt; pendingResult = Fitness.SessionsApi.startSession(
-         client, session);
-
-     Status status = pendingResult.await();
+     PendingResult&lt;Status&gt; pendingResult
+         = Fitness.SessionsApi.startSession(client, session);
  </pre>
 </p>
 
@@ -767,6 +763,26 @@ type="text/css">
 
 
 <h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.ViewIntentBuilder.html">SessionsApi.ViewIntentBuilder</a></td>
+      <td class="jd-descrcol" width="100%">Builder of intents to view <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Session.html">sessions</a></code> stored in Google Fit.&nbsp;</td>
+    </tr>
+    
+    
 
 
 
@@ -884,7 +900,7 @@ type="text/css">
             <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/fitness/result/SessionStopResult.html">SessionStopResult</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#stopSession(com.google.android.gms.common.api.GoogleApiClient, java.lang.String, java.lang.String)">stopSession</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> name, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> identifier)</nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#stopSession(com.google.android.gms.common.api.GoogleApiClient, java.lang.String)">stopSession</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> identifier)</nobr>
         
         <div class="jd-descrdiv">Stops active sessions for the current application.</div>
   
@@ -904,7 +920,7 @@ type="text/css">
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.html#unregisterForSessions(com.google.android.gms.common.api.GoogleApiClient, android.app.PendingIntent)">unregisterForSessions</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
         
-        <div class="jd-descrdiv">Unregisters for notifications of session start & end events using a PendingIntent.</div>
+        <div class="jd-descrdiv">Unregisters from session start and end notifications using a <code><a href="http://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a></code>.</div>
   
   </td></tr>
 
@@ -982,7 +998,7 @@ type="text/css">
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts specified <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></code> and corresponding data into the user's Google Fit store
  on behalf of the current application.  Useful for bulk upload of a previously recorded
- Session.</p></div>
+ session.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -993,7 +1009,7 @@ type="text/css">
         </tr>
         <tr>
           <th>request</td>
-          <td>the <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></code> and its associated data that we are adding, which includes
+          <td>the <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></code> and its associated data, which includes
       details of the session and data set for data source(s).
 </td>
         </tr>
@@ -1039,8 +1055,8 @@ type="text/css">
         </tr>
         <tr>
           <th>request</td>
-          <td>a built request specifying the specific session or time interval and/or
-      data type we are interested in reading.</td>
+          <td>a built request specifying the specific session, time interval and/or
+      data type for the query</td>
         </tr>
       </table>
   </div>
@@ -1085,15 +1101,15 @@ type="text/css">
  application can use <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Session.html#extract(android.content.Intent)">extract(android.content.Intent)</a></code> to extract the Session
  from the intent.  In addition, the following Intent extras can be used:
  <ul>
-     <li><code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessIntents.html#EXTRA_START_TIME">EXTRA_START_TIME</a></code> set to the Session's start time.
-     <li><code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessIntents.html#EXTRA_END_TIME">EXTRA_END_TIME</a></code> optionally set to the Session's end time if
+     <li><code><a href="../../../../../../reference/com/google/android/gms/fitness/Fitness.html#EXTRA_START_TIME">EXTRA_START_TIME</a></code> set to the Session's start time.
+     <li><code><a href="../../../../../../reference/com/google/android/gms/fitness/Fitness.html#EXTRA_END_TIME">EXTRA_END_TIME</a></code> optionally set to the Session's end time if
          the session has ended.
  </ul>
  <p>
  Finally, the Intent's type will be set to
- <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessIntents.html#MIME_TYPE_ACTIVITY_PREFIX">MIME_TYPE_ACTIVITY_PREFIX</a></code> followed by the name of the activity
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html#MIME_TYPE_PREFIX">MIME_TYPE_PREFIX</a></code> followed by the name of the activity
  associated with this session, and can be computed by
- <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessIntents.html#getActivityMimeType(int)">getActivityMimeType(int)</a></code>.</p></div>
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html#getMimeType(java.lang.String)">getMimeType(String)</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1169,7 +1185,7 @@ type="text/css">
 </div>
 
 
-<A NAME="stopSession(com.google.android.gms.common.api.GoogleApiClient, java.lang.String, java.lang.String)"></A>
+<A NAME="stopSession(com.google.android.gms.common.api.GoogleApiClient, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1182,7 +1198,7 @@ type="text/css">
         <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/fitness/result/SessionStopResult.html">SessionStopResult</a>&gt;
       </span>
       <span class="sympad">stopSession</span>
-      <span class="normal">(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> name, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> identifier)</span>
+      <span class="normal">(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> identifier)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1202,12 +1218,9 @@ type="text/css">
           <td>an existing GoogleApiClient.  Must be connected at the time of this call.</td>
         </tr>
         <tr>
-          <th>name</td>
-          <td>the name of the session to stop.</td>
-        </tr>
-        <tr>
           <th>identifier</td>
-          <td>the identifier of the session to stop.</td>
+          <td>the identifier of the session to stop.  If <code>null</code> is passed all
+     active sessions will be stopped.</td>
         </tr>
       </table>
   </div>
@@ -1253,7 +1266,7 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Unregisters for notifications of session start & end events using a PendingIntent.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Unregisters from session start and end notifications using a <code><a href="http://developer.android.com/reference/android/app/PendingIntent.html">PendingIntent</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1305,7 +1318,7 @@ type="text/css">
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

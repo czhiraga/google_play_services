@@ -563,17 +563,15 @@ type="text/css">
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourceListener.html">DataSourceListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/OnDataPointListener.html">OnDataPointListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html">DataDeleteRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.Builder.html">DataDeleteRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.html">DataInsertRequest</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.Builder.html">DataInsertRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.html">DataReadRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.Builder.html">DataReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourcesRequest.html">DataSourcesRequest</a></li>
@@ -588,7 +586,6 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.Builder.html">SessionReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.html">StartBleScanRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.Builder.html">StartBleScanRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/UnclaimBleDeviceRequest.html">UnclaimBleDeviceRequest</a></li>
       </ul>
     </li>
               
@@ -1336,8 +1333,8 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the accuracy policy (mode) expected by the application.  The Accuracy mode is passed
  along to the underlying data source.  Setting this value has a direct impact in battery
- usage: i.e. a high accuracy can improve the quality of the data collected at a higher
- battery consumption.
+ usage: i.e. a high accuracy can improve the quality of the data collected at the
+ expense of higher battery consumption.
  <p>
  The accuracy mode is a hint to the system.  If no accuracy is specified, or if the
  underlying data source does not support it, a balanced policy is used.
@@ -1392,7 +1389,7 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>dataSource</td>
-          <td>the data source from which we want to receive real time events
+          <td>the data source from which we want to receive live events
 </td>
         </tr>
       </table>
@@ -1435,7 +1432,7 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>dataType</td>
-          <td>the data type for which we want to receive real time events
+          <td>the data type for which we want to receive live events
 </td>
         </tr>
       </table>
@@ -1474,7 +1471,7 @@ From class
  <pre>
      builder.setFastestRate(5, TimeUnit.SECONDS)
  </pre>
- If the sampling rate is unspecified, a default rate will be used.  The default rate is
+ If the fastest rate is unspecified, a default rate will be used.  The default rate is
  data type specific.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -1522,7 +1519,8 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Sets the maximum latency between a data point being detected and reported to the
  application.  The max delivery latency is passed along to the underlying data source and
  used to enable batching.  Batching can save battery by reducing the number of times the
- AP is awaken, and the number of network transfers for companion data sources.
+ Application Processor is awaken, and the number of network transfers for external data
+ sources.
  <p>
  The max latency is a hint to the system, and events can be received faster or slower
  than the specified interval.  If no interval is specified, or if the underlying data
@@ -1628,7 +1626,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the timeout for the registration for the sensor request to expire. Registration
  for this sensor request will automatically expire after this time and app
- will stop getting real-time sensor updates.
+ will stop getting live sensor updates.
  <p>
  This timeout is intended to avoid situations where an app fails to unregister from a
  sensor request. If apps do not set a timeout value, a default timeout will be chosen
@@ -1674,7 +1672,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

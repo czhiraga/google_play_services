@@ -563,17 +563,15 @@ type="text/css">
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourceListener.html">DataSourceListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/OnDataPointListener.html">OnDataPointListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html">DataDeleteRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.Builder.html">DataDeleteRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.html">DataInsertRequest</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.Builder.html">DataInsertRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.html">DataReadRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.Builder.html">DataReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourcesRequest.html">DataSourcesRequest</a></li>
@@ -588,7 +586,6 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.Builder.html">SessionReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.html">StartBleScanRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.Builder.html">StartBleScanRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/UnclaimBleDeviceRequest.html">UnclaimBleDeviceRequest</a></li>
       </ul>
     </li>
               
@@ -783,7 +780,7 @@ Summary:
  for each session:
  <pre>
      new SessionReadRequest.Builder()
-         .setTimeInterval(startTime.getMillis(), endTime.getMillis())
+         .setTimeInterval(startTime.getMillis(), endTime.getMillis(), TimeUnit.MILLISECONDS)
          .read(DataTypes.LOCATION_SAMPLE)
          .build();
  </pre>
@@ -1014,11 +1011,157 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             
             
             
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#getDataSources()">getDataSources</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the data sources to be read in this request.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#getDataTypes()">getDataTypes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the data types for which default data sources should be read in this request.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#getEndTime(java.util.concurrent.TimeUnit)">getEndTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
+        
+        <div class="jd-descrdiv">Returns the end time for our query, in the given time unit
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#getExcludedPackages()">getExcludedPackages</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns any app package names that were excluded from the request.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#getSessionId()">getSessionId</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the session id we are requesting data for.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#getSessionName()">getSessionName</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the session name we are requesting data for.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            long</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#getStartTime(java.util.concurrent.TimeUnit)">getStartTime</a></span>(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</nobr>
+        
+        <div class="jd-descrdiv">Returns the start time for our query, in the given time unit
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#hashCode()">hashCode</a></span>()</nobr>
         
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.html#includeSessionsFromAllApps()">includeSessionsFromAllApps</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns true if the read data should include sessions from other apps.</div>
+  
   </td></tr>
 
 
@@ -1465,6 +1608,236 @@ From interface
 </div>
 
 
+<A NAME="getDataSources()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a>&gt;
+      </span>
+      <span class="sympad">getDataSources</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the data sources to be read in this request.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the specified data sources, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDataTypes()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a>&gt;
+      </span>
+      <span class="sympad">getDataTypes</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the data types for which default data sources should be read in this request.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the specified data types, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getEndTime(java.util.concurrent.TimeUnit)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getEndTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the end time for our query, in the given time unit
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getExcludedPackages()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getExcludedPackages</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns any app package names that were excluded from the request.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of excluded packages, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSessionId()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getSessionId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the session id we are requesting data for.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the specified session identifier, or <code>null</code> if unspecified
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSessionName()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getSessionName</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the session name we are requesting data for.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the specified session name, or <code>null</code> if unspecified
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStartTime(java.util.concurrent.TimeUnit)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getStartTime</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/util/concurrent/TimeUnit.html">TimeUnit</a> timeUnit)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the start time for our query, in the given time unit
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="hashCode()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1489,6 +1862,36 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="includeSessionsFromAllApps()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">includeSessionsFromAllApps</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if the read data should include sessions from other apps.
+</p></div>
 
     </div>
 </div>
@@ -1574,7 +1977,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

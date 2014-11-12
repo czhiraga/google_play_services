@@ -564,7 +564,6 @@ type="text/css">
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/AggregateDataTypes.html">AggregateDataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/BleDevice.html">BleDevice</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Bucket.html">Bucket</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a></li>
@@ -572,10 +571,8 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSource.Builder.html">DataSource.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataTypes.html">DataTypes</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Device.html">Device</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Field.html">Field</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Fields.html">Fields</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.Builder.html">Session.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/data/Subscription.html">Subscription</a></li>
@@ -768,12 +765,12 @@ Summary:
  <p>
  Here's a sample usage for populating a data source with activity data:
  <pre>
-     DataType dataType = DataTypes.ACTIVITY_EDGE;
-     DataSet dataSet = DataSet.create(dataSource, dataType);
-     for (ActivityEdge activityEdge : getActivityEdges()) {
+     DataType dataType = DataTypes.ACTIVITY_SEGMENT;
+     DataSet dataSet = DataSet.create(dataSource);
+     for (ActivitySegment segment : getActivitySegments()) {
        dataSet.add(dataSet.createDataPoint()
-           .setTimestampNanos(TimeUnit.MILLIS.toNanos(activityEdge.getTime().getMillis()))
-           .setValues(activityEdge.getActivity(), activityEdge.getEdgeType())
+           .setTimeInterval(segment.getStartMillis(), segment.getEndTimeMillis(), MILLISECONDS))
+           .setValues(segment.getActivity()));
      }
  </pre>
 </p>
@@ -1581,8 +1578,17 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new data set to hold data points for the given <code>dataSource</code>.
  <p>
  Data points with the matching data source can be created using <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSet.html#createDataPoint()">createDataPoint()</a></code>,
- and after having the values set added to the data set via <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSet.html#add(com.google.android.gms.fitness.data.DataPoint)">add(DataPoint)</a></code>.
-</p></div>
+ and after having the values set added to the data set via <code><a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSet.html#add(com.google.android.gms.fitness.data.DataPoint)">add(DataPoint)</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></td>
+            <td>if specified data source is null
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1883,7 +1889,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

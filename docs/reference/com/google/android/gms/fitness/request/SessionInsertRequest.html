@@ -563,17 +563,15 @@ type="text/css">
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourceListener.html">DataSourceListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/OnDataPointListener.html">OnDataPointListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/BleScanCallback.html">BleScanCallback</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.html">DataDeleteRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataDeleteRequest.Builder.html">DataDeleteRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.html">DataInsertRequest</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataInsertRequest.Builder.html">DataInsertRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.html">DataReadRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataReadRequest.Builder.html">DataReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/DataSourcesRequest.html">DataSourcesRequest</a></li>
@@ -588,7 +586,6 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionReadRequest.Builder.html">SessionReadRequest.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.html">StartBleScanRequest</a></li>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/StartBleScanRequest.Builder.html">StartBleScanRequest.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/UnclaimBleDeviceRequest.html">UnclaimBleDeviceRequest</a></li>
       </ul>
     </li>
               
@@ -793,8 +790,8 @@ Summary:
           .setName(sessionName)
           .setIdentifier(identifier)
           .setDescription(description)
-          .setStartTimeMillis(startTime.getMillis())
-          .setEndTimeMillis(endTime.getMillis())
+          .setStartTime(startTime.getMillis(), TimeUnit.MILLISECONDS)
+          .setEndTime(endTime.getMillis(), TimeUnit.MILLISECONDS)
           .build();
      SessionInsertRequest request = new SessionInsertRequest.Builder()
           .setSession(session)
@@ -802,7 +799,7 @@ Summary:
           .addAggregatedDataPoint(dataPoint)
           .build();
  </pre>
- App can only add data for public data types or custom data types created by itself.  Data
+ Apps can only add data for public data types or custom data types created by itself.  Data
  of custom data type created by another app cannot be added.
 </p>
 
@@ -1022,6 +1019,60 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
             
             
             
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionInsertRequest.html#getAggregateDataPoints()">getAggregateDataPoints</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the aggregate data points we are inserting.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSet.html">DataSet</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionInsertRequest.html#getDataSets()">getDataSets</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the data sets we are inserting.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/fitness/request/SessionInsertRequest.html#getSession()">getSession</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the session we are inserting.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1031,7 +1082,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1047,7 +1098,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1473,6 +1524,104 @@ From interface
 </div>
 
 
+<A NAME="getAggregateDataPoints()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataPoint.html">DataPoint</a>&gt;
+      </span>
+      <span class="sympad">getAggregateDataPoints</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the aggregate data points we are inserting.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of specified data points, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDataSets()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/fitness/data/DataSet.html">DataSet</a>&gt;
+      </span>
+      <span class="sympad">getDataSets</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the data sets we are inserting.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the list of specified data sets, empty if none
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSession()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../reference/com/google/android/gms/fitness/data/Session.html">Session</a>
+      </span>
+      <span class="sympad">getSession</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the session we are inserting.
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="hashCode()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1582,7 +1731,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

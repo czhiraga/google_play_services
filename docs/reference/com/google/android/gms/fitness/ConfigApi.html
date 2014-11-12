@@ -576,11 +576,9 @@ type="text/css">
       <ul>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/Fitness.html">Fitness</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">FitnessActivities</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessIntents.html">FitnessIntents</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessScopes.html">FitnessScopes</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessStatusCodes.html">FitnessStatusCodes</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/ViewDataIntentBuilder.html">ViewDataIntentBuilder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/ViewSessionIntentBuilder.html">ViewSessionIntentBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.ViewIntentBuilder.html">HistoryApi.ViewIntentBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.ViewIntentBuilder.html">SessionsApi.ViewIntentBuilder</a></li>
       </ul>
     </li>
               
@@ -694,11 +692,9 @@ type="text/css">
 
 
 <h2>Class Overview</h2>
-<p itemprop="articleBody">The Google Fit Configuration API provides methods for accessing platform configuration and
- metadata.
+<p itemprop="articleBody">API for accessing custom data types and settings in Google Fit.
  <p>
- Custom <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a></code>
- definitions can be added and then retrieved using
+ Custom <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">data type</a></code> definitions can be added and then retrieved using
  <code><a href="../../../../../../reference/com/google/android/gms/fitness/ConfigApi.html#createCustomDataType(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.request.DataTypeCreateRequest)">createCustomDataType(GoogleApiClient, DataTypeCreateRequest)</a></code> and
  <code><a href="../../../../../../reference/com/google/android/gms/fitness/ConfigApi.html#readDataType(com.google.android.gms.common.api.GoogleApiClient, java.lang.String)">readDataType(GoogleApiClient, String)</a></code>.
  <p>
@@ -935,6 +931,8 @@ type="text/css">
       <ul class="nolist"><li>a pending result containing the status of the request.  If an existing DataType has
          the same name but different fields, the operation will fail with
          <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessStatusCodes.html#CONFLICTING_DATA_TYPE">CONFLICTING_DATA_TYPE</a></code>.
+         If application package name does not match <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a></code>'s name, the operation
+         will fail with <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessStatusCodes.html#INCONSISTENT_DATA_TYPE">INCONSISTENT_DATA_TYPE</a></code> status code.
 </li></ul>
   </div>
 
@@ -1058,7 +1056,7 @@ type="text/css">
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

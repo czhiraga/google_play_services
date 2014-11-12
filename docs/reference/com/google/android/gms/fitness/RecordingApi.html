@@ -576,11 +576,9 @@ type="text/css">
       <ul>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/Fitness.html">Fitness</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessActivities.html">FitnessActivities</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessIntents.html">FitnessIntents</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessScopes.html">FitnessScopes</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessStatusCodes.html">FitnessStatusCodes</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/ViewDataIntentBuilder.html">ViewDataIntentBuilder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/ViewSessionIntentBuilder.html">ViewSessionIntentBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.ViewIntentBuilder.html">HistoryApi.ViewIntentBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/fitness/SessionsApi.ViewIntentBuilder.html">SessionsApi.ViewIntentBuilder</a></li>
       </ul>
     </li>
               
@@ -694,13 +692,13 @@ type="text/css">
 
 
 <h2>Class Overview</h2>
-<p itemprop="articleBody">The Recording API allows applications to request background collection of sensor data by
- creating <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Subscription.html">subscriptions</a></code>.  Subscriptions are active when the requesting app
- is not running, and persisted through system restarts.  Collected data can be queried using the
- <code><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.html">History API</a></code>.
+<p itemprop="articleBody">API which enables low-power, always-on background collection of sensor
+ data into the Google Fit store.  Sensor <code><a href="../../../../../../reference/com/google/android/gms/fitness/data/Subscription.html">subscriptions</a></code> are active when the
+ requesting app is not running, and persisted through system restarts.  Collected data can be
+ queried using the <code><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.html">History API</a></code>.
  <p>
  Unlike the <code><a href="../../../../../../reference/com/google/android/gms/fitness/SensorsApi.html">Sensors API</a></code>, the Recording API does not support delivery of
- real-time sensor events.  When real time data is needed (such as when the app is open in the
+ live sensor events.  When live data is needed (such as when the app is open in the
  foreground), a separate registration should be created with the Sensors API.  An app can have
  both an active subscription and an active registration at the same time.  Unlike registrations,
  subscriptions don't need to be removed and re-added periodically.
@@ -791,7 +789,7 @@ type="text/css">
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/fitness/RecordingApi.html#listSubscriptions(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.data.DataType)">listSubscriptions</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a> dataType)</nobr>
         
-        <div class="jd-descrdiv">Reads all existing subscriptions for the current application.</div>
+        <div class="jd-descrdiv">Reads all existing subscriptions for the current application to a particular data type.</div>
   
   </td></tr>
 
@@ -866,7 +864,7 @@ type="text/css">
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/fitness/RecordingApi.html#unsubscribe(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.data.DataSource)">unsubscribe</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="../../../../../../reference/com/google/android/gms/fitness/data/DataSource.html">DataSource</a> dataSource)</nobr>
         
         <div class="jd-descrdiv">Unsubscribes from background data collection for the current application for a particular
- DataSource.</div>
+ data source.</div>
   
   </td></tr>
 
@@ -885,7 +883,7 @@ type="text/css">
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/fitness/RecordingApi.html#unsubscribe(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.fitness.data.DataType)">unsubscribe</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="../../../../../../reference/com/google/android/gms/fitness/data/DataType.html">DataType</a> dataType)</nobr>
         
         <div class="jd-descrdiv">Unsubscribes from background data collection for the current application for a particular
- DataType.</div>
+ data type.</div>
   
   </td></tr>
 
@@ -979,7 +977,7 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Reads all existing subscriptions for the current application.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Reads all existing subscriptions for the current application to a particular data type.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1138,10 +1136,19 @@ type="text/css">
  are persisted to the Google Fit store, and can be queried via the
  <code><a href="../../../../../../reference/com/google/android/gms/fitness/HistoryApi.html">History Api</a></code>.
  <p>
- If after the subscription is added the data source becomes unavailable (it may be
- disconnected or disabled, for instance), the subscription remains active.  Once the data
- source becomes available again, new data points (and any data points that were batched
- while disconnected) are inserted.</p></div>
+ Note that not all data sources are available at all times (external devices may go
+ offline, for instance).  If no data sources matching the subscription are currently
+ available, the request will succeed silently and
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessStatusCodes.html#SUCCESS_NO_DATA_SOURCES">SUCCESS_NO_DATA_SOURCES</a></code> will be returned.  Once data
+ sources become available, recording of data will start.
+ <p>
+ If after the subscription is added the data source becomes
+ unavailable, the subscription remains active, and recording resumes once the data source
+ becomes available again.  Data points from the time interval when the data source was
+ unavailable may or may not be recorded, depending on whether batching is supported.
+ <p>
+ If the requested subscription already exists, the request will be a no-op and
+ <code><a href="../../../../../../reference/com/google/android/gms/fitness/FitnessStatusCodes.html#SUCCESS_ALREADY_SUBSCRIBED">SUCCESS_ALREADY_SUBSCRIBED</a></code> will be returned.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1186,7 +1193,7 @@ type="text/css">
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Unsubscribes from background data collection for the current application for a particular
- DataSource.  Should be called when the application no longer wishes to record data.</p></div>
+ data source.  Should be called when the application no longer wishes to record data.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1239,7 +1246,7 @@ type="text/css">
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Unsubscribes from background data collection for the current application for a particular
- DataType. Should be called when the application no longer wishes to record data.</p></div>
+ data type. Should be called when the application no longer wishes to record data.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1344,7 +1351,7 @@ type="text/css">
   </div>
   <div id="build_info">
     
-    Android GmsCore 1474901&nbsp;r &mdash; 
+    Android GmsCore 1501030&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 
