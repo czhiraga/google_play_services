@@ -25,14 +25,14 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 /**
  * This shows how to draw polylines on a map.
  */
-public class PolylineDemoActivity extends android.support.v4.app.FragmentActivity
-        implements OnSeekBarChangeListener {
+public class PolylineDemoActivity extends FragmentActivity implements OnSeekBarChangeListener {
     private static final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
     private static final LatLng SYDNEY = new LatLng(-33.87365, 151.20689);
     private static final LatLng ADELAIDE = new LatLng(-34.92873, 138.59995);

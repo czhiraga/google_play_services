@@ -22,12 +22,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 /**
  * This shows how to retain a map across activity restarts (e.g., from screen rotations), which can
  * be faster than relying on state serialization.
  */
-public class RetainMapActivity extends android.support.v4.app.FragmentActivity {
+public class RetainMapActivity extends FragmentActivity {
 
     private GoogleMap mMap;
 
@@ -36,8 +37,8 @@ public class RetainMapActivity extends android.support.v4.app.FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.basic_demo);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         if (savedInstanceState == null) {
             // First incarnation of this activity.

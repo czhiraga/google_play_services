@@ -25,6 +25,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ import android.widget.Toast;
 /**
  * This shows how to change the camera position for the map.
  */
-public class CameraDemoActivity extends android.support.v4.app.FragmentActivity {
+public class CameraDemoActivity extends FragmentActivity {
 
     /**
      * The amount by which to scroll the camera. Note that this amount is in raw pixels, not dp
@@ -84,8 +85,7 @@ public class CameraDemoActivity extends android.support.v4.app.FragmentActivity 
         mMap.getUiSettings().setZoomControlsEnabled(false);
 
         // Show Sydney
-        mMap.moveCamera(
-                CameraUpdateFactory.newLatLngZoom(new LatLng(-33.87365, 151.20689), 10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.87365, 151.20689), 10));
     }
 
     /**
@@ -168,7 +168,7 @@ public class CameraDemoActivity extends android.support.v4.app.FragmentActivity 
     }
 
     /**
-     * Called when the left arrow button is clicked.  This causes the camera to move to the left
+     * Called when the left arrow button is clicked. This causes the camera to move to the left
      */
     public void onScrollLeft(View view) {
         if (!checkReady()) {
@@ -179,7 +179,7 @@ public class CameraDemoActivity extends android.support.v4.app.FragmentActivity 
     }
 
     /**
-     * Called when the right arrow button is clicked.  This causes the camera to move to the right.
+     * Called when the right arrow button is clicked. This causes the camera to move to the right.
      */
     public void onScrollRight(View view) {
         if (!checkReady()) {
@@ -190,7 +190,7 @@ public class CameraDemoActivity extends android.support.v4.app.FragmentActivity 
     }
 
     /**
-     * Called when the up arrow button is clicked.  The causes the camera to move up.
+     * Called when the up arrow button is clicked. The causes the camera to move up.
      */
     public void onScrollUp(View view) {
         if (!checkReady()) {
@@ -201,7 +201,7 @@ public class CameraDemoActivity extends android.support.v4.app.FragmentActivity 
     }
 
     /**
-     * Called when the down arrow button is clicked.  This causes the camera to move down.
+     * Called when the down arrow button is clicked. This causes the camera to move down.
      */
     public void onScrollDown(View view) {
         if (!checkReady()) {

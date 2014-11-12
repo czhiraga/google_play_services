@@ -17,34 +17,23 @@
 package com.google.android.gms.samples.plus;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.plus.Moments;
-import com.google.android.gms.plus.Moments.LoadMomentsResult;
-import com.google.android.gms.plus.Plus;
-import com.google.android.gms.plus.Plus.PlusOptions;
+import com.google.android.gms.plus.PlusClient;
+import com.google.android.gms.plus.PlusClient.OnMomentsLoadedListener;
 import com.google.android.gms.plus.model.moments.Moment;
 import com.google.android.gms.plus.model.moments.MomentBuffer;
+import com.google.android.gms.samples.plus.PlusClientFragment.OnSignedInListener;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -53,126 +42,78 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- * Example of listing the current user's moments.
+ * Example of listing the current user's moments through PlusClient.
  */
-public class ListMomentsActivity extends Activity implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, ResultCallback<LoadMomentsResult>,
-        OnItemClickListener, DialogInterface.OnCancelListener {
-
-    private static final String TAG = "MomentActivity";
-
-    private static final String STATE_RESOLVING_ERROR = "resolving_error";
-
-    private static final int DIALOG_GET_GOOGLE_PLAY_SERVICES = 1;
-
-    private static final int REQUEST_CODE_SIGN_IN = 1;
-    private static final int REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES = 2;
+public class ListMomentsActivity extends FragmentActivity implements OnSignedInListener,
+        OnMomentsLoadedListener, AdapterView.OnItemClickListener {
+    private static final String TAG = MomentActivity.class.getSimpleName();
+    private static final int REQUEST_CODE_PLUS_CLIENT_FRAGMENT = 0;
 
     private ListView mMomentListView;
     private MomentListAdapter mMomentListAdapter;
     private ArrayList<Moment> mListItems;
-    private boolean mResolvingError;
+    private ArrayList<Moment> mPendingDeletion;
 
-    private GoogleApiClient mGoogleApiClient;
+    private PlusClientFragment mPlusClientFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_moments_activity);
-        PlusOptions options = PlusOptions.builder().addActivityTypes(MomentUtil.ACTIONS).build();
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(Plus.API, options)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .build();
 
+        mPendingDeletion = new ArrayList<Moment>();
         mListItems = new ArrayList<Moment>();
         mMomentListAdapter = new MomentListAdapter(this, android.R.layout.simple_list_item_1,
                 mListItems);
         mMomentListView = (ListView) findViewById(R.id.moment_list);
+        mMomentListView.setAdapter(mMomentListAdapter);
         mMomentListView.setOnItemClickListener(this);
-        mResolvingError = savedInstanceState != null
-                && savedInstanceState.getBoolean(STATE_RESOLVING_ERROR, false);
-
-        int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (available != CommonStatusCodes.SUCCESS) {
-            showDialog(DIALOG_GET_GOOGLE_PLAY_SERVICES);
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        mPlusClientFragment = PlusClientFragment.getPlusClientFragment(this,
+                MomentUtil.VISIBLE_ACTIVITIES);
     }
 
     @Override
-    protected Dialog onCreateDialog(int id) {
-        if (id != DIALOG_GET_GOOGLE_PLAY_SERVICES) {
-            return super.onCreateDialog(id);
+    public void onResume() {
+        super.onResume();
+        mPlusClientFragment.signIn(REQUEST_CODE_PLUS_CLIENT_FRAGMENT);
+    }
+
+    /**
+     * Called when the {@link com.google.android.gms.plus.PlusClient} has been connected
+     * successfully.
+     *
+     * @param plusClient The connected {@link PlusClient} for making API requests.
+     */
+    @Override
+    public void onSignedIn(PlusClient plusClient) {
+        int deleteCount = mPendingDeletion.size();
+        for (int i = 0; i < deleteCount; i++) {
+            plusClient.removeMoment(mPendingDeletion.get(i).getId());
         }
 
-        int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (available == CommonStatusCodes.SUCCESS) {
-            return null;
-        }
-        if (GooglePlayServicesUtil.isUserRecoverableError(available)) {
-            return GooglePlayServicesUtil.getErrorDialog(
-                    available, this, REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES, this);
-        }
-        return new AlertDialog.Builder(this)
-                .setMessage(R.string.plus_generic_error)
-                .setCancelable(true)
-                .setOnCancelListener(this)
-                .create();
+        mPendingDeletion.clear();
+        plusClient.loadMoments(this);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        mGoogleApiClient.connect();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(STATE_RESOLVING_ERROR, mResolvingError);
-    }
-
-    @Override
-    protected void onStop() {
-        mGoogleApiClient.disconnect();
-        super.onStop();
-    }
-
-    @Override
-    public void onResult(LoadMomentsResult momentData) {
-        switch (momentData.getStatus().getStatusCode()) {
-            case CommonStatusCodes.SUCCESS:
-                MomentBuffer momentBuffer = momentData.getMomentBuffer();
-                mListItems.clear();
-                try {
-                    int count = momentBuffer.getCount();
-                    for (int i = 0; i < count; i++) {
-                        mListItems.add(momentBuffer.get(i).freeze());
-                    }
-                } finally {
-                    momentBuffer.close();
+    public void onMomentsLoaded(ConnectionResult status, MomentBuffer momentBuffer,
+            String nextPageToken, String updated) {
+        if (status.getErrorCode() == ConnectionResult.SUCCESS) {
+            mListItems.clear();
+            try {
+                int count = momentBuffer.getCount();
+                for (int i = 0; i < count; i++) {
+                    mListItems.add(momentBuffer.get(i).freeze());
                 }
+            } finally {
+                momentBuffer.close();
+            }
 
-                mMomentListAdapter.notifyDataSetChanged();
-                break;
-
-            case CommonStatusCodes.SIGN_IN_REQUIRED:
-                mGoogleApiClient.disconnect();
-                mGoogleApiClient.connect();
-                break;
-
-            default:
-                Log.e(TAG, "Error when listing moments: " + momentData.getStatus());
-                break;
+            mMomentListAdapter.notifyDataSetChanged();
+        } else {
+            Log.e(TAG, "Error when loading moments: " + status.getErrorCode());
         }
     }
-
     /**
      * Delete a moment when clicked.
      */
@@ -180,90 +121,24 @@ public class ListMomentsActivity extends Activity implements GoogleApiClient.Con
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Moment moment = mMomentListAdapter.getItem(position);
         if (moment != null) {
-            if (mGoogleApiClient.isConnected()) {
-                Plus.MomentsApi.remove(mGoogleApiClient, moment.getId());
-                Toast.makeText(this, getString(R.string.plus_remove_moment_status),
-                        Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, getString(R.string.greeting_status_sign_in_required),
-                        Toast.LENGTH_SHORT).show();
+            mPendingDeletion.add(moment);
+            Toast.makeText(this, getString(R.string.plus_remove_moment_status),
+                    Toast.LENGTH_SHORT).show();
+            mPlusClientFragment.signIn(REQUEST_CODE_PLUS_CLIENT_FRAGMENT);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (mPlusClientFragment.handleOnActivityResult(requestCode, resultCode, data)) {
+            switch (resultCode) {
+                case RESULT_CANCELED:
+                    // User canceled sign in.
+                    Toast.makeText(this, R.string.greeting_status_sign_in_required,
+                            Toast.LENGTH_LONG).show();
+                    finish();
+                    break;
             }
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case REQUEST_CODE_SIGN_IN:
-                mResolvingError = false;
-                handleResult(resultCode);
-                break;
-            case REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES:
-                handleResult(resultCode);
-                break;
-        }
-    }
-
-    private void handleResult(int resultCode) {
-        if (resultCode == RESULT_OK) {
-            // onActivityResult is called after onStart (but onStart is not
-            // guaranteed to be called while signing in), so we should make
-            // sure we're not already connecting before we call connect again.
-            if (!mGoogleApiClient.isConnecting() && !mGoogleApiClient.isConnected()) {
-                mGoogleApiClient.connect();
-            }
-        } else {
-            Log.e(TAG, "Unable to sign the user in.");
-            finish();
-        }
-    }
-
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        Plus.MomentsApi.load(mGoogleApiClient).setResultCallback(this);
-        mMomentListView.setAdapter(mMomentListAdapter);
-    }
-
-    @Override
-    public void onConnectionSuspended(int cause) {
-        mMomentListView.setAdapter(null);
-        mGoogleApiClient.connect();
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        mMomentListView.setAdapter(null);
-        if (mResolvingError) {
-            return;
-        }
-
-        try {
-            result.startResolutionForResult(this, REQUEST_CODE_SIGN_IN);
-            mResolvingError = true;
-        } catch (IntentSender.SendIntentException e) {
-            // Try connecting again.
-            mGoogleApiClient.connect();
-        }
-    }
-
-    @Override
-    public void onCancel(DialogInterface dialogInterface) {
-        Log.e(TAG, "Unable to sign the user in.");
-        finish();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(this, PlusSampleActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -272,28 +147,25 @@ public class ListMomentsActivity extends Activity implements GoogleApiClient.Con
      */
     private class MomentListAdapter extends ArrayAdapter<Moment> {
 
-        private final LayoutInflater mLayoutInflater;
-        private final ArrayList<Moment> mItems;
-
+        private ArrayList<Moment> items;
         public MomentListAdapter(Context context, int textViewResourceId,
                 ArrayList<Moment> objects) {
             super(context, textViewResourceId, objects);
-            mLayoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            mItems = objects;
-
+            items = objects;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View resultView = convertView;
-            if (resultView == null) {
-                resultView = mLayoutInflater.inflate(R.layout.moment_row, null);
+            View v = convertView;
+            if (v == null) {
+                LayoutInflater vi = (LayoutInflater) getSystemService(
+                        Context.LAYOUT_INFLATER_SERVICE);
+                v = vi.inflate(R.layout.moment_row, null);
             }
-
-            Moment moment = mItems.get(position);
+            Moment moment = items.get(position);
             if (moment != null) {
-                TextView typeView = (TextView) resultView.findViewById(R.id.moment_type);
-                TextView titleView = (TextView) resultView.findViewById(R.id.moment_title);
+                TextView typeView = (TextView) v.findViewById(R.id.moment_type);
+                TextView titleView = (TextView) v.findViewById(R.id.moment_title);
 
                 String type = Uri.parse(moment.getType()).getPath().substring(1);
                 typeView.setText(type);
@@ -303,7 +175,7 @@ public class ListMomentsActivity extends Activity implements GoogleApiClient.Con
                 }
             }
 
-            return resultView;
+            return v;
         }
     }
 }

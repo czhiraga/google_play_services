@@ -25,6 +25,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -37,25 +38,28 @@ import android.widget.Toast;
 /**
  * Demonstrates the different base layers of a map.
  */
-public class LayersDemoActivity extends android.support.v4.app.FragmentActivity
-        implements OnItemSelectedListener {
+public class LayersDemoActivity extends FragmentActivity implements OnItemSelectedListener {
 
     private GoogleMap mMap;
+
+    private CheckBox mTrafficCheckbox;
+    private CheckBox mMyLocationCheckbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layers_demo);
-        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-                .getMap();
 
         Spinner spinner = (Spinner) findViewById(R.id.layers_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.layers_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
         spinner.setOnItemSelectedListener(this);
+
+        mTrafficCheckbox = (CheckBox) findViewById(R.id.traffic);
+        mMyLocationCheckbox = (CheckBox) findViewById(R.id.my_location);
+
         setUpMapIfNeeded();
     }
 
@@ -63,6 +67,10 @@ public class LayersDemoActivity extends android.support.v4.app.FragmentActivity
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
+        if (mMap != null) {
+            updateTraffic();
+            updateMyLocation();
+        }
     }
 
     private void setUpMapIfNeeded() {
@@ -84,33 +92,40 @@ public class LayersDemoActivity extends android.support.v4.app.FragmentActivity
      * Called when the Traffic checkbox is clicked.
      */
     public void onTrafficToggled(View view) {
+        updateTraffic();
+    }
+
+    private void updateTraffic() {
         if (!checkReady()) {
             return;
         }
-        mMap.setTrafficEnabled(((CheckBox) view).isChecked());
+        mMap.setTrafficEnabled(mTrafficCheckbox.isChecked());
     }
 
     /**
      * Called when the MyLocation checkbox is clicked.
      */
     public void onMyLocationToggled(View view) {
+        updateMyLocation();
+    }
+
+    private void updateMyLocation() {
         if (!checkReady()) {
             return;
         }
-        mMap.setMyLocationEnabled(((CheckBox) view).isChecked());
+        mMap.setMyLocationEnabled(mMyLocationCheckbox.isChecked());
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (!checkReady()) {
-            return;
-        }
-        Log.i("LDA", "item selected at position " + position + " with string "
-                + (String) parent.getItemAtPosition(position));
+
         setLayer((String) parent.getItemAtPosition(position));
     }
 
     private void setLayer(String layerName) {
+        if (!checkReady()) {
+            return;
+        }
         if (layerName.equals(getString(R.string.normal))) {
             mMap.setMapType(MAP_TYPE_NORMAL);
         } else if (layerName.equals(getString(R.string.hybrid))) {

@@ -22,12 +22,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 
 /**
  * Demonstrates how to instantiate a SupportMapFragment programmatically and add a marker to it.
  */
-public class ProgrammaticDemoActivity extends android.support.v4.app.FragmentActivity {
+public class ProgrammaticDemoActivity extends FragmentActivity {
 
     private static final String MAP_FRAGMENT_TAG = "map";
     private GoogleMap mMap;
@@ -48,8 +49,8 @@ public class ProgrammaticDemoActivity extends android.support.v4.app.FragmentAct
             mMapFragment = SupportMapFragment.newInstance();
 
             // Then we add it using a FragmentTransaction.
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager()
-                    .beginTransaction();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(android.R.id.content, mMapFragment, MAP_FRAGMENT_TAG);
             fragmentTransaction.commit();
         }

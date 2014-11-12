@@ -21,6 +21,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ import android.widget.Toast;
 /**
  * This shows how UI settings can be toggled.
  */
-public class UiSettingsDemoActivity extends android.support.v4.app.FragmentActivity {
+public class UiSettingsDemoActivity extends FragmentActivity {
     private GoogleMap mMap;
     private UiSettings mUiSettings;
 

@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 /**
  * This shows how to create a simple activity with a map and a marker on the map.
@@ -29,7 +30,7 @@ import android.os.Bundle;
  * Notice how we deal with the possibility that the Google Play services APK is not
  * installed/enabled/updated on a user's device.
  */
-public class BasicMapActivity extends android.support.v4.app.FragmentActivity {
+public class BasicMapActivity extends FragmentActivity {
     /**
      * Note that this may be null if the Google Play services APK is not available.
      */
@@ -54,12 +55,11 @@ public class BasicMapActivity extends android.support.v4.app.FragmentActivity {
      * call {@link #setUpMap()} once when {@link #mMap} is not null.
      * <p>
      * If it isn't installed {@link SupportMapFragment} (and
-     * {@link com.google.android.gms.maps.MapView
-     * MapView}) will show a prompt for the user to install/update the Google Play services APK on
-     * their device.
+     * {@link com.google.android.gms.maps.MapView MapView}) will show a prompt for the user to
+     * install/update the Google Play services APK on their device.
      * <p>
-     * A user can return to this Activity after following the prompt and correctly
-     * installing/updating/enabling the Google Play services. Since the Activity may not have been
+     * A user can return to this FragmentActivity after following the prompt and correctly
+     * installing/updating/enabling the Google Play services. Since the FragmentActivity may not have been
      * completely destroyed during this process (it is likely that it would only be stopped or
      * paused), {@link #onCreate(Bundle)} may not be called again so we should call this method in
      * {@link #onResume()} to guarantee that it will be called.

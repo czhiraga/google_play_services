@@ -25,14 +25,14 @@ import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 /**
  * This shows how to add a ground overlay to a map.
  */
-public class GroundOverlayDemoActivity extends android.support.v4.app.FragmentActivity
-        implements OnSeekBarChangeListener {
+public class GroundOverlayDemoActivity extends FragmentActivity implements OnSeekBarChangeListener {
 
     private static final int TRANSPARENCY_MAX = 100;
     private static final LatLng NEWARK = new LatLng(40.714086, -74.228697);

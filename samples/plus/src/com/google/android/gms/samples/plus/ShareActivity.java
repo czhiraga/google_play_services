@@ -16,114 +16,143 @@
 
 package com.google.android.gms.samples.plus;
 
-import com.google.android.gms.plus.GooglePlusUtil;
-import com.google.android.gms.plus.PlusShare;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+
+import com.google.android.gms.plus.GooglePlusUtil;
+import com.google.android.gms.plus.PlusClient;
+import com.google.android.gms.plus.PlusShare;
+import com.google.android.gms.samples.plus.PlusClientFragment.OnSignedInListener;
 
 /**
  * Example of sharing with Google+ through the ACTION_SEND intent.
  */
-public class ShareActivity extends FragmentActivity implements
-        View.OnClickListener, View.OnTouchListener {
+public class ShareActivity extends FragmentActivity implements View.OnClickListener,
+        OnSignedInListener {
 
     protected static final String TAG = ShareActivity.class.getSimpleName();
 
-    private static final String TAG_ERROR_DIALOG_FRAGMENT = "errorDialog";
-    private static final int REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR = 1;
-    private static final int PRESSED_COLOR_FILTER = Color.argb(30, 0, 0, 0);
+    private static final String STATE_SHARING = "resolving_error";
 
-    private EditText mEditShareText;
-    private ImageButton mShareButton;
+    private static final String TAG_ERROR_DIALOG_FRAGMENT = "errorDialog";
+
+    private static final int REQUEST_CODE_PLUS_CLIENT_FRAGMENT = 1;
+    private static final int REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR = 2;
+    private static final int REQUEST_CODE_INTERACTIVE_POST = 3;
+
+    /** The button should say "View item" in English. */
+    private static final String LABEL_VIEW_ITEM = "VIEW_ITEM";
+
+    private EditText mEditSendText;
+    private Button mSendButton;
+    private PlusClientFragment mPlusClientFragment;
+    private boolean mSharing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.share_activity);
-        mShareButton = (ImageButton) findViewById(R.id.share_button);
-        mShareButton.setOnClickListener(this);
-        mShareButton.setOnTouchListener(this);
-        mEditShareText = (EditText) findViewById(R.id.share_prefill_edit);
+        mSendButton = (Button) findViewById(R.id.send_interactive_button);
+        mSendButton.setOnClickListener(this);
+        mSendButton.setEnabled(true);
+        mEditSendText = (EditText) findViewById(R.id.share_prefill_edit);
+        mPlusClientFragment =
+                PlusClientFragment.getPlusClientFragment(this, MomentUtil.VISIBLE_ACTIVITIES);
+        mSharing =
+                savedInstanceState != null && savedInstanceState.getBoolean(STATE_SHARING, false);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(STATE_SHARING, mSharing);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.share_button:
-                final int errorCode = GooglePlusUtil.checkGooglePlusApp(this);
-                if (errorCode == GooglePlusUtil.SUCCESS) {
-                    // Create an ACTION_SEND intent to share to Google+ with attribution.
-
-                    // Include a deep link in the intent to a resource in your app.
-                    // When the user clicks on the deep link, ParseDeepLinkActivity will
-                    // immediately route to that resource.
-                    Uri thumbnail = Uri.parse(getString(
-                            R.string.plus_deep_link_metadata_thumbnail_url));
-                    Intent shareIntent = PlusShare.Builder.from(this)
-                            .setText(mEditShareText.getText().toString())
-                            .setType("text/plain")
-                            .setContent(
-                                    ShareActivity.TAG,
-                                    getString(R.string.plus_deep_link_metadata_title),
-                                    getString(R.string.plus_deep_link_metadata_description),
-                                    thumbnail)
-                            .getIntent();
-
-                    startActivity(shareIntent);
-                } else {
-                    // Prompt the user to install the Google+ app.
-                    DialogFragment fragment = new GooglePlusErrorDialogFragment();
-                    Bundle args = new Bundle();
-                    args.putInt(GooglePlusErrorDialogFragment.ARG_ERROR_CODE, errorCode);
-                    args.putInt(GooglePlusErrorDialogFragment.ARG_REQUEST_CODE,
-                            REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR);
-                    fragment.setArguments(args);
-                    fragment.show(getSupportFragmentManager(), TAG_ERROR_DIALOG_FRAGMENT);
-                }
+            case R.id.send_interactive_button:
+                // Set sharing so that the share is started in onSignedIn.
+                mSharing = true;
+                mPlusClientFragment.signIn(REQUEST_CODE_PLUS_CLIENT_FRAGMENT);
                 break;
         }
     }
 
-    /**
-     * Updates the opacity of the Google+ share button to indicate a button press.
-     *
-     * @return false for the parent view to handle the touch event
-     *         as it normally would.
-     */
     @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                mShareButton.setColorFilter(PRESSED_COLOR_FILTER);
-                break;
-            case MotionEvent.ACTION_CANCEL:
-            case MotionEvent.ACTION_UP:
-                // Reset the button's tint after the button is pressed.
-                mShareButton.setColorFilter(0);
-                break;
+    public void onSignedIn(PlusClient plusClient) {
+        if (!mSharing) {
+            // The share button hasn't been clicked yet.
+            return;
         }
 
-        return false;
+        // Reset sharing so future calls to onSignedIn don't start a share.
+        mSharing = false;
+        final int errorCode = GooglePlusUtil.checkGooglePlusApp(this);
+        if (errorCode == GooglePlusUtil.SUCCESS) {
+            startActivityForResult(getInteractivePostIntent(plusClient),
+                    REQUEST_CODE_INTERACTIVE_POST);
+        } else {
+            // Prompt the user to install the Google+ app.
+            GooglePlusErrorDialogFragment
+                    .create(errorCode, REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR)
+                    .show(getSupportFragmentManager(), TAG_ERROR_DIALOG_FRAGMENT);
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (mPlusClientFragment.handleOnActivityResult(requestCode, resultCode, intent)) {
+            return;
+        }
+
         switch (requestCode) {
+            case REQUEST_CODE_INTERACTIVE_POST:
+                if (resultCode != RESULT_OK) {
+                    Log.e(TAG, "Failed to create interactive post");
+                }
+                break;
             case REQUEST_CODE_RESOLVE_GOOGLE_PLUS_ERROR:
                 if (resultCode != RESULT_OK) {
                     Log.e(TAG, "Unable to recover from missing Google+ app.");
+                } else {
+                    mPlusClientFragment.signIn(REQUEST_CODE_PLUS_CLIENT_FRAGMENT);
                 }
                 break;
         }
+    }
+
+    private Intent getInteractivePostIntent(PlusClient plusClient) {
+        // Create an interactive post with the "VIEW_ITEM" label. This will
+        // create an enhanced share dialog when the post is shared on Google+.
+        // When the user clicks on the deep link, ParseDeepLinkActivity will
+        // immediately parse the deep link, and route to the appropriate resource.
+        String action = "/?view=true";
+        Uri callToActionUrl = Uri.parse(getString(R.string.plus_example_deep_link_url) + action);
+        String callToActionDeepLinkId = getString(R.string.plus_example_deep_link_id) + action;
+
+        // Create an interactive post builder.
+        PlusShare.Builder builder = new PlusShare.Builder(this, plusClient);
+
+        // Set call-to-action metadata.
+        builder.addCallToAction(LABEL_VIEW_ITEM, callToActionUrl, callToActionDeepLinkId);
+
+        // Set the target url (for desktop use).
+        builder.setContentUrl(Uri.parse(getString(R.string.plus_example_deep_link_url)));
+
+        // Set the target deep-link ID (for mobile use).
+        builder.setContentDeepLinkId(getString(R.string.plus_example_deep_link_id),
+                null, null, null);
+
+        // Set the pre-filled message.
+        builder.setText(mEditSendText.getText().toString());
+
+        return builder.getIntent();
     }
 }

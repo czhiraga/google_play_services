@@ -45,6 +45,8 @@
     <item>@string/satellite</item>
     <item>@string/terrain</item>
   </string-array>
+  <string name="circle_demo">Circles</string>
+  <string name="circle_description">Demonstrates how to add Circles to a map.</string>
   <string name="layers_demo">Layers</string>
   <string name="layers_description">Demonstrates the different map layers.</string>
   <string name="left_arrow">\u2190</string>
@@ -69,6 +71,7 @@
   <string name="polyline_description">Demonstrates how to add Polylines to a map.</string>
   <string name="programmatic_demo">Programmatically add map</string>
   <string name="programmatic_description">Demonstrates how to add a MapFragment programmatically.</string>
+  <string name="properties_circle">Properties for Circle(s)</string>
   <string name="properties_sydney_polyline">Properties for Sydney Polyline</string>
   <string name="properties_sydney_polygon">Properties for Sydney Polygon</string>
   <string name="rotate">Rotate Gestures</string>

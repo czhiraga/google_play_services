@@ -25,17 +25,18 @@ import com.google.android.gms.maps.model.PolygonOptions;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * This shows how to draw polygons on a map.
  */
-public class PolygonDemoActivity extends android.support.v4.app.FragmentActivity
-        implements OnSeekBarChangeListener {
+public class PolygonDemoActivity extends FragmentActivity implements OnSeekBarChangeListener {
     private static final LatLng SYDNEY = new LatLng(-33.87365, 151.20689);
 
     private static final int WIDTH_MAX = 50;
@@ -92,9 +93,9 @@ public class PolygonDemoActivity extends android.support.v4.app.FragmentActivity
     private void setUpMap() {
         // Create a rectangle with two rectangular holes.
         mMap.addPolygon(new PolygonOptions()
-                .addAll(createRectangle(new LatLng(-20, 130), 5, 5))
-                .addHole(createRectangle(new LatLng(-22, 128), 1, 1))
-                .addHole(createRectangle(new LatLng(-18, 133), 0.5, 1.5))
+                .addAll(createCWRectangle(new LatLng(-20, 130), 5, 5))
+                .addHole(createCWRectangle(new LatLng(-22, 128), 1, 1))
+                .addHole(createCWRectangle(new LatLng(-18, 133), 0.5, 1.5))
                 .fillColor(Color.CYAN)
                 .strokeColor(Color.BLUE)
                 .strokeWidth(5));
@@ -136,6 +137,11 @@ public class PolygonDemoActivity extends android.support.v4.app.FragmentActivity
                 new LatLng(center.latitude + halfHeight, center.longitude + halfWidth),
                 new LatLng(center.latitude + halfHeight, center.longitude - halfWidth),
                 new LatLng(center.latitude - halfHeight, center.longitude - halfWidth));
+    }
+    private List<LatLng> createCWRectangle(LatLng center, double halfWidth, double halfHeight) {
+      List<LatLng> rect = createRectangle(center, halfWidth, halfHeight);
+      Collections.reverse(rect);
+      return rect;
     }
 
     @Override

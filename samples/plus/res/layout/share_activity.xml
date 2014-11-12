@@ -34,11 +34,10 @@
         android:text="@string/share_prefill_text"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_marginBottom="30dip" />
-    <ImageButton
-        android:id="@+id/share_button"
+    <Button
+        android:id="@+id/send_interactive_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/share_button_name"
-        android:src="@drawable/plus_share" />
+        android:text="@string/send_interactive_button_name"
+        android:enabled="false" />
 </LinearLayout>

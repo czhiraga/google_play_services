@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.TileProvider;
 import com.google.android.gms.maps.model.UrlTileProvider;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,7 +32,7 @@ import java.util.Locale;
 /**
  * This demonstrates how to add a tile overlay to a map.
  */
-public class TileOverlayDemoActivity extends android.support.v4.app.FragmentActivity {
+public class TileOverlayDemoActivity extends FragmentActivity {
 
     /** This returns moon tiles. */
     private static final String MOON_MAP_URL_FORMAT =

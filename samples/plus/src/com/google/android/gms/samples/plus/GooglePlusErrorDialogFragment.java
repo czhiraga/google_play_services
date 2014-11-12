@@ -56,4 +56,20 @@ public final class GooglePlusErrorDialogFragment extends DialogFragment {
         return GooglePlusUtil.getErrorDialog(args.getInt(ARG_ERROR_CODE), getActivity(),
                 args.getInt(ARG_REQUEST_CODE));
     }
+
+    /**
+     * Create a {@link DialogFragment} for displaying the {@link GooglePlusUtil#getErrorDialog}.
+     * @param errorCode The error code returned by
+     *              {@link GooglePlusUtil#checkGooglePlusApp(android.content.Context)}
+     * @param requestCode The request code for resolving the resolution activity.
+     * @return The {@link DialogFragment}.
+     */
+    public static DialogFragment create(int errorCode, int requestCode) {
+        DialogFragment fragment = new GooglePlusErrorDialogFragment();
+        Bundle args = new Bundle();
+        args.putInt(GooglePlusErrorDialogFragment.ARG_ERROR_CODE, errorCode);
+        args.putInt(GooglePlusErrorDialogFragment.ARG_REQUEST_CODE, requestCode);
+        fragment.setArguments(args);
+        return fragment;
+    }
 }

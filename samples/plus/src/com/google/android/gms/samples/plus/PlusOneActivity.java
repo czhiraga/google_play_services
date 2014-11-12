@@ -47,7 +47,10 @@ public class PlusOneActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.plus_one_activity);
 
-        mPlusClient = new PlusClient(this, this, this);
+        // The +1 button does not require scopes.
+        mPlusClient = new PlusClient.Builder(this, this, this)
+                .clearScopes()
+                .build();
 
         /*
          * The {@link PlusOneButton} can be configured in code, but in this example we

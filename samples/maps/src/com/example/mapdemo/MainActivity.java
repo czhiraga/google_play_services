@@ -20,6 +20,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -52,10 +53,10 @@ public final class MainActivity extends ListActivity {
         /**
          * The demo activity's class.
          */
-        private final Class<? extends android.support.v4.app.FragmentActivity> activityClass;
+        private final Class<? extends FragmentActivity> activityClass;
 
-        public DemoDetails(int titleId, int descriptionId,
-                Class<? extends android.support.v4.app.FragmentActivity> activityClass) {
+        public DemoDetails(
+                int titleId, int descriptionId, Class<? extends FragmentActivity> activityClass) {
             super();
             this.titleId = titleId;
             this.descriptionId = descriptionId;
@@ -114,6 +115,8 @@ public final class MainActivity extends ListActivity {
                     PolygonDemoActivity.class),
             new DemoDetails(R.string.polyline_demo, R.string.polyline_description,
                     PolylineDemoActivity.class),
+            new DemoDetails(R.string.circle_demo, R.string.circle_description,
+                    CircleDemoActivity.class),
             new DemoDetails(R.string.tile_overlay_demo, R.string.tile_overlay_description,
                     TileOverlayDemoActivity.class),
             new DemoDetails(R.string.options_demo, R.string.options_description,

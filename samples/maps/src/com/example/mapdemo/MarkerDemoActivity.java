@@ -22,8 +22,8 @@ import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.Projection;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -37,6 +37,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v4.app.FragmentActivity;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
@@ -51,7 +52,7 @@ import android.widget.Toast;
 /**
  * This shows how to place markers on a map.
  */
-public class MarkerDemoActivity extends android.support.v4.app.FragmentActivity
+public class MarkerDemoActivity extends FragmentActivity
         implements OnMarkerClickListener, OnInfoWindowClickListener, OnMarkerDragListener {
     private static final LatLng BRISBANE = new LatLng(-27.47093, 153.0235);
     private static final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
@@ -126,10 +127,10 @@ public class MarkerDemoActivity extends android.support.v4.app.FragmentActivity
 
             String snippet = marker.getSnippet();
             TextView snippetUi = ((TextView) view.findViewById(R.id.snippet));
-            if (snippet != null) {
+            if (snippet != null && snippet.length() > 12) {
                 SpannableString snippetText = new SpannableString(snippet);
                 snippetText.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, 10, 0);
-                snippetText.setSpan(new ForegroundColorSpan(Color.BLUE), 12, 21, 0);
+                snippetText.setSpan(new ForegroundColorSpan(Color.BLUE), 12, snippet.length(), 0);
                 snippetUi.setText(snippetText);
             } else {
                 snippetUi.setText("");
@@ -196,6 +197,7 @@ public class MarkerDemoActivity extends android.support.v4.app.FragmentActivity
         final View mapView = getSupportFragmentManager().findFragmentById(R.id.map).getView();
         if (mapView.getViewTreeObserver().isAlive()) {
             mapView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+                @SuppressWarnings("deprecation") // We use the new method when supported
                 @SuppressLint("NewApi") // We check which build version we are using.
                 @Override
                 public void onGlobalLayout() {
@@ -347,6 +349,4 @@ public class MarkerDemoActivity extends android.support.v4.app.FragmentActivity
     public void onMarkerDrag(Marker marker) {
         mTopText.setText("onMarkerDrag.  Current Position: " + marker.getPosition());
     }
-
-
 }

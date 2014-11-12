@@ -34,7 +34,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".MainActivity"
+            android:name=".PlusSampleActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +43,27 @@
         </activity>
         <activity
             android:name=".SignInActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListMomentsActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListPeopleActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MomentActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,7 +90,8 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".ParseDeepLinkActivity">
+        <activity
+            android:name=".ParseDeepLinkActivity">
             <intent-filter>
                 <action android:name="com.google.android.apps.plus.VIEW_DEEP_LINK" />
                 <data android:scheme="vnd.google.deeplink" />

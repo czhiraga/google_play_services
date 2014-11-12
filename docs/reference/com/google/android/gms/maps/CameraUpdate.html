@@ -70,6 +70,9 @@
 
 
 
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -95,6 +98,7 @@ type="text/css">
   var toRoot = "../../../../../../";
 </script>
 <script src="../../../../../../assets/js/docs.js" type="text/javascript"></script>
+
 <script src="../../../../../../navtree_data.js" type="text/javascript"></script>
 
 </head>
@@ -262,8 +266,9 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
                           ja-lang="ツール"
                           es-lang="Herramientas"               
                           >Tools</a>
-                          <ul><li><a href="../../../../../../sdk/index.html">Get the
-SDK</a></li></ul>
+                          <ul><li><a href="../../../../../../sdk/index.html">Get the SDK</a></li></ul>
+                        </li>
+                        <li><a href="../../../../../../google/index.html">Google Services</a>
                         </li>
                       </ul>
                     </li>
@@ -296,7 +301,7 @@ SDK</a></li></ul>
     <!-- Secondary x-nav -->
     <div id="nav-x">
         <div class="wrap">
-            <ul class="nav-x col-9 develop" style="width:75%">
+            <ul class="nav-x col-9 develop" style="width:100%">
                 <li><a href="../../../../../../training/index.html" 
                   zh-TW-lang="訓練課程"
                   zh-CN-lang="培训"
@@ -327,8 +332,11 @@ SDK</a></li></ul>
                   ru-lang="Инструменты"
                   ko-lang="도구"
                   ja-lang="ツール"
-                  es-lang="Herramientas"               
+                  es-lang="Herramientas"
                   >Tools</a></li>
+                <li><a href="../../../../../../google/index.html" 
+                  >Google Services</a>
+                </li>
             </ul>
         </div>
         
@@ -337,9 +345,11 @@ SDK</a></li></ul>
 
   
 
+
   <div class="wrap clearfix" id="body-content">
     <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <div id="devdoc-nav">
+
 <a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
       <div id="api-nav-header">
         <div id="api-level-toggle">
@@ -370,6 +380,10 @@ SDK</a></li></ul>
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/common/package-summary.html">com.google.android.gms.common</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/common/data/package-summary.html">com.google.android.gms.common.data</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/common/images/package-summary.html">com.google.android.gms.common.images</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/maps/package-summary.html">com.google.android.gms.maps</a></li>
     <li class="api apilevel-">
@@ -378,6 +392,10 @@ SDK</a></li></ul>
   <a href="../../../../../../reference/com/google/android/gms/panorama/package-summary.html">com.google.android.gms.panorama</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/package-summary.html">com.google.android.gms.plus</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -398,6 +416,7 @@ SDK</a></li></ul>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMapLongClickListener.html">GoogleMap.OnMapLongClickListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMarkerClickListener.html">GoogleMap.OnMarkerClickListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMarkerDragListener.html">GoogleMap.OnMarkerDragListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMyLocationChangeListener.html">GoogleMap.OnMyLocationChangeListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/LocationSource.html">LocationSource</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/LocationSource.OnLocationChangedListener.html">LocationSource.OnLocationChangedListener</a></li>
       </ul>
@@ -461,6 +480,8 @@ SDK</a></li></ul>
         scrollIntoView("classes-nav");
         });
     </script>
+
+     
     <script>
       $(document).ready(function() {
         changeDocLang(getLangPref());
@@ -580,6 +601,12 @@ Summary:
  For example, to zoom in on a map, you can use the following code:
  <pre> <code>GoogleMap map = ...;
    map.animateCamera(CameraUpdateFactory.zoomIn());</code></pre>
+ <p>
+ <h3>Developer Guide</h3>
+ <p>
+ For more information, read the <a
+ href="https://developers.google.com/maps/documentation/android/views">Changing the View</a>
+ developer guide.
 </p>
 
 
@@ -905,7 +932,7 @@ From class
   </div>
   <div id="build_info">
     
-  Android &nbsp;r - 06 Dec 2012 20:10
+    Android &nbsp;r &mdash; 25 Feb 2013 22:22
 
   </div>
 
