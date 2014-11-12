@@ -377,6 +377,16 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/package-summary.html">com.google.android.gms</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/package-summary.html">com.google.android.gms.ads</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/identifier/package-summary.html">com.google.android.gms.ads.identifier</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/package-summary.html">com.google.android.gms.ads.mediation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -412,6 +422,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -1911,6 +1923,11 @@ From interface
  detectionIntervalMillis if the activity detection service requires more
  samples to make a more accurate prediction.
  <p>
+ To conserve battery, activity reporting may stop when the device is
+ 'STILL' for an extended period of time. It will resume once the device
+ moves again. This only happens on devices that support the
+ Sensor.TYPE_SIGNIFICANT_MOTION hardware.
+ <p>
  A common use case is that an application wants to monitor activities in
  the background and perform an action when a specific activity is
  detected. To do this without needing a service that is always on in the
@@ -2066,7 +2083,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 18 Sep 2013 12:36
+    Android &nbsp;r &mdash; 25 Oct 2013 17:03
 
   </div>
 

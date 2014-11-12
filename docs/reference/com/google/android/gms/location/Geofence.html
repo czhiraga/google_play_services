@@ -377,6 +377,16 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/package-summary.html">com.google.android.gms</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/package-summary.html">com.google.android.gms.ads</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/identifier/package-summary.html">com.google.android.gms.ads.identifier</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/package-summary.html">com.google.android.gms.ads.mediation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -412,6 +422,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -628,19 +640,27 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_DWELL">GEOFENCE_TRANSITION_DWELL</a></td>
+        <td class="jd-descrcol" width="100%">The transition type indicating that the user enters and dwells in
+ geofences for a given period of time.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER">GEOFENCE_TRANSITION_ENTER</a></td>
         <td class="jd-descrcol" width="100%">The transition type indicating that the user enters the geofence(s).</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_EXIT">GEOFENCE_TRANSITION_EXIT</a></td>
         <td class="jd-descrcol" width="100%">The transition type indicating that the user exits the geofence(s).</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">long</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/Geofence.html#NEVER_EXPIRE">NEVER_EXPIRE</a></td>
         <td class="jd-descrcol" width="100%">Expiration value that indicates the geofence should never expire.</td>
@@ -720,6 +740,52 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 <!-- ========= ENUM CONSTANTS DETAIL ======== -->
 <h2>Constants</h2>
 
+
+
+
+<A NAME="GEOFENCE_TRANSITION_DWELL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        GEOFENCE_TRANSITION_DWELL
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The transition type indicating that the user enters and dwells in
+ geofences for a given period of time. This alert always follows the
+ <code><a href="../../../../../../reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER">GEOFENCE_TRANSITION_ENTER</a></code> alert. But an app can always specify
+ this transition type without specifying
+ <code><a href="../../../../../../reference/com/google/android/gms/location/Geofence.html#GEOFENCE_TRANSITION_ENTER">GEOFENCE_TRANSITION_ENTER</a></code>.
+ <p>
+ You must set the duration of loitering before this alert is sent using
+ <code><a href="../../../../../../reference/com/google/android/gms/location/Geofence.Builder.html#setLoiteringDelay(int)">setLoiteringDelay(int)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                4
+                (0x00000004)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
 
 
 
@@ -915,7 +981,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 18 Sep 2013 12:36
+    Android &nbsp;r &mdash; 25 Oct 2013 17:03
 
   </div>
 

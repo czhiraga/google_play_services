@@ -148,22 +148,24 @@ public class MomentActivity extends Activity implements OnItemClickListener,
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        TextView textView = (TextView) view;
-        String momentType = (String) textView.getText();
-        String targetUrl = MomentUtil.MOMENT_TYPES.get(momentType);
+        if (mPlusClient.isConnected()) {
+            TextView textView = (TextView) view;
+            String momentType = (String) textView.getText();
+            String targetUrl = MomentUtil.MOMENT_TYPES.get(momentType);
 
-        ItemScope target = new ItemScope.Builder().setUrl(targetUrl).build();
+            ItemScope target = new ItemScope.Builder().setUrl(targetUrl).build();
 
-        Moment.Builder momentBuilder = new Moment.Builder();
-        momentBuilder.setType("http://schemas.google.com/" + momentType);
-        momentBuilder.setTarget(target);
+            Moment.Builder momentBuilder = new Moment.Builder();
+            momentBuilder.setType("http://schemas.google.com/" + momentType);
+            momentBuilder.setTarget(target);
 
-        ItemScope result = MomentUtil.getResultFor(momentType);
-        if (result != null) {
-          momentBuilder.setResult(result);
+            ItemScope result = MomentUtil.getResultFor(momentType);
+            if (result != null) {
+              momentBuilder.setResult(result);
+            }
+
+            mPlusClient.writeMoment(momentBuilder.build());
         }
-
-        mPlusClient.writeMoment(momentBuilder.build());
     }
 
     @Override

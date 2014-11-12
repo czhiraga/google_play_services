@@ -377,6 +377,16 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/package-summary.html">com.google.android.gms</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/package-summary.html">com.google.android.gms.ads</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/identifier/package-summary.html">com.google.android.gms.ads.identifier</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/package-summary.html">com.google.android.gms.ads.mediation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -412,6 +422,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -444,6 +456,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li><h2>Exceptions</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/GooglePlayServicesNotAvailableException.html">GooglePlayServicesNotAvailableException</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/GooglePlayServicesRepairableException.html">GooglePlayServicesRepairableException</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/common/UserRecoverableException.html">UserRecoverableException</a></li>
       </ul>
     </li>
               
@@ -657,19 +671,26 @@ Summary:
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#DATE_INVALID">DATE_INVALID</a></td>
+        <td class="jd-descrcol" width="100%">The device date is likely set incorrectly.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#DEVELOPER_ERROR">DEVELOPER_ERROR</a></td>
         <td class="jd-descrcol" width="100%">The application is misconfigured.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#INTERNAL_ERROR">INTERNAL_ERROR</a></td>
         <td class="jd-descrcol" width="100%">An internal error occurred.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#INVALID_ACCOUNT">INVALID_ACCOUNT</a></td>
         <td class="jd-descrcol" width="100%">The client attempted to connect to the service with an invalid account name
@@ -677,56 +698,56 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#LICENSE_CHECK_FAILED">LICENSE_CHECK_FAILED</a></td>
         <td class="jd-descrcol" width="100%">The application is not licensed to the user.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#NETWORK_ERROR">NETWORK_ERROR</a></td>
         <td class="jd-descrcol" width="100%">A network error occurred.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#RESOLUTION_REQUIRED">RESOLUTION_REQUIRED</a></td>
         <td class="jd-descrcol" width="100%">Completing the connection requires some form of resolution.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#SERVICE_DISABLED">SERVICE_DISABLED</a></td>
         <td class="jd-descrcol" width="100%">The installed version of Google Play services has been disabled on this device.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#SERVICE_INVALID">SERVICE_INVALID</a></td>
         <td class="jd-descrcol" width="100%">The version of the Google Play services installed on this device is not authentic.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#SERVICE_MISSING">SERVICE_MISSING</a></td>
         <td class="jd-descrcol" width="100%">Google Play services is missing on this device.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#SERVICE_VERSION_UPDATE_REQUIRED">SERVICE_VERSION_UPDATE_REQUIRED</a></td>
         <td class="jd-descrcol" width="100%">The installed version of Google Play services is out of date.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#SIGN_IN_REQUIRED">SIGN_IN_REQUIRED</a></td>
         <td class="jd-descrcol" width="100%">The client attempted to connect to the service but the user is not
@@ -734,7 +755,7 @@ Summary:
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/ConnectionResult.html#SUCCESS">SUCCESS</a></td>
         <td class="jd-descrcol" width="100%">The connection was successful.</td>
@@ -1141,6 +1162,46 @@ From class
 <!-- ========= ENUM CONSTANTS DETAIL ======== -->
 <h2>Constants</h2>
 
+
+
+
+<A NAME="DATE_INVALID"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        DATE_INVALID
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The device date is likely set incorrectly.
+ This error is recoverable by the user updating the date.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                12
+                (0x0000000c)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
 
 
 
@@ -1950,7 +2011,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 18 Sep 2013 12:36
+    Android &nbsp;r &mdash; 25 Oct 2013 17:03
 
   </div>
 

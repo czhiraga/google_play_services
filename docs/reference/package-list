@@ -1,4 +1,9 @@
 com.google.android.gms
+com.google.android.gms.ads
+com.google.android.gms.ads.identifier
+com.google.android.gms.ads.mediation
+com.google.android.gms.ads.mediation.admob
+com.google.android.gms.ads.mediation.customevent
 com.google.android.gms.appstate
 com.google.android.gms.auth
 com.google.android.gms.common
@@ -17,4 +22,5 @@ com.google.android.gms.panorama
 com.google.android.gms.plus
 com.google.android.gms.plus.model.moments
 com.google.android.gms.plus.model.people
+com.google.android.gms.wallet
 

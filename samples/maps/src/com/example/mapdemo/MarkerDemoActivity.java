@@ -161,6 +161,7 @@ public class MarkerDemoActivity extends FragmentActivity
     private SeekBar mRotationBar;
     private CheckBox mFlatBox;
 
+    private final Random mRandom = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -378,8 +379,9 @@ public class MarkerDemoActivity extends FragmentActivity
                 }
             });
         } else if (marker.equals(mAdelaide)) {
-            // This causes the marker at Adelaide to change color.
-            marker.setIcon(BitmapDescriptorFactory.defaultMarker(new Random().nextFloat() * 360));
+            // This causes the marker at Adelaide to change color and alpha.
+            marker.setIcon(BitmapDescriptorFactory.defaultMarker(mRandom.nextFloat() * 360));
+            marker.setAlpha(mRandom.nextFloat());
         }
         // We return false to indicate that we have not consumed the event and that we wish
         // for the default behavior to occur (which is for the camera to move such that the

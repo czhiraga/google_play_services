@@ -377,6 +377,16 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/package-summary.html">com.google.android.gms</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/package-summary.html">com.google.android.gms.ads</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/identifier/package-summary.html">com.google.android.gms.ads.identifier</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/package-summary.html">com.google.android.gms.ads.mediation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
@@ -412,6 +422,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/plus/model/moments/package-summary.html">com.google.android.gms.plus.model.moments</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/plus/model/people/package-summary.html">com.google.android.gms.plus.model.people</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -784,12 +796,13 @@ Summary:
             
             
             
-            String</nobr>
+            void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/leaderboard/LeaderboardScore.html#getScoreHolderDisplayName()">getScoreHolderDisplayName</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/leaderboard/LeaderboardScore.html#getScoreHolderDisplayName(android.database.CharArrayBuffer)">getScoreHolderDisplayName</a></span>(CharArrayBuffer dataOut)</nobr>
         
-        <div class="jd-descrdiv">Retrieves the name to display for the player who scored this score.</div>
+        <div class="jd-descrdiv">Load the display name of the player who scored this score into the provided
+ <code><a href="../../../../../../../reference/android/database/CharArrayBuffer.html">CharArrayBuffer</a></code>.</div>
   
   </td></tr>
 
@@ -802,13 +815,12 @@ Summary:
             
             
             
-            void</nobr>
+            String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/leaderboard/LeaderboardScore.html#getScoreHolderDisplayName(android.database.CharArrayBuffer)">getScoreHolderDisplayName</a></span>(CharArrayBuffer dataOut)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/leaderboard/LeaderboardScore.html#getScoreHolderDisplayName()">getScoreHolderDisplayName</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Load the display name of the player who scored this score into the provided
- <code><a href="../../../../../../../reference/android/database/CharArrayBuffer.html">CharArrayBuffer</a></code>.</div>
+        <div class="jd-descrdiv">Retrieves the name to display for the player who scored this score.</div>
   
   </td></tr>
 
@@ -851,6 +863,24 @@ Summary:
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/leaderboard/LeaderboardScore.html#getScoreTag()">getScoreTag</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieve the optional score tag associated with this score, if any.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -1241,41 +1271,6 @@ From interface
 </div>
 
 
-<A NAME="getScoreHolderDisplayName()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        String
-      </span>
-      <span class="sympad">getScoreHolderDisplayName</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the name to display for the player who scored this score. If the identity of the
- player is unknown, this will return an anonymous name to display.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>The display name of the holder of this score.
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="getScoreHolderDisplayName(android.database.CharArrayBuffer)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1310,6 +1305,41 @@ From interface
 </td>
         </tr>
       </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getScoreHolderDisplayName()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getScoreHolderDisplayName</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the name to display for the player who scored this score. If the identity of the
+ player is unknown, this will return an anonymous name to display.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The display name of the holder of this score.
+</li></ul>
   </div>
 
     </div>
@@ -1392,6 +1422,40 @@ From interface
 </div>
 
 
+<A NAME="getScoreTag()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getScoreTag</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the optional score tag associated with this score, if any.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The score tag associated with this score.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="getTimestampMillis()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1448,7 +1512,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 18 Sep 2013 12:36
+    Android &nbsp;r &mdash; 25 Oct 2013 17:03
 
   </div>
 
