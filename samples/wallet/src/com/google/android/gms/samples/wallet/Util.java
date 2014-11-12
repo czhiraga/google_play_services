@@ -17,9 +17,11 @@
 package com.google.android.gms.samples.wallet;
 
 import com.google.android.gms.wallet.Address;
+import com.google.android.gms.wallet.LoyaltyWalletObject;
 import com.google.android.gms.wallet.MaskedWallet;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 /**
  * Helper util methods.
@@ -74,5 +76,21 @@ public class Util {
      */
     static String formatPrice(Context context, long priceMicros) {
         return context.getString(R.string.price_format, priceMicros / 1000000d);
+    }
+
+    /**
+     * Formats a {@link com.google.android.gms.wallet.LoyaltyWalletObject} for display.
+     *
+     * @param loyaltyWalletObject the object to format
+     * @return The formatted object with the various fields of interest to the user.
+     */
+    public static String formatLoyaltyWalletObject(LoyaltyWalletObject loyaltyWalletObject) {
+        StringBuilder sb = new StringBuilder();
+        if (!TextUtils.isEmpty(loyaltyWalletObject.getAccountId())) {
+            sb.append(loyaltyWalletObject.getAccountId())
+                    .append("\n");
+        }
+        sb.append(loyaltyWalletObject.getProgramName());
+        return sb.toString();
     }
 }

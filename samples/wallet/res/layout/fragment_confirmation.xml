@@ -87,9 +87,46 @@
 
             </TableRow>
 
-        </TableLayout>
+            <include layout="@layout/horizontal_divider" />
 
-        <include layout="@layout/horizontal_divider" />
+            <TableRow
+                android:id="@+id/loyalty_row"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loyalty_info"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/padding_small" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_loyalty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left" />
+
+                </LinearLayout>
+
+                <include
+                    layout="@layout/change_button"
+                    android:id="@+id/button_change_loyalty"
+                    android:layout_marginLeft="@dimen/padding_small" />
+
+            </TableRow>
+
+            <include
+                android:id="@+id/loyalty_row_divider"
+                android:visibility="gone"
+                layout="@layout/horizontal_divider" />
+
+        </TableLayout>
 
         <Button
             android:id="@+id/confirm_button"

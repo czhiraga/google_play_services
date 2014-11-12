@@ -73,9 +73,14 @@
 
 
 
+
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>AdView | Android Developers</title>
@@ -93,19 +98,39 @@ type="text/css">
 
 <!-- JAVASCRIPT -->
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script src="../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script src="../../../../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../../../../";
+  var metaTags = [];
+  var devsite = false;
 </script>
 <script src="../../../../../../assets/js/docs.js" type="text/javascript"></script>
 
-<script src="../../../../../../navtree_data.js" type="text/javascript"></script>
+<!-- RESOURCES LIBRARY -->
+<script src="http://androiddevdocs-staging.appspot.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+<script src="../../../../../../jd_lists_unified.js" type="text/javascript"></script>
+<script src="../../../../../../assets/js/jd_tag_helpers.js" type="text/javascript"></script>
+<link href="../../../../../../assets/css/resourcecards.css"  rel="stylesheet" type="text/css" />
+<script src="../../../../../../assets/js/resourcecards.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </head>
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
+<a name="top"></a>
 
     <!-- Header -->
     <div id="header">
@@ -121,25 +146,25 @@ type="text/css">
           </div>
             <ul class="nav-x col-9">
                 <li class="design">
-                  <a href="../../../../../../design/index.html" 
-                  zh-TW-lang="設計"
-                  zh-CN-lang="设计"
+                  <a href="../../../../../../design/index.html"
+                  zh-tw-lang="設計"
+                  zh-cn-lang="设计"
                   ru-lang="Проектирование"
                   ko-lang="디자인"
                   ja-lang="設計"
                   es-lang="Diseñar"               
                   >Design</a></li>
-                <li class="develop"><a href="../../../../../../develop/index.html" class="selected"
-                  zh-TW-lang="開發"
-                  zh-CN-lang="开发"
+                <li class="develop"><a href="../../../../../../develop/index.html"
+                  zh-tw-lang="開發"
+                  zh-cn-lang="开发"
                   ru-lang="Разработка"
                   ko-lang="개발"
                   ja-lang="開発"
                   es-lang="Desarrollar"               
                   >Develop</a></li>
-                <li class="distribute last"><a href="../../../../../../distribute/index.html" 
-                  zh-TW-lang="發佈"
-                  zh-CN-lang="分发"
+                <li class="distribute last"><a href="../../../../../../distribute/index.html"
+                  zh-tw-lang="發佈"
+                  zh-cn-lang="分发"
                   ru-lang="Распространение"
                   ko-lang="배포"
                   ja-lang="配布"
@@ -167,27 +192,12 @@ type="text/css">
         <li class="active"><a>Android Developers</a></li>
         <li><a href="http://source.android.com">Android Open Source Project</a></li>
       </ul>
-      <!-- <div class="header">Support</div>
-      <ul>
-        <li><a href="../../../../../../support.html">Developer Support</a></li>
-      </ul> -->
-      <div class="header">Languages</div>
-        <div id="language" class="locales">
-          <select name="language" onChange="changeLangPref(this.value, true)">
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="ja">日本語</option>
-              <option value="ko">한국어</option>
-              <option value="ru">Русский</option>
-              <option value="zh-CN">中文 (中国)</option>
-              <option value="zh-TW">中文 (台灣)</option>
-          </select>
-        </div>
-      <script type="text/javascript">
-        <!--  
-        loadLangPref();  
-          //-->
-      </script>
+      
+      
+      
+      
+
+
       <br class="clearfix" />
     </div>
     <div class="bottom"></div>
@@ -208,13 +218,36 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
         <div class="right"></div>
     </div>
   </div>
-  <div id="search_filtered_wrapper">
-    <div id="search_filtered_div" class="no-display">
-        <ul id="search_filtered">
-        </ul>
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
     </div>
   </div>
-  
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
   </div>
   <!-- /New Search>
           
@@ -235,32 +268,32 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
                     <li class="develop">
                       <ul>
                         <li><a href="../../../../../../training/index.html"
-                          zh-TW-lang="訓練課程"
-                          zh-CN-lang="培训"
+                          zh-tw-lang="訓練課程"
+                          zh-cn-lang="培训"
                           ru-lang="Курсы"
                           ko-lang="교육"
                           ja-lang="トレーニング"
                           es-lang="Capacitación"               
                           >Training</a></li>
-                        <li><a href="../../../../../../guide/components/index.html"
-                          zh-TW-lang="API 指南"
-                          zh-CN-lang="API 指南"
+                        <li><a href="../../../../../../guide/index.html"
+                          zh-tw-lang="API 指南"
+                          zh-cn-lang="API 指南"
                           ru-lang="Руководства по API"
                           ko-lang="API 가이드"
                           ja-lang="API ガイド"
                           es-lang="Guías de la API"               
                           >API Guides</a></li>
                         <li><a href="../../../../../../reference/packages.html"
-                          zh-TW-lang="參考資源"
-                          zh-CN-lang="参考"
+                          zh-tw-lang="參考資源"
+                          zh-cn-lang="参考"
                           ru-lang="Справочник"
                           ko-lang="참조문서"
                           ja-lang="リファレンス"
                           es-lang="Referencia"               
                           >Reference</a></li>
                         <li><a href="../../../../../../tools/index.html"
-                          zh-TW-lang="相關工具"
-                          zh-CN-lang="工具"
+                          zh-tw-lang="相關工具"
+                          zh-cn-lang="工具"
                           ru-lang="Инструменты"
                           ko-lang="도구"
                           ja-lang="ツール"
@@ -270,6 +303,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
                         </li>
                         <li><a href="../../../../../../google/index.html">Google Services</a>
                         </li>
+                        
                       </ul>
                     </li>
                     <li class="distribute last">
@@ -296,52 +330,56 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   </div>
     
     
-    
-
+  
     <!-- Secondary x-nav -->
     <div id="nav-x">
         <div class="wrap">
             <ul class="nav-x col-9 develop" style="width:100%">
-                <li><a href="../../../../../../training/index.html" 
-                  zh-TW-lang="訓練課程"
-                  zh-CN-lang="培训"
+                <li class="training"><a href="../../../../../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
                   ru-lang="Курсы"
                   ko-lang="교육"
                   ja-lang="トレーニング"
                   es-lang="Capacitación"               
                   >Training</a></li>
-                <li><a href="../../../../../../guide/components/index.html" 
-                  zh-TW-lang="API 指南"
-                  zh-CN-lang="API 指南"
+                <li class="guide"><a href="../../../../../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
                   ru-lang="Руководства по API"
                   ko-lang="API 가이드"
                   ja-lang="API ガイド"
                   es-lang="Guías de la API"               
                   >API Guides</a></li>
-                <li><a href="../../../../../../reference/packages.html" class="selected"
-                  zh-TW-lang="參考資源"
-                  zh-CN-lang="参考"
+                <li class="reference"><a href="../../../../../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
                   ru-lang="Справочник"
                   ko-lang="참조문서"
                   ja-lang="リファレンス"
                   es-lang="Referencia"               
                   >Reference</a></li>
-                <li><a href="../../../../../../tools/index.html" 
-                  zh-TW-lang="相關工具"
-                  zh-CN-lang="工具"
+                <li class="tools"><a href="../../../../../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
                   ru-lang="Инструменты"
                   ko-lang="도구"
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a></li>
-                <li><a href="../../../../../../google/index.html" 
+                <li class="google"><a href="../../../../../../google/index.html"
                   >Google Services</a>
                 </li>
+                
             </ul>
         </div>
         
     </div>
     <!-- /Sendondary x-nav -->
+  
+
+
+
 
   
 
@@ -353,7 +391,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 <a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
       <div id="api-nav-header">
         <div id="api-level-toggle">
-          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <label for="apiLevelCheckbox" class="disabled"
+            title="Select your target API level to dim unavailable APIs">API level: </label>
           <div class="select-wrapper">
             <select id="apiLevelSelector">
               <!-- option elements added by buildApiLevelSelector() -->
@@ -373,11 +412,13 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
             <div id="packages-nav" class="scroll-pane">
 
               <ul>
-              	
+                
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/package-summary.html">com.google.android.gms</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/package-summary.html">com.google.android.gms.ads</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/doubleclick/package-summary.html">com.google.android.gms.ads.doubleclick</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/identifier/package-summary.html">com.google.android.gms.ads.identifier</a></li>
     <li class="api apilevel-">
@@ -387,15 +428,31 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/appstate/package-summary.html">com.google.android.gms.appstate</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/auth/package-summary.html">com.google.android.gms.auth</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/cast/package-summary.html">com.google.android.gms.cast</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/common/package-summary.html">com.google.android.gms.common</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/common/annotation/package-summary.html">com.google.android.gms.common.annotation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/common/api/package-summary.html">com.google.android.gms.common.api</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/common/data/package-summary.html">com.google.android.gms.common.data</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/common/images/package-summary.html">com.google.android.gms.common.images</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/package-summary.html">com.google.android.gms.drive</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/metadata/package-summary.html">com.google.android.gms.drive.metadata</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/query/package-summary.html">com.google.android.gms.drive.query</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/drive/widget/package-summary.html">com.google.android.gms.drive.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/games/package-summary.html">com.google.android.gms.games</a></li>
     <li class="api apilevel-">
@@ -406,6 +463,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/games/multiplayer/package-summary.html">com.google.android.gms.games.multiplayer</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/package-summary.html">com.google.android.gms.games.multiplayer.realtime</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/games/multiplayer/turnbased/package-summary.html">com.google.android.gms.games.multiplayer.turnbased</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/gcm/package-summary.html">com.google.android.gms.gcm</a></li>
     <li class="api apilevel-">
@@ -433,6 +492,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
             <ul>
+              
               
               
     <li><h2>Classes</h2>
@@ -491,11 +551,6 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     </script>
 
      
-    <script>
-      $(document).ready(function() {
-        changeDocLang(getLangPref());
-        });
-    </script>
 
 
 
@@ -705,6 +760,10 @@ Summary:
 <h2>Class Overview</h2>
 <p itemprop="articleBody">The <code><a href="../../../../../../reference/android/view/View.html">View</a></code> to display banner ads. The ad size and ad unit ID must be set
  prior to calling <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#loadAd(com.google.android.gms.ads.AdRequest)">loadAd(AdRequest)</a></code>.
+ <p>
+ Publishers using DoubleClick for Publishers or Search Ads for Apps should use
+ <code><a href="../../../../../../reference/com/google/android/gms/ads/doubleclick/PublisherAdView.html">PublisherAdView</a></code> or
+ <code><a href="../../../../../../reference/com/google/android/gms/ads/search/SearchAdView.html">SearchAdView</a></code>, respectively.
  <p>
  Sample code:
  <pre>
@@ -1333,145 +1392,152 @@ android.view.View
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol">SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</td>
+        <td class="jd-linkcol">SYSTEM_UI_FLAG_IMMERSIVE_STICKY</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">SYSTEM_UI_FLAG_LAYOUT_STABLE</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">SYSTEM_UI_FLAG_LOW_PROFILE</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">SYSTEM_UI_FLAG_VISIBLE</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">SYSTEM_UI_LAYOUT_FLAGS</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_ALIGNMENT_CENTER</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_ALIGNMENT_GRAVITY</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_ALIGNMENT_INHERIT</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_ALIGNMENT_TEXT_END</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_ALIGNMENT_TEXT_START</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_ALIGNMENT_VIEW_END</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_ALIGNMENT_VIEW_START</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_DIRECTION_ANY_RTL</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_DIRECTION_FIRST_STRONG</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_DIRECTION_INHERIT</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_DIRECTION_LOCALE</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_DIRECTION_LTR</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">TEXT_DIRECTION_RTL</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol">VIEW_LOG_TAG</td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol">VISIBLE</td>
         <td class="jd-descrcol" width="100%"></td>
@@ -2171,7 +2237,7 @@ android.view.View
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#loadAd(com.google.android.gms.ads.AdRequest)">loadAd</a></span>(<a href="../../../../../../reference/com/google/android/gms/ads/AdRequest.html">AdRequest</a> adRequest)</nobr>
         
-        <div class="jd-descrdiv">Start loading the ad on a background thread.</div>
+        <div class="jd-descrdiv">Starts loading the ad on a background thread.</div>
   
   </td></tr>
 
@@ -2189,7 +2255,7 @@ android.view.View
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#pause()">pause</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Pause any extra processing associated with this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>.</div>
+        <div class="jd-descrdiv">Pauses any extra processing associated with this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>.</div>
   
   </td></tr>
 
@@ -2207,7 +2273,7 @@ android.view.View
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#resume()">resume</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Resume an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code> after a previous call to <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#pause()">pause()</a></code>.</div>
+        <div class="jd-descrdiv">Resumes an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code> after a previous call to <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#pause()">pause()</a></code>.</div>
   
   </td></tr>
 
@@ -2225,7 +2291,7 @@ android.view.View
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#setAdListener(com.google.android.gms.ads.AdListener)">setAdListener</a></span>(<a href="../../../../../../reference/com/google/android/gms/ads/AdListener.html">AdListener</a> adListener)</nobr>
         
-        <div class="jd-descrdiv">Set an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdListener.html">AdListener</a></code> for this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>.</div>
+        <div class="jd-descrdiv">Sets an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdListener.html">AdListener</a></code> for this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>.</div>
   
   </td></tr>
 
@@ -13136,8 +13202,14 @@ containing a value of this type.
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the size of the banner ad.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the size of the banner ad. Returns <code>null</code> if <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#setAdSize(com.google.android.gms.ads.AdSize)">setAdSize(AdSize)</a></code> hasn't been
+ called yet.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Related XML Attributes</h5>
+      <ul class="nolist">
+            <li><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#attr_com.google.android.gms:adSize">com.google.android.gms:adSize</a></li>
+      </ul>
+  </div>
 
     </div>
 </div>
@@ -13166,8 +13238,13 @@ containing a value of this type.
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the ad unit ID.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the ad unit ID.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Related XML Attributes</h5>
+      <ul class="nolist">
+            <li><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#attr_com.google.android.gms:adUnitId">com.google.android.gms:adUnitId</a></li>
+      </ul>
+  </div>
 
     </div>
 </div>
@@ -13196,12 +13273,12 @@ containing a value of this type.
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Start loading the ad on a background thread.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Starts loading the ad on a background thread.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
-            <th>IllegalArgumentException</td>
+            <th>IllegalStateException</td>
             <td>If the size of the banner ad or the ad unit ID have not been
          set.
 </td>
@@ -13236,7 +13313,7 @@ containing a value of this type.
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Pause any extra processing associated with this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>. This method should be called
+  <div class="jd-tagdata jd-tagdescr"><p>Pauses any extra processing associated with this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>. This method should be called
  in the parent Activity's <code><a href="../../../../../../reference/android/app/Activity.html#onPause()">onPause()</a></code> method.
 </p></div>
 
@@ -13267,7 +13344,7 @@ containing a value of this type.
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Resume an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code> after a previous call to <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#pause()">pause()</a></code>. This method should be
+  <div class="jd-tagdata jd-tagdescr"><p>Resumes an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code> after a previous call to <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html#pause()">pause()</a></code>. This method should be
  called in the parent Activity's <code><a href="../../../../../../reference/android/app/Activity.html#onResume()">onResume()</a></code> method.
 </p></div>
 
@@ -13298,7 +13375,7 @@ containing a value of this type.
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Set an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdListener.html">AdListener</a></code> for this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Sets an <code><a href="../../../../../../reference/com/google/android/gms/ads/AdListener.html">AdListener</a></code> for this <code><a href="../../../../../../reference/com/google/android/gms/ads/AdView.html">AdView</a></code>.
 </p></div>
 
     </div>
@@ -13339,7 +13416,7 @@ containing a value of this type.
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
-            <th>IllegalArgumentException</td>
+            <th>IllegalStateException</td>
             <td>If the size of the banner ad was already set.
 </td>
         </tr>
@@ -13384,7 +13461,7 @@ containing a value of this type.
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
-            <th>IllegalArgumentException</td>
+            <th>IllegalStateException</td>
             <td>If the ad unit ID was already set.
 </td>
         </tr>
@@ -13480,7 +13557,9 @@ containing a value of this type.
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 25 Oct 2013 17:03
+    Android &nbsp;r &mdash; 
+<script src="../../../../../../timestamp.js" type="text/javascript"></script>
+<script>document.write(BUILD_TIMESTAMP)</script>
 
   </div>
 
@@ -13503,41 +13582,6 @@ containing a value of this type.
 
 
 
-
-<!-- Grid - for dev 
-<script type="text/javascript">
-
-window.gOverride = {
-		gColor: '#FF0000',
-		pColor: '#EEEEEE',
-		gOpacity: 0.10,
-		pOpacity: 0.40,
-		pHeight: 16,
-		pOffset: 2,
-		gColumns:16,
-		gEnabled:false,
-		pEnabled:false
-	}
-</script>
-	
-<link href="../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
-<script src="../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
--->
-
-
-
-
-
-<script type="text/javascript">
-init(); /* initialize android-developer-docs.js */
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-<script type="text/javascript">
-  var pageTracker = _gat._getTracker("UA-5831155-1");
-  pageTracker._trackPageview();
-</script>
 
 
 

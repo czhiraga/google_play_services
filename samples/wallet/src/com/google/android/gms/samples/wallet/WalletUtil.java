@@ -41,7 +41,7 @@ public class WalletUtil {
      * Creates a MaskedWalletRequest
      *
      * @param itemInfo {@link com.google.android.gms.samples.wallet.ItemInfo} containing details
-     *                 of an item
+     *                 of an item.
      * @return {@link MaskedWalletRequest} instance
      */
     public static MaskedWalletRequest createMaskedWalletRequest(ItemInfo itemInfo) {
@@ -65,6 +65,8 @@ public class WalletUtil {
                         .setTotalPrice(cartTotal)
                         .setLineItems(lineItems)
                         .build())
+                // Indicate whether we need the Wallet Objects associated with the user.
+                .setShouldRetrieveWalletObjects(true)
                 .build();
     }
 

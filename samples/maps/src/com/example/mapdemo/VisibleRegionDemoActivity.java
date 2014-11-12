@@ -18,7 +18,9 @@ package com.example.mapdemo;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnCameraChangeListener;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -30,6 +32,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
+import android.widget.TextView;
 
 /**
  * This shows how to use setPadding to allow overlays that obscure part of the map without
@@ -46,6 +49,8 @@ public class VisibleRegionDemoActivity extends FragmentActivity {
     private static final LatLngBounds AUS = new LatLngBounds(
             new LatLng(-44, 113), new LatLng(-10, 154));
 
+    private TextView mMessageView;
+
     /** Keep track of current values for padding, so we can animate from them. */
     int currentLeft = 150;
     int currentTop = 0;
@@ -56,6 +61,7 @@ public class VisibleRegionDemoActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visible_region_demo);
+        mMessageView = (TextView) findViewById(R.id.message_text);
         setUpMapIfNeeded();
     }
 
@@ -94,6 +100,12 @@ public class VisibleRegionDemoActivity extends FragmentActivity {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SFO, 18));
                 // Add a marker to the Opera House
                 mMap.addMarker(new MarkerOptions().position(SOH).title("Sydney Opera House"));
+                // Add a camera change listener.
+                mMap.setOnCameraChangeListener(new OnCameraChangeListener() {
+                    public void onCameraChange(CameraPosition pos) {
+                      mMessageView.setText("CameraChangeListener: " + pos);
+                    }
+                  });
             }
         }
     }

@@ -81,5 +81,6 @@
         <font color="#919397">with every Camera XY000</font>
         <b>Today only!</b>
     ]]></string>
+    <string name="loyalty_info">Loyalty:</string>
 
 </resources>

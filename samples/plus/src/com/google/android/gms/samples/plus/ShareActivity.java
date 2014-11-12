@@ -16,9 +16,10 @@
 
 package com.google.android.gms.samples.plus;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.plus.PlusClient;
+import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.PlusShare;
 
 import android.app.Activity;
@@ -38,7 +39,6 @@ import android.widget.EditText;
  * Example of sharing with Google+ through the ACTION_SEND intent.
  */
 public class ShareActivity extends Activity implements View.OnClickListener,
-        PlusClient.ConnectionCallbacks, PlusClient.OnConnectionFailedListener,
         DialogInterface.OnCancelListener {
     protected static final String TAG = "ShareActivity";
 
@@ -46,33 +46,23 @@ public class ShareActivity extends Activity implements View.OnClickListener,
 
     private static final int DIALOG_GET_GOOGLE_PLAY_SERVICES = 1;
 
-    private static final int REQUEST_CODE_SIGN_IN = 1;
-    private static final int REQUEST_CODE_INTERACTIVE_POST = 2;
-    private static final int REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES = 3;
+    private static final int REQUEST_CODE_INTERACTIVE_POST = 1;
+    private static final int REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES = 2;
 
     /** The button should say "View item" in English. */
     private static final String LABEL_VIEW_ITEM = "VIEW_ITEM";
 
     private EditText mEditSendText;
-    private boolean mSharing;
-    private PlusClient mPlusClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.share_activity);
 
-        mPlusClient = new PlusClient.Builder(this, this, this)
-                .setActions(MomentUtil.ACTIONS)
-                .build();
-
         Button sendButton = (Button) findViewById(R.id.send_interactive_button);
         sendButton.setOnClickListener(this);
 
         mEditSendText = (EditText) findViewById(R.id.share_prefill_edit);
-        mSharing = savedInstanceState != null
-                && savedInstanceState.getBoolean(STATE_SHARING, false);
-
         int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         if (available != ConnectionResult.SUCCESS) {
             showDialog(DIALOG_GET_GOOGLE_PLAY_SERVICES);
@@ -101,57 +91,29 @@ public class ShareActivity extends Activity implements View.OnClickListener,
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(STATE_SHARING, mSharing);
-    }
-
-    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.send_interactive_button:
-                if (!mPlusClient.isConnected()) {
-                    // Set sharing so that the share is started in onConnected.
-                    mSharing = true;
-
-                    if (!mPlusClient.isConnecting()) {
-                        mPlusClient.connect();
-                    }
-                } else {
-                    startActivityForResult(
-                            getInteractivePostIntent(), REQUEST_CODE_INTERACTIVE_POST);
-                }
+                startActivityForResult(getInteractivePostIntent(), REQUEST_CODE_INTERACTIVE_POST);
+                return;
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         switch (requestCode) {
-            case REQUEST_CODE_SIGN_IN:
             case REQUEST_CODE_GET_GOOGLE_PLAY_SERVICES:
-                handleResult(resultCode);
+                if (resultCode != RESULT_OK) {
+                    Log.e(TAG, "Unable to sign the user in.");
+                    finish();
+                }
                 break;
 
             case REQUEST_CODE_INTERACTIVE_POST:
-                mSharing = false;
                 if (resultCode != RESULT_OK) {
                     Log.e(TAG, "Failed to create interactive post");
                 }
                 break;
-        }
-    }
-
-    private void handleResult(int resultCode) {
-        if (resultCode == RESULT_OK) {
-            // onActivityResult is called after onStart (but onStart is not
-            // guaranteed to be called while signing in), so we should make
-            // sure we're not already connecting before we call connect again.
-            if (!mPlusClient.isConnecting() && !mPlusClient.isConnected()) {
-                mPlusClient.connect();
-            }
-        } else {
-            Log.e(TAG, "Unable to sign the user in.");
-            finish();
         }
     }
 
@@ -165,7 +127,7 @@ public class ShareActivity extends Activity implements View.OnClickListener,
         String callToActionDeepLinkId = getString(R.string.plus_example_deep_link_id) + action;
 
         // Create an interactive post builder.
-        PlusShare.Builder builder = new PlusShare.Builder(this, mPlusClient);
+        PlusShare.Builder builder = new PlusShare.Builder(this);
 
         // Set call-to-action metadata.
         builder.addCallToAction(LABEL_VIEW_ITEM, callToActionUrl, callToActionDeepLinkId);
@@ -181,36 +143,6 @@ public class ShareActivity extends Activity implements View.OnClickListener,
         builder.setText(mEditSendText.getText().toString());
 
         return builder.getIntent();
-    }
-
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        if (!mSharing) {
-            // The share button hasn't been clicked yet.
-            return;
-        }
-
-        mSharing = false;
-        startActivityForResult(getInteractivePostIntent(), REQUEST_CODE_INTERACTIVE_POST);
-    }
-
-    @Override
-    public void onDisconnected() {
-        // Do nothing.
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        if (!mSharing) {
-            return;
-        }
-
-        try {
-            result.startResolutionForResult(this, REQUEST_CODE_SIGN_IN);
-        } catch (IntentSender.SendIntentException e) {
-            // Try to connect again and get another intent to start.
-            mPlusClient.connect();
-        }
     }
 
     @Override

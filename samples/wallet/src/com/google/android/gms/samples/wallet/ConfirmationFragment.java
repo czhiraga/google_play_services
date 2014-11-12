@@ -16,12 +16,12 @@
 
 package com.google.android.gms.samples.wallet;
 
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.wallet.FullWallet;
 import com.google.android.gms.wallet.FullWalletRequest;
+import com.google.android.gms.wallet.LoyaltyWalletObject;
 import com.google.android.gms.wallet.MaskedWallet;
-import com.google.android.gms.wallet.MaskedWalletRequest;
 import com.google.android.gms.wallet.NotifyTransactionStatusRequest;
+import com.google.android.gms.wallet.Wallet;
 import com.google.android.gms.wallet.WalletClient;
 import com.google.android.gms.wallet.WalletConstants;
 
@@ -63,6 +63,7 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
     private Button mChangePaymentButton;
     private Button mChangeAddressButton;
     private Button mConfirmButton;
+    private Button mChangeLoyaltyButton;
 
     private TextView mEmail;
     private TextView mShipping;
@@ -70,6 +71,9 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
     private TextView mTotal;
     private TextView mPaymentDescriptions;
     private TextView mShippingAddress;
+    private TextView mTextLoyalty;
+    private View mLoyaltyRow;
+    private View mLoyaltyRowDivider;
 
     private int mRetryLoadFullWalletCount = 0;
 
@@ -112,6 +116,10 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
         mPaymentDescriptions = (TextView) view.findViewById(R.id.text_payment_descriptions);
         mShippingAddress = (TextView) view.findViewById(R.id.text_shipping_address);
 
+        mTextLoyalty = (TextView) view.findViewById(R.id.text_loyalty);
+        mLoyaltyRow = view.findViewById(R.id.loyalty_row);
+        mLoyaltyRowDivider = view.findViewById(R.id.loyalty_row_divider);
+
         updateUiForNewMaskedWallet();
 
         mChangePaymentButton = (Button) view.findViewById(R.id.button_change_google_wallet);
@@ -123,6 +131,9 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
         mConfirmButton = (Button) view.findViewById(R.id.confirm_button);
         mConfirmButton.setOnClickListener(this);
 
+        mChangeLoyaltyButton = (Button) view.findViewById(R.id.button_change_loyalty);
+        mChangeLoyaltyButton.setOnClickListener(this);
+
         return view;
     }
 
@@ -130,7 +141,7 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
     public void onClick(View v) {
         if (v == mChangePaymentButton) {
             goToPaymentActivity();
-        } else if (v == mChangeAddressButton) {
+        } else if (v == mChangeAddressButton || v == mChangeLoyaltyButton) {
             changeMaskedWallet();
         } else if (v == mConfirmButton) {
             confirmPurchase();
@@ -185,6 +196,18 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
 
         mShippingAddress.setText(Util.formatAddress(getActivity(),
                 mMaskedWallet.getShippingAddress()));
+
+        LoyaltyWalletObject[] loyaltyWalletObjects = mMaskedWallet.getLoyaltyWalletObjects();
+        if (loyaltyWalletObjects != null && loyaltyWalletObjects.length > 0) {
+            // Show the first one
+            mLoyaltyRow.setVisibility(View.VISIBLE);
+            mLoyaltyRowDivider.setVisibility(View.VISIBLE);
+            mTextLoyalty.setText(Util.formatLoyaltyWalletObject(loyaltyWalletObjects[0]));
+        } else {
+            mLoyaltyRow.setVisibility(View.GONE);
+            mLoyaltyRowDivider.setVisibility(View.GONE);
+            mTextLoyalty.setText("");
+        }
     }
 
     @Override
@@ -200,7 +223,7 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
         switch (requestCode) {
             case REQUEST_CODE_RESOLVE_ERR:
                 if (resultCode == Activity.RESULT_OK) {
-                    mWalletClient.connect();
+                    mGoogleApiClient.connect();
                 } else {
                     handleUnrecoverableGoogleWalletError(errorCode);
                 }
@@ -284,7 +307,7 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
         if (mConnectionResult != null) {
             resolveUnsuccessfulConnectionResult();
         } else {
-            mWalletClient.changeMaskedWallet(mMaskedWallet.getGoogleTransactionId(),
+            Wallet.changeMaskedWallet(mGoogleApiClient, mMaskedWallet.getGoogleTransactionId(),
                     mMaskedWallet.getMerchantTransactionId(),
                     REQUEST_CODE_RESOLVE_CHANGE_MASKED_WALLET);
         }
@@ -303,7 +326,7 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
     }
 
     private void getFullWallet() {
-        mWalletClient.loadFullWallet(WalletUtil.createFullWalletRequest(mItemInfo,
+        Wallet.loadFullWallet(mGoogleApiClient, WalletUtil.createFullWalletRequest(mItemInfo,
                 mMaskedWallet.getGoogleTransactionId()), REQUEST_CODE_RESOLVE_LOAD_FULL_WALLET);
     }
 
@@ -318,9 +341,9 @@ public class ConfirmationFragment extends XyzWalletFragment implements OnClickLi
         // Send back details such as fullWallet.getProxyCard() and fullWallet.getBillingAddress()
         // and get back success or failure
         // The following code assumes a successful response and calls notifyTransactionStatus
-        mWalletClient.notifyTransactionStatus(WalletUtil.createNotifyTransactionStatusRequest(
-                fullWallet.getGoogleTransactionId(),
-                NotifyTransactionStatusRequest.Status.SUCCESS));
+        Wallet.notifyTransactionStatus(mGoogleApiClient,
+                WalletUtil.createNotifyTransactionStatusRequest(fullWallet.getGoogleTransactionId(),
+                        NotifyTransactionStatusRequest.Status.SUCCESS));
 
         Intent intent = new Intent(getActivity(), OrderCompleteActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
