@@ -529,7 +529,7 @@ public class MrpCastPlayerActivity extends BaseCastPlayerActivity {
         mStartSessionButton.setEnabled(hasRoute && !hasSession);
         mEndSessionButton.setEnabled(hasRoute && hasSession && mSessionActive);
         setDeviceVolumeControlsEnabled(hasRoute);
-        mPlayMediaButton.setEnabled(hasRoute && hasSession);
+        mSelectMediaButton.setEnabled(hasRoute && hasSession);
         mStopButton.setEnabled(hasMedia);
         setSeekBarEnabled(hasMedia);
         updateVolume();

@@ -4,9 +4,12 @@ package com.google.android.gms.cast.samples.democastplayer;
 
 import com.google.android.gms.cast.CastMediaControlIntent;
 import com.google.android.gms.cast.MediaInfo;
+import com.google.android.gms.cast.MediaTrack;
+import com.google.android.gms.cast.TextTrackStyle;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
@@ -22,6 +25,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -38,6 +42,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.accessibility.CaptioningManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -46,6 +51,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -58,7 +65,8 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
     private TextView mMediaTitle;
     private TextView mMediaArtist;
     private ImageView mMediaArtImageView;
-    protected Button mPlayMediaButton;
+    protected Button mSelectMediaButton;
+    protected Button mSelectTracksButton;
     protected Button mLaunchAppButton;
     protected Button mJoinAppButton;
     protected Button mLeaveAppButton;
@@ -75,9 +83,10 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
     private TextView mStreamPositionTextView;
     private TextView mStreamDurationTextView;
     private View mStreamVolumeControls;
-    private View mSeekBehaviorControls;
+    private View mPlayerBehaviorControls;
     private SeekBar mSeekBar;
     private Spinner mSeekBehaviorSpinner;
+    private MediaTrackAdapter mMediaTrackAdapter;
     private SeekBar mDeviceVolumeBar;
     protected CheckBox mDeviceMuteCheckBox;
     private SeekBar mStreamVolumeBar;
@@ -92,12 +101,17 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
     private boolean mIsUserSeeking;
     private boolean mIsUserAdjustingVolume;
     private MediaSelectionDialog mMediaSelectionDialog;
+    private DialogFragment mTrackSelectionDialog;
     private Runnable mRefreshRunnable;
     private int mPlayerState;
     private boolean mRelaunchApp;
     private boolean mStopAppWhenEndingSession;
     private RemoteControlClient mRemoteControlClient;
     private boolean mRouteSelected;
+    private boolean mDiscoveryActive;
+    private CaptioningManager mCaptioningManager;
+    private TextTrackStyle mTextTrackStyle;
+    private CaptioningManager.CaptioningChangeListener mCaptioningListener;
 
     protected static final double VOLUME_INCREMENT = 0.05;
     protected static final double MAX_VOLUME_LEVEL = 20;
@@ -112,6 +126,7 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
     protected static final int PLAYER_STATE_BUFFERING = 3;
 
     private static final String MEDIA_SELECTION_DIALOG_TAG = "media_selection";
+    private static final String MEDIA_TRACK_SELECTION_DIALOG_TAG = "media_track_selection";
     private static final int REFRESH_INTERVAL_MS = (int) TimeUnit.SECONDS.toMillis(1);
 
     @Override
@@ -140,7 +155,8 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
 
         mAppStatusTextView = (TextView) findViewById(R.id.app_status);
 
-        mPlayMediaButton = (Button) findViewById(R.id.play_media_button);
+        mSelectMediaButton = (Button) findViewById(R.id.select_media_button);
+        mSelectTracksButton = (Button) findViewById(R.id.select_tracks_button);
         mPlayPauseButton = (Button) findViewById(R.id.pause_play);
         mStopButton = (Button) findViewById(R.id.stop);
         mAutoplayCheckbox = (CheckBox) findViewById(R.id.autoplay_checkbox);
@@ -149,10 +165,12 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
         mStreamDurationTextView = (TextView) findViewById(R.id.stream_duration);
 
         mStreamVolumeControls = findViewById(R.id.stream_volume_controls);
-        mSeekBehaviorControls = findViewById(R.id.seek_behavior_controls);
+        mPlayerBehaviorControls = findViewById(R.id.player_behavior_controls);
 
         mSeekBar = (SeekBar) findViewById(R.id.seek_bar);
         mSeekBehaviorSpinner = (Spinner) findViewById(R.id.seek_behavior_spinner);
+
+        mMediaTrackAdapter = new MediaTrackAdapter(this);
 
         mDeviceVolumeBar = (SeekBar) findViewById(R.id.device_volume_bar);
         mDeviceMuteCheckBox = (CheckBox) findViewById(R.id.device_mute_checkbox);
@@ -162,7 +180,6 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
         mHandler = new Handler();
 
         mMediaRouter = MediaRouter.getInstance(getApplicationContext());
-        mMediaRouteSelector = buildMediaRouteSelector();
         mMediaRouterCallback = new MyMediaRouterCallback();
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -193,30 +210,55 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
             setUpRemoteControlClient();
         }
         */
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            mCaptioningManager = (CaptioningManager) getSystemService(Context.CAPTIONING_SERVICE);
+
+            mCaptioningListener = new CaptioningManager.CaptioningChangeListener() {
+                @Override
+                public void onEnabledChanged(boolean enabled) {
+                    updateTextTrackStyle(enabled);
+                }
+
+                @Override
+                public void onFontScaleChanged(float fontScale) {
+                    updateTextTrackStyle(true);
+                }
+
+                @Override
+                public void onLocaleChanged(Locale locale) {
+                    updateTextTrackStyle(true);
+                }
+
+                @Override
+                public void onUserStyleChanged(CaptioningManager.CaptionStyle userStyle) {
+                    updateTextTrackStyle(true);
+                }
+            };
+
+            mCaptioningManager.addCaptioningChangeListener(mCaptioningListener);
+            updateTextTrackStyle(mCaptioningManager.isEnabled());
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        mMediaRouter.addCallback(mMediaRouteSelector, mMediaRouterCallback,
-            MediaRouter.CALLBACK_FLAG_PERFORM_ACTIVE_SCAN);
+        startDiscovery();
     }
 
     @Override
     protected void onPause() {
-        Fragment dialog = getSupportFragmentManager().findFragmentByTag(MEDIA_SELECTION_DIALOG_TAG);
-        if (dialog != null) {
-            ((DialogFragment) dialog).dismiss();
-        }
+        dismissDialog(MEDIA_SELECTION_DIALOG_TAG);
+        dismissDialog(MEDIA_TRACK_SELECTION_DIALOG_TAG);
         mHandler.removeCallbacksAndMessages(null);
-
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        mMediaRouter.removeCallback(mMediaRouterCallback);
+        stopDiscovery();
         if (mFetchBitmapTask != null) {
             mFetchBitmapTask.cancel(true);
         }
@@ -227,6 +269,11 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
     public void onDestroy() {
         PreferenceManager.getDefaultSharedPreferences(this)
                 .unregisterOnSharedPreferenceChangeListener(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            mCaptioningManager.removeCaptioningChangeListener(mCaptioningListener);
+            mCaptioningListener = null;
+        }
 
         super.onDestroy();
     }
@@ -254,10 +301,21 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
             Intent intent = new Intent(this, ModeSelectActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            return true;
+        } else if (id == R.id.action_wifi_settings) {
+            startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
+            return true;
+        } else if (id == R.id.action_accessibility_settings) {
+            startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
+            return true;
+        } else if (id == R.id.action_locale_settings) {
+            startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -275,6 +333,22 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
         return true;
     }
 
+    private void startDiscovery() {
+        mMediaRouteSelector = new MediaRouteSelector.Builder()
+                .addControlCategory(getControlCategory())
+                .build();
+
+        mMediaRouter.addCallback(mMediaRouteSelector, mMediaRouterCallback,
+            MediaRouter.CALLBACK_FLAG_PERFORM_ACTIVE_SCAN);
+        mDiscoveryActive = true;
+    }
+
+    private void stopDiscovery() {
+        mMediaRouter.removeCallback(mMediaRouterCallback);
+        mMediaRouteSelector = null;
+        mDiscoveryActive = false;
+    }
+
     private void selectMedia() {
         if (mMediaSelectionDialog == null) {
             mMediaSelectionDialog = new MediaSelectionDialog(this) {
@@ -285,6 +359,37 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
             };
         }
         mMediaSelectionDialog.show(getSupportFragmentManager(), MEDIA_SELECTION_DIALOG_TAG);
+    }
+
+    private void selectTracks() {
+        if (mTrackSelectionDialog == null) {
+            mTrackSelectionDialog = new DialogFragment() {
+
+                @Override
+                public Dialog onCreateDialog(Bundle savedInstanceState) {
+                    return new AlertDialog.Builder(BaseCastPlayerActivity.this)
+                            .setTitle(R.string.select_tracks_title)
+                            .setAdapter(mMediaTrackAdapter, null)
+                            .setNegativeButton(R.string.cancel, null)
+                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        onMediaTracksSelected(
+                                                mMediaTrackAdapter.getSelectedTracks());
+                                    }
+                            })
+                            .create();
+                }
+            };
+        }
+        mTrackSelectionDialog.show(getSupportFragmentManager(), MEDIA_TRACK_SELECTION_DIALOG_TAG);
+    }
+
+    private void dismissDialog(String tag) {
+        Fragment dialog = getSupportFragmentManager().findFragmentByTag(tag);
+        if (dialog != null) {
+            ((DialogFragment) dialog).dismiss();
+        }
     }
 
     protected abstract void onVolumeChange(double delta);
@@ -307,10 +412,17 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
     protected abstract void onStreamMuteToggled(boolean on);
 
     private void setUpControls() {
-        mPlayMediaButton.setOnClickListener(new OnClickListener() {
+        mSelectMediaButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectMedia();
+            }
+        });
+
+        mSelectTracksButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectTracks();
             }
         });
 
@@ -525,6 +637,18 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
         mCurrentImageUrl = imageUrl;
     }
 
+    protected final void setCurrentMediaTracks(List<MediaTrack> mediaTracks) {
+        mMediaTrackAdapter.clear();
+        if (mediaTracks != null) {
+            mMediaTrackAdapter.addAll(mediaTracks);
+        }
+        mSelectTracksButton.setEnabled(mediaTracks != null);
+    }
+
+    protected final void setSelectedMediaTracks(long[] mediaTrackIds) {
+        mMediaTrackAdapter.setSelectedTracks(mediaTrackIds);
+    }
+
     /**
      *
      * @param position The stream position, or 0 if no media is currently loaded, or -1 to leave
@@ -611,7 +735,7 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
 
     protected final void setSeekBehaviorControlsVisible(boolean visible) {
         int controlsVisibility = visible ? View.VISIBLE : View.GONE;
-        mSeekBehaviorControls.setVisibility(controlsVisibility);
+        mPlayerBehaviorControls.setVisibility(controlsVisibility);
     }
 
     protected final void setStreamVolumeControlsVisible(boolean visible) {
@@ -638,12 +762,6 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
 
     protected abstract void onRouteSelected(RouteInfo route);
     protected abstract void onRouteUnselected(RouteInfo route);
-
-    private MediaRouteSelector buildMediaRouteSelector() {
-        return new MediaRouteSelector.Builder()
-                .addControlCategory(getControlCategory())
-                .build();
-    }
 
     private class MyMediaRouterCallback extends MediaRouter.Callback {
         @Override
@@ -678,6 +796,10 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
         } else if (AppConstants.PREF_KEY_RECEIVER_APPLICATION_ID.equals(key)) {
             mReceiverApplicationId = sharedPreferences.getString(
                     AppConstants.PREF_KEY_RECEIVER_APPLICATION_ID, null);
+            if (mDiscoveryActive) {
+                stopDiscovery();
+                startDiscovery();
+            }
         }
     }
 
@@ -700,6 +822,24 @@ abstract class BaseCastPlayerActivity extends ActionBarActivity
 
     protected final boolean isUserSeeking() {
         return mIsUserSeeking;
+    }
+
+    protected void onMediaTracksSelected(long[] trackIds) {
+        // No-op by default.
+    }
+
+    private void updateTextTrackStyle(boolean enabled) {
+        mTextTrackStyle = enabled ? TextTrackStyle.fromSystemSettings(this) : null;
+        Log.d(TAG, "updateTextTrackStyle; enabled=" + enabled);
+        onTextTrackStyleUpdated();
+    }
+
+    protected final TextTrackStyle getTextTrackStyle() {
+        return mTextTrackStyle;
+    }
+
+    protected void onTextTrackStyleUpdated() {
+        // No-op by default.
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)

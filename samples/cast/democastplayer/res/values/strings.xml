@@ -17,10 +17,12 @@
 <resources>
 
     <string name="app_name">Demo Cast Player</string>
-    <string name="play_media">Select Media&#8230;</string>
+    <string name="select_media">Select Media&#8230;</string>
+    <string name="select_tracks">Select Tracks&#8230;</string>
     <string name="attach_to_session">Attach to Session</string>
     <string name="scan_failed_network_error">Unable to scan for devices. Check your network settings.</string>
     <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
     <string name="no_device">(No Device Selected)</string>
     <string name="error">Error</string>
     <string name="launch_app">Launch App</string>
@@ -41,7 +43,8 @@
     <string name="device_volume">Device Vol:</string>
     <string name="stream_volume">Stream Vol:</string>
     <string name="mute">Mute</string>
-    <string name="select_media">Select Media</string>
+    <string name="select_media_title">Select Media</string>
+    <string name="select_tracks_title">Select Media Tracks</string>
     <string name="media_art_description">Image that represents the currently playing media</string>
     <string name="media_route_menu_title">Play on&#8230;</string>
     <string name="list_empty">No items available</string>
@@ -49,6 +52,9 @@
     <string name="autoplay">Autoplay</string>
     <string name="status_app_disconnected">Connection to receiver application has closed.</string>
     <string name="action_settings">Settings</string>
+    <string name="action_wifi_settings">Wi-Fi Settings</string>
+    <string name="action_accessibility_settings">Accessibility Settings</string>
+    <string name="action_locale_settings">Language Settings</string>
 
     <string-array name="seek_behaviors">
         <item>Do Nothing</item>
@@ -83,6 +89,8 @@
     <string name="mediaop_stop">stop</string>
     <string name="mediaop_set_stream_volume">set stream volume</string>
     <string name="mediaop_toggle_stream_mute">toggle stream mute</string>
+    <string name="mediaop_set_active_media_tracks">set active media tracks</string>
+    <string name="mediaop_set_text_track_style">set text track style</string>
 
     <!-- Error messages. -->
     <string name="error_load_media_failed">Failed to load the media.</string>

@@ -1,3 +1,5 @@
+// Copyright 2014 Google Inc. All Rights Reserved.
+
 package com.google.android.gms.cast.samples.democastplayer;
 
 import android.content.BroadcastReceiver;

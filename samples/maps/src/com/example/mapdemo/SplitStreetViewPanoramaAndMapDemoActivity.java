@@ -6,6 +6,7 @@ import com.google.android.gms.maps.StreetViewPanorama;
 import com.google.android.gms.maps.StreetViewPanorama.OnStreetViewPanoramaChangeListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.SupportStreetViewPanoramaFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -75,6 +76,7 @@ public class SplitStreetViewPanoramaAndMapDemoActivity extends FragmentActivity
         // Creates a draggable marker. Long press to drag.
         marker = mMap.addMarker(new MarkerOptions()
                 .position(SYDNEY)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.pegman))
                 .draggable(true));
     }
 

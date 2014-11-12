@@ -19,7 +19,10 @@ package com.google.android.gms.samples.plus;
 import com.google.android.gms.plus.PlusOneButton;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 /**
  * Example usage of the +1 button.
@@ -55,6 +58,10 @@ public class PlusOneActivity extends Activity {
         mPlusOneStandardButton = (PlusOneButton) findViewById(R.id.plus_one_standard_button);
         mPlusOneStandardButtonWithAnnotation = (PlusOneButton) findViewById(
                 R.id.plus_one_standard_ann_button);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -66,5 +73,20 @@ public class PlusOneActivity extends Activity {
         mPlusOneTallButton.initialize(URL, PLUS_ONE_REQUEST_CODE);
         mPlusOneStandardButton.initialize(URL, PLUS_ONE_REQUEST_CODE);
         mPlusOneStandardButtonWithAnnotation.initialize(URL, PLUS_ONE_REQUEST_CODE);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(this, PlusSampleActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

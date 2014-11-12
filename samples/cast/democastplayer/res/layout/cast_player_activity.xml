@@ -199,13 +199,22 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/play_media_button"
+                android:id="@+id/select_media_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
                 android:enabled="false"
-                android:text="@string/play_media" />
+                android:text="@string/select_media" />
+
+            <Button
+                android:id="@+id/select_tracks_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="@string/select_tracks" />
 
             <Button
                 android:id="@+id/pause_play"
@@ -227,7 +236,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/seek_behavior_controls"
+            android:id="@+id/player_behavior_controls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

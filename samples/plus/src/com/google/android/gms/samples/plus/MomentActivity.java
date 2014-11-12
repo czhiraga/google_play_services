@@ -34,8 +34,10 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -88,6 +90,10 @@ public class MomentActivity extends Activity implements OnItemClickListener,
         int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         if (available != CommonStatusCodes.SUCCESS) {
             showDialog(DIALOG_GET_GOOGLE_PLAY_SERVICES);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 
@@ -236,5 +242,20 @@ public class MomentActivity extends Activity implements OnItemClickListener,
     public void onCancel(DialogInterface dialogInterface) {
         Log.e(TAG, "Unable to sign the user in.");
         finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(this, PlusSampleActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

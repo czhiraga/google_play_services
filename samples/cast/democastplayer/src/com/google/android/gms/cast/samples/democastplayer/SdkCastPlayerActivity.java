@@ -277,8 +277,41 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         }
     }
 
+    @Override
+    protected void onMediaTracksSelected(long[] trackIds) {
+        if (mMediaPlayer == null) {
+            return;
+        }
+        try {
+            mMediaPlayer.setActiveMediaTracks(mApiClient, trackIds).setResultCallback(
+                    new MediaResultCallback(getString(R.string.mediaop_set_active_media_tracks)));
+        } catch (IllegalStateException e) {
+            showErrorDialog(e.getMessage());
+        }
+    }
+
+    @Override
+    protected void onTextTrackStyleUpdated() {
+        if (mMediaPlayer == null) {
+            return;
+        }
+        MediaStatus mediaStatus = mMediaPlayer.getMediaStatus();
+        if (mediaStatus == null) {
+            return;
+        }
+
+        Log.d(TAG, "updating text track style");
+        try {
+            mMediaPlayer.setTextTrackStyle(mApiClient, getTextTrackStyle()).setResultCallback(
+                    new MediaResultCallback(getString(R.string.mediaop_set_text_track_style)));
+        } catch (IllegalStateException e) {
+            showErrorDialog(e.getMessage());
+        }
+    }
+
     private void clearMediaState() {
         setCurrentMediaMetadata(null, null, null);
+        setCurrentMediaTracks(null);
         refreshPlaybackPosition(0, 0);
     }
 
@@ -301,6 +334,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
                 }
 
                 updatePlaybackPosition();
+                updateActiveTracks();
                 updateStreamVolume();
                 updateButtonStates();
             }
@@ -333,6 +367,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
                         }
                     }
                     setCurrentMediaMetadata(title, artist, imageUrl);
+                    setCurrentMediaTracks(mediaInfo.getMediaTracks());
                 }
             }
         });
@@ -388,6 +423,8 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
             return;
         }
 
+        media.setTextTrackStyle(getTextTrackStyle());
+
         mMediaPlayer.load(mApiClient, media, isAutoplayChecked()).setResultCallback(
                 new MediaResultCallback(getString(R.string.mediaop_load)));
     }
@@ -426,7 +463,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         mStopAppButton.setEnabled(hasDeviceConnection && hasAppConnection);
         mAutoplayCheckbox.setEnabled(hasDeviceConnection && hasAppConnection);
 
-        mPlayMediaButton.setEnabled(hasMediaConnection);
+        mSelectMediaButton.setEnabled(hasMediaConnection);
         mStopButton.setEnabled(hasMediaConnection && hasMedia);
         setSeekBarEnabled(hasMediaConnection && hasMedia);
         setDeviceVolumeControlsEnabled(hasDeviceConnection);
@@ -439,6 +476,16 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
         }
         refreshPlaybackPosition(mMediaPlayer.getApproximateStreamPosition(),
                 mMediaPlayer.getStreamDuration());
+    }
+
+    private void updateActiveTracks() {
+        long[] selectedTracks = null;
+
+        MediaStatus mediaStatus = mMediaPlayer.getMediaStatus();
+        if (mediaStatus != null) {
+            selectedTracks = mediaStatus.getActiveTrackIds();
+        }
+        setSelectedMediaTracks(selectedTracks);
     }
 
     private void updateStreamVolume() {

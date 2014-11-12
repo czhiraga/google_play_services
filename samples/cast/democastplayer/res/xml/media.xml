@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<medias version="2" >
+<medias version="3">
 
     <media
         imageUrl="http://peach.blender.org/wp-content/uploads/poster_bunny_small.jpg"
@@ -22,7 +22,34 @@
         studio="Peach Open Movie Project"
         title="Big Buck Bunny"
         type="movie"
-        url="http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4" />
+        url="http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4">
+        <track
+            id="1"
+            type="audio"
+            contentId="trk0001"
+            name="English Audio"
+            language="en" />
+        <track
+            id="2"
+            type="audio"
+            contentId="trk0002"
+            name="Spanish Audio"
+            language="es" />
+        <track
+            id="3"
+            type="text"
+            subtype="subtitles"
+            contentId="trk0003"
+            name="Spanish Subtitles"
+            language="es" />
+        <track
+            id="4"
+            type="text"
+            subtype="subtitles"
+            contentId="trk0004"
+            name="French Subtitles"
+            language="fr" />
+    </media>
     <media
         mimeType="image/jpg"
         title="[Public] Eureka!"
