@@ -664,6 +664,42 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener.html#onP2PConnected(java.lang.String)">onP2PConnected</a></span>(String participantId)</nobr>
+        
+        <div class="jd-descrdiv">Called when the client is successfully connected to a peer participant.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener.html#onP2PDisconnected(java.lang.String)">onP2PDisconnected</a></span>(String participantId)</nobr>
+        
+        <div class="jd-descrdiv">Called when client gets disconnected from a peer participant.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener.html#onPeerDeclined(com.google.android.gms.games.multiplayer.realtime.Room, java.util.List<java.lang.String>)">onPeerDeclined</a></span>(<a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html">Room</a> room, List&lt;String&gt; participantIds)</nobr>
         
         <div class="jd-descrdiv">Called when one or more peers decline the invitation to a room.</div>
@@ -869,8 +905,18 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Called when the client is connected to the connected set in a room.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the client is connected to the connected set in a room.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -899,8 +945,96 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Called when the client is disconnected from the connected set in a room.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the client is disconnected from the connected set in a room.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onP2PConnected(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onP2PConnected</span>
+      <span class="normal">(String participantId)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the client is successfully connected to a peer participant.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>participantId</td>
+          <td>ID of the peer participant who was successfully connected.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onP2PDisconnected(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onP2PDisconnected</span>
+      <span class="normal">(String participantId)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when client gets disconnected from a peer participant.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>participantId</td>
+          <td>ID of the peer participant who was disconnected.
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -933,6 +1067,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
+        <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.</td>
+        </tr>
         <tr>
           <th>participantIds</td>
           <td>IDs of the peers invited to a room.
@@ -973,6 +1112,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.</td>
+        </tr>
+        <tr>
           <th>participantIds</td>
           <td>IDs of the peers invited to a room.
 </td>
@@ -1011,6 +1155,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
+        <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.</td>
+        </tr>
         <tr>
           <th>participantIds</td>
           <td>IDs of peer participants who joined a room.
@@ -1051,6 +1200,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.</td>
+        </tr>
+        <tr>
           <th>participantIds</td>
           <td>IDs of peer participants who left the room.
 </td>
@@ -1090,6 +1244,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.</td>
+        </tr>
+        <tr>
           <th>participantIds</td>
           <td>IDs of peer participants who were connected.
 </td>
@@ -1128,6 +1287,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
+        <tr>
+          <th>room</td>
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.</td>
+        </tr>
         <tr>
           <th>participantIds</td>
           <td>IDs of peer participants who were disconnected.
@@ -1170,7 +1334,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
       <table class="jd-tagtable">
         <tr>
           <th>room</td>
-          <td>The room data with the status of a room and its participants.
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.
 </td>
         </tr>
       </table>
@@ -1210,7 +1375,9 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
       <table class="jd-tagtable">
         <tr>
           <th>room</td>
-          <td>The room data with the status of a room and its participants.
+          <td>The room data with the status of a room and its participants. The room can be
+              <code>null</code> if it could not be loaded successfully.
+
 </td>
         </tr>
       </table>
@@ -1242,7 +1409,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 17 Jul 2013 18:36
+    Android &nbsp;r &mdash; 31 Jul 2013 23:21
 
   </div>
 

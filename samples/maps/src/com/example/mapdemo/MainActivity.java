@@ -134,7 +134,9 @@ public final class MainActivity extends ListActivity {
             new DemoDetails(R.string.programmatic_demo, R.string.programmatic_description,
                     ProgrammaticDemoActivity.class),
             new DemoDetails(R.string.save_state_demo, R.string.save_state_description,
-                            SaveStateDemoActivity.class)};
+                    SaveStateDemoActivity.class),
+            new DemoDetails(R.string.snapshot_demo, R.string.snapshot_description,
+                    SnapshotDemoActivity.class)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

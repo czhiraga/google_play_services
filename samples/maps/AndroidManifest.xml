@@ -96,6 +96,9 @@
       android:name=".SaveStateDemoActivity"
       android:label="@string/save_state_demo"/>
     <activity
+      android:name=".SnapshotDemoActivity"
+      android:label="@string/snapshot_demo"/>
+    <activity
       android:name=".TileOverlayDemoActivity"
       android:label="@string/tile_overlay_demo"/>
     <activity

@@ -715,23 +715,23 @@ Summary:
 
     
     <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#NULL">NULL</a></td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_BALANCED_POWER_ACCURACY">PRIORITY_BALANCED_POWER_ACCURACY</a></td>
         <td class="jd-descrcol" width="100%">Used with <code><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#setPriority(int)">setPriority(int)</a></code> to request "block" level accuracy.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY">PRIORITY_HIGH_ACCURACY</a></td>
         <td class="jd-descrcol" width="100%">Used with <code><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#setPriority(int)">setPriority(int)</a></code> to request the most accurate locations available.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_LOW_POWER">PRIORITY_LOW_POWER</a></td>
+        <td class="jd-descrcol" width="100%">Used with <code><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#setPriority(int)">setPriority(int)</a></code> to request "city" level accuracy.</td>
     </tr>
     
     
@@ -1473,43 +1473,6 @@ From interface
 
 
 
-<A NAME="NULL"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        String
-      </span>
-        NULL
-    </h4>
-      <div class="api-level">
-        
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "SAFE_PARCELABLE_NULL_STRING"
-            
-        </span>
-        </div>
-    
-    </div>
-</div>
-
-
-
 <A NAME="PRIORITY_BALANCED_POWER_ACCURACY"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1584,6 +1547,48 @@ From interface
             
                 100
                 (0x00000064)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="PRIORITY_LOW_POWER"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        PRIORITY_LOW_POWER
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Used with <code><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#setPriority(int)">setPriority(int)</a></code> to request "city" level accuracy.
+
+ <p>City level accuracy is considered to be about 10km accuracy. Using a coarse accuracy
+ such as this often consumes less power.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                104
+                (0x00000068)
             
         </span>
         </div>
@@ -2529,7 +2534,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 17 Jul 2013 18:36
+    Android &nbsp;r &mdash; 31 Jul 2013 23:21
 
   </div>
 

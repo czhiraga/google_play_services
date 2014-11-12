@@ -428,13 +428,13 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnMomentsLoadedListener.html">PlusClient.OnMomentsLoadedListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnPeopleLoadedListener.html">PlusClient.OnPeopleLoadedListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnPersonLoadedListener.html">PlusClient.OnPersonLoadedListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OrderBy.html">PlusClient.OrderBy</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html">PlusOneButton.OnPlusOneClickListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/GooglePlusUtil.html">GooglePlusUtil</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.html">PlusClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.html">PlusOneButton</a></li>
@@ -526,13 +526,13 @@ Summary:
   
 
 
-  &#124; <a href="#proctors">Protected Ctors</a>
-  
-
 
   &#124; <a href="#pubmethods">Methods</a>
   
 
+
+  &#124; <a href="#promethods">Protected Methods</a>
+  
 
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
@@ -669,8 +669,10 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html#PlusShare.Builder()">PlusShare.Builder</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html#PlusShare.Builder(android.content.Context)">PlusShare.Builder</a></span>(Context context)</nobr>
         
+        <div class="jd-descrdiv">Create a new Builder for launching a sharing action from the given context.</div>
+  
   </td></tr>
 
 
@@ -714,51 +716,6 @@ Summary:
 </table>
 
 
-
-
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            </nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html#PlusShare.Builder(java.lang.String)">PlusShare.Builder</a></span>(String intentAction)</nobr>
-        
-        <div class="jd-descrdiv">Create a new Builder for launching a sharing action.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            </nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html#PlusShare.Builder(java.lang.String, java.lang.String, android.content.ComponentName)">PlusShare.Builder</a></span>(String intentAction, String activityPackageName, ComponentName activityComponentName)</nobr>
-        
-        <div class="jd-descrdiv">Create a new Builder for launching a sharing action from launchingActivity.</div>
-  
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -952,6 +909,33 @@ Summary:
 </table>
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html#isGooglePlusAvailable()">isGooglePlusAvailable</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Determine if the Google+ app is available on the device.</div>
+  
+  </td></tr>
+
+
+
+</table>
 
 
 
@@ -1198,7 +1182,7 @@ From class
 
 
 
-<A NAME="PlusShare.Builder()"></A>
+<A NAME="PlusShare.Builder(android.content.Context)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1211,7 +1195,7 @@ From class
         
       </span>
       <span class="sympad">PlusShare.Builder</span>
-      <span class="normal">()</span>
+      <span class="normal">(Context context)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1221,7 +1205,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Create a new Builder for launching a sharing action from the given context.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>Context that the share will be launched from
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1301,7 +1295,7 @@ From class
         </tr>
         <tr>
           <th>plusClient</td>
-          <td>A connected PlusClient.
+          <td>The connected <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.html">PlusClient</a></code> object.
 </td>
         </tr>
       </table>
@@ -1316,81 +1310,6 @@ From class
 
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <!-- Protected ctors -->
-
-<h2>Protected Constructors</h2>
-
-
-
-<A NAME="PlusShare.Builder(java.lang.String)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">PlusShare.Builder</span>
-      <span class="normal">(String intentAction)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Create a new Builder for launching a sharing action.
-</p></div>
-
-    </div>
-</div>
-
-
-<A NAME="PlusShare.Builder(java.lang.String, java.lang.String, android.content.ComponentName)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">PlusShare.Builder</span>
-      <span class="normal">(String intentAction, String activityPackageName, ComponentName activityComponentName)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Create a new Builder for launching a sharing action from launchingActivity.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>activityPackageName</td>
-          <td>Activity.getPackageName() from the Activity that the share
-        will be launched from.
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 
 
 
@@ -1883,6 +1802,45 @@ From class
 
 <!-- ========= METHOD DETAIL ======== -->
 
+<h2>Protected Methods</h2>
+
+
+
+<A NAME="isGooglePlusAvailable()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isGooglePlusAvailable</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Determine if the Google+ app is available on the device.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>True if the Google+ app is installed and enabled.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+
 
 
 <!-- ========= END OF CLASS DATA ========= -->
@@ -1900,7 +1858,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 17 Jul 2013 18:36
+    Android &nbsp;r &mdash; 31 Jul 2013 23:21
 
   </div>
 

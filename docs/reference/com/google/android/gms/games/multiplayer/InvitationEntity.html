@@ -563,6 +563,9 @@ Summary:
   
 
 
+  &#124; <a href="#promethods">Protected Methods</a>
+  
+
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
 
@@ -599,6 +602,8 @@ Summary:
   
   
       implements 
+      
+        Parcelable 
       
         <a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html">Invitation</a> 
       
@@ -753,7 +758,7 @@ android.os.Parcelable
           public
           static
           final
-          Creator&lt;<a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html">InvitationEntity</a>&gt;</nobr></td>
+          <a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntityCreator.html">InvitationEntityCreator</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#CREATOR">CREATOR</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
@@ -889,22 +894,6 @@ android.os.Parcelable
             
             
             
-            int</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#getInvitationType()">getInvitationType</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
             <a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Participant.html">Participant</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -916,7 +905,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -929,6 +918,24 @@ android.os.Parcelable
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#getParticipants()">getParticipants</a></span>()</nobr>
         
         <div class="jd-descrdiv">Retrieve the <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Participant.html">Participant</a></code>s for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#getVariant()">getVariant</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieve the variant specified for this <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html">Invitation</a></code>, if any.</div>
   
   </td></tr>
 
@@ -957,6 +964,24 @@ android.os.Parcelable
             
             
             
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#isDataValid()">isDataValid</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Check to see if this object is valid for use.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -966,7 +991,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -985,6 +1010,63 @@ android.os.Parcelable
 </table>
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            ClassLoader</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#getUnparcelClassLoader()">getUnparcelClassLoader</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            Integer</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#getUnparcelClientVersion()">getUnparcelClientVersion</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html#shouldDowngrade()">shouldDowngrade</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
 
 
 
@@ -1293,6 +1375,24 @@ From interface
   </td></tr>
 
 
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/common/data/Freezable.html#isDataValid()">isDataValid</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Check to see if this object is valid for use.</div>
+  
+  </td></tr>
+
+
 </table>
   </div>
 </div>
@@ -1391,6 +1491,24 @@ From interface
   </td></tr>
 
 
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html#getVariant()">getVariant</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieve the variant specified for this <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html">Invitation</a></code>, if any.</div>
+  
+  </td></tr>
+
+
 </table>
   </div>
 </div>
@@ -1481,7 +1599,7 @@ From interface
         public 
         static 
         final 
-        Creator&lt;<a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntity.html">InvitationEntity</a>&gt;
+        <a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/InvitationEntityCreator.html">InvitationEntityCreator</a>
       </span>
         CREATOR
     </h4>
@@ -1725,35 +1843,6 @@ From interface
 </div>
 
 
-<A NAME="getInvitationType()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        int
-      </span>
-      <span class="sympad">getInvitationType</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 <A NAME="getInviter()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1823,6 +1912,43 @@ From interface
 </div>
 
 
+<A NAME="getVariant()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getVariant</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the variant specified for this <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html">Invitation</a></code>, if any. A variant is an optional
+ developer-controlled parameter describing the type of game to play. If specified, this value
+ will be a positive integer. If this invitation had no variant specified, returns
+ <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#ROOM_VARIANT_ANY">ROOM_VARIANT_ANY</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Variant specified for this invitation, if any.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="hashCode()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1847,6 +1973,42 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="isDataValid()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isDataValid</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Check to see if this object is valid for use. If the object is still volatile, this method
+ will indicate whether or not the object can be safely used. The output of a call to
+ <code><a href="../../../../../../../">ERROR(/freeze)</a></code> will always be valid.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>whether or not the object is valid for use.
+</li></ul>
+  </div>
 
     </div>
 </div>
@@ -1915,6 +2077,113 @@ From interface
 
 <!-- ========= METHOD DETAIL ======== -->
 
+<h2>Protected Methods</h2>
+
+
+
+<A NAME="getUnparcelClassLoader()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+        static 
+         
+         
+         
+        ClassLoader
+      </span>
+      <span class="sympad">getUnparcelClassLoader</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The ClassLoader to use for unparceling, if any.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getUnparcelClientVersion()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+        static 
+         
+         
+         
+        Integer
+      </span>
+      <span class="sympad">getUnparcelClientVersion</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The client version to use for unparceling, if known.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="shouldDowngrade()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">shouldDowngrade</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Whether or not this object has been downgraded to hand back to a client.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+
 
 
 <!-- ========= END OF CLASS DATA ========= -->
@@ -1932,7 +2201,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 17 Jul 2013 18:36
+    Android &nbsp;r &mdash; 31 Jul 2013 23:21
 
   </div>
 

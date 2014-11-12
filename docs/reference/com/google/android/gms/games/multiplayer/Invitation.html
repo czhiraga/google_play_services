@@ -826,6 +826,24 @@ android.os.Parcelable
   </td></tr>
 
 
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html#getVariant()">getVariant</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieve the variant specified for this <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html">Invitation</a></code>, if any.</div>
+  
+  </td></tr>
+
+
 
 </table>
 
@@ -932,6 +950,24 @@ From interface
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/common/data/Freezable.html#freeze()">freeze</a></span>()</nobr>
         
         <div class="jd-descrdiv">Freeze a volatile representation into an immutable representation.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/common/data/Freezable.html#isDataValid()">isDataValid</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Check to see if this object is valid for use.</div>
   
   </td></tr>
 
@@ -1164,6 +1200,43 @@ From interface
 </div>
 
 
+<A NAME="getVariant()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">getVariant</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieve the variant specified for this <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/Invitation.html">Invitation</a></code>, if any. A variant is an optional
+ developer-controlled parameter describing the type of game to play. If specified, this value
+ will be a positive integer. If this invitation had no variant specified, returns
+ <code><a href="../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#ROOM_VARIANT_ANY">ROOM_VARIANT_ANY</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Variant specified for this invitation, if any.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 
 
 
@@ -1186,7 +1259,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 17 Jul 2013 18:36
+    Android &nbsp;r &mdash; 31 Jul 2013 23:21
 
   </div>
 

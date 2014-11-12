@@ -91,6 +91,11 @@
   <string name="save_state_description">Demonstrates how to save the state of a MapFragment upon rotation of the device.</string>
   <string name="save_state_instructions">Drag the marker, tap on it to change its color and rotate the device to check that the state of the map is preserved.</string>
   <string name="scroll">Scroll Gestures</string>
+  <string name="snapshot_clear_button">Clear</string>
+  <string name="snapshot_demo">Snapshot</string>
+  <string name="snapshot_description">Demonstrates how to take a snapshot of the map.</string>
+  <string name="snapshot_holder_description">Area for the map snapshot.</string>
+  <string name="snapshot_take_button">Take snapshot</string>
   <string name="stop_animation">\u25A0</string>
   <string name="stroke_width">Stroke Width</string>
   <string name="tap_instructions">Tap or long press on the map</string>
