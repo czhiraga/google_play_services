@@ -64,7 +64,7 @@ public class MomentActivity extends Activity implements OnItemClickListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multi_moment_activity);
         mPlusClient = new PlusClient.Builder(this, this, this)
-                .setVisibleActivities(MomentUtil.VISIBLE_ACTIVITIES)
+                .setActions(MomentUtil.ACTIONS)
                 .build();
 
         mListAdapter = new ArrayAdapter<String>(

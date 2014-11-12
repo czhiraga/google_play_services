@@ -63,7 +63,7 @@ public class ShareActivity extends Activity implements View.OnClickListener,
         setContentView(R.layout.share_activity);
 
         mPlusClient = new PlusClient.Builder(this, this, this)
-                .setVisibleActivities(MomentUtil.VISIBLE_ACTIVITIES)
+                .setActions(MomentUtil.ACTIONS)
                 .build();
 
         Button sendButton = (Button) findViewById(R.id.send_interactive_button);

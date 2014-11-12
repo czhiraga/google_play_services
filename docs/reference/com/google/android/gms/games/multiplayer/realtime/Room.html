@@ -830,11 +830,15 @@ android.os.Parcelable
             
             
             
-            long</nobr>
+            int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#getCreationTimestamp()">getCreationTimestamp</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#getAutoMatchWaitEstimateSeconds()">getAutoMatchWaitEstimateSeconds</a></span>()</nobr>
         
+        <div class="jd-descrdiv">Retrieves the estimated wait time for automatching to finish for players who are not
+ automatched immediately, as measured from the time that the room entered the
+ automatching pool.</div>
+  
   </td></tr>
 
 
@@ -846,10 +850,10 @@ android.os.Parcelable
             
             
             
-            String</nobr>
+            long</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#getCreatorId()">getCreatorId</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#getCreationTimestamp()">getCreationTimestamp</a></span>()</nobr>
         
   </td></tr>
 
@@ -865,13 +869,29 @@ android.os.Parcelable
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#getDescription()">getDescription</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#getCreatorId()">getCreatorId</a></span>()</nobr>
         
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../../reference/com/google/android/gms/games/multiplayer/realtime/Room.html#getDescription()">getDescription</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -889,7 +909,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -907,7 +927,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -923,7 +943,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -941,7 +961,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -957,7 +977,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -973,7 +993,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -1449,6 +1469,43 @@ From interface
 </div>
 
 
+<A NAME="getAutoMatchWaitEstimateSeconds()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">getAutoMatchWaitEstimateSeconds</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the estimated wait time for automatching to finish for players who are not
+ automatched immediately, as measured from the time that the room entered the
+ automatching pool.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The estimated wait time in seconds, or -1 if the room is not
+         automatching or no estimate could be provided.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="getCreationTimestamp()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1854,7 +1911,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

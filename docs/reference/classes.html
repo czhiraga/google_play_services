@@ -486,6 +486,7 @@ onkeyup="return search_changed(event, false, '../')" />
     <a href="#letter_F">F</a>&nbsp;&nbsp;
     <a href="#letter_G">G</a>&nbsp;&nbsp;
     <a href="#letter_I">I</a>&nbsp;&nbsp;
+    <a href="#letter_K">K</a>&nbsp;&nbsp;
     <a href="#letter_L">L</a>&nbsp;&nbsp;
     <a href="#letter_M">M</a>&nbsp;&nbsp;
     <a href="#letter_O">O</a>&nbsp;&nbsp;
@@ -735,7 +736,7 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">GoogleCloudMessaging</a></td>
-            <td class="jd-descrcol" width="100%"><p>Google Cloud Messaging for Android.&nbsp;</td>
+            <td class="jd-descrcol" width="100%"><p>The class you use to write a GCM-enabled client application that runs on an Android device.&nbsp;</td>
         </tr>
     
     
@@ -925,6 +926,19 @@ onkeyup="return search_changed(event, false, '../')" />
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/model/moments/ItemScope.Builder.html">ItemScope.Builder</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_K">K</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/annotation/KeepName.html">KeepName</a></td>
+            <td class="jd-descrcol" width="100%">Indicates that the name of this object (class, method, etc) should be retained when proguarding.&nbsp;</td>
         </tr>
     
     
@@ -1254,7 +1268,9 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/model/people/Person.Collection.html">Person.Collection</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
+            <td class="jd-descrcol" width="100%"><em>
+      This interface is deprecated.
+    No replacement.</em>&nbsp;</td>
         </tr>
     
     
@@ -1320,7 +1336,10 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/model/people/Person.OrderBy.html">Person.OrderBy</a></td>
-            <td class="jd-descrcol" width="100%">&nbsp;</td>
+            <td class="jd-descrcol" width="100%"><em>
+      This interface is deprecated.
+    See <code><a href="../reference/com/google/android/gms/plus/PlusClient.OrderBy.html">PlusClient.OrderBy</a></code>.
+</em>&nbsp;</td>
         </tr>
     
     
@@ -1415,26 +1434,42 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusClient.OnPersonLoadedListener.html">PlusClient.OnPersonLoadedListener</a></td>
-            <td class="jd-descrcol" width="100%">See <code><a href="../reference/com/google/android/gms/plus/PlusClient.OnPeopleLoadedListener.html">PlusClient.OnPeopleLoadedListener</a></code>.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusClient.OrderBy.html">PlusClient.OrderBy</a></td>
             <td class="jd-descrcol" width="100%">Constants to declare the order to return people in.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusOneButton.html">PlusOneButton</a></td>
             <td class="jd-descrcol" width="100%">The +1 button to recommend a URL on Google+.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusOneButton.DefaultOnPlusOneClickListener.html">PlusOneButton.DefaultOnPlusOneClickListener</a></td>
+            <td class="jd-descrcol" width="100%">This is an <code><a href="../reference/android/view/View.OnClickListener.html">View.OnClickListener</a></code> that will proxy clicks to an
+ attached <code><a href="../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html">PlusOneButton.OnPlusOneClickListener</a></code>, or default to attempt to start
+ the intent using an <code><a href="../reference/android/app/Activity.html">Activity</a></code> context.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html">PlusOneButton.OnPlusOneClickListener</a></td>
             <td class="jd-descrcol" width="100%">A listener for +1 button clicks.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusOneButtonWithPopup.html">PlusOneButtonWithPopup</a></td>
+            <td class="jd-descrcol" width="100%">+1 button which shows confirmation messages in a PopupWindow.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusOneDummyView.html">PlusOneDummyView</a></td>
+            <td class="jd-descrcol" width="100%">A class used to statically generate dummy views in the event of an error retrieving
+ a PlusOneButton from the apk
+&nbsp;</td>
         </tr>
     
     
@@ -1731,7 +1766,7 @@ onkeyup="return search_changed(event, false, '../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

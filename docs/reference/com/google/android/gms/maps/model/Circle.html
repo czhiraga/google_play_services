@@ -645,11 +645,11 @@ Summary:
  The default zIndex is 0.</dd>
  <dt>Visibility</dt>
  <dd>Indicates if the circle is visible or invisible, i.e., whether it is drawn on the map. An
- invisible polygon is not drawn, but retains all of its other properties. The default is
+ invisible circle is not drawn, but retains all of its other properties. The default is
  <code>true</code>, i.e., visible.</dd>
  </dl>
 
- <p>Methods that modify a Polygon must be called on the main thread. If not, an
+ <p>Methods that modify a Circle must be called on the main thread. If not, an
  <code><a href="../../../../../../../reference/java/lang/IllegalStateException.html">IllegalStateException</a></code> will be thrown at runtime.</p>
  <h3>Example</h3>
 
@@ -782,7 +782,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/maps/model/Circle.html#getId()">getId</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns this circle's id.</div>
+        <div class="jd-descrdiv">Gets this circle's id.</div>
   
   </td></tr>
 
@@ -1370,7 +1370,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns this circle's id.
+  <div class="jd-tagdata jd-tagdescr"><p>Gets this circle's id.  The id will be unique amongst all Circles on a map.
 </p></div>
 
     </div>
@@ -1921,7 +1921,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

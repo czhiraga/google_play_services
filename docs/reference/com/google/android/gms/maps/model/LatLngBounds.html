@@ -916,6 +916,24 @@ android.os.Parcelable
             
             
             
+            <a href="../../../../../../../reference/com/google/android/gms/maps/model/LatLng.html">LatLng</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/maps/model/LatLngBounds.html#getCenter()">getCenter</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the center of this LatLngBounds.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -925,7 +943,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -944,7 +962,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -960,7 +978,7 @@ android.os.Parcelable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1581,6 +1599,43 @@ From interface
 </div>
 
 
+<A NAME="getCenter()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../reference/com/google/android/gms/maps/model/LatLng.html">LatLng</a>
+      </span>
+      <span class="sympad">getCenter</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the center of this LatLngBounds. The center is simply the average of the coordinates
+ (taking into account if it crosses the antimeridian). This is approximately the geographical
+ center (it would be exact if the Earth were a perfect sphere).  It will not necessarily be
+ the center of the rectangle as drawn on the map due to the Mercator projection.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A <code><a href="../../../../../../../reference/com/google/android/gms/maps/model/LatLng.html">LatLng</a></code> that is the center of the LatLngBounds.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="hashCode()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1638,9 +1693,9 @@ From interface
  extra point.
  <p>
  In particular, it will consider extending the bounds both in the eastward and westward
- directions (one of which may wrap around the world) and choose the smaller of the two. In the
- case that both directions result in a LatLngBounds of the same size, this will extend it in
- the eastward direction.</p></div>
+ directions (one of which may cross the antimeridian) and choose the smaller of the two. In
+ the case that both directions result in a LatLngBounds of the same size, this will extend it
+ in the eastward direction.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1740,7 +1795,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

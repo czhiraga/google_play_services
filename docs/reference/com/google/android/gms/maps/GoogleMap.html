@@ -1526,6 +1526,24 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.html#setPadding(int, int, int, int)">setPadding</a></span>(int left, int top, int right, int bottom)</nobr>
+        
+        <div class="jd-descrdiv">Sets padding on the map.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.html#setTrafficEnabled(boolean)">setTrafficEnabled</a></span>(boolean enabled)</nobr>
         
         <div class="jd-descrdiv">Toggles the traffic layer on or off.</div>
@@ -1534,7 +1552,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1552,7 +1570,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1570,7 +1588,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -3471,6 +3489,63 @@ From class
 </div>
 
 
+<A NAME="setPadding(int, int, int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+         
+         
+        void
+      </span>
+      <span class="sympad">setPadding</span>
+      <span class="normal">(int left, int top, int right, int bottom)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets padding on the map.
+
+ <p>This method allows you to define a visible region on the map, to signal to the map that
+ portions of the map around the edges may be obscured, by setting padding on each of the four
+ edges of the map. Map functions will be adapted to the padding. For example, the zoom
+ controls, compass, copyright notices and Google logo will be moved to fit inside the defined
+ region, camera movements will be relative to the center of the visible region, etc.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>left</td>
+          <td>the number of pixels of padding to be added on the left of the map.</td>
+        </tr>
+        <tr>
+          <th>top</td>
+          <td>the number of pixels of padding to be added on the top of the map.</td>
+        </tr>
+        <tr>
+          <th>right</td>
+          <td>the number of pixels of padding to be added on the right of the map.</td>
+        </tr>
+        <tr>
+          <th>bottom</td>
+          <td>the number of pixels of padding to be added on the bottom of the map.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="setTrafficEnabled(boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -3524,11 +3599,11 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Takes a snapshot of the map.
- <p>
+
  <p>This method is equivalent to <code><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.html#snapshot(com.google.android.gms.maps.GoogleMap.SnapshotReadyCallback)">snapshot(SnapshotReadyCallback)</a></code> but lets you
  provide a preallocated <code><a href="../../../../../../reference/android/graphics/Bitmap.html">Bitmap</a></code>. If the bitmap does not match the current dimensions of
  the map, another bitmap will be allocated that fits the map's dimensions.
- <p>
+
  <p>Although in most cases the object passed by the callback method is the same as the one
  given in parameter to this method, in some cases the returned object can be different (e.g.
  if the view's dimensions have changed by the time the snapshot is actually taken). Thus, you
@@ -3576,7 +3651,19 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Takes a snapshot of the map.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Takes a snapshot of the map.
+
+ <p>You can use snapshots within your application when an interactive
+ map would be difficult, or impossible, to use. For example, images
+ produced with the <code>snapshot()</code> method can be used to display a
+ thumbnail of the map in your app, or a snapshot in the notification
+ center.
+
+ <p><strong>Note:</strong> Images of the map must not be
+ transmitted to your servers, or otherwise used outside of the
+ application. If you need to send a map to another application or user,
+ send data that allows them to reconstruct the map for the new user
+ instead of a snapshot.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3645,7 +3732,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

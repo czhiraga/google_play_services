@@ -427,7 +427,6 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnAccessRevokedListener.html">PlusClient.OnAccessRevokedListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnMomentsLoadedListener.html">PlusClient.OnMomentsLoadedListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnPeopleLoadedListener.html">PlusClient.OnPeopleLoadedListener</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OnPersonLoadedListener.html">PlusClient.OnPersonLoadedListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.OrderBy.html">PlusClient.OrderBy</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html">PlusOneButton.OnPlusOneClickListener</a></li>
       </ul>
@@ -438,6 +437,9 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.html">PlusClient</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.html">PlusOneButton</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButton.DefaultOnPlusOneClickListener.html">PlusOneButton.DefaultOnPlusOneClickListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneButtonWithPopup.html">PlusOneButtonWithPopup</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusOneDummyView.html">PlusOneDummyView</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html">PlusShare</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.Builder.html">PlusShare.Builder</a></li>
       </ul>
@@ -755,9 +757,9 @@ Summary:
             <a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html#setScopes(java.lang.String...)">setScopes</a></span>(String... scopes)</nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html#setActions(java.lang.String...)">setActions</a></span>(String... actions)</nobr>
         
-        <div class="jd-descrdiv">Specify the OAuth 2.0 scopes requested by your app.</div>
+        <div class="jd-descrdiv">Specify which user's app activity types can be written to Google.</div>
   
   </td></tr>
 
@@ -773,9 +775,27 @@ Summary:
             <a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html#setVisibleActivities(java.lang.String...)">setVisibleActivities</a></span>(String... visibleActivities)</nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html#setScopes(java.lang.String...)">setScopes</a></span>(String... scopes)</nobr>
         
-        <div class="jd-descrdiv">Specify which user's app activity types can be written to Google.</div>
+        <div class="jd-descrdiv">Specify the OAuth 2.0 scopes requested by your app.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html#setVisibleActivities(java.lang.String...)">setVisibleActivities</a></span>(String... actions)</nobr>
+        
+        <div class="jd-descrdiv">See <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html#setActions(java.lang.String...)">setActions(String)</a></code>.</div>
   
   </td></tr>
 
@@ -1200,6 +1220,55 @@ From class
 </div>
 
 
+<A NAME="setActions(java.lang.String...)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a>
+      </span>
+      <span class="sympad">setActions</span>
+      <span class="normal">(String... actions)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Specify which user's app activity types can be written to Google.
+ This must be used with the <code><a href="../../../../../../reference/com/google/android/gms/common/Scopes.html#PLUS_LOGIN">PLUS_LOGIN</a></code> OAuth 2.0 scope.
+
+ <p>
+ See <a href="https://developers.google.com/+/api/moment-types">Types of app
+ activity</a> for the full list of valid app activity types. Example usage:
+ <pre>
+      plusClientBuilder.setActions(
+          "http://schemas.google.com/AddActivity",
+          "http://schemas.google.com/BuyActivity");
+ </pre></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>actions</td>
+          <td>The user's app activity types that can be written to Google.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="setScopes(java.lang.String...)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1257,7 +1326,7 @@ From class
         <a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html">PlusClient.Builder</a>
       </span>
       <span class="sympad">setVisibleActivities</span>
-      <span class="normal">(String... visibleActivities)</span>
+      <span class="normal">(String... actions)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1267,27 +1336,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Specify which user's app activity types can be written to Google.
- This must be used with the <code><a href="../../../../../../reference/com/google/android/gms/common/Scopes.html#PLUS_LOGIN">PLUS_LOGIN</a></code> OAuth 2.0 scope.
-
- <p>
- See <a href="https://developers.google.com/+/api/moment-types">Types of app
- activity</a> for the full list of valid app activity types. Example usage:
- <pre>
-      plusClientBuilder.setVisibleActivities(
-          "http://schemas.google.com/AddActivity",
-          "http://schemas.google.com/BuyActivity");
- </pre></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>visibleActivities</td>
-          <td>The user's app activity types that can be written to Google.
-</td>
-        </tr>
-      </table>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p>See <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusClient.Builder.html#setActions(java.lang.String...)">setActions(String)</a></code>.
+</p></div>
 
     </div>
 </div>
@@ -1315,7 +1365,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

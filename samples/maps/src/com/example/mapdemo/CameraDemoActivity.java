@@ -79,6 +79,7 @@ public class CameraDemoActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        updateEnabledState();
         setUpMapIfNeeded();
     }
 

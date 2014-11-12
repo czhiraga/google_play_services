@@ -726,13 +726,21 @@ Summary:
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#KEY_REQUEST_VISIBLE_ACTIVITIES">KEY_REQUEST_VISIBLE_ACTIVITIES</a></td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#KEY_REQUEST_ACTIONS">KEY_REQUEST_ACTIONS</a></td>
         <td class="jd-descrcol" width="100%">Bundle key for specifying which user's app activity (moment) types can
  be written to Google.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#KEY_REQUEST_VISIBLE_ACTIVITIES">KEY_REQUEST_VISIBLE_ACTIVITIES</a></td>
+        <td class="jd-descrcol" width="100%">See <code><a href="../../../../../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#KEY_REQUEST_ACTIONS">KEY_REQUEST_ACTIONS</a></code>
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#KEY_SUPPRESS_PROGRESS_SCREEN">KEY_SUPPRESS_PROGRESS_SCREEN</a></td>
         <td class="jd-descrcol" width="100%">Adding KEY_SUPPRESS_PROGRESS will suppress the progress screen shown
@@ -1159,7 +1167,7 @@ From class
 
 
 
-<A NAME="KEY_REQUEST_VISIBLE_ACTIVITIES"></A>
+<A NAME="KEY_REQUEST_ACTIONS"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1169,7 +1177,7 @@ From class
         final 
         String
       </span>
-        KEY_REQUEST_VISIBLE_ACTIVITIES
+        KEY_REQUEST_ACTIONS
     </h4>
       <div class="api-level">
         
@@ -1192,10 +1200,48 @@ From class
  moments</a> for the full list of valid activity types. Example usage:
  <pre>
      Bundle bundle = new Bundle();
-     bundle.putString(GoogleAuthUtil.KEY_REQUEST_VISIBLE_ACTIVITIES,
+     bundle.putString(GoogleAuthUtil.KEY_REQUEST_ACTIONS,
               "http://schemas.google.com/AddActivity http://schemas.google.com/BuyActivity");
      String token = GoogleAuthUtil.getToken(context, accountName, Scopes.PLUS_LOGIN, bundle);
  </pre>
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "request_visible_actions"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="KEY_REQUEST_VISIBLE_ACTIVITIES"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        String
+      </span>
+        KEY_REQUEST_VISIBLE_ACTIVITIES
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>See <code><a href="../../../../../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#KEY_REQUEST_ACTIONS">KEY_REQUEST_ACTIONS</a></code>
 </p></div>
 
     
@@ -1881,7 +1927,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

@@ -133,10 +133,14 @@ public final class MainActivity extends ListActivity {
                     RawMapViewDemoActivity.class),
             new DemoDetails(R.string.programmatic_demo, R.string.programmatic_description,
                     ProgrammaticDemoActivity.class),
+            new DemoDetails(R.string.visible_region_demo, R.string.visible_region_description,
+                    VisibleRegionDemoActivity.class),
             new DemoDetails(R.string.save_state_demo, R.string.save_state_description,
                     SaveStateDemoActivity.class),
             new DemoDetails(R.string.snapshot_demo, R.string.snapshot_description,
-                    SnapshotDemoActivity.class)};
+                    SnapshotDemoActivity.class),
+            new DemoDetails(R.string.mapinpager_demo, R.string.mapinpager_description,
+                    MapInPagerActivity.class)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

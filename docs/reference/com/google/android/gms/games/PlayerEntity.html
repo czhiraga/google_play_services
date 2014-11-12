@@ -560,9 +560,6 @@ Summary:
   
 
 
-  &#124; <a href="#promethods">Protected Methods</a>
-  
-
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
 
@@ -753,7 +750,7 @@ android.os.Parcelable
           public
           static
           final
-          <a href="../../../../../../reference/com/google/android/gms/games/PlayerEntityCreator.html">PlayerEntityCreator</a></nobr></td>
+          Creator&lt;<a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html">PlayerEntity</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html#CREATOR">CREATOR</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
@@ -1041,63 +1038,6 @@ android.os.Parcelable
 </table>
 
 
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            static
-            
-            ClassLoader</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html#getUnparcelClassLoader()">getUnparcelClassLoader</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            static
-            
-            Integer</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html#getUnparcelClientVersion()">getUnparcelClientVersion</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html#shouldDowngrade()">shouldDowngrade</a></span>()</nobr>
-        
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -1640,7 +1580,7 @@ From interface
         public 
         static 
         final 
-        <a href="../../../../../../reference/com/google/android/gms/games/PlayerEntityCreator.html">PlayerEntityCreator</a>
+        Creator&lt;<a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html">PlayerEntity</a>&gt;
       </span>
         CREATOR
     </h4>
@@ -2120,7 +2060,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Check to see if this object is valid for use. If the object is still volatile, this method
  will indicate whether or not the object can be safely used. The output of a call to
- <code><a href="../../../../../../">ERROR(/freeze)</a></code> will always be valid.</p></div>
+ <code><a href="../../../../../../reference/com/google/android/gms/common/data/Freezable.html#freeze()">freeze()</a></code> will always be valid.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>whether or not the object is valid for use.
@@ -2194,113 +2134,6 @@ From interface
 
 <!-- ========= METHOD DETAIL ======== -->
 
-<h2>Protected Methods</h2>
-
-
-
-<A NAME="getUnparcelClassLoader()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-        static 
-         
-         
-         
-        ClassLoader
-      </span>
-      <span class="sympad">getUnparcelClassLoader</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>The ClassLoader to use for unparceling, if any.
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getUnparcelClientVersion()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-        static 
-         
-         
-         
-        Integer
-      </span>
-      <span class="sympad">getUnparcelClientVersion</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>The client version to use for unparceling, if known.
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="shouldDowngrade()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">shouldDowngrade</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>Whether or not this object has been downgraded to hand back to a client.
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-
 
 
 <!-- ========= END OF CLASS DATA ========= -->
@@ -2318,7 +2151,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

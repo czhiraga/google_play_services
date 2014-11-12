@@ -37,6 +37,7 @@
   <string name="events_description">Demonstrates event handling.</string>
   <string name="fill_alpha">Fill Alpha</string>
   <string name="fill_hue">Fill Hue</string>
+  <string name="flat">Flat</string>
   <string name="go_to_bondi">Go to Bondi</string>
   <string name="go_to_sydney">Go to Sydney</string>
   <string name="groundoverlay_demo">Ground Overlays</string>
@@ -55,6 +56,8 @@
   <string name="locationsource_demo">Location Source Demo</string>
   <string name="locationsource_description">Demonstrates how to use a custom location source.</string>
   <string name="map_not_ready">Map is not ready yet</string>
+  <string name="mapinpager_demo">Map In Pager</string>
+  <string name="mapinpager_description">Demonstrates how to add a map to a ViewPager.</string>
   <string name="marker_demo">Markers</string>
   <string name="marker_description">Demonstrates how to add Markers to a map.</string>
   <string name="move_the_camera">Move the camera</string>
@@ -86,6 +89,7 @@
   <string name="retain_map">Retain map</string>
   <string name="retain_map_description">Demonstrates how to reuse a MapFragment.</string>
   <string name="right_arrow">\u2192</string>
+  <string name="rotation">Rotation:</string>
   <string name="satellite">Satellite</string>
   <string name="save_state_demo">Save the state of a MapFragment.</string>
   <string name="save_state_description">Demonstrates how to save the state of a MapFragment upon rotation of the device.</string>
@@ -98,6 +102,7 @@
   <string name="snapshot_take_button">Take snapshot</string>
   <string name="stop_animation">\u25A0</string>
   <string name="stroke_width">Stroke Width</string>
+  <string name="swipe">\u2190 Swipe \u2192</string>
   <string name="tap_instructions">Tap or long press on the map</string>
   <string name="terrain">Terrain</string>
   <string name="tile_overlay_demo">Tile Overlays</string>
@@ -108,6 +113,13 @@
   <string name="uisettings_demo">UI Settings</string>
   <string name="uisettings_description">Demonstrates how to alter user interface settings.</string>
   <string name="up_arrow">\u2191</string>
+  <string name="visible_region_demo">Visible Regions</string>
+  <string name="visible_region_description">Demonstrates how to use Visible Regions</string>
+  <string name="vr_aus_button">AUS</string>
+  <string name="vr_normal_button">Normal</string>
+  <string name="vr_more_padded_button">More</string>
+  <string name="vr_soh_button">SOH</string>
+  <string name="vr_sfo_button">SFO</string>
   <string name="width">Width</string>
   <string name="zoom_buttons">Zoom Buttons</string>
   <string name="zoom_gestures">Zoom Gestures</string>

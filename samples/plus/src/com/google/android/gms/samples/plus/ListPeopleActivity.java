@@ -62,7 +62,7 @@ public class ListPeopleActivity extends Activity implements PlusClient.Connectio
         setContentView(R.layout.person_list_activity);
 
         mPlusClient = new PlusClient.Builder(this, this, this)
-                .setVisibleActivities(MomentUtil.VISIBLE_ACTIVITIES)
+                .setActions(MomentUtil.ACTIONS)
                 .build();
 
         mListItems = new ArrayList<String>();

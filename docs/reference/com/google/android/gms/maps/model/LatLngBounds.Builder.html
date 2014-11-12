@@ -1100,10 +1100,10 @@ From class
  way to include this point.
  <p>
  More precisely, it will consider extending the bounds both in the eastward and westward
- directions (one of which may wrap around the world) and choose the smaller of the two. In
- the case that both directions result in a LatLngBounds of the same size, this will extend
- it in the eastward direction. For example, adding points (0, -179) and (1, 179) will
- create a bound crossing the 180 longitude.</p></div>
+ directions (one of which may cross the antimeridian) and choose the smaller of the two.
+ In the case that both directions result in a LatLngBounds of the same size, this will
+ extend it in the eastward direction. For example, adding points (0, -179) and (1, 179)
+ will create a bound crossing the 180 longitude.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1145,7 +1145,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 31 Jul 2013 23:21
+    Android &nbsp;r &mdash; 18 Sep 2013 12:36
 
   </div>
 

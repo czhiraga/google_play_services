@@ -3,10 +3,6 @@
   package="com.example.mapdemo"
   android:versionCode="3"
   android:versionName="2.2.1">
-  <permission
-    android:name="com.example.mapdemo.permission.MAPS_RECEIVE"
-    android:protectionLevel="signature"/>
-  <uses-permission android:name="com.example.mapdemo.permission.MAPS_RECEIVE"/>
   <!-- Copied from Google Maps Library/AndroidManifest.xml. -->
   <uses-sdk
     android:minSdkVersion="8"
@@ -66,6 +62,9 @@
       android:name=".LocationSourceDemoActivity"
       android:label="@string/locationsource_demo"/>
     <activity
+      android:name=".MapInPagerActivity"
+      android:label="@string/mapinpager_demo"/>
+    <activity
       android:name=".MarkerDemoActivity"
       android:label="@string/marker_demo"/>
     <activity
@@ -104,5 +103,8 @@
     <activity
       android:name=".UiSettingsDemoActivity"
       android:label="@string/uisettings_demo"/>
+    <activity
+      android:name=".VisibleRegionDemoActivity"
+      android:label="@string/visible_region_demo"/>
   </application>
 </manifest>

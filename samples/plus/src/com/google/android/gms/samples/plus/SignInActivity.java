@@ -52,7 +52,7 @@ public class SignInActivity extends Activity implements OnClickListener,
         setContentView(R.layout.sign_in_activity);
 
         mPlusClient = new PlusClient.Builder(this, this, this)
-                .setVisibleActivities(MomentUtil.VISIBLE_ACTIVITIES)
+                .setActions(MomentUtil.ACTIONS)
                 .build();
 
         mSignInStatus = (TextView) findViewById(R.id.sign_in_status);

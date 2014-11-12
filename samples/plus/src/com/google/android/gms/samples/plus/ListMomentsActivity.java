@@ -72,7 +72,7 @@ public class ListMomentsActivity extends Activity implements PlusClient.Connecti
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_moments_activity);
         mPlusClient = new PlusClient.Builder(this, this, this)
-                .setVisibleActivities(MomentUtil.VISIBLE_ACTIVITIES)
+                .setActions(MomentUtil.ACTIONS)
                 .build();
 
         mListItems = new ArrayList<Moment>();
