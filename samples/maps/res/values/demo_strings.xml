@@ -31,6 +31,7 @@
   <string name="demo_title">Google Maps API Demos</string>
   <string name="down_arrow">\u2193</string>
   <string name="drag_melbourne">Drag Melbourne</string>
+  <string name="duration">Custom Duration</string>
   <string name="hue">Hue</string>
   <string name="events_demo">Events</string>
   <string name="events_description">Demonstrates event handling.</string>
@@ -86,6 +87,9 @@
   <string name="retain_map_description">Demonstrates how to reuse a MapFragment.</string>
   <string name="right_arrow">\u2192</string>
   <string name="satellite">Satellite</string>
+  <string name="save_state_demo">Save the state of a MapFragment.</string>
+  <string name="save_state_description">Demonstrates how to save the state of a MapFragment upon rotation of the device.</string>
+  <string name="save_state_instructions">Drag the marker, tap on it to change its color and rotate the device to check that the state of the map is preserved.</string>
   <string name="scroll">Scroll Gestures</string>
   <string name="stop_animation">\u25A0</string>
   <string name="stroke_width">Stroke Width</string>

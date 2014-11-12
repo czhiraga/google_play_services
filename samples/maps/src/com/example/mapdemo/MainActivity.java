@@ -132,7 +132,9 @@ public final class MainActivity extends ListActivity {
             new DemoDetails(R.string.raw_mapview_demo, R.string.raw_mapview_description,
                     RawMapViewDemoActivity.class),
             new DemoDetails(R.string.programmatic_demo, R.string.programmatic_description,
-                    ProgrammaticDemoActivity.class)};
+                    ProgrammaticDemoActivity.class),
+            new DemoDetails(R.string.save_state_demo, R.string.save_state_description,
+                            SaveStateDemoActivity.class)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

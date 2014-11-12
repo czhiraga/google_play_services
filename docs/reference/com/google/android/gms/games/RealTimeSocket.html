@@ -440,7 +440,6 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesActivityResultCodes.html">GamesActivityResultCodes</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesClient.html">GamesClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesClient.Builder.html">GamesClient.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesClientSettings.html">GamesClientSettings</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/PageDirection.html">PageDirection</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/PlayerBuffer.html">PlayerBuffer</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html">PlayerEntity</a></li>
@@ -567,7 +566,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
  <p>
  Use <code><a href="../../../../../../reference/com/google/android/gms/games/RealTimeSocket.html#getParcelFileDescriptor()">getParcelFileDescriptor()</a></code> to get a file descriptor for read/write, or
  use <code><a href="../../../../../../reference/com/google/android/gms/games/RealTimeSocket.html#getInputStream()">getInputStream()</a></code> / <code><a href="../../../../../../reference/com/google/android/gms/games/RealTimeSocket.html#getOutputStream()">getOutputStream()</a></code> to get
- access to an instance of <code><a href="../../../../../../reference/java/io/InputStream.html">InputStream</a></code> and <code><a href="../../../../../../reference/java/io/OutputStream.html">OutputStream</a></code>
+ access to an instance of <code><a href="../../../../../../reference/java/io/InputStream.html">InputStream</a></code> or <code><a href="../../../../../../reference/java/io/OutputStream.html">OutputStream</a></code>
  respectively.
  <p>
  Calling close() on any of (i) the returned <code><a href="../../../../../../reference/android/os/ParcelFileDescriptor.html">ParcelFileDescriptor</a></code> or, (ii) the
@@ -839,7 +838,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
  Calling close() on the InputStream will close the socket.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>instance of <code><a href="../../../../../../reference/java/io/InputStream.html">InputStream</a></code>.</li></ul>
+      <ul class="nolist"><li>An instance of <code><a href="../../../../../../reference/java/io/InputStream.html">InputStream</a></code>.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -888,7 +887,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
  packet will be dropped and an error message will be sent to the log.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>instance of <code><a href="../../../../../../reference/java/io/OutputStream.html">OutputStream</a></code>.</li></ul>
+      <ul class="nolist"><li>An instance of <code><a href="../../../../../../reference/java/io/OutputStream.html">OutputStream</a></code>.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -932,8 +931,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
  Calling close() on the returned ParcelFileDescriptor will close the socket.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>instance of <code><a href="../../../../../../reference/android/os/ParcelFileDescriptor.html">ParcelFileDescriptor</a></code> or null if the underlying socket
-         is closed.</li></ul>
+      <ul class="nolist"><li>An instance of <code><a href="../../../../../../reference/android/os/ParcelFileDescriptor.html">ParcelFileDescriptor</a></code> or null if the underlying
+         socket is closed.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -1006,7 +1005,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 12 May 2013  3:45
+    Android &nbsp;r &mdash; 10 Jul 2013 17:28
 
   </div>
 

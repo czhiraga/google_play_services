@@ -440,7 +440,6 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesActivityResultCodes.html">GamesActivityResultCodes</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesClient.html">GamesClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesClient.Builder.html">GamesClient.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/GamesClientSettings.html">GamesClientSettings</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/PageDirection.html">PageDirection</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/PlayerBuffer.html">PlayerBuffer</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/games/PlayerEntity.html">PlayerEntity</a></li>
@@ -1160,13 +1159,19 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Get the item at the specified position. Note that the objects returned from subsequent
  invocations of this method for the same position may not be identical objects, but will be
  equal in value. In other words:
-
- <pre>
- <code>
- buffer.get(i) == buffer.get(i) may return false.
- buffer.get(i).equals(buffer.get(i)) will return true.
- </code>
- </pre></p></div>
+ <p>
+ <code>buffer.get(i) == buffer.get(i)</code> may return false.
+ <p>
+ <code>buffer.get(i).equals(buffer.get(i))</code> will return true.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>position</td>
+          <td>The position of the item to retrieve.</td>
+        </tr>
+      </table>
+  </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the item at <code>position</code> in this buffer.
@@ -1199,7 +1204,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 12 May 2013  3:45
+    Android &nbsp;r &mdash; 10 Jul 2013 17:28
 
   </div>
 
