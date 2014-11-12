@@ -27,7 +27,7 @@
     <EditTextPreference
         android:dialogTitle="@string/dialog_title_receiver_application_id_pref"
         android:digits="0123456789ABCDEF"
-        android:inputType="textCapCharacters"
+        android:inputType="textCapCharacters|textNoSuggestions"
         android:key="receiver_application_id_pref"
         android:persistent="true"
         android:summary="@string/summary_receiver_application_id_pref"

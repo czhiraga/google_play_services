@@ -16,13 +16,10 @@
 
 package com.google.android.gms.samples.wallet;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -43,7 +40,6 @@ import android.widget.ListView;
 public class ItemListActivity extends BikestoreFragmentActivity
         implements OnItemClickListener {
 
-    private Menu mMenu;
     private boolean mIsDualFrame = false;
     private ListView mItemList;
     private ItemDetailsFragment mDetailsFragment;
@@ -64,47 +60,9 @@ public class ItemListActivity extends BikestoreFragmentActivity
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_USER_LOGIN) {
-            if (resultCode == RESULT_OK) {
-                invalidateOptionsMenu();
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-
-        mMenu = menu;
-        MenuInflater inflater = getMenuInflater();
-        if (((BikestoreApplication) getApplication()).isLoggedIn()) {
-            inflater.inflate(R.menu.menu_logout, menu);
-        } else {
-            inflater.inflate(R.menu.menu_login, menu);
-        }
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.login:
-                Intent loginIntent = new Intent(this, LoginActivity.class);
-                loginIntent.putExtra(LoginActivity.EXTRA_ACTION, LoginActivity.Action.LOGIN);
-                startActivityForResult(loginIntent, REQUEST_USER_LOGIN);
-                return true;
-            case R.id.logout:
-                Intent logoutIntent = new Intent(this, LoginActivity.class);
-                logoutIntent.putExtra(LoginActivity.EXTRA_ACTION, LoginActivity.Action.LOGOUT);
-                startActivityForResult(logoutIntent, REQUEST_USER_LOGIN);
-                return true;
-            default:
-                return false;
-        }
+    protected void onResume() {
+        super.onResume();
+        ActivityCompat.invalidateOptionsMenu(this);
     }
 
     @Override
@@ -118,18 +76,8 @@ public class ItemListActivity extends BikestoreFragmentActivity
         }
     }
 
-    @TargetApi(11)
     @Override
-    public void invalidateOptionsMenu() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            super.invalidateOptionsMenu();
-        } else if (mMenu != null) {
-            MenuInflater inflater = getMenuInflater();
-            if (((BikestoreApplication) getApplication()).isLoggedIn()) {
-                inflater.inflate(R.menu.menu_logout, mMenu);
-            } else {
-                inflater.inflate(R.menu.menu_login, mMenu);
-            }
-        }
+    public Fragment getResultTargetFragment() {
+        return getSupportFragmentManager().findFragmentById(R.id.promo_fragment);
     }
 }

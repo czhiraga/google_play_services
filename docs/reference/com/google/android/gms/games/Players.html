@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -961,7 +976,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Used by the Player Search UI to return a list of parceled Player objects. Retrieve with
- <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#getParcelableArrayListExtra(java.lang.String)">getParcelableArrayListExtra(String)</a></code>.</p></div>
+ <code><a href="http://developer.android.com/reference/android/content/Intent.html#getParcelableArrayListExtra(java.lang.String)">getParcelableArrayListExtra(String)</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
       <ul class="nolist"><li><code><a href="../../../../../../reference/com/google/android/gms/games/Players.html#getPlayerSearchIntent(com.google.android.gms.common.api.GoogleApiClient)">getPlayerSearchIntent(GoogleApiClient)</a></code></li>
@@ -1121,12 +1136,12 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an intent that will display a screen where the user can search for people on Google+.
- Note that this must be invoked with <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>, so
+ Note that this must be invoked with <code><a href="http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>, so
  that the identity of the calling package can be established.
  <p>
- If the user canceled, the result will be <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code>. If the user
+ If the user canceled, the result will be <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code>. If the user
  selected any players from the search results list, the result will be
- <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>, and the data intent will contain a list of parceled Player
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>, and the data intent will contain a list of parceled Player
  objects in <code><a href="../../../../../../reference/com/google/android/gms/games/Players.html#EXTRA_PLAYER_SEARCH_RESULTS">EXTRA_PLAYER_SEARCH_RESULTS</a></code>.
  <p>
  Note that the current Player Search UI only allows a single selection, so the returned list
@@ -1146,7 +1161,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>An <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that can be started to display the player selector.
+      <ul class="nolist"><li>An <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that can be started to display the player selector.
 </li></ul>
   </div>
 
@@ -1503,7 +1518,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

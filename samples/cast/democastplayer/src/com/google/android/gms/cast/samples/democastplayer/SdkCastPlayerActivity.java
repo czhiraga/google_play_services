@@ -74,7 +74,7 @@ public class SdkCastPlayerActivity extends BaseCastPlayerActivity {
 
     @Override
     protected void onVolumeChange(double delta) {
-        if (!mApiClient.isConnected()) {
+        if ((mApiClient == null) || !mApiClient.isConnected()) {
             return;
         }
 

@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -806,117 +821,124 @@ Summary:
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#CANCELED">CANCELED</a></td>
+        <td class="jd-descrcol" width="100%">The result was canceled either due to client disconnect or <code><a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html#cancel()">cancel()</a></code>.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#DATE_INVALID">DATE_INVALID</a></td>
         <td class="jd-descrcol" width="100%">The device date is likely set incorrectly.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#DEVELOPER_ERROR">DEVELOPER_ERROR</a></td>
         <td class="jd-descrcol" width="100%">The application is misconfigured.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#ERROR">ERROR</a></td>
         <td class="jd-descrcol" width="100%">The operation failed with no more detailed information.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#INTERNAL_ERROR">INTERNAL_ERROR</a></td>
         <td class="jd-descrcol" width="100%">An internal error occurred.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#INTERRUPTED">INTERRUPTED</a></td>
         <td class="jd-descrcol" width="100%">A blocking call was interrupted while waiting and did not run to completion.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#INVALID_ACCOUNT">INVALID_ACCOUNT</a></td>
         <td class="jd-descrcol" width="100%">The client attempted to connect to the service with an invalid account name specified.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#LICENSE_CHECK_FAILED">LICENSE_CHECK_FAILED</a></td>
         <td class="jd-descrcol" width="100%">The application is not licensed to the user.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#NETWORK_ERROR">NETWORK_ERROR</a></td>
         <td class="jd-descrcol" width="100%">A network error occurred.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#RESOLUTION_REQUIRED">RESOLUTION_REQUIRED</a></td>
         <td class="jd-descrcol" width="100%">Completing the connection requires some form of resolution.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#SERVICE_DISABLED">SERVICE_DISABLED</a></td>
         <td class="jd-descrcol" width="100%">The installed version of Google Play services has been disabled on this device.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#SERVICE_INVALID">SERVICE_INVALID</a></td>
         <td class="jd-descrcol" width="100%">The version of the Google Play services installed on this device is not authentic.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#SERVICE_MISSING">SERVICE_MISSING</a></td>
         <td class="jd-descrcol" width="100%">Google Play services is missing on this device.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#SERVICE_VERSION_UPDATE_REQUIRED">SERVICE_VERSION_UPDATE_REQUIRED</a></td>
         <td class="jd-descrcol" width="100%">The installed version of Google Play services is out of date.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#SIGN_IN_REQUIRED">SIGN_IN_REQUIRED</a></td>
         <td class="jd-descrcol" width="100%">The client attempted to connect to the service but the user is not signed in.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#SUCCESS">SUCCESS</a></td>
         <td class="jd-descrcol" width="100%">The operation was successful.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#SUCCESS_CACHE">SUCCESS_CACHE</a></td>
         <td class="jd-descrcol" width="100%">The operation was successful, but was used the device's cache.</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/common/api/CommonStatusCodes.html#TIMEOUT">TIMEOUT</a></td>
         <td class="jd-descrcol" width="100%">Timed out while awaiting the result.</td>
@@ -1385,7 +1407,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

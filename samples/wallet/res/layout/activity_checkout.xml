@@ -15,8 +15,51 @@
      limitations under the License.
 -->
 
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/frag"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.google.android.gms.samples.wallet.CheckoutFragment" />
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <fragment
+            android:id="@+id/checkout_cart_detail_fragment"
+            android:name="com.google.android.gms.samples.wallet.CartDetailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include layout="@layout/horizontal_divider" />
+
+        <Button
+            android:id="@+id/button_regular_checkout"
+            android:layout_width="@dimen/buy_button_width"
+            android:layout_height="wrap_content"
+            android:text="@string/continue_checkout"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/padding_large" />
+
+        <!--
+            This FrameLayout is a placeholder for the Google Wallet button and will be provided
+            by a fragment at runtime.
+        -->
+        <FrameLayout
+            android:id="@+id/dynamic_wallet_button_fragment"
+            android:layout_height="@dimen/buy_button_height"
+            android:layout_width="@dimen/buy_button_width"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:layout_marginBottom="@dimen/margin_xlarge" />
+
+        <Button
+            android:id="@+id/button_return_to_shopping"
+            android:layout_width="@dimen/buy_button_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_large"
+            android:text="@string/return_to_shopping" />
+    </LinearLayout>
+
+</ScrollView>

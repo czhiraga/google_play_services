@@ -20,6 +20,7 @@
     <string name="change_locale">Change Locale</string>
     <string name="list_moments_title">Touch a moment to delete</string>
     <string name="send_interactive_button_name">Send Interactive Post</string>
+    <string name="sign_in_profile_label">profile scope</string>
     <string name="sign_out_button_name">Sign out</string>
     <string name="revoke_access_button_name">Revoke access</string>
     <string name="share_title">Prefill Text (optional)</string>

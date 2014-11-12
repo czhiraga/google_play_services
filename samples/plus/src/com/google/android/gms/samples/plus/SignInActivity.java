@@ -17,6 +17,7 @@ package com.google.android.gms.samples.plus;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.plus.PlusClient;
 
@@ -28,7 +29,9 @@ import android.content.IntentSender;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class SignInActivity extends Activity implements OnClickListener,
         PlusClient.ConnectionCallbacks, PlusClient.OnConnectionFailedListener,
@@ -53,6 +56,7 @@ public class SignInActivity extends Activity implements OnClickListener,
 
         mPlusClient = new PlusClient.Builder(this, this, this)
                 .setActions(MomentUtil.ACTIONS)
+                .setScopes(Scopes.PLUS_LOGIN)
                 .build();
 
         mSignInStatus = (TextView) findViewById(R.id.sign_in_status);
@@ -62,6 +66,28 @@ public class SignInActivity extends Activity implements OnClickListener,
         mSignOutButton.setOnClickListener(this);
         mRevokeAccessButton = findViewById(R.id.revoke_access_button);
         mRevokeAccessButton.setOnClickListener(this);
+        ToggleButton scopeSelector = (ToggleButton) findViewById(R.id.scope_selection_toggle);
+        scopeSelector.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked) {
+                    mPlusClient.disconnect();
+                    mPlusClient = new PlusClient.Builder(
+                            SignInActivity.this, SignInActivity.this, SignInActivity.this)
+                                .setScopes(Scopes.PROFILE)
+                                .build();
+                    mPlusClient.connect();
+                } else {
+                    mPlusClient.disconnect();
+                    mPlusClient = new PlusClient.Builder(
+                            SignInActivity.this, SignInActivity.this, SignInActivity.this)
+                                .setScopes(Scopes.PLUS_LOGIN)
+                                .setActions(MomentUtil.ACTIONS)
+                                .build();
+                    mPlusClient.connect();
+                }
+            }
+        });
     }
 
     @Override

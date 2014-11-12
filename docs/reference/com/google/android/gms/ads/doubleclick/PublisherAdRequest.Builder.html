@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../../index.html">
-            <img src="../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -808,6 +823,24 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/ads/doubleclick/PublisherAdRequest.Builder.html">PublisherAdRequest.Builder</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/ads/doubleclick/PublisherAdRequest.Builder.html#addNetworkExtrasBundle(java.lang.Class<? extends com.google.android.gms.ads.mediation.MediationAdapter>, android.os.Bundle)">addNetworkExtrasBundle</a></span>(<a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&nbsp;extends&nbsp;<a href="../../../../../../../reference/com/google/android/gms/ads/mediation/MediationAdapter.html">MediationAdapter</a>&gt; adapterClass, <a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a> networkExtras)</nobr>
+        
+        <div class="jd-descrdiv">Add extra parameters to pass to a specific ad network adapter.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../../reference/com/google/android/gms/ads/doubleclick/PublisherAdRequest.Builder.html">PublisherAdRequest.Builder</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/ads/doubleclick/PublisherAdRequest.Builder.html#addTestDevice(java.lang.String)">addTestDevice</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> deviceId)</nobr>
         
         <div class="jd-descrdiv">Causes a device to receive test ads.</div>
@@ -816,7 +849,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -834,7 +867,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -852,7 +885,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -864,13 +897,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/ads/doubleclick/PublisherAdRequest.Builder.html#setContentUrl(java.lang.String)">setContentUrl</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> contentUrl)</nobr>
         
-        <div class="jd-descrdiv">Sets the content url for targeting purposes.</div>
+        <div class="jd-descrdiv">Sets the content URL for targeting purposes.</div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -888,7 +921,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -906,7 +939,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -924,7 +957,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -943,7 +976,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1319,6 +1352,51 @@ From class
 </div>
 
 
+<A NAME="addNetworkExtrasBundle(java.lang.Class<? extends com.google.android.gms.ads.mediation.MediationAdapter>, android.os.Bundle)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../../reference/com/google/android/gms/ads/doubleclick/PublisherAdRequest.Builder.html">PublisherAdRequest.Builder</a>
+      </span>
+      <span class="sympad">addNetworkExtrasBundle</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&nbsp;extends&nbsp;<a href="../../../../../../../reference/com/google/android/gms/ads/mediation/MediationAdapter.html">MediationAdapter</a>&gt; adapterClass, <a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a> networkExtras)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Add extra parameters to pass to a specific ad network adapter.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>adapterClass</td>
+          <td>The <code><a href="http://developer.android.com/reference/java/lang/Class.html">Class</a></code> of the adapter for the network that you are
+ providing extras for.</td>
+        </tr>
+        <tr>
+          <th>networkExtras</td>
+          <td>A <code><a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> of extra information to pass to a mediation
+ adapter.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="addTestDevice(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1434,8 +1512,22 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the content url for targeting purposes.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the content URL for targeting purposes.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="http://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></td>
+            <td>If contentUrl is {code null}.</td>
+        </tr>  
+        <tr>
+            <th><a href="http://developer.android.com/reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></td>
+            <td>If contentUrl is empty, or if its
+             length exceeds 512.
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -1648,7 +1740,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

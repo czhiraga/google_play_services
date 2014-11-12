@@ -31,7 +31,6 @@ abstract class MediaSelectionDialog extends ListSelectionDialog<MediaInfo> {
     private static final String XML_ATTR_ARTIST = "artist";
     private static final String XML_ATTR_IMAGE_URL = "imageUrl";
     private static final String XML_ATTR_MIME_TYPE = "mimeType";
-    private static final String XML_ATTR_PHOTOGRAPHER = "photographer";
     private static final String XML_ATTR_SERIES_TITLE = "seriesTitle";
     private static final String XML_ATTR_STUDIO = "studio";
     private static final String XML_ATTR_TITLE = "title";

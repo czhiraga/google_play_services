@@ -169,6 +169,7 @@ public class WalletUtil {
      *               from {@link NotifyTransactionStatusRequest.Status.Error}
      * @return {@link NotifyTransactionStatusRequest} instance
      */
+    @SuppressWarnings("javadoc")
     public static NotifyTransactionStatusRequest createNotifyTransactionStatusRequest(
             String googleTransactionId, int status) {
         return NotifyTransactionStatusRequest.newBuilder()

@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,9 +131,11 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -136,7 +144,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../index.html">
-            <img src="../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../assets/images/dac_logo.png"
+                srcset="../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -380,6 +390,7 @@ onkeyup="return search_changed(event, false, '../')" />
 
 
 
+
   
 
 
@@ -426,6 +437,8 @@ onkeyup="return search_changed(event, false, '../')" />
   <a href="../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -494,6 +507,8 @@ onkeyup="return search_changed(event, false, '../')" />
   <a href="../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -596,7 +611,7 @@ onkeyup="return search_changed(event, false, '../')" />
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/AccountPicker.html">AccountPicker</a></td>
             <td class="jd-descrcol" width="100%">Common account picker similar to the standard framework account picker introduced in ICS:
- <code><a href="../http://developer.android.com/reference/android/accounts/AccountManager.html#newChooseAccountIntent(android.accounts.Account, java.util.ArrayList<android.accounts.Account>, java.lang.String[], boolean, java.lang.String, java.lang.String, java.lang.String[], android.os.Bundle)">newChooseAccountIntent</a></code>.&nbsp;</td>
+ <code><a href="http://developer.android.com/reference/android/accounts/AccountManager.html#newChooseAccountIntent(android.accounts.Account, java.util.ArrayList<android.accounts.Account>, java.lang.String[], boolean, java.lang.String, java.lang.String, java.lang.String[], android.os.Bundle)">newChooseAccountIntent</a></code>.&nbsp;</td>
         </tr>
     
     
@@ -702,7 +717,13 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/admob/AdMobExtras.html">AdMobExtras</a></td>
-            <td class="jd-descrcol" width="100%">NetworkExtras for the AdMob mediation adapter.&nbsp;</td>
+            <td class="jd-descrcol" width="100%"><em>
+      This class is deprecated.
+    Instead of using this class in conjunction with
+             <code><a href="../reference/com/google/android/gms/ads/AdRequest.Builder.html#addNetworkExtras(com.google.android.gms.ads.mediation.NetworkExtras)">addNetworkExtras(NetworkExtras)</a></code>, pass a Bundle
+             to <code><a href="../reference/com/google/android/gms/ads/AdRequest.Builder.html#addNetworkExtrasBundle(java.lang.Class<? extends com.google.android.gms.ads.mediation.MediationAdapter>, android.os.Bundle)">addNetworkExtrasBundle(Class<? extends MediationAdapter>, Bundle)</a></code> along
+             with <code>com.google.ads.mediation.admob.AdMobAdapter.class</code>.
+</em>&nbsp;</td>
         </tr>
     
     
@@ -739,78 +760,108 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/AdView.html">AdView</a></td>
-            <td class="jd-descrcol" width="100%">The <code><a href="../http://developer.android.com/reference/android/view/View.html">View</a></code> to display banner ads.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">The <code><a href="http://developer.android.com/reference/android/view/View.html">View</a></code> to display banner ads.&nbsp;</td>
         </tr>
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Api.html">Api</a></td>
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Api.html">Api</a>&lt;O&nbsp;extends&nbsp;<a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.html">Api.ApiOptions</a>&gt;</td>
             <td class="jd-descrcol" width="100%">Describes a section of the Google Play Services API that should be made available.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.html">Api.ApiOptions</a></td>
+            <td class="jd-descrcol" width="100%">Base interface for API options.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.HasOptions.html">Api.ApiOptions.HasOptions</a></td>
+            <td class="jd-descrcol" width="100%">Base interface for <code><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.html">Api.ApiOptions</a></code> in <code><a href="../reference/com/google/android/gms/common/api/Api.html">Api</a></code>s that have options.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.NoOptions.html">Api.ApiOptions.NoOptions</a></td>
+            <td class="jd-descrcol" width="100%"><code><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.html">Api.ApiOptions</a></code> implementation for <code><a href="../reference/com/google/android/gms/common/api/Api.html">Api</a></code>s that do not take any options.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.NotRequiredOptions.html">Api.ApiOptions.NotRequiredOptions</a></td>
+            <td class="jd-descrcol" width="100%">Base interface for <code><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.html">Api.ApiOptions</a></code> that are not required, don't exist.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.Optional.html">Api.ApiOptions.Optional</a></td>
+            <td class="jd-descrcol" width="100%">Base interface for <code><a href="../reference/com/google/android/gms/common/api/Api.ApiOptions.html">Api.ApiOptions</a></code> that are optional.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/doubleclick/AppEventListener.html">AppEventListener</a></td>
             <td class="jd-descrcol" width="100%">A listener interface for app events triggered by ads.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/cast/ApplicationMetadata.html">ApplicationMetadata</a></td>
             <td class="jd-descrcol" width="100%">Cast application metadata.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppState.html">AppState</a></td>
             <td class="jd-descrcol" width="100%">Data interface for retrieving app state information.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateBuffer.html">AppStateBuffer</a></td>
             <td class="jd-descrcol" width="100%">Data structure providing access to a list of app states.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateManager.html">AppStateManager</a></td>
             <td class="jd-descrcol" width="100%">Main public API entry point for the AppState APIs.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateManager.StateConflictResult.html">AppStateManager.StateConflictResult</a></td>
             <td class="jd-descrcol" width="100%">Result retrieved from <code><a href="../reference/com/google/android/gms/appstate/AppStateManager.StateResult.html">AppStateManager.StateResult</a></code> when a conflict is detected while loading app
  state.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateManager.StateDeletedResult.html">AppStateManager.StateDeletedResult</a></td>
             <td class="jd-descrcol" width="100%">Result delivered when app state data has been deleted.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateManager.StateListResult.html">AppStateManager.StateListResult</a></td>
             <td class="jd-descrcol" width="100%">Result delivered when app state data has been loaded.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateManager.StateLoadedResult.html">AppStateManager.StateLoadedResult</a></td>
             <td class="jd-descrcol" width="100%">Result retrieved from <code><a href="../reference/com/google/android/gms/appstate/AppStateManager.StateResult.html">AppStateManager.StateResult</a></code> when app state data has been loaded successfully.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateManager.StateResult.html">AppStateManager.StateResult</a></td>
             <td class="jd-descrcol" width="100%">Result of an operation that could potentially generate a state conflict.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/appstate/AppStateStatusCodes.html">AppStateStatusCodes</a></td>
             <td class="jd-descrcol" width="100%">Status codes for AppState results.&nbsp;</td>
         </tr>
@@ -824,6 +875,30 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Batch.html">Batch</a></td>
+            <td class="jd-descrcol" width="100%">Handles a batch of <code><a href="../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a></code> items.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Batch.Builder.html">Batch.Builder</a></td>
+            <td class="jd-descrcol" width="100%">Builder for <code><a href="../reference/com/google/android/gms/common/api/Batch.html">Batch</a></code> objects.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/BatchResult.html">BatchResult</a></td>
+            <td class="jd-descrcol" width="100%">The result of a batch operation.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/BatchResultToken.html">BatchResultToken</a>&lt;R&nbsp;extends&nbsp;<a href="../reference/com/google/android/gms/common/api/Result.html">Result</a>&gt;</td>
+            <td class="jd-descrcol" width="100%">Result token used to retrieve the result of individual operations from a batch.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/BitmapDescriptor.html">BitmapDescriptor</a></td>
             <td class="jd-descrcol" width="100%">Defines an image.&nbsp;</td>
         </tr>
@@ -832,6 +907,18 @@ onkeyup="return search_changed(event, false, '../')" />
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/BitmapDescriptorFactory.html">BitmapDescriptorFactory</a></td>
             <td class="jd-descrcol" width="100%">Used to create a definition of an image, used for marker icons and ground overlays.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/BuyButtonAppearance.html">BuyButtonAppearance</a></td>
+            <td class="jd-descrcol" width="100%">Options for Wallet button appearance.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/BuyButtonText.html">BuyButtonText</a></td>
+            <td class="jd-descrcol" width="100%">Options for text displayed on the Wallet buy button.&nbsp;</td>
         </tr>
     
     
@@ -868,7 +955,7 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/analytics/CampaignTrackingReceiver.html">CampaignTrackingReceiver</a></td>
-            <td class="jd-descrcol" width="100%">The Google Play <code>com.android.vending.INSTALL_REFERRER</code> <code><a href="../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> is broadcast when an
+            <td class="jd-descrcol" width="100%">The Google Play <code>com.android.vending.INSTALL_REFERRER</code> <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> is broadcast when an
  app is installed from the Google Play Store and has campaign data available (i.e.&nbsp;</td>
         </tr>
     
@@ -973,78 +1060,72 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/metadata/CollectionMetadataField.html">CollectionMetadataField</a>&lt;T&gt;</td>
-            <td class="jd-descrcol" width="100%">A metadata field which holds a collection of values.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/CommonStatusCodes.html">CommonStatusCodes</a></td>
             <td class="jd-descrcol" width="100%">Common status codes that are often shared across API surfaces.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/ConnectionResult.html">ConnectionResult</a></td>
             <td class="jd-descrcol" width="100%">Contains all possible error codes for when a client fails to connect to Google Play services.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/tagmanager/Container.html">Container</a></td>
             <td class="jd-descrcol" width="100%">An object that provides access to container values.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/tagmanager/Container.FunctionCallMacroCallback.html">Container.FunctionCallMacroCallback</a></td>
             <td class="jd-descrcol" width="100%">Callback that is provided by the application to calculate the value of a custom macro.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/tagmanager/Container.FunctionCallTagCallback.html">Container.FunctionCallTagCallback</a></td>
             <td class="jd-descrcol" width="100%">Callback that is provided by the application to execute a custom tag.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/tagmanager/ContainerHolder.html">ContainerHolder</a></td>
             <td class="jd-descrcol" width="100%">Holder for an active container.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/tagmanager/ContainerHolder.ContainerAvailableListener.html">ContainerHolder.ContainerAvailableListener</a></td>
             <td class="jd-descrcol" width="100%">Listener object that is called when a new container is available.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/Contents.html">Contents</a></td>
             <td class="jd-descrcol" width="100%">A reference to a Drive file's contents.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/identity/intents/model/CountrySpecification.html">CountrySpecification</a></td>
             <td class="jd-descrcol" width="100%">Parcelable representing a country.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/CountrySpecification.html">CountrySpecification</a></td>
             <td class="jd-descrcol" width="100%">Parcelable representing a country.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/CreateFileActivityBuilder.html">CreateFileActivityBuilder</a></td>
             <td class="jd-descrcol" width="100%">A builder that is used to configure and display the create file activity.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/customevent/CustomEventExtras.html">CustomEventExtras</a></td>
             <td class="jd-descrcol" width="100%">Extra parameters for mediation custom events.&nbsp;</td>
         </tr>
@@ -1088,56 +1169,68 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/Dimension.html">Dimension</a></td>
+            <td class="jd-descrcol" width="100%">Constants for specifying dimensions in <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentStyle.html">WalletFragmentStyle</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/Drive.html">Drive</a></td>
             <td class="jd-descrcol" width="100%">The Drive API provides easy access to users' Google Drive contents.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/DriveApi.html">DriveApi</a></td>
             <td class="jd-descrcol" width="100%">The main entry point for interacting with Drive.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/DriveApi.ContentsResult.html">DriveApi.ContentsResult</a></td>
             <td class="jd-descrcol" width="100%">Result that contains a Contents reference.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/DriveApi.DriveIdResult.html">DriveApi.DriveIdResult</a></td>
             <td class="jd-descrcol" width="100%">Result that contains a DriveId.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/DriveApi.IntentSenderResult.html">DriveApi.IntentSenderResult</a></td>
             <td class="jd-descrcol" width="100%">Result that contains an IntentSender reference.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/DriveApi.MetadataBufferResult.html">DriveApi.MetadataBufferResult</a></td>
             <td class="jd-descrcol" width="100%">Result that contains a MetadataBuffer.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/DriveApi.OnSyncFinishCallback.html">DriveApi.OnSyncFinishCallback</a></td>
             <td class="jd-descrcol" width="100%">A callback that provides the result for a <code><a href="../reference/com/google/android/gms/drive/DriveApi.html#requestSync(com.google.android.gms.common.api.GoogleApiClient)">requestSync(GoogleApiClient)</a></code> request.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/events/DriveEvent.html">DriveEvent</a></td>
             <td class="jd-descrcol" width="100%">Base interface implemented by all Drive event types.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/events/DriveEvent.Listener.html">DriveEvent.Listener</a>&lt;E&nbsp;extends&nbsp;<a href="../reference/com/google/android/gms/drive/events/DriveEvent.html">DriveEvent</a>&gt;</td>
             <td class="jd-descrcol" width="100%">Listens for Drive events of a particular type.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/events/DriveEventService.html">DriveEventService</a></td>
+            <td class="jd-descrcol" width="100%">Abstract base class for an intent service that handles Drive events.&nbsp;</td>
         </tr>
     
     
@@ -1213,16 +1306,16 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/ErrorDialogFragment.html">ErrorDialogFragment</a></td>
-            <td class="jd-descrcol" width="100%">Wraps the <code><a href="../http://developer.android.com/reference/android/app/Dialog.html">Dialog</a></code> returned by
+            <td class="jd-descrcol" width="100%">Wraps the <code><a href="http://developer.android.com/reference/android/app/Dialog.html">Dialog</a></code> returned by
  <code><a href="../reference/com/google/android/gms/common/GooglePlayServicesUtil.html#getErrorDialog(int, android.app.Activity, int)">getErrorDialog(int, Activity, int)</a></code> by using
  <code><a href="../reference/android/app/DialogFragment.html">DialogFragment</a></code> so that it can be properly managed by the
- <code><a href="../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>.&nbsp;</td>
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/analytics/ExceptionParser.html">ExceptionParser</a></td>
-            <td class="jd-descrcol" width="100%">This interface is responsible for parsing a <code><a href="../http://developer.android.com/reference/java/lang/Throwable.html">Throwable</a></code> and providing
+            <td class="jd-descrcol" width="100%">This interface is responsible for parsing a <code><a href="http://developer.android.com/reference/java/lang/Throwable.html">Throwable</a></code> and providing
  a short, meaningful description to report to Google Analytics.&nbsp;</td>
         </tr>
     
@@ -1352,7 +1445,7 @@ onkeyup="return search_changed(event, false, '../')" />
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/GamesActivityResultCodes.html">GamesActivityResultCodes</a></td>
             <td class="jd-descrcol" width="100%">Result codes that can be set as result in Activities from the Client UI started with
- <code><a href="../http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.&nbsp;</td>
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.&nbsp;</td>
         </tr>
     
     
@@ -1407,72 +1500,72 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/GoogleApiClient.ApiOptions.html">GoogleApiClient.ApiOptions</a></td>
-            <td class="jd-descrcol" width="100%">Base interface for API options.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html">GoogleApiClient.Builder</a></td>
             <td class="jd-descrcol" width="100%">Builder to configure a <code><a href="../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/GoogleApiClient.ConnectionCallbacks.html">GoogleApiClient.ConnectionCallbacks</a></td>
             <td class="jd-descrcol" width="100%">Provides callbacks that are called when the client is connected or disconnected from the
  service.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/GoogleApiClient.OnConnectionFailedListener.html">GoogleApiClient.OnConnectionFailedListener</a></td>
             <td class="jd-descrcol" width="100%">Provides callbacks for scenarios that result in a failed attempt to
  connect the client to the service.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/auth/GoogleAuthException.html">GoogleAuthException</a></td>
             <td class="jd-descrcol" width="100%">GoogleAuthExceptions signal Google authentication errors.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/auth/GoogleAuthUtil.html">GoogleAuthUtil</a></td>
             <td class="jd-descrcol" width="100%">GoogleAuthUtil provides static utility methods to acquire and invalidate
  authentication tokens.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">GoogleCloudMessaging</a></td>
             <td class="jd-descrcol" width="100%"><p>The class you use to write a GCM-enabled client application that runs on an Android device.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/GoogleMap.html">GoogleMap</a></td>
             <td class="jd-descrcol" width="100%">This is the main class of the Google Maps Android API and is the entry point for all methods
  related to the map.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/GoogleMap.CancelableCallback.html">GoogleMap.CancelableCallback</a></td>
             <td class="jd-descrcol" width="100%">A callback interface for reporting when a task is complete or cancelled.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/GoogleMap.InfoWindowAdapter.html">GoogleMap.InfoWindowAdapter</a></td>
             <td class="jd-descrcol" width="100%">Provides views for customized rendering of info windows.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/GoogleMap.OnCameraChangeListener.html">GoogleMap.OnCameraChangeListener</a></td>
             <td class="jd-descrcol" width="100%">Defines signatures for methods that are called when the camera changes position.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/GoogleMap.OnIndoorStateChangeListener.html">GoogleMap.OnIndoorStateChangeListener</a></td>
+            <td class="jd-descrcol" width="100%">A listener for when the indoor state changes.&nbsp;</td>
         </tr>
     
     
@@ -1650,18 +1743,24 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/analytics/HitBuilders.ScreenViewBuilder.html">HitBuilders.ScreenViewBuilder</a></td>
+            <td class="jd-descrcol" width="100%">Class to build a screen view hit.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/analytics/HitBuilders.SocialBuilder.html">HitBuilders.SocialBuilder</a></td>
             <td class="jd-descrcol" width="100%">A Builder object to build social event hits.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder.html">HitBuilders.TimingBuilder</a></td>
             <td class="jd-descrcol" width="100%">Hit builder used to collect timing related data.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder.html">HitBuilders.TransactionBuilder</a></td>
             <td class="jd-descrcol" width="100%">Transaction hit builder allows you to send in-app purchases and sales to Google Analytics.&nbsp;</td>
         </tr>
@@ -1687,8 +1786,32 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/purchase/InAppPurchase.html">InAppPurchase</a></td>
+            <td class="jd-descrcol" width="100%">Contains information about a purchase.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/purchase/InAppPurchaseListener.html">InAppPurchaseListener</a></td>
+            <td class="jd-descrcol" width="100%">A listener interface for In-App Purchase triggered by ads.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/IndoorBuilding.html">IndoorBuilding</a></td>
+            <td class="jd-descrcol" width="100%">Represents a building.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/IndoorLevel.html">IndoorLevel</a></td>
+            <td class="jd-descrcol" width="100%">Represents a level in a building.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/tagmanager/InstallReferrerReceiver.html">InstallReferrerReceiver</a></td>
-            <td class="jd-descrcol" width="100%">The Google Play <code>com.android.vending.INSTALL_REFERRER</code> <code><a href="../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> is broadcast when an
+            <td class="jd-descrcol" width="100%">The Google Play <code>com.android.vending.INSTALL_REFERRER</code> <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> is broadcast when an
  app is installed from the Google Play Store.&nbsp;</td>
         </tr>
     
@@ -2029,6 +2152,42 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/MediationAdapter.html">MediationAdapter</a></td>
+            <td class="jd-descrcol" width="100%">Adapter for third party ad networks.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/MediationAdRequest.html">MediationAdRequest</a></td>
+            <td class="jd-descrcol" width="100%">Information about the ad to fetch for a single publisher.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/MediationBannerAdapter.html">MediationBannerAdapter</a></td>
+            <td class="jd-descrcol" width="100%">Adapter for third party ad networks that support banner ads.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/MediationBannerListener.html">MediationBannerListener</a></td>
+            <td class="jd-descrcol" width="100%">Callback for an adapter to communicate back to the mediation library.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/MediationInterstitialAdapter.html">MediationInterstitialAdapter</a></td>
+            <td class="jd-descrcol" width="100%">Adapter for third party ad networks that support interstitial ads.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/mediation/MediationInterstitialListener.html">MediationInterstitialListener</a></td>
+            <td class="jd-descrcol" width="100%">Callback for an adapter to communicate back to the mediation library.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/Metadata.html">Metadata</a></td>
             <td class="jd-descrcol" width="100%">The details of a Drive file or folder.&nbsp;</td>
         </tr>
@@ -2054,7 +2213,8 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/metadata/MetadataField.html">MetadataField</a>&lt;T&gt;</td>
-            <td class="jd-descrcol" width="100%">A single metadata field that can be used as part of file queries.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">Base interface for the <code><a href="../reference/com/google/android/gms/drive/metadata/SearchableMetadataField.html">SearchableMetadataField</a></code> and <code><a href="../reference/com/google/android/gms/drive/metadata/SortableMetadataField.html">SortableMetadataField</a></code>
+ interfaces.&nbsp;</td>
         </tr>
     
     
@@ -2174,13 +2334,6 @@ onkeyup="return search_changed(event, false, '../')" />
         </tr>
     
     
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&nbsp;extends&nbsp;<a href="http://developer.android.com/reference/java/lang/Comparable.html">Comparable</a>&lt;T&gt;&gt;</td>
-            <td class="jd-descrcol" width="100%">A metadata field which holds an ordered value (such as a date) which can be used for range
- queries.&nbsp;</td>
-        </tr>
-    
-    
 </table>
 
 
@@ -2201,56 +2354,56 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/panorama/Panorama.PanoramaResult.html">Panorama.PanoramaResult</a></td>
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/panorama/PanoramaApi.html">PanoramaApi</a></td>
+            <td class="jd-descrcol" width="100%">The main entry point for interacting with Panorama viewer.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/panorama/PanoramaApi.PanoramaResult.html">PanoramaApi.PanoramaResult</a></td>
             <td class="jd-descrcol" width="100%">Result interface for loading panorama info.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/panorama/PanoramaClient.html">PanoramaClient</a></td>
-            <td class="jd-descrcol" width="100%">This class has been deprecated.&nbsp;</td>
-        </tr>
-    
-    
         <tr class="alt-color api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/panorama/PanoramaClient.OnPanoramaInfoLoadedListener.html">PanoramaClient.OnPanoramaInfoLoadedListener</a></td>
-            <td class="jd-descrcol" width="100%">Callback interface for loading panorama info.&nbsp;</td>
-        </tr>
-    
-    
-        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/Participant.html">Participant</a></td>
             <td class="jd-descrcol" width="100%">Data interface for multiplayer participants.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/ParticipantBuffer.html">ParticipantBuffer</a></td>
             <td class="jd-descrcol" width="100%"><code><a href="../reference/com/google/android/gms/common/data/DataBuffer.html">DataBuffer</a></code> implementation containing match participant data.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/ParticipantEntity.html">ParticipantEntity</a></td>
             <td class="jd-descrcol" width="100%">Data object representing a Participant in a match.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/ParticipantResult.html">ParticipantResult</a></td>
             <td class="jd-descrcol" width="100%">Data class used to report a participant's result in a match.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/ParticipantUtils.html">ParticipantUtils</a></td>
             <td class="jd-descrcol" width="100%">Utilities for working with multiplayer participants.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/Participatable.html">Participatable</a></td>
             <td class="jd-descrcol" width="100%">Interface defining methods for an object which can have participants.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/Payments.html">Payments</a></td>
+            <td class="jd-descrcol" width="100%">Entry point for interacting with Wallet buyflow APIs.&nbsp;</td>
         </tr>
     
     
@@ -2450,8 +2603,7 @@ onkeyup="return search_changed(event, false, '../')" />
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusClient.OnAccessRevokedListener.html">PlusClient.OnAccessRevokedListener</a></td>
             <td class="jd-descrcol" width="100%"><em>
       This interface is deprecated.
-    See <code><a href="../reference/com/google/android/gms/plus/Account.html#revokeAccessAndDisconnect(com.google.android.gms.common.api.GoogleApiClient)">revokeAccessAndDisconnect(GoogleApiClient)</a></code>.
-</em>&nbsp;</td>
+    No replacement.</em>&nbsp;</td>
         </tr>
     
     
@@ -2490,9 +2642,9 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusOneButton.DefaultOnPlusOneClickListener.html">PlusOneButton.DefaultOnPlusOneClickListener</a></td>
-            <td class="jd-descrcol" width="100%">This is an <code><a href="../http://developer.android.com/reference/android/view/View.OnClickListener.html">View.OnClickListener</a></code> that will proxy clicks to an
+            <td class="jd-descrcol" width="100%">This is an <code><a href="http://developer.android.com/reference/android/view/View.OnClickListener.html">View.OnClickListener</a></code> that will proxy clicks to an
  attached <code><a href="../reference/com/google/android/gms/plus/PlusOneButton.OnPlusOneClickListener.html">PlusOneButton.OnPlusOneClickListener</a></code>, or default to attempt to start
- the intent using an <code><a href="../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> context.&nbsp;</td>
+ the intent using an <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> context.&nbsp;</td>
         </tr>
     
     
@@ -2513,7 +2665,7 @@ onkeyup="return search_changed(event, false, '../')" />
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/plus/PlusShare.html">PlusShare</a></td>
             <td class="jd-descrcol" width="100%">Utility class for including resources in posts shared on Google+ through
- an <code><a href="../http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intent.&nbsp;</td>
+ an <code><a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intent.&nbsp;</td>
         </tr>
     
     
@@ -2549,7 +2701,7 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/tagmanager/PreviewActivity.html">PreviewActivity</a></td>
-            <td class="jd-descrcol" width="100%">An <code><a href="../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> to preview the app with previewed container version.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">An <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> to preview the app with previewed container version.&nbsp;</td>
         </tr>
     
     
@@ -2581,7 +2733,7 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/doubleclick/PublisherAdView.html">PublisherAdView</a></td>
-            <td class="jd-descrcol" width="100%">The <code><a href="../http://developer.android.com/reference/android/view/View.html">View</a></code> to display banner ads for use with DoubleClick for Publishers.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">The <code><a href="http://developer.android.com/reference/android/view/View.html">View</a></code> to display banner ads for use with DoubleClick for Publishers.&nbsp;</td>
         </tr>
     
     
@@ -2600,8 +2752,7 @@ onkeyup="return search_changed(event, false, '../')" />
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/query/Query.html">Query</a></td>
-            <td class="jd-descrcol" width="100%">The query object specifies constraints on a query result, including filters and paging
- information.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">The query object specifies constraints on a query result, including filters, paging information.&nbsp;</td>
         </tr>
     
     
@@ -2661,149 +2812,155 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/R.styleable.html">R.styleable</a></td>
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/R.style.html">R.style</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/R.styleable.html">R.styleable</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RealTimeMessage.html">RealTimeMessage</a></td>
             <td class="jd-descrcol" width="100%">Message received from participants in a real-time room, which is passed to the client.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener.html">RealTimeMessageReceivedListener</a></td>
             <td class="jd-descrcol" width="100%">Listener for message received callback, which is called when the client receives a message
  from a peer.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RealTimeMultiplayer.html">RealTimeMultiplayer</a></td>
             <td class="jd-descrcol" width="100%">Entry point for real-time multiplayer functionality.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RealTimeMultiplayer.ReliableMessageSentCallback.html">RealTimeMultiplayer.ReliableMessageSentCallback</a></td>
             <td class="jd-descrcol" width="100%">The listener for callback that is called when a reliable message is sent successfully.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RealTimeSocket.html">RealTimeSocket</a></td>
             <td class="jd-descrcol" width="100%">Provides a Socket-like interface for a real-time data connection to a participant in a real-time
  room.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Releasable.html">Releasable</a></td>
             <td class="jd-descrcol" width="100%">Represents a resource, or a holder of resources, which may be released once they are no longer
  needed.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/cast/RemoteMediaPlayer.html">RemoteMediaPlayer</a></td>
             <td class="jd-descrcol" width="100%">Class for controlling a media player application running on a receiver.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/cast/RemoteMediaPlayer.MediaChannelResult.html">RemoteMediaPlayer.MediaChannelResult</a></td>
             <td class="jd-descrcol" width="100%">Result of a media command.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/cast/RemoteMediaPlayer.OnMetadataUpdatedListener.html">RemoteMediaPlayer.OnMetadataUpdatedListener</a></td>
             <td class="jd-descrcol" width="100%">The listener interface for tracking metadata changes.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/cast/RemoteMediaPlayer.OnStatusUpdatedListener.html">RemoteMediaPlayer.OnStatusUpdatedListener</a></td>
             <td class="jd-descrcol" width="100%">The listener interface for tracking player status changes.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/request/Requests.html">Requests</a></td>
             <td class="jd-descrcol" width="100%">Entry point for request functionality.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/request/Requests.LoadRequestsResult.html">Requests.LoadRequestsResult</a></td>
             <td class="jd-descrcol" width="100%">Result delivered when requests have loaded.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/request/Requests.UpdateRequestsResult.html">Requests.UpdateRequestsResult</a></td>
             <td class="jd-descrcol" width="100%">Result delivered when requests are updated.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/events/ResourceEvent.html">ResourceEvent</a></td>
             <td class="jd-descrcol" width="100%">Base interface for <code><a href="../reference/com/google/android/gms/drive/events/DriveEvent.html">DriveEvent</a></code> types related to a specific resource.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/Result.html">Result</a></td>
             <td class="jd-descrcol" width="100%">Represents the final result of invoking an API method in Google Play Services.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/api/ResultCallback.html">ResultCallback</a>&lt;R&nbsp;extends&nbsp;<a href="../reference/com/google/android/gms/common/api/Result.html">Result</a>&gt;</td>
             <td class="jd-descrcol" width="100%">An interface for receiving a <code><a href="../reference/com/google/android/gms/common/api/Result.html">Result</a></code> from a <code><a href="../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a></code> as an asynchronous
  callback.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/Room.html">Room</a></td>
             <td class="jd-descrcol" width="100%">Data interface for room functionality.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RoomConfig.html">RoomConfig</a></td>
             <td class="jd-descrcol" width="100%">Configuration for a new room.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RoomConfig.Builder.html">RoomConfig.Builder</a></td>
             <td class="jd-descrcol" width="100%">Builder class for <code><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RoomConfig.html">RoomConfig</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RoomEntity.html">RoomEntity</a></td>
             <td class="jd-descrcol" width="100%">Data object representing the data for a room.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener.html">RoomStatusUpdateListener</a></td>
             <td class="jd-descrcol" width="100%">Listener invoked when the status of a room, status of its participants or connection status of
  the participants has changed.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/games/multiplayer/realtime/RoomUpdateListener.html">RoomUpdateListener</a></td>
             <td class="jd-descrcol" width="100%">The listener invoked when the state of the room has changed.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/RuntimeRemoteException.html">RuntimeRemoteException</a></td>
             <td class="jd-descrcol" width="100%">A RuntimeException wrapper for RemoteException.&nbsp;</td>
         </tr>
@@ -2841,39 +2998,64 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/metadata/SearchableCollectionMetadataField.html">SearchableCollectionMetadataField</a>&lt;T&gt;</td>
+            <td class="jd-descrcol" width="100%">Interface for metadata fields which hold a collection of values.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/query/SearchableField.html">SearchableField</a></td>
             <td class="jd-descrcol" width="100%">An attribute of the file that is to be searched.&nbsp;</td>
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/metadata/SearchableMetadataField.html">SearchableMetadataField</a>&lt;T&gt;</td>
+            <td class="jd-descrcol" width="100%">Interface for metadata fields that can be used to filter results as part of file queries.&nbsp;</td>
+        </tr>
+    
+    
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt;</td>
+            <td class="jd-descrcol" width="100%">Interface for metadata fields which holds an ordered value (such as a date) and which can be
+ used for range queries.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/search/SearchAdRequest.html">SearchAdRequest</a></td>
             <td class="jd-descrcol" width="100%">A <code><a href="../reference/com/google/android/gms/ads/search/SearchAdRequest.html">SearchAdRequest</a></code> contains targeting information used to fetch an ad from Search Ads for
  Apps.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/search/SearchAdRequest.Builder.html">SearchAdRequest.Builder</a></td>
             <td class="jd-descrcol" width="100%">Builds a <code><a href="../reference/com/google/android/gms/ads/search/SearchAdRequest.html">SearchAdRequest</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/ads/search/SearchAdView.html">SearchAdView</a></td>
-            <td class="jd-descrcol" width="100%">The <code><a href="../http://developer.android.com/reference/android/view/View.html">View</a></code> to display search banner ads for use with Search Ads for Apps.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">The <code><a href="http://developer.android.com/reference/android/view/View.html">View</a></code> to display search banner ads for use with Search Ads for Apps.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/SignInButton.html">SignInButton</a></td>
             <td class="jd-descrcol" width="100%">The Google sign-in button to authenticate the user.&nbsp;</td>
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/drive/metadata/SortableMetadataField.html">SortableMetadataField</a>&lt;T&gt;</td>
+            <td class="jd-descrcol" width="100%">Interface for metadata fields that can be used to sort results of the file queries.&nbsp;</td>
+        </tr>
+    
+    
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/analytics/StandardExceptionParser.html">StandardExceptionParser</a></td>
-            <td class="jd-descrcol" width="100%">This class will capture the root cause (last in a chain of causes) <code><a href="../http://developer.android.com/reference/java/lang/Throwable.html">Throwable</a></code> and report the exception type, class name, method name and thread
+            <td class="jd-descrcol" width="100%">This class will capture the root cause (last in a chain of causes) <code><a href="http://developer.android.com/reference/java/lang/Throwable.html">Throwable</a></code> and report the exception type, class name, method name and thread
  name.&nbsp;</td>
         </tr>
     
@@ -2885,17 +3067,119 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/SupportErrorDialogFragment.html">SupportErrorDialogFragment</a></td>
-            <td class="jd-descrcol" width="100%">Wraps the <code><a href="../http://developer.android.com/reference/android/app/Dialog.html">Dialog</a></code> returned by
- <code><a href="../reference/com/google/android/gms/common/GooglePlayServicesUtil.html#getErrorDialog(int, android.app.Activity, int)">getErrorDialog(int, Activity, int)</a></code> by using
- <code><a href="../reference/android/support/v4/app/DialogFragment.html">DialogFragment</a></code> so that it can be properly managed by the
- <code><a href="../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>.&nbsp;</td>
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/StreetViewPanorama.html">StreetViewPanorama</a></td>
+            <td class="jd-descrcol" width="100%">This is the main class of the Street View feature in the Google Maps Android API and is the
+ entry point for all methods related to Street View panoramas.&nbsp;</td>
         </tr>
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaCameraChangeListener.html">StreetViewPanorama.OnStreetViewPanoramaCameraChangeListener</a></td>
+            <td class="jd-descrcol" width="100%">A listener for when the StreetViewPanoramaCamera changes
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaChangeListener.html">StreetViewPanorama.OnStreetViewPanoramaChangeListener</a></td>
+            <td class="jd-descrcol" width="100%">A listener for when the Street View panorama loads a new panorama
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaClickListener.html">StreetViewPanorama.OnStreetViewPanoramaClickListener</a></td>
+            <td class="jd-descrcol" width="100%">Callback interface for when the user taps on the panorama.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/StreetViewPanoramaCamera.html">StreetViewPanoramaCamera</a></td>
+            <td class="jd-descrcol" width="100%">An immutable class that aggregates all camera position parameters.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/StreetViewPanoramaCamera.Builder.html">StreetViewPanoramaCamera.Builder</a></td>
+            <td class="jd-descrcol" width="100%">Builds panorama cameras.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/StreetViewPanoramaFragment.html">StreetViewPanoramaFragment</a></td>
+            <td class="jd-descrcol" width="100%">A StreeViewPanorama component in an app.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/StreetViewPanoramaLink.html">StreetViewPanoramaLink</a></td>
+            <td class="jd-descrcol" width="100%">An immutable class that represents a link to another Street View panorama.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/StreetViewPanoramaLocation.html">StreetViewPanoramaLocation</a></td>
+            <td class="jd-descrcol" width="100%">An immutable class that contains details of the user's current Street View panorama
+
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/StreetViewPanoramaOptions.html">StreetViewPanoramaOptions</a></td>
+            <td class="jd-descrcol" width="100%">Defines configuration PanoramaOptions for a <code><a href="../reference/com/google/android/gms/maps/StreetViewPanorama.html">StreetViewPanorama</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/StreetViewPanoramaOrientation.html">StreetViewPanoramaOrientation</a></td>
+            <td class="jd-descrcol" width="100%">An immutable class that aggregates all user point of view parameters.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/model/StreetViewPanoramaOrientation.Builder.html">StreetViewPanoramaOrientation.Builder</a></td>
+            <td class="jd-descrcol" width="100%">Builds Street View panorama orientations.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/StreetViewPanoramaView.html">StreetViewPanoramaView</a></td>
+            <td class="jd-descrcol" width="100%">A View which displays a Street View panorama (with data obtained from the Google Maps service).&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/SupportErrorDialogFragment.html">SupportErrorDialogFragment</a></td>
+            <td class="jd-descrcol" width="100%">Wraps the <code><a href="http://developer.android.com/reference/android/app/Dialog.html">Dialog</a></code> returned by
+ <code><a href="../reference/com/google/android/gms/common/GooglePlayServicesUtil.html#getErrorDialog(int, android.app.Activity, int)">getErrorDialog(int, Activity, int)</a></code> by using
+ <code><a href="../reference/android/support/v4/app/DialogFragment.html">DialogFragment</a></code> so that it can be properly managed by the
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/SupportMapFragment.html">SupportMapFragment</a></td>
             <td class="jd-descrcol" width="100%">A Map component in an app.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/maps/SupportStreetViewPanoramaFragment.html">SupportStreetViewPanoramaFragment</a></td>
+            <td class="jd-descrcol" width="100%">A StreeViewPanorama component in an app.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/SupportWalletFragment.html">SupportWalletFragment</a></td>
+            <td class="jd-descrcol" width="100%">This fragment is the simplest way to place a Wallet buy button or selection details UI
+ in an application for the InstantBuy API.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/SupportWalletFragment.OnStateChangedListener.html">SupportWalletFragment.OnStateChangedListener</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
@@ -3113,21 +3397,74 @@ onkeyup="return search_changed(event, false, '../')" />
     
     
         <tr class=" api apilevel-" >
-            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/WalletClient.html">WalletClient</a></td>
-            <td class="jd-descrcol" width="100%"><em>
-      This class is deprecated.
-    Use <code><a href="../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> and <code><a href="../reference/com/google/android/gms/wallet/Wallet.html">Wallet</a></code> instead.
-</em>&nbsp;</td>
-        </tr>
-    
-    
-        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/WalletConstants.html">WalletConstants</a></td>
             <td class="jd-descrcol" width="100%">Collection of constant values used by the ClientLibrary.&nbsp;</td>
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragment.html">WalletFragment</a></td>
+            <td class="jd-descrcol" width="100%">This fragment is the simplest way to place a Wallet buy button or selection details UI
+ in an application for the InstantBuy API.&nbsp;</td>
+        </tr>
+    
+    
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragment.OnStateChangedListener.html">WalletFragment.OnStateChangedListener</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentInitParams.html">WalletFragmentInitParams</a></td>
+            <td class="jd-descrcol" width="100%">Parameters for initializing <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragment.html">WalletFragment</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentInitParams.Builder.html">WalletFragmentInitParams.Builder</a></td>
+            <td class="jd-descrcol" width="100%">Builder for building a <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentInitParams.html">WalletFragmentInitParams</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentMode.html">WalletFragmentMode</a></td>
+            <td class="jd-descrcol" width="100%">Set of constants which define Wallet fragment modes.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentOptions.html">WalletFragmentOptions</a></td>
+            <td class="jd-descrcol" width="100%">Defines configurations for <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragment.html">WalletFragment</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentOptions.Builder.html">WalletFragmentOptions.Builder</a></td>
+            <td class="jd-descrcol" width="100%">Builder for building <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentOptions.html">WalletFragmentOptions</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentState.html">WalletFragmentState</a></td>
+            <td class="jd-descrcol" width="100%">State of <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragment.html">WalletFragment</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentStyle.html">WalletFragmentStyle</a></td>
+            <td class="jd-descrcol" width="100%">Defines attributes to customize the look and feel of <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragment.html">WalletFragment</a></code>, to be used in
+ <code><a href="../reference/com/google/android/gms/wallet/fragment/WalletFragmentOptions.Builder.html#setFragmentStyle(com.google.android.gms.wallet.fragment.WalletFragmentStyle)">setFragmentStyle(WalletFragmentStyle)</a></code>.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../reference/com/google/android/gms/wallet/fragment/WalletLogoImageType.html">WalletLogoImageType</a></td>
+            <td class="jd-descrcol" width="100%">Wallet logo image types.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../reference/com/google/android/gms/common/images/WebImage.html">WebImage</a></td>
             <td class="jd-descrcol" width="100%">A class that represents an image that is located on a web server.&nbsp;</td>
         </tr>
@@ -3148,7 +3485,7 @@ onkeyup="return search_changed(event, false, '../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

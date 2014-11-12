@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../../index.html">
-            <img src="../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -763,10 +778,9 @@ Summary:
           public
           static
           final
-          <a href="../../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a></nobr></td>
+          <a href="../../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/identity/intents/Address.AddressOptions.html">Address.AddressOptions</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../../reference/com/google/android/gms/identity/intents/Address.html#API">API</a></td>
-          <td class="jd-descrcol" width="100%">Add this to your <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> via
- <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api, com.google.android.gms.common.api.GoogleApiClient.ApiOptions)">addApi(com.google.android.gms.common.api.Api, com.google.android.gms.common.api.GoogleApiClient.ApiOptions)</a></code>.</td>
+          <td class="jd-descrcol" width="100%">Add this to your <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> via <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api<? extends com.google.android.gms.common.api.Api.ApiOptions.NotRequiredOptions>)">addApi(Api<? extends Api.ApiOptions.NotRequiredOptions>)</a></code>.</td>
       </tr>
       
     
@@ -1087,7 +1101,7 @@ From class
         public 
         static 
         final 
-        <a href="../../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a>
+        <a href="../../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a>&lt;<a href="../../../../../../../reference/com/google/android/gms/identity/intents/Address.AddressOptions.html">Address.AddressOptions</a>&gt;
       </span>
         API
     </h4>
@@ -1099,9 +1113,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Add this to your <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> via
- <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api, com.google.android.gms.common.api.GoogleApiClient.ApiOptions)">addApi(com.google.android.gms.common.api.Api, com.google.android.gms.common.api.GoogleApiClient.ApiOptions)</a></code>.
- Make sure to specify the appropriate <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/Address.AddressOptions.html">Address.AddressOptions</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Add this to your <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a></code> via <code><a href="../../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api<? extends com.google.android.gms.common.api.Api.ApiOptions.NotRequiredOptions>)">addApi(Api<? extends Api.ApiOptions.NotRequiredOptions>)</a></code>.
 </p></div>
 
     
@@ -1189,15 +1201,21 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>API to request an address from a user. This will invoke a dialog that allows the user to
  decide if they want to select a single address to share your app, or alternatively decline
  to share an address at all. The response to this request is supplied via your Activity's
- <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult(int, int, Intent)</a></code> callback method. If the user selects an address to share,
- then a responseCode of <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> will be returned onActivity and you can
- retrieve the <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/model/UserAddress.html">UserAddress</a></code> from the data Intent sent to onActivityResult using the
- <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/AddressConstants.Extras.html#EXTRA_ADDRESS">EXTRA_ADDRESS</a></code> key. If the user declines to share an
- address, then a responseCode of <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code>. If there is an error
- retrieving addresses for the user, for example if the user has no applicable addresses, then
- a responseCode of <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/AddressConstants.ResultCodes.html#RESULT_ERROR">RESULT_ERROR</a></code> will be returned an error
- code can be retrieved from the data Intent using
- <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/AddressConstants.Extras.html#EXTRA_ERROR_CODE">EXTRA_ERROR_CODE</a></code>.</p></div>
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult(int, int, Intent)</a></code> callback method.
+ <ul>
+ <li>If the user selects an address to share, a response code of
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> is returned. You can retrieve the
+ <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/model/UserAddress.html">UserAddress</a></code> from the data Intent sent to
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult(int, int, Intent)</a></code> using the
+ <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/model/UserAddress.html#fromIntent(android.content.Intent)">fromIntent(android.content.Intent)</a></code> key.</li>
+ <li>If the user declines to share an address, a response code of
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code> is returned.</li>
+ <li>If there is an error retrieving addresses for the user, for example
+ if the user has no applicable addresses, then a response code of
+ <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/AddressConstants.ResultCodes.html#RESULT_ERROR">RESULT_ERROR</a></code> is returned. You can
+ retrieve the error code from the data Intent using the
+ <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/AddressConstants.Extras.html#EXTRA_ERROR_CODE">EXTRA_ERROR_CODE</a></code> key.</li>
+ </ul></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1208,12 +1226,13 @@ From class
         </tr>
         <tr>
           <th>request</td>
-          <td>used to specify what kind of addresses your app can handle. If null,
-                        then it is assumed that your app can handle any address.</td>
+          <td>used to specify what kind of addresses your app can handle. You
+                        must pass in a valid <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/UserAddressRequest.html">UserAddressRequest</a></code> created via
+                        <code><a href="../../../../../../../reference/com/google/android/gms/identity/intents/UserAddressRequest.Builder.html#build()">build()</a></code>.</td>
         </tr>
         <tr>
           <th>requestCode</td>
-          <td>used <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult(int, int, Intent)</a></code> to identify which request
+          <td>used <code><a href="http://developer.android.com/reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult(int, int, Intent)</a></code> to identify which request
                         triggered that callback.
 </td>
         </tr>
@@ -1246,7 +1265,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

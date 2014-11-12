@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../../index.html">
-            <img src="../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -808,7 +823,7 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#contains(com.google.android.gms.drive.metadata.MetadataField<java.lang.String>, java.lang.String)">contains</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/MetadataField.html">MetadataField</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt; field, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> value)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#contains(com.google.android.gms.drive.metadata.SearchableMetadataField<java.lang.String>, java.lang.String)">contains</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableMetadataField.html">SearchableMetadataField</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt; field, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> value)</nobr>
         
         <div class="jd-descrdiv">Returns a filter which checks whether <code>value</code> is a substring of <code>field</code>.</div>
   
@@ -826,7 +841,7 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#eq(com.google.android.gms.drive.metadata.MetadataField<T>, T)">eq</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/MetadataField.html">MetadataField</a>&lt;T&gt; field, T value)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#eq(com.google.android.gms.drive.metadata.SearchableMetadataField<T>, T)">eq</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableMetadataField.html">SearchableMetadataField</a>&lt;T&gt; field, T value)</nobr>
         
         <div class="jd-descrdiv">Returns a filter which checks if the value of <code>field</code> equals <code>value</code>.</div>
   
@@ -844,7 +859,7 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#greaterThan(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)">greaterThan</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#greaterThan(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)">greaterThan</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
         
         <div class="jd-descrdiv">Returns a filter which checks if the value of <code>field</code> is greater than <code>value</code>.</div>
   
@@ -862,7 +877,7 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#greaterThanEquals(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)">greaterThanEquals</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#greaterThanEquals(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)">greaterThanEquals</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
         
         <div class="jd-descrdiv">Returns a filter which checks if the value of <code>field</code> is greater than or equal to
  <code>value</code>.</div>
@@ -881,7 +896,7 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#in(com.google.android.gms.drive.metadata.CollectionMetadataField<T>, T)">in</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/CollectionMetadataField.html">CollectionMetadataField</a>&lt;T&gt; field, T value)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#in(com.google.android.gms.drive.metadata.SearchableCollectionMetadataField<T>, T)">in</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableCollectionMetadataField.html">SearchableCollectionMetadataField</a>&lt;T&gt; field, T value)</nobr>
         
         <div class="jd-descrdiv">Returns a filter which checks whether <code>value</code> is an element of <code>field</code>.</div>
   
@@ -899,7 +914,7 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#lessThan(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)">lessThan</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#lessThan(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)">lessThan</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
         
         <div class="jd-descrdiv">Returns a filter which checks if the value of <code>field</code> is less than <code>value</code>.</div>
   
@@ -917,7 +932,7 @@ Summary:
             <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#lessThanEquals(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)">lessThanEquals</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/query/Filters.html#lessThanEquals(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)">lessThanEquals</a></span>(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</nobr>
         
         <div class="jd-descrdiv">Returns a filter which checks if the value of <code>field</code> is less than or equal to
  <code>value</code>.</div>
@@ -1352,7 +1367,7 @@ From class
 </div>
 
 
-<A NAME="contains(com.google.android.gms.drive.metadata.MetadataField<java.lang.String>, java.lang.String)"></A>
+<A NAME="contains(com.google.android.gms.drive.metadata.SearchableMetadataField<java.lang.String>, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1365,7 +1380,7 @@ From class
         <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a>
       </span>
       <span class="sympad">contains</span>
-      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/MetadataField.html">MetadataField</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt; field, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> value)</span>
+      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableMetadataField.html">SearchableMetadataField</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt; field, <a href="http://developer.android.com/reference/java/lang/String.html">String</a> value)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1383,7 +1398,7 @@ From class
 </div>
 
 
-<A NAME="eq(com.google.android.gms.drive.metadata.MetadataField<T>, T)"></A>
+<A NAME="eq(com.google.android.gms.drive.metadata.SearchableMetadataField<T>, T)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1396,7 +1411,7 @@ From class
         <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a>
       </span>
       <span class="sympad">eq</span>
-      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/MetadataField.html">MetadataField</a>&lt;T&gt; field, T value)</span>
+      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableMetadataField.html">SearchableMetadataField</a>&lt;T&gt; field, T value)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1413,7 +1428,7 @@ From class
 </div>
 
 
-<A NAME="greaterThan(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)"></A>
+<A NAME="greaterThan(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1426,7 +1441,7 @@ From class
         <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a>
       </span>
       <span class="sympad">greaterThan</span>
-      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</span>
+      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1444,7 +1459,7 @@ From class
 </div>
 
 
-<A NAME="greaterThanEquals(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)"></A>
+<A NAME="greaterThanEquals(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1457,7 +1472,7 @@ From class
         <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a>
       </span>
       <span class="sympad">greaterThanEquals</span>
-      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</span>
+      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1475,7 +1490,7 @@ From class
 </div>
 
 
-<A NAME="in(com.google.android.gms.drive.metadata.CollectionMetadataField<T>, T)"></A>
+<A NAME="in(com.google.android.gms.drive.metadata.SearchableCollectionMetadataField<T>, T)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1488,7 +1503,7 @@ From class
         <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a>
       </span>
       <span class="sympad">in</span>
-      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/CollectionMetadataField.html">CollectionMetadataField</a>&lt;T&gt; field, T value)</span>
+      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableCollectionMetadataField.html">SearchableCollectionMetadataField</a>&lt;T&gt; field, T value)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1506,7 +1521,7 @@ From class
 </div>
 
 
-<A NAME="lessThan(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)"></A>
+<A NAME="lessThan(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1519,7 +1534,7 @@ From class
         <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a>
       </span>
       <span class="sympad">lessThan</span>
-      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</span>
+      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1537,7 +1552,7 @@ From class
 </div>
 
 
-<A NAME="lessThanEquals(com.google.android.gms.drive.metadata.OrderedMetadataField<T>, T)"></A>
+<A NAME="lessThanEquals(com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>, T)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1550,7 +1565,7 @@ From class
         <a href="../../../../../../../reference/com/google/android/gms/drive/query/Filter.html">Filter</a>
       </span>
       <span class="sympad">lessThanEquals</span>
-      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/OrderedMetadataField.html">OrderedMetadataField</a>&lt;T&gt; field, T value)</span>
+      <span class="normal">(<a href="../../../../../../../reference/com/google/android/gms/drive/metadata/SearchableOrderedMetadataField.html">SearchableOrderedMetadataField</a>&lt;T&gt; field, T value)</span>
     </h4>
       <div class="api-level">
         <div></div>
@@ -1711,7 +1726,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

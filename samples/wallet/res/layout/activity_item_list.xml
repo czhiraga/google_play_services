@@ -21,7 +21,7 @@
     android:orientation="vertical" >
 
     <fragment
-        android:id="@+id/frag"
+        android:id="@+id/promo_fragment"
         android:name="com.google.android.gms.samples.wallet.PromoAddressLookupFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

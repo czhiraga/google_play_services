@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -508,15 +523,14 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.PanoramaResult.html">Panorama.PanoramaResult</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/panorama/PanoramaClient.OnPanoramaInfoLoadedListener.html">PanoramaClient.OnPanoramaInfoLoadedListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/panorama/PanoramaApi.html">PanoramaApi</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/panorama/PanoramaApi.PanoramaResult.html">PanoramaApi.PanoramaResult</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
           <li class="selected api apilevel-"><a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.html">Panorama</a></li>
-          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/panorama/PanoramaClient.html">PanoramaClient</a></li>
       </ul>
     </li>
               
@@ -586,24 +600,18 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 Summary:
 
-  <a href="#nestedclasses">Nested Classes</a>
+
+
+
+
+
+
+  <a href="#lfields">Fields</a>
   
 
 
 
 
-
-
-
-  &#124; <a href="#lfields">Fields</a>
-  
-
-
-
-
-
-  &#124; <a href="#pubmethods">Methods</a>
-  
 
 
 
@@ -709,26 +717,6 @@ Summary:
 
 
 
-<!-- ======== NESTED CLASS SUMMARY ======== -->
-<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
-
-
-  
-    <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol"><nobr>
-        
-         
-         
-        
-        interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.PanoramaResult.html">Panorama.PanoramaResult</a></td>
-      <td class="jd-descrcol" width="100%">Result interface for loading panorama info.&nbsp;</td>
-    </tr>
-    
-    
-
-
-
 
 
 
@@ -754,9 +742,20 @@ Summary:
           public
           static
           final
-          <a href="../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a></nobr></td>
+          <a href="../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a>&lt;<a href="../../../../../../reference/com/google/android/gms/common/api/Api.ApiOptions.NoOptions.html">Api.ApiOptions.NoOptions</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.html#API">API</a></td>
-          <td class="jd-descrcol" width="100%">Token to pass to <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api)">addApi(Api)</a></code> to enable the Panorama features.</td>
+          <td class="jd-descrcol" width="100%">Token to pass to <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api<? extends com.google.android.gms.common.api.Api.ApiOptions.NotRequiredOptions>)">addApi(Api<? extends Api.ApiOptions.NotRequiredOptions>)</a></code> to enable the Panorama features.</td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          final
+          <a href="../../../../../../reference/com/google/android/gms/panorama/PanoramaApi.html">PanoramaApi</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.html#PanoramaApi">PanoramaApi</a></td>
+          <td class="jd-descrcol" width="100%">The entry point for interacting with the Panorama API.</td>
       </tr>
       
     
@@ -771,51 +770,6 @@ Summary:
 
 
 
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            static
-            
-            <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.PanoramaResult.html">Panorama.PanoramaResult</a>&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.html#loadPanoramaInfo(com.google.android.gms.common.api.GoogleApiClient, android.net.Uri)">loadPanoramaInfo</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/android/net/Uri.html">Uri</a> uri)</nobr>
-        
-        <div class="jd-descrdiv">Loads information about a panorama.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            static
-            
-            <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.PanoramaResult.html">Panorama.PanoramaResult</a>&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.html#loadPanoramaInfoAndGrantAccess(com.google.android.gms.common.api.GoogleApiClient, android.net.Uri)">loadPanoramaInfoAndGrantAccess</a></span>(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/android/net/Uri.html">Uri</a> uri)</nobr>
-        
-        <div class="jd-descrdiv">Loads information about a panorama from a content provider.</div>
-  
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -1070,7 +1024,7 @@ From class
         public 
         static 
         final 
-        <a href="../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a>
+        <a href="../../../../../../reference/com/google/android/gms/common/api/Api.html">Api</a>&lt;<a href="../../../../../../reference/com/google/android/gms/common/api/Api.ApiOptions.NoOptions.html">Api.ApiOptions.NoOptions</a>&gt;
       </span>
         API
     </h4>
@@ -1082,7 +1036,36 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Token to pass to <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api)">addApi(Api)</a></code> to enable the Panorama features. </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Token to pass to <code><a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.Builder.html#addApi(com.google.android.gms.common.api.Api<? extends com.google.android.gms.common.api.Api.ApiOptions.NotRequiredOptions>)">addApi(Api<? extends Api.ApiOptions.NotRequiredOptions>)</a></code> to enable the Panorama features. </p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="PanoramaApi"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../reference/com/google/android/gms/panorama/PanoramaApi.html">PanoramaApi</a>
+      </span>
+        PanoramaApi
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The entry point for interacting with the Panorama API.
+</p></div>
 
     
     </div>
@@ -1102,94 +1085,6 @@ From class
 
 <!-- ========= METHOD DETAIL ======== -->
 <!-- Public methdos -->
-
-<h2>Public Methods</h2>
-
-
-
-<A NAME="loadPanoramaInfo(com.google.android.gms.common.api.GoogleApiClient, android.net.Uri)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-         
-         
-         
-        <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.PanoramaResult.html">Panorama.PanoramaResult</a>&gt;
-      </span>
-      <span class="sympad">loadPanoramaInfo</span>
-      <span class="normal">(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/android/net/Uri.html">Uri</a> uri)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Loads information about a panorama.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>uri</td>
-          <td>the URI of the panorama to load info about. May be a file:, content:,
-      or android_resource: scheme.
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="loadPanoramaInfoAndGrantAccess(com.google.android.gms.common.api.GoogleApiClient, android.net.Uri)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-         
-         
-         
-        <a href="../../../../../../reference/com/google/android/gms/common/api/PendingResult.html">PendingResult</a>&lt;<a href="../../../../../../reference/com/google/android/gms/panorama/Panorama.PanoramaResult.html">Panorama.PanoramaResult</a>&gt;
-      </span>
-      <span class="sympad">loadPanoramaInfoAndGrantAccess</span>
-      <span class="normal">(<a href="../../../../../../reference/com/google/android/gms/common/api/GoogleApiClient.html">GoogleApiClient</a> client, <a href="http://developer.android.com/reference/android/net/Uri.html">Uri</a> uri)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Loads information about a panorama from a content provider. This method will also explicitly
- grant and revoke access to the URI while the load is happening so images in content providers
- may be inspected without giving permission to an entire content provider. The returned viewer
- intent will also have the <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#FLAG_GRANT_READ_URI_PERMISSION">FLAG_GRANT_READ_URI_PERMISSION</a></code> set so the viewer has
- access.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>uri</td>
-          <td>the URI of the panorama to load info about. May only be a content: scheme.
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 
 
 
@@ -1212,7 +1107,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -734,7 +749,7 @@ Summary:
  as using the network.
 
  <p>Activities should strongly consider removing all location request when entering
- the background (for example at <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#onPause()">onPause()</a></code>), or at least swap the
+ the background (for example at <code><a href="http://developer.android.com/reference/android/app/Activity.html#onPause()">onPause()</a></code>), or at least swap the
  request to a larger interval and lower quality.
 
  <p>Applications cannot specify the exact location sources, such as GPS, that are used by the
@@ -742,8 +757,8 @@ Summary:
  may fuse the results from several sources into a single Location object.
 
  <p>Location requests from applications with
- <code><a href="../../../../../../http://developer.android.com/reference/android/Manifest.permission.html#ACCESS_COARSE_LOCATION">ACCESS_COARSE_LOCATION</a></code> and not
- <code><a href="../../../../../../http://developer.android.com/reference/android/Manifest.permission.html#ACCESS_FINE_LOCATION">ACCESS_FINE_LOCATION</a></code> will be automatically throttled to a
+ <code><a href="http://developer.android.com/reference/android/Manifest.permission.html#ACCESS_COARSE_LOCATION">ACCESS_COARSE_LOCATION</a></code> and not
+ <code><a href="http://developer.android.com/reference/android/Manifest.permission.html#ACCESS_FINE_LOCATION">ACCESS_FINE_LOCATION</a></code> will be automatically throttled to a
  slower interval, and the location object will be obfuscated to only show a coarse level of
  accuracy.
 
@@ -890,7 +905,7 @@ android.os.Parcelable
           public
           static
           final
-          <a href="../../../../../../reference/com/google/android/gms/location/LocationRequestCreator.html">LocationRequestCreator</a></nobr></td>
+          LocationRequestCreator</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/LocationRequest.html#CREATOR">CREATOR</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
@@ -1739,7 +1754,7 @@ From interface
         public 
         static 
         final 
-        <a href="../../../../../../reference/com/google/android/gms/location/LocationRequestCreator.html">LocationRequestCreator</a>
+        LocationRequestCreator
       </span>
         CREATOR
     </h4>
@@ -1896,7 +1911,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Get the request expiration time, in milliseconds since boot.
 
- <p>This value can be compared to <code><a href="../../../../../../http://developer.android.com/reference/android/os/SystemClock.html#elapsedRealtime()">elapsedRealtime()</a></code> to determine the time
+ <p>This value can be compared to <code><a href="http://developer.android.com/reference/android/os/SystemClock.html#elapsedRealtime()">elapsedRealtime()</a></code> to determine the time
  until expiration.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2004,7 +2019,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Get the number of updates requested.
 
- <p>By default this is <code><a href="../../../../../../http://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE">MAX_VALUE</a></code>, which indicates that locations are updated
+ <p>By default this is <code><a href="http://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE">MAX_VALUE</a></code>, which indicates that locations are updated
  until the request is explicitly removed.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2191,11 +2206,11 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Set the request expiration time, in millisecond since boot.
 
- <p>This expiration time uses the same time base as <code><a href="../../../../../../http://developer.android.com/reference/android/os/SystemClock.html#elapsedRealtime()">elapsedRealtime()</a></code>.
+ <p>This expiration time uses the same time base as <code><a href="http://developer.android.com/reference/android/os/SystemClock.html#elapsedRealtime()">elapsedRealtime()</a></code>.
 
  <p>The location client will automatically stop updates after the request expires.
 
- <p>The duration includes suspend time. Values before <code><a href="../../../../../../http://developer.android.com/reference/android/os/SystemClock.html#elapsedRealtime()">elapsedRealtime()</a></code>
+ <p>The duration includes suspend time. Values before <code><a href="http://developer.android.com/reference/android/os/SystemClock.html#elapsedRealtime()">elapsedRealtime()</a></code>
  are allowed, but indicate that the request has already expired.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2619,7 +2634,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

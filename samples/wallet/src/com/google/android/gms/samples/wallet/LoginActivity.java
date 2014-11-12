@@ -18,7 +18,6 @@ package com.google.android.gms.samples.wallet;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 
 public class LoginActivity extends BikestoreFragmentActivity {
 
@@ -29,14 +28,18 @@ public class LoginActivity extends BikestoreFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         int loginAction = getIntent().getIntExtra(EXTRA_ACTION, Action.LOGIN);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = fragmentManager.findFragmentById(R.id.frag);
+        Fragment fragment = getResultTargetFragment();
         if (fragment == null) {
             fragment = LoginFragment.newInstance(loginAction);
-            fragmentManager.beginTransaction()
-                .add(R.id.frag, fragment)
+            getSupportFragmentManager().beginTransaction()
+                .add(R.id.login_fragment, fragment)
                 .commit();
         }
+    }
+
+    @Override
+    public Fragment getResultTargetFragment() {
+        return getSupportFragmentManager().findFragmentById(R.id.login_fragment);
     }
 
     public static class Action {

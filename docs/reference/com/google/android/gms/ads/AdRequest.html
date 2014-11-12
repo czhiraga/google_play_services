@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -800,6 +815,13 @@ Summary:
     </tr>
     
     
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/ads/AdRequest.html#MAX_CONTENT_URL_LENGTH">MAX_CONTENT_URL_LENGTH</a></td>
+        <td class="jd-descrcol" width="100%">The maximum content URL length.</td>
+    </tr>
+    
+    
 
 </table>
 
@@ -870,6 +892,24 @@ Summary:
             
             
             
+            <a href="http://developer.android.com/reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/ads/AdRequest.html#getContentUrl()">getContentUrl</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the content URL targeting information.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -881,7 +921,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -899,7 +939,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -917,7 +957,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -928,6 +968,24 @@ Summary:
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/ads/AdRequest.html#getNetworkExtras(java.lang.Class<T>)">getNetworkExtras</a></span>(<a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;T&gt; networkExtrasClass)</nobr>
+        
+        <div class="jd-descrdiv">Returns extra parameters to pass to a specific ad network adapter.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            &lt;T&nbsp;extends&nbsp;<a href="../../../../../../reference/com/google/android/gms/ads/mediation/MediationAdapter.html">MediationAdapter</a>&gt;
+            <a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/ads/AdRequest.html#getNetworkExtrasBundle(java.lang.Class<T>)">getNetworkExtrasBundle</a></span>(<a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;T&gt; adapterClass)</nobr>
         
         <div class="jd-descrdiv">Returns extra parameters to pass to a specific ad network adapter.</div>
   
@@ -1468,6 +1526,44 @@ From class
 
 
 
+<A NAME="MAX_CONTENT_URL_LENGTH"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MAX_CONTENT_URL_LENGTH
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The maximum content URL length. </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                512
+                (0x00000200)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 
 <!-- Fields -->
 
@@ -1556,6 +1652,37 @@ From class
 </div>
 
 
+<A NAME="getContentUrl()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getContentUrl</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the content URL targeting information. Returns <code>null</code> if the contentUrl was
+ not set.
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getGender()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1610,7 +1737,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns targeting information keywords. Returns an empty <code><a href="../../../../../../http://developer.android.com/reference/java/util/Set.html">Set</a></code> if no
+  <div class="jd-tagdata jd-tagdescr"><p>Returns targeting information keywords. Returns an empty <code><a href="http://developer.android.com/reference/java/util/Set.html">Set</a></code> if no
  keywords were added.
 </p></div>
 
@@ -1681,6 +1808,37 @@ From class
 </div>
 
 
+<A NAME="getNetworkExtrasBundle(java.lang.Class<T>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a>
+      </span>
+      <span class="sympad">getNetworkExtrasBundle</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;T&gt; adapterClass)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns extra parameters to pass to a specific ad network adapter. Returns <code>null</code> if no
+ network extras of the provided type were set.
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="isTestDevice(android.content.Context)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1733,7 +1891,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

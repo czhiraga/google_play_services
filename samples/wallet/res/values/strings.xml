@@ -38,7 +38,6 @@
     <string name="subtotal">Subtotal:</string>
     <string name="price_format">$%.2f</string>
     <string name="price_decimal">%.2f</string>
-    <string name="buy_with_google_wallet">Buy with Google Wallet</string>
     <string name="google_wallet_unavailable">Google Wallet is unavailable</string>
     <string name="error_code">Error code: %d</string>
     <string name="buy_with">Buy with:</string>
@@ -83,8 +82,9 @@
         <br />
         <b>Tap here</b>
     ]]></string>
-    <string name="loyalty_info">Loyalty:</string>
+    <string name="loyalty_label">Loyalty:</string>
     <string name="promo_eligible">Congratulations! We can ship Conference bike free to %s</string>
     <string name="no_address">Unfortunately we did not find any address eligible for this promotion</string>
+    <string name="checkout_bikestore_message">Not implemented. Merchant specific payment flow</string>
 
 </resources>

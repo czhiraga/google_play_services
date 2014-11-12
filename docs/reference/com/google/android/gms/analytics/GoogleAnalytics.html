@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="selected api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -525,6 +540,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/analytics/HitBuilders.ExceptionBuilder.html">HitBuilders.ExceptionBuilder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/analytics/HitBuilders.HitBuilder.html">HitBuilders.HitBuilder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder.html">HitBuilders.ItemBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/analytics/HitBuilders.ScreenViewBuilder.html">HitBuilders.ScreenViewBuilder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/analytics/HitBuilders.SocialBuilder.html">HitBuilders.SocialBuilder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder.html">HitBuilders.TimingBuilder</a></li>
           <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder.html">HitBuilders.TransactionBuilder</a></li>
@@ -970,7 +986,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/analytics/GoogleAnalytics.html#reportActivityStart(android.app.Activity)">reportActivityStart</a></span>(<a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a> activity)</nobr>
         
-        <div class="jd-descrdiv">Report the start of an <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>, so that it can be tracked by any <code><a href="../../../../../../reference/com/google/android/gms/analytics/Tracker.html">Tracker</a></code>s
+        <div class="jd-descrdiv">Report the start of an <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>, so that it can be tracked by any <code><a href="../../../../../../reference/com/google/android/gms/analytics/Tracker.html">Tracker</a></code>s
  that have enabled auto activity tracking (see
  <code><a href="../../../../../../reference/com/google/android/gms/analytics/Tracker.html#enableAutoActivityTracking(boolean)">enableAutoActivityTracking(boolean)</a></code>.) This will also start a new session if
  necessary.</div>
@@ -991,7 +1007,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/analytics/GoogleAnalytics.html#reportActivityStop(android.app.Activity)">reportActivityStop</a></span>(<a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a> activity)</nobr>
         
-        <div class="jd-descrdiv">Report the end of an <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>.</div>
+        <div class="jd-descrdiv">Report the end of an <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>.</div>
   
   </td></tr>
 
@@ -1426,7 +1442,7 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>application</td>
-          <td>The <code><a href="../../../../../../http://developer.android.com/reference/android/app/Application.html">Application</a></code> whose activities starts and stops should be
+          <td>The <code><a href="http://developer.android.com/reference/android/app/Application.html">Application</a></code> whose activities starts and stops should be
  automatically reported.
 </td>
         </tr>
@@ -1680,11 +1696,11 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Report the start of an <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>, so that it can be tracked by any <code><a href="../../../../../../reference/com/google/android/gms/analytics/Tracker.html">Tracker</a></code>s
+  <div class="jd-tagdata jd-tagdescr"><p>Report the start of an <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>, so that it can be tracked by any <code><a href="../../../../../../reference/com/google/android/gms/analytics/Tracker.html">Tracker</a></code>s
  that have enabled auto activity tracking (see
  <code><a href="../../../../../../reference/com/google/android/gms/analytics/Tracker.html#enableAutoActivityTracking(boolean)">enableAutoActivityTracking(boolean)</a></code>.) This will also start a new session if
- necessary. This method should be called from the <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#onStart()">onStart()</a></code> method in each
- <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> in your application that you'd like to track.
+ necessary. This method should be called from the <code><a href="http://developer.android.com/reference/android/app/Activity.html#onStart()">onStart()</a></code> method in each
+ <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> in your application that you'd like to track.
 
  If auto activity reports are enabled (see <code><a href="../../../../../../reference/com/google/android/gms/analytics/GoogleAnalytics.html#enableAutoActivityReports(android.app.Application)">enableAutoActivityReports(Application)</a></code>)
  on a device running API level 14 or above, this method will be a noop.</p></div>
@@ -1693,7 +1709,7 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>activity</td>
-          <td>the <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> that is to be tracked.
+          <td>the <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> that is to be tracked.
 </td>
         </tr>
       </table>
@@ -1726,8 +1742,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Report the end of an <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>. Note that this method should be called
- from the <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html#onStop()">onStop()</a></code> method in each <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> in your application
+  <div class="jd-tagdata jd-tagdescr"><p>Report the end of an <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code>. Note that this method should be called
+ from the <code><a href="http://developer.android.com/reference/android/app/Activity.html#onStop()">onStop()</a></code> method in each <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> in your application
  that you'd like to track. For proper operation, this method must be called in all
  Activities where <code><a href="../../../../../../reference/com/google/android/gms/analytics/GoogleAnalytics.html#reportActivityStart(android.app.Activity)">reportActivityStart(Activity)</a></code> is called.
 
@@ -1738,7 +1754,7 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>activity</td>
-          <td>the <code><a href="../../../../../../http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> that is to be tracked.
+          <td>the <code><a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a></code> that is to be tracked.
 </td>
         </tr>
       </table>
@@ -1932,7 +1948,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

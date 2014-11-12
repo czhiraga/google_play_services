@@ -22,7 +22,6 @@ import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.identity.intents.Address;
 import com.google.android.gms.identity.intents.Address.AddressOptions;
-import com.google.android.gms.identity.intents.AddressConstants;
 import com.google.android.gms.identity.intents.UserAddressRequest;
 import com.google.android.gms.identity.intents.model.UserAddress;
 import com.google.android.gms.wallet.WalletConstants;
@@ -44,9 +43,10 @@ import android.widget.Toast;
 public class PromoAddressLookupFragment extends Fragment implements
         OnClickListener, ConnectionCallbacks, OnConnectionFailedListener {
 
+    public static final int REQUEST_CODE_RESOLVE_ADDRESS_LOOKUP = 1006;
+    public static final int REQUEST_CODE_RESOLVE_ERR = 1007;
     private static final String KEY_PROMO_CLICKED = "KEY_PROMO_CLICKED";
-    public static final int REQUEST_CODE_RESOLVE_ADDRESS_LOOKUP = 4000;
-    public static final int REQUEST_CODE_RESOLVE_ERR = 4001;
+
     private ProgressDialog mProgressDialog;
     private GoogleApiClient mGoogleApiClient;
     private ConnectionResult mConnectionResult;
@@ -132,6 +132,7 @@ public class PromoAddressLookupFragment extends Fragment implements
                     default:
                         Toast.makeText(getActivity(), getString(R.string.no_address),
                                 Toast.LENGTH_LONG).show();
+                        break;
                 }
                 break;
             default:

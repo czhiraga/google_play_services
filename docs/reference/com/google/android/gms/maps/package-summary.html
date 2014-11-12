@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -126,10 +132,12 @@ type="text/css">
 </script>
 </head>
 
+
 <body class="gc-documentation 
   develop">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -138,7 +146,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -382,6 +392,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -428,6 +439,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -496,6 +509,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -512,6 +527,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.CancelableCallback.html">GoogleMap.CancelableCallback</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.InfoWindowAdapter.html">GoogleMap.InfoWindowAdapter</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnCameraChangeListener.html">GoogleMap.OnCameraChangeListener</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnIndoorStateChangeListener.html">GoogleMap.OnIndoorStateChangeListener</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnInfoWindowClickListener.html">GoogleMap.OnInfoWindowClickListener</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMapClickListener.html">GoogleMap.OnMapClickListener</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMapLoadedCallback.html">GoogleMap.OnMapLoadedCallback</a></li>
@@ -523,6 +539,9 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.SnapshotReadyCallback.html">GoogleMap.SnapshotReadyCallback</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/LocationSource.html">LocationSource</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/LocationSource.OnLocationChangedListener.html">LocationSource.OnLocationChangedListener</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaCameraChangeListener.html">StreetViewPanorama.OnStreetViewPanoramaCameraChangeListener</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaChangeListener.html">StreetViewPanorama.OnStreetViewPanoramaChangeListener</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaClickListener.html">StreetViewPanorama.OnStreetViewPanoramaClickListener</a></li>
       </ul>
     </li>
               
@@ -536,7 +555,12 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/MapsInitializer.html">MapsInitializer</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/MapView.html">MapView</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/Projection.html">Projection</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.html">StreetViewPanorama</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanoramaFragment.html">StreetViewPanoramaFragment</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanoramaOptions.html">StreetViewPanoramaOptions</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanoramaView.html">StreetViewPanoramaView</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/SupportMapFragment.html">SupportMapFragment</a></li>
+        <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/SupportStreetViewPanoramaFragment.html">SupportStreetViewPanoramaFragment</a></li>
         <li class="api apilevel-"><a href="../../../../../../reference/com/google/android/gms/maps/UiSettings.html">UiSettings</a></li>
       </ul>
     </li>
@@ -640,34 +664,38 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
               <td class="jd-descrcol" width="100%">Defines signatures for methods that are called when the camera changes position.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnIndoorStateChangeListener.html">GoogleMap.OnIndoorStateChangeListener</a></td>
+              <td class="jd-descrcol" width="100%">A listener for when the indoor state changes.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnInfoWindowClickListener.html">GoogleMap.OnInfoWindowClickListener</a></td>
               <td class="jd-descrcol" width="100%">Callback interface for click/tap events on a marker's info window.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMapClickListener.html">GoogleMap.OnMapClickListener</a></td>
               <td class="jd-descrcol" width="100%">Callback interface for when the user taps on the map.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMapLoadedCallback.html">GoogleMap.OnMapLoadedCallback</a></td>
               <td class="jd-descrcol" width="100%">Callback interface for when the map has finished rendering.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMapLongClickListener.html">GoogleMap.OnMapLongClickListener</a></td>
               <td class="jd-descrcol" width="100%">Callback interface for when the user long presses on the map.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMarkerClickListener.html">GoogleMap.OnMarkerClickListener</a></td>
               <td class="jd-descrcol" width="100%">Defines signatures for methods that are called when a marker is clicked or tapped.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMarkerDragListener.html">GoogleMap.OnMarkerDragListener</a></td>
               <td class="jd-descrcol" width="100%">Callback interface for drag events on markers.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMyLocationButtonClickListener.html">GoogleMap.OnMyLocationButtonClickListener</a></td>
               <td class="jd-descrcol" width="100%">Callback interface for when the My Location button is clicked.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.OnMyLocationChangeListener.html">GoogleMap.OnMyLocationChangeListener</a></td>
               <td class="jd-descrcol" width="100%"><em>
       This interface is deprecated.
@@ -679,17 +707,31 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
  Location Developer Guide</a>.
 </em>&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.SnapshotReadyCallback.html">GoogleMap.SnapshotReadyCallback</a></td>
               <td class="jd-descrcol" width="100%">Callback interface to notify when the snapshot has been taken.&nbsp;</td>
           </tr>
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/LocationSource.html">LocationSource</a></td>
               <td class="jd-descrcol" width="100%">Defines an interface for providing location data, typically to a <code><a href="../../../../../../reference/com/google/android/gms/maps/GoogleMap.html">GoogleMap</a></code> object.&nbsp;</td>
           </tr>
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/LocationSource.OnLocationChangedListener.html">LocationSource.OnLocationChangedListener</a></td>
               <td class="jd-descrcol" width="100%">Handles a location update.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaCameraChangeListener.html">StreetViewPanorama.OnStreetViewPanoramaCameraChangeListener</a></td>
+              <td class="jd-descrcol" width="100%">A listener for when the StreetViewPanoramaCamera changes
+&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaChangeListener.html">StreetViewPanorama.OnStreetViewPanoramaChangeListener</a></td>
+              <td class="jd-descrcol" width="100%">A listener for when the Street View panorama loads a new panorama
+&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.OnStreetViewPanoramaClickListener.html">StreetViewPanorama.OnStreetViewPanoramaClickListener</a></td>
+              <td class="jd-descrcol" width="100%">Callback interface for when the user taps on the panorama.&nbsp;</td>
           </tr>
   </table>
     </div>
@@ -737,10 +779,31 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
  surface of the Earth (<code><a href="../../../../../../reference/com/google/android/gms/maps/model/LatLng.html">LatLng</a></code>).&nbsp;</td>
           </tr>
         <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.html">StreetViewPanorama</a></td>
+              <td class="jd-descrcol" width="100%">This is the main class of the Street View feature in the Google Maps Android API and is the
+ entry point for all methods related to Street View panoramas.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanoramaFragment.html">StreetViewPanoramaFragment</a></td>
+              <td class="jd-descrcol" width="100%">A StreeViewPanorama component in an app.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanoramaOptions.html">StreetViewPanoramaOptions</a></td>
+              <td class="jd-descrcol" width="100%">Defines configuration PanoramaOptions for a <code><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanorama.html">StreetViewPanorama</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/StreetViewPanoramaView.html">StreetViewPanoramaView</a></td>
+              <td class="jd-descrcol" width="100%">A View which displays a Street View panorama (with data obtained from the Google Maps service).&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/SupportMapFragment.html">SupportMapFragment</a></td>
               <td class="jd-descrcol" width="100%">A Map component in an app.&nbsp;</td>
           </tr>
         <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/SupportStreetViewPanoramaFragment.html">SupportStreetViewPanoramaFragment</a></td>
+              <td class="jd-descrcol" width="100%">A StreeViewPanorama component in an app.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
               <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/maps/UiSettings.html">UiSettings</a></td>
               <td class="jd-descrcol" width="100%">Settings for the user interface of a GoogleMap.&nbsp;</td>
           </tr>
@@ -770,7 +833,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

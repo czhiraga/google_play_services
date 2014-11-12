@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -777,22 +792,36 @@ Summary:
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#RUNNING">RUNNING</a></td>
+        <td class="jd-descrcol" width="100%">The device is on a user who is running.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#STILL">STILL</a></td>
         <td class="jd-descrcol" width="100%">The device is still (not moving).</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#TILTING">TILTING</a></td>
         <td class="jd-descrcol" width="100%">The device angle relative to gravity changed significantly.</td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#UNKNOWN">UNKNOWN</a></td>
         <td class="jd-descrcol" width="100%">Unable to detect the current activity.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#WALKING">WALKING</a></td>
+        <td class="jd-descrcol" width="100%">The device is on a user who is walking.</td>
     </tr>
     
     
@@ -863,7 +892,7 @@ android.os.Parcelable
           public
           static
           final
-          <a href="../../../../../../reference/com/google/android/gms/location/DetectedActivityCreator.html">DetectedActivityCreator</a></nobr></td>
+          DetectedActivityCreator</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#CREATOR">CREATOR</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
@@ -943,8 +972,8 @@ android.os.Parcelable
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../reference/com/google/android/gms/location/DetectedActivity.html#getConfidence()">getConfidence</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a value from 0 to 100 indicating the likelihood that the user is
- performing this activity.</div>
+        <div class="jd-descrdiv">Returns a value from 0 to 100 indicating the likelihood that the user is performing this
+ activity.</div>
   
   </td></tr>
 
@@ -1419,6 +1448,45 @@ From interface
 
 
 
+<A NAME="RUNNING"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        RUNNING
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The device is on a user who is running. This is a sub-activity of ON_FOOT.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                8
+                (0x00000008)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <A NAME="STILL"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1537,6 +1605,45 @@ From interface
 
 
 
+<A NAME="WALKING"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        WALKING
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The device is on a user who is walking. This is a sub-activity of ON_FOOT.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                7
+                (0x00000007)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 
 <!-- Fields -->
 
@@ -1555,7 +1662,7 @@ From interface
         public 
         static 
         final 
-        <a href="../../../../../../reference/com/google/android/gms/location/DetectedActivityCreator.html">DetectedActivityCreator</a>
+        DetectedActivityCreator
       </span>
         CREATOR
     </h4>
@@ -1695,17 +1802,21 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns a value from 0 to 100 indicating the likelihood that the user is
- performing this activity.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a value from 0 to 100 indicating the likelihood that the user is performing this
+ activity.
  <p>
- The larger the value, the more consistent the data used to perform the
- classification is with the detected activity.
+ The larger the value, the more consistent the data used to perform the classification is with
+ the detected activity.
  <p>
- The sum of the confidences of all detected activities for a
- classification will be <= 100. This means that larger values such as a
- confidence of >= 75 indicate that it's very likely that the detected
- activity is correct, while a value of <= 50 indicates that there may be
- another activity that is just as or more likely.
+ This value will be <= 100. It means that larger values such as a confidence of >= 75 indicate
+ that it's very likely that the detected activity is correct, while a value of <= 50 indicates
+ that there may be another activity that is just as or more likely.
+ <p>
+ Multiple activities may have high confidence values. For example, the ON_FOOT may have a
+ confidence of 100 while the RUNNING activity may have a confidence of 95. The sum of the
+ confidences of all detected activities for a classification does not have to be <= 100 since
+ some activities are not mutually exclusive (for example, you can be walking while in a bus)
+ and some activities are hierarchical (ON_FOOT is a generalization of WALKING and RUNNING).
 </p></div>
 
     </div>
@@ -1822,7 +1933,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

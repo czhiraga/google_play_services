@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../../index.html">
-            <img src="../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -517,6 +532,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/drive/events/ChangeEvent.html">ChangeEvent</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../reference/com/google/android/gms/drive/events/DriveEventService.html">DriveEventService</a></li>
       </ul>
     </li>
               
@@ -712,7 +728,7 @@ Summary:
 
 <h2>Class Overview</h2>
 <p itemprop="articleBody">Base interface implemented by all Drive event types.   An application can express interest in
- receiving events by adding an event listener.
+ receiving events by adding an event listener or subscription.
  <p>
  An event listener implements the <code><a href="../../../../../../../reference/com/google/android/gms/drive/events/DriveEvent.Listener.html">DriveEvent.Listener</a></code> interface for a particular event type and
  receives a direct callback from the Drive service to a client application that is
@@ -721,6 +737,26 @@ Summary:
  <code><a href="../../../../../../../reference/com/google/android/gms/drive/DriveApi.html">DriveApi</a></code> for listeners that are not resource-specific.   Listeners are active for the
  duration of the current connection or until the <code>remove<EventType>Listener</code> method is
  called on the same entity with the same callback parameter.
+ <p>
+ An event subscription is used to indicate that an application is interested in receiving events
+ via intents, even if the application is not currently connected or even running.   A subscription
+ is added by calling the appropriate
+ <code>add<EventType>Subscription</code> method on the <code><a href="../../../../../../../reference/com/google/android/gms/drive/DriveResource.html">DriveResource</a></code> of interest or on
+ <code><a href="../../../../../../../reference/com/google/android/gms/drive/DriveApi.html">DriveApi</a></code> for subscriptions that are not resource-specific, passing the class name of an
+ exported <code><a href="../../../../../../../reference/com/google/android/gms/drive/events/DriveEventService.html">DriveEventService</a></code> subclass that will process the event intents delivered as a
+ result of the subscription.   Subscriptions are active  until the
+ <code>remove<EventType>Subscription</code> method is called on the same entity with the same service
+ class or until the next device reboot.   An application that is interested in maintaining any
+ subscriptions across reboots should handle the
+ <code><a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_BOOT_COMPLETED">ACTION_BOOT_COMPLETED</a></code> intent to add back these subscriptions after
+ the reboot has completed.
+ <p>
+ A client can have both listeners and subscriptions active for a given resource at the same time.
+ When an event is raised, the Drive service will have a preference for delivering events to
+ listeners over subscriptions.   If an event is delivered to successfully to one or more
+ listeners for a connected client, then the event will not be delivered to any active
+ subscriptions for the same client application.    An event can be delivered to multiple listeners
+ or multiple subscribers for a given application but never to both.
 </p>
 
 
@@ -864,6 +900,25 @@ android.os.Parcelable
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../../reference/com/google/android/gms/drive/DriveId.html">DriveId</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/drive/events/DriveEvent.html#getDriveId()">getDriveId</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the id of the Drive resource that triggered the event, or <code>null</code> if not
+ resource-specific.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -1044,6 +1099,37 @@ From interface
 
 
 
+<A NAME="getDriveId()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../../reference/com/google/android/gms/drive/DriveId.html">DriveId</a>
+      </span>
+      <span class="sympad">getDriveId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the id of the Drive resource that triggered the event, or <code>null</code> if not
+ resource-specific.
+</p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getType()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1096,7 +1182,7 @@ From interface
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

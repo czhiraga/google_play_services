@@ -41,10 +41,11 @@ import android.widget.Toast;
 public class LoginFragment extends Fragment implements
         OnClickListener, ConnectionCallbacks, OnConnectionFailedListener {
 
+    public static final int REQUEST_CODE_RESOLVE_ERR = 1005;
+    private static final String KEY_SIGNIN_BUTTON_CLICKED = "KEY_SIGNIN_BUTTON_CLICKED";
     private static final String WALLET_SANDBOX_SCOPE =
             "https://www.googleapis.com/auth/paymentssandbox.make_payments";
 
-    private static final String KEY_SIGNIN_BUTTON_CLICKED = "KEY_SIGNIN_BUTTON_CLICKED";
     private ProgressDialog mProgressDialog;
     private boolean mSignInButtonClicked = false;
     private GoogleApiClient mGoogleApiClient;
@@ -123,7 +124,7 @@ public class LoginFragment extends Fragment implements
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-            case BikestoreWalletFragment.REQUEST_CODE_RESOLVE_ERR:
+            case REQUEST_CODE_RESOLVE_ERR:
                 if (resultCode == Activity.RESULT_OK) {
                     if (!mGoogleApiClient.isConnecting() || !mGoogleApiClient.isConnected()) {
                         mGoogleApiClient.connect();
@@ -181,8 +182,7 @@ public class LoginFragment extends Fragment implements
     private void resolveConnection() {
         try {
             if (mConnectionResult != null && mConnectionResult.hasResolution()) {
-                mConnectionResult.startResolutionForResult(getActivity(),
-                        BikestoreWalletFragment.REQUEST_CODE_RESOLVE_ERR);
+                mConnectionResult.startResolutionForResult(getActivity(), REQUEST_CODE_RESOLVE_ERR);
             }
         }  catch (SendIntentException e) {
             mConnectionResult = null;

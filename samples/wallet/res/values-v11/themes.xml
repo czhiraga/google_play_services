@@ -17,7 +17,8 @@
 
 <resources>
     <style name="BikestoreTheme" parent="android:Theme.Holo.Light">
-        <item name="android:windowBackground">@android:color/white</item>
-        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:windowBackground">@color/bikestore_white</item>
+        <item name="android:colorBackground">@color/bikestore_white</item>
+        <item name="android:buttonStyle">@style/ButtonBikestore</item>
     </style>
 </resources>

@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../../index.html">
-            <img src="../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   <a href="../../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -896,7 +911,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/request/Requests.html#getGameRequestsFromBundle(android.os.Bundle)">getGameRequestsFromBundle</a></span>(<a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv">This method takes a <code><a href="../../../../../../../http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided.</div>
+        <div class="jd-descrdiv">This method takes a <code><a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided.</div>
   
   </td></tr>
 
@@ -914,7 +929,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../reference/com/google/android/gms/games/request/Requests.html#getGameRequestsFromInboxResponse(android.content.Intent)">getGameRequestsFromInboxResponse</a></span>(<a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a> response)</nobr>
         
-        <div class="jd-descrdiv">This method takes an <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided
+        <div class="jd-descrdiv">This method takes an <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided
  as an extra.</div>
   
   </td></tr>
@@ -1102,8 +1117,8 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Used to return a list of <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> objects. Retrieve with
- <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html#getParcelableArrayListExtra(java.lang.String)">getParcelableArrayListExtra(String)</a></code> or
- <code><a href="../../../../../../../http://developer.android.com/reference/android/os/Bundle.html#getParcelableArrayList(java.lang.String)">getParcelableArrayList(String)</a></code>.
+ <code><a href="http://developer.android.com/reference/android/content/Intent.html#getParcelableArrayListExtra(java.lang.String)">getParcelableArrayListExtra(String)</a></code> or
+ <code><a href="http://developer.android.com/reference/android/os/Bundle.html#getParcelableArrayList(java.lang.String)">getParcelableArrayList(String)</a></code>.
 </p></div>
 
     
@@ -1757,21 +1772,21 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>This method takes a <code><a href="../../../../../../../http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided.
- If the <code><a href="../../../../../../../http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> is invalid or does not contain the correct data, this method returns an
+  <div class="jd-tagdata jd-tagdescr"><p>This method takes a <code><a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided.
+ If the <code><a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> is invalid or does not contain the correct data, this method returns an
  empty list.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>extras</td>
-          <td>The <code><a href="../../../../../../../http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> to parse for <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> objects.</td>
+          <td>The <code><a href="http://developer.android.com/reference/android/os/Bundle.html">Bundle</a></code> to parse for <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> objects.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>An <code><a href="../../../../../../../http://developer.android.com/reference/java/util/ArrayList.html">ArrayList</a></code> of <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> objects that were selected for action.
+      <ul class="nolist"><li>An <code><a href="http://developer.android.com/reference/java/util/ArrayList.html">ArrayList</a></code> of <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> objects that were selected for action.
 </li></ul>
   </div>
 
@@ -1802,22 +1817,22 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>This method takes an <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided
- as an extra. Specifically, this method is useful in parsing the returned <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that
- was returned as the response from the request inbox <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code>. If the <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> is
+  <div class="jd-tagdata jd-tagdescr"><p>This method takes an <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> object and extracts the <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> list provided
+ as an extra. Specifically, this method is useful in parsing the returned <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that
+ was returned as the response from the request inbox <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code>. If the <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> is
  invalid or does not contain the correct extra data, this method returns an empty list.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>response</td>
-          <td>The <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> response from the requests inbox.</td>
+          <td>The <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> response from the requests inbox.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>An <code><a href="../../../../../../../http://developer.android.com/reference/java/util/ArrayList.html">ArrayList</a></code> of <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> objects that were selected for action
+      <ul class="nolist"><li>An <code><a href="http://developer.android.com/reference/java/util/ArrayList.html">ArrayList</a></code> of <code><a href="../../../../../../../reference/com/google/android/gms/games/request/GameRequest.html">GameRequest</a></code> objects that were selected for action
              in the request inbox.
 </li></ul>
   </div>
@@ -1855,11 +1870,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an intent that will let the user see and manage any outstanding requests. Note that
- this must be invoked using <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code> so that the
+ this must be invoked using <code><a href="http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code> so that the
  identity of the calling package can be established.
  <p>
- If the user canceled, the result will be <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code>. If the user
- selected any requests to accept, the result will be <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> and the data
+ If the user canceled, the result will be <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code>. If the user
+ selected any requests to accept, the result will be <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> and the data
  intent will contain the selected requests as a parcelable extra in <code><a href="../../../../../../../reference/com/google/android/gms/games/request/Requests.html#EXTRA_REQUESTS">EXTRA_REQUESTS</a></code>.
  <p>
  Required API: <code><a href="../../../../../../../reference/com/google/android/gms/games/Games.html#API">API</a></code><br>
@@ -1875,7 +1890,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>An <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that can be started to view the request inbox UI.
+      <ul class="nolist"><li>An <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that can be started to view the request inbox UI.
 </li></ul>
   </div>
 
@@ -2008,11 +2023,11 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an intent that will let the user send a request to another player. Note that this
- must be invoked using <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code> so that the
+ must be invoked using <code><a href="http://developer.android.com/reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code> so that the
  identity of the calling package can be established.
  <p>
- If the user canceled, the result will be <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code>. If the request was
- sent successfully, the result will be <code><a href="../../../../../../../http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>. If the request could not be
+ If the user canceled, the result will be <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code>. If the request was
+ sent successfully, the result will be <code><a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code>. If the request could not be
  sent, the result will be <code><a href="../../../../../../../reference/com/google/android/gms/games/GamesActivityResultCodes.html#RESULT_SEND_REQUEST_FAILED">RESULT_SEND_REQUEST_FAILED</a></code>.
  <p>
  Required API: <code><a href="../../../../../../../reference/com/google/android/gms/games/Games.html#API">API</a></code><br>
@@ -2053,7 +2068,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>An <code><a href="../../../../../../../http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that can be started to launch the "Send Request" UI.
+      <ul class="nolist"><li>An <code><a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a></code> that can be started to launch the "Send Request" UI.
 </li></ul>
   </div>
 
@@ -2246,7 +2261,7 @@ onkeyup="return search_changed(event, false, '../../../../../../../')" />
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

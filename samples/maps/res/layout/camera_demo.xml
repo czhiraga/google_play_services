@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="true"
+        android:onClick="onToggleAnimate"
         android:textOn="@string/animate"
         android:textOff="@string/animate"/>
     </LinearLayout>
@@ -113,6 +114,22 @@
         android:text="@string/tilt_less"
         android:onClick="onTiltLess"/>
     </LinearLayout>
+  </LinearLayout>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <CheckBox
+      android:id="@+id/duration_toggle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:onClick="onToggleCustomDuration"
+      android:text="@string/duration"/>
+    <SeekBar
+      android:id="@+id/duration_bar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:max="5000"/>
   </LinearLayout>
   <LinearLayout
     android:layout_width="match_parent"

@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../index.html">
-            <img src="../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../')" />
   <a href="../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../')" />
   <a href="../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -516,6 +531,7 @@ onkeyup="return search_changed(event, false, '../../../../../')" />
           <li class="api apilevel-"><a href="../../../../../reference/com/google/android/gms/R.id.html">R.id</a></li>
           <li class="api apilevel-"><a href="../../../../../reference/com/google/android/gms/R.integer.html">R.integer</a></li>
           <li class="selected api apilevel-"><a href="../../../../../reference/com/google/android/gms/R.string.html">R.string</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/com/google/android/gms/R.style.html">R.style</a></li>
           <li class="api apilevel-"><a href="../../../../../reference/com/google/android/gms/R.styleable.html">R.styleable</a></li>
       </ul>
     </li>
@@ -729,8 +745,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#auth_client_needs_enabling_title">auth_client_needs_enabling_title</a></td>
-          <td class="jd-descrcol" width="100%">Title for notification shown when GooglePlayServices needs to be
-        enabled for a application to work.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -741,8 +756,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#auth_client_needs_installation_title">auth_client_needs_installation_title</a></td>
-          <td class="jd-descrcol" width="100%">Title for notification shown when GooglePlayServices needs to be
-        installed for a application to work.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -753,8 +767,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#auth_client_needs_update_title">auth_client_needs_update_title</a></td>
-          <td class="jd-descrcol" width="100%">Title for notification shown when GooglePlayServices needs to be
-        udpated for a application to work.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -765,8 +778,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#auth_client_play_services_err_notification_msg">auth_client_play_services_err_notification_msg</a></td>
-          <td class="jd-descrcol" width="100%">Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -777,7 +789,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#auth_client_requested_by_msg">auth_client_requested_by_msg</a></td>
-          <td class="jd-descrcol" width="100%">Requested by string saying which app requested the notification.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -788,8 +800,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#auth_client_using_bad_version_title">auth_client_using_bad_version_title</a></td>
-          <td class="jd-descrcol" width="100%">Title for notification shown when a bad version of GooglePlayServices
-        has been installed and needs correction for an application to work.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -800,7 +811,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_enable_button">common_google_play_services_enable_button</a></td>
-          <td class="jd-descrcol" width="100%">Button in confirmation dialog to enable Google Play services.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -811,9 +822,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_enable_text">common_google_play_services_enable_text</a></td>
-          <td class="jd-descrcol" width="100%">Message in confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=NONE] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -824,60 +833,51 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_enable_title">common_google_play_services_enable_title</a></td>
-          <td class="jd-descrcol" width="100%">Title of confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=40] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
       <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_error_notification_requested_by_msg">common_google_play_services_error_notification_requested_by_msg</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_install_button">common_google_play_services_install_button</a></td>
-          <td class="jd-descrcol" width="100%">Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_install_text_phone">common_google_play_services_install_text_phone</a></td>
-          <td class="jd-descrcol" width="100%">(For phones) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_install_text_tablet">common_google_play_services_install_text_tablet</a></td>
-          <td class="jd-descrcol" width="100%">(For tablets) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-</td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          public
-          static
-          
-          int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_install_title">common_google_play_services_install_title</a></td>
-          <td class="jd-descrcol" width="100%">Title of confirmation dialog informing user that they need to install
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -887,8 +887,8 @@ Summary:
           static
           
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_invalid_account_text">common_google_play_services_invalid_account_text</a></td>
-          <td class="jd-descrcol" width="100%">Message in confirmation dialog informing the user that they provided an invalid account.</td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_install_title">common_google_play_services_install_title</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -898,8 +898,30 @@ Summary:
           static
           
           int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_invalid_account_text">common_google_play_services_invalid_account_text</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          
+          int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_invalid_account_title">common_google_play_services_invalid_account_title</a></td>
-          <td class="jd-descrcol" width="100%">Title of confirmation dialog informing the user that they provided an invalid account.</td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_needs_enabling_title">common_google_play_services_needs_enabling_title</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -910,7 +932,7 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_network_error_text">common_google_play_services_network_error_text</a></td>
-          <td class="jd-descrcol" width="100%">Message in confirmation dialog informing the user that a network error occurred.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -921,106 +943,117 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_network_error_title">common_google_play_services_network_error_title</a></td>
-          <td class="jd-descrcol" width="100%">Title of confirmation dialog informing the user that a network error occurred.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
       <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_notification_needs_installation_title">common_google_play_services_notification_needs_installation_title</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_notification_needs_update_title">common_google_play_services_notification_needs_update_title</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_notification_ticker">common_google_play_services_notification_ticker</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_unknown_issue">common_google_play_services_unknown_issue</a></td>
-          <td class="jd-descrcol" width="100%">Message in confirmation dialog informing user there is an unknown issue in Google Play
-        services [CHAR LIMIT=NONE] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_unsupported_date_text">common_google_play_services_unsupported_date_text</a></td>
-          <td class="jd-descrcol" width="100%">Message in confirmation dialog informing user that date on the device is not correct,
-    causing certificate checks to fail.</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_unsupported_text">common_google_play_services_unsupported_text</a></td>
-          <td class="jd-descrcol" width="100%">Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_unsupported_title">common_google_play_services_unsupported_title</a></td>
-          <td class="jd-descrcol" width="100%">Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_update_button">common_google_play_services_update_button</a></td>
-          <td class="jd-descrcol" width="100%">Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_update_text">common_google_play_services_update_text</a></td>
-          <td class="jd-descrcol" width="100%">Message in confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           static
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_google_play_services_update_title">common_google_play_services_update_title</a></td>
-          <td class="jd-descrcol" width="100%">Title of confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-</td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          public
-          static
-          
-          int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_signin_button_text">common_signin_button_text</a></td>
-          <td class="jd-descrcol" width="100%">Sign-in button text [CHAR LIMIT=15] 
-</td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -1030,9 +1063,8 @@ Summary:
           static
           
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_signin_button_text_long">common_signin_button_text_long</a></td>
-          <td class="jd-descrcol" width="100%">Long form sign-in button text [CHAR LIMIT=30] 
-</td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_signin_button_text">common_signin_button_text</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -1042,9 +1074,19 @@ Summary:
           static
           
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#location_client_powered_by_google">location_client_powered_by_google</a></td>
-          <td class="jd-descrcol" width="100%">Location client code resources (prefix with location_client) 
-</td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#common_signin_button_text_long">common_signin_button_text_long</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          public
+          static
+          
+          int</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../reference/com/google/android/gms/R.string.html#wallet_buy_button_place_holder">wallet_buy_button_place_holder</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -1350,9 +1392,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title for notification shown when GooglePlayServices needs to be
-        enabled for a application to work. [CHAR LIMIT=70] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1380,9 +1420,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title for notification shown when GooglePlayServices needs to be
-        installed for a application to work. [CHAR LIMIT=70] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1410,9 +1448,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title for notification shown when GooglePlayServices needs to be
-        udpated for a application to work. [CHAR LIMIT=70] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1440,8 +1476,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1469,8 +1504,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1498,10 +1532,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title for notification shown when a bad version of GooglePlayServices
-        has been installed and needs correction for an application to work.
-        [CHAR LIMIT=70] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1529,10 +1560,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Button in confirmation dialog to enable Google Play services.  Clicking it
-        will direct user to application settings of Google Play services where they
-        can enable it [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1560,9 +1588,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Message in confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1590,9 +1616,35 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title of confirmation dialog informing user they need to enable
-        Google Play services in application settings [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="common_google_play_services_error_notification_requested_by_msg"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+        int
+      </span>
+        common_google_play_services_error_notification_requested_by_msg
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1620,8 +1672,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1649,9 +1700,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>(For phones) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1679,9 +1728,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>(For tablets) Message in confirmation dialog informing user that
-        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1709,9 +1756,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title of confirmation dialog informing user that they need to install
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1739,8 +1784,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1768,8 +1812,35 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="common_google_play_services_needs_enabling_title"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+        int
+      </span>
+        common_google_play_services_needs_enabling_title
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1797,8 +1868,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1826,8 +1896,91 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="common_google_play_services_notification_needs_installation_title"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+        int
+      </span>
+        common_google_play_services_notification_needs_installation_title
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="common_google_play_services_notification_needs_update_title"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+        int
+      </span>
+        common_google_play_services_notification_needs_update_title
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="common_google_play_services_notification_ticker"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+        int
+      </span>
+        common_google_play_services_notification_ticker
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1855,9 +2008,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Message in confirmation dialog informing user there is an unknown issue in Google Play
-        services [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1885,9 +2036,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Message in confirmation dialog informing user that date on the device is not correct,
-    causing certificate checks to fail. [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1915,8 +2064,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1944,8 +2092,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -1973,8 +2120,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2002,9 +2148,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Message in confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=NONE] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2032,9 +2176,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Title of confirmation dialog informing user that they need to update
-        Google Play services (from Play Store) [CHAR LIMIT=40] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2062,8 +2204,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sign-in button text [CHAR LIMIT=15] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2091,8 +2232,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Long form sign-in button text [CHAR LIMIT=30] 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2100,7 +2240,7 @@ From class
 
 
 
-<A NAME="location_client_powered_by_google"></A>
+<A NAME="wallet_buy_button_place_holder"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2110,7 +2250,7 @@ From class
          
         int
       </span>
-        location_client_powered_by_google
+        wallet_buy_button_place_holder
     </h4>
       <div class="api-level">
         
@@ -2120,8 +2260,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Location client code resources (prefix with location_client) 
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2199,7 +2338,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

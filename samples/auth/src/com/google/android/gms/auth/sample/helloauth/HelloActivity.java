@@ -33,6 +33,7 @@ import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
 import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.common.AccountPicker;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
 /**
@@ -113,7 +114,16 @@ public class HelloActivity extends Activity {
 
     /** Called by button in the layout */
     public void greetTheUser(View view) {
-        getUsername();
+        int statusCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (statusCode == ConnectionResult.SUCCESS) {
+            getUsername();
+        } else if (GooglePlayServicesUtil.isUserRecoverableError(statusCode)) {
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(
+                    statusCode, this, 0 /* request code not used */);
+            dialog.show();
+        } else {
+            Toast.makeText(this, R.string.unrecoverable_error, Toast.LENGTH_SHORT).show();
+        }
     }
 
     /** Attempt to get the user name. If the email address isn't known yet,

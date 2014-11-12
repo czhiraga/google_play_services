@@ -75,6 +75,12 @@
 
 
 
+
+
+
+
+
+
 <html>
 <head>
 
@@ -87,7 +93,7 @@
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold" title="roboto">
 <link href="../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
 
 
@@ -125,10 +131,12 @@ type="text/css">
   })();
 </script>
 </head>
+
 <body class="gc-documentation 
   develop" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="" style="display:none"></div>
   <a name="top"></a>
+
 
 <a name="top"></a>
 
@@ -137,7 +145,9 @@ type="text/css">
         <div class="wrap" id="header-wrap">
           <div class="col-3 logo">
           <a href="../../../../../../index.html">
-            <img src="../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+            <img src="../../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
           </a>
           <div class="btn-quicknav" id="btn-quicknav">
           	<a href="#" class="arrow-inactive">Quicknav</a>
@@ -381,6 +391,7 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
 
 
 
+
   
 
 
@@ -427,6 +438,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/admob/package-summary.html">com.google.android.gms.ads.mediation.admob</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/mediation/customevent/package-summary.html">com.google.android.gms.ads.mediation.customevent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/ads/purchase/package-summary.html">com.google.android.gms.ads.purchase</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/ads/search/package-summary.html">com.google.android.gms.ads.search</a></li>
     <li class="api apilevel-">
@@ -495,6 +508,8 @@ onkeyup="return search_changed(event, false, '../../../../../../')" />
   <a href="../../../../../../reference/com/google/android/gms/tagmanager/package-summary.html">com.google.android.gms.tagmanager</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../reference/com/google/android/gms/wallet/package-summary.html">com.google.android.gms.wallet</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/google/android/gms/wallet/fragment/package-summary.html">com.google.android.gms.wallet.fragment</a></li>
               </ul><br/>
 
             </div> <!-- end packages-nav -->
@@ -699,7 +714,7 @@ Summary:
 
 <h2>Class Overview</h2>
 <p itemprop="articleBody">Utility class for including resources in posts shared on Google+ through
- an <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intent.
+ an <code><a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intent.
 </p>
 
 
@@ -775,7 +790,7 @@ Summary:
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CONTENT_DEEP_LINK_ID">EXTRA_CONTENT_DEEP_LINK_ID</a></td>
-        <td class="jd-descrcol" width="100%">Used as a string extra field in <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
+        <td class="jd-descrcol" width="100%">Used as a string extra field in <code><a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
  specify a resource to be shared on Google+.</td>
     </tr>
     
@@ -783,7 +798,7 @@ Summary:
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CONTENT_DEEP_LINK_METADATA">EXTRA_CONTENT_DEEP_LINK_METADATA</a></td>
-        <td class="jd-descrcol" width="100%">Used as a bundle extra field in <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
+        <td class="jd-descrcol" width="100%">Used as a bundle extra field in <code><a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
  describe a resource to be shared on Google+.</td>
     </tr>
     
@@ -812,42 +827,42 @@ Summary:
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#KEY_CALL_TO_ACTION_DEEP_LINK_ID">KEY_CALL_TO_ACTION_DEEP_LINK_ID</a></td>
-        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> deep-link ID of the call-to-action button.</td>
+        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> deep-link ID of the call-to-action button.</td>
     </tr>
     
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#KEY_CALL_TO_ACTION_LABEL">KEY_CALL_TO_ACTION_LABEL</a></td>
-        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> label placeholder text of the call-to-action button.</td>
+        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> label placeholder text of the call-to-action button.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#KEY_CALL_TO_ACTION_URL">KEY_CALL_TO_ACTION_URL</a></td>
-        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> URL of the call-to-action button.</td>
+        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> URL of the call-to-action button.</td>
     </tr>
     
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#KEY_CONTENT_DEEP_LINK_METADATA_DESCRIPTION">KEY_CONTENT_DEEP_LINK_METADATA_DESCRIPTION</a></td>
-        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> description of the resource shared on Google+.</td>
+        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> description of the resource shared on Google+.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#KEY_CONTENT_DEEP_LINK_METADATA_THUMBNAIL_URL">KEY_CONTENT_DEEP_LINK_METADATA_THUMBNAIL_URL</a></td>
-        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> thumbnail URL of the resource shared on Google+.</td>
+        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> thumbnail URL of the resource shared on Google+.</td>
     </tr>
     
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><a href="http://developer.android.com/reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#KEY_CONTENT_DEEP_LINK_METADATA_TITLE">KEY_CONTENT_DEEP_LINK_METADATA_TITLE</a></td>
-        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> title of the resource shared on Google+.</td>
+        <td class="jd-descrcol" width="100%">Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> title of the resource shared on Google+.</td>
     </tr>
     
     
@@ -1249,7 +1264,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Used as a string extra field in <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
+  <div class="jd-tagdata jd-tagdescr"><p>Used as a string extra field in <code><a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
  specify a resource to be shared on Google+.
 </p></div>
 
@@ -1288,7 +1303,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Used as a bundle extra field in <code><a href="../../../../../../http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
+  <div class="jd-tagdata jd-tagdescr"><p>Used as a bundle extra field in <code><a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intents to
  describe a resource to be shared on Google+. You should only set this extra with
  <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CONTENT_DEEP_LINK_ID">EXTRA_CONTENT_DEEP_LINK_ID</a></code>, and when the deep-link ID is not a URI.
 </p></div>
@@ -1446,7 +1461,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> deep-link ID of the call-to-action button.
+  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> deep-link ID of the call-to-action button.
  This key is used in the <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CALL_TO_ACTION">EXTRA_CALL_TO_ACTION</a></code> bundle.
 </p></div>
 
@@ -1485,7 +1500,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> label placeholder text of the call-to-action button.
+  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> label placeholder text of the call-to-action button.
  This key is used in the <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CALL_TO_ACTION">EXTRA_CALL_TO_ACTION</a></code> bundle.
 </p></div>
 
@@ -1524,7 +1539,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> URL of the call-to-action button.
+  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> URL of the call-to-action button.
  This key is used in the <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CALL_TO_ACTION">EXTRA_CALL_TO_ACTION</a></code> bundle.
 </p></div>
 
@@ -1563,7 +1578,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> description of the resource shared on Google+.
+  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> description of the resource shared on Google+.
  This key is used in the <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CONTENT_DEEP_LINK_METADATA">EXTRA_CONTENT_DEEP_LINK_METADATA</a></code> bundle.
 </p></div>
 
@@ -1602,7 +1617,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> thumbnail URL of the resource shared on Google+.
+  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> thumbnail URL of the resource shared on Google+.
  This key is used in the <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CONTENT_DEEP_LINK_METADATA">EXTRA_CONTENT_DEEP_LINK_METADATA</a></code> bundle.
 </p></div>
 
@@ -1641,7 +1656,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="../../../../../../http://developer.android.com/reference/java/lang/String.html">String</a></code> title of the resource shared on Google+.
+  <div class="jd-tagdata jd-tagdescr"><p>Bundle key used for the <code><a href="http://developer.android.com/reference/java/lang/String.html">String</a></code> title of the resource shared on Google+.
  This key is used in the <code><a href="../../../../../../reference/com/google/android/gms/plus/PlusShare.html#EXTRA_CONTENT_DEEP_LINK_METADATA">EXTRA_CONTENT_DEEP_LINK_METADATA</a></code> bundle.
 </p></div>
 
@@ -1866,7 +1881,7 @@ From class
   </div>
   <div id="build_info">
     
-    Android &nbsp;r &mdash; 
+    Android GmsCore 1176835&nbsp;r &mdash; 
 <script src="../../../../../../timestamp.js" type="text/javascript"></script>
 <script>document.write(BUILD_TIMESTAMP)</script>
 

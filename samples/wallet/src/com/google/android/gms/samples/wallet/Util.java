@@ -88,7 +88,7 @@ public class Util {
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(loyaltyWalletObject.getAccountId())) {
             sb.append(loyaltyWalletObject.getAccountId())
-                    .append("\n");
+                    .append(", ");
         }
         sb.append(loyaltyWalletObject.getProgramName());
         return sb.toString();
