@@ -14,7 +14,7 @@ Google Play Services
   <td height=18 class=xl66 width=59 style='height:18.0pt;width:59pt'>　</td>
   <td colspan=2 class=xl67 width=231 style='border-left:none;width:231pt'
   data-sheets-value="[null,2,&quot;AndroidManifest.xml&quot;]">AndroidManifest.xml</td>
-  <td class=xl66 width=81 style='border-left:none;width:81pt'>　</td>
+  <td class=xl66 width=81 style='border-left:none;width:81pt'>version.xml</td>
   <td class=xl66 width=94 style='border-left:none;width:94pt'>　</td>
   <td class=xl68 width=104 style='border-left:none;width:104pt'>　</td>
  </tr>
@@ -26,7 +26,7 @@ Google Play Services
   <td class=xl69 style='border-top:none;border-left:none'
   data-sheets-value="[null,2,&quot;version name&quot;]">version name</td>
   <td class=xl69 style='border-top:none;border-left:none'
-  data-sheets-value="[null,2,&quot;version.xml&quot;]">version.xml</td>
+  data-sheets-value="[null,2,&quot;versionl&quot;]">version</td>
   <td class=xl69 style='border-top:none;border-left:none'
   data-sheets-value="[null,2,&quot;AdvertisingID&quot;]">AdvertisingID</td>
   <td class=xl70 style='border-top:none;border-left:none'
